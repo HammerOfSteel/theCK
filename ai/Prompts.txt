@@ -1,0 +1,38 @@
+Lets together start working on a collection of visual novels.
+
+The collection is called "the CK" (Short for "The cool kids").
+
+The collection will explore various social problems, interpersonal relations and family systems.
+
+So far I have some ideas for the first visual novel:
+
+1. Amelia
+- Centers on Amelia, a girl who just got accepted to University in Plymoth UK.
+We first meet her as she is spending the end of her last summer in a suburb of London and she gets her acceptance letter from
+the University in Plymoth. She is to study Psycology and it is a three year programe.
+
+- Family: You can create and form these characters
+- Friends: You can create and form these characters
+- Professors: You can create and form these characters
+- Other characters: You can create and form these characters
+
+Main character: Pick the ones you like the story to involve most
+Others: You pick these also
+
+Main points and subjects for the story: Facing bullying, racism and struggling with depression. Learning how to deal with and overcome all these challanges.
+
+The Story:
+As mentioned the story begins with introducing Amelia as she is spending the end of her last summer in a suburb of London and she gets her acceptance letter from the University in Plymoth. We are introduced to some characters around her that will play a plot in the story etc.
+From here she will take a bus to plymoth as she is set to move there for the university.
+
+The story should take place during all three years of Amelias time at Plymoth university.
+The player should be able to make choices as in visual novels, and these choices should effect way in which the story progresses (so you will need to plan a story tree also for different paths the story can progress in). One of the things I would like the player to be able to do is like in a rpg spent "study points" in different subjects within psycology leading down 3 different specialisations: Jungian psycology, positive psycology and family systems. The story should be layed out as chapters, you device how many (just keep in mind we need to go at different paces throughout the story as there are three years of study and we should account for different choices at some points that you select).
+
+Now, lets start by writing:
+
+- A synopsis, overview and background for the story
+- Main characters
+- Background characters
+- Places
+- A good story format that makes the story appealing, have a red thread following a logical progression and somewhat following the heros journey format.
+- Chapter titles and short overviews as per the story format above
