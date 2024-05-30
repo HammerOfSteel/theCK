@@ -224,7 +224,7 @@ The core events of the Hero's Journey will always occur, ensuring a consistent n
 # Choice Tree Representation
 The following Mermaid JS chart represents the dynamic choice tree, showing how choices and paths interweave based on the points accumulated. Core events are highlighted to indicate always-occurring moments in the narrative.
 
-mermaid```
+```
 graph TD
     A[Ordinary World] -->|Call to Adventure| B[Acceptance of University Offer]
     B -->|Refusal of the Call| C[Initial Reluctance]
