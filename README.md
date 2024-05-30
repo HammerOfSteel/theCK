@@ -203,3 +203,127 @@ High OK points if Amelia participates fully.
 - Enlightenment Ending - High OK points. Amelia discovers deep occult and ancient wisdom, leading to a transformative experience of enlightenment.
 
 This choice tree and points system create a dynamic and engaging story, where every decision shapes Amelia's journey and ultimate outcome, with the added depth of a secret path exploring occult wisdom and enlightenment.
+
+
+# Story Progression Overview
+The core events of the Hero's Journey will always occur, ensuring a consistent narrative backbone. Conditional paths and scenes will occur based on point balances, allowing for rich and varied experiences. The player will be able to gain points for each category (Academic Achievement, Social Interaction, Mental Health, Self-Discovery, Moral Choices, Occult Knowledge) throughout various paths, ensuring interwoven storylines.
+
+# Explanation of Dynamic Choice Tree
+- Always-Occurring Core Events: Key plot points and decisions that every player will encounter, forming the backbone of the narrative.
+- Conditional Choices and Scenes: These depend on the player's accumulated points in different categories, influencing the narrative and allowing for diverse experiences.
+- Interwoven Paths: Multiple paths intersect, providing opportunities to gain points in various categories and reflecting the complexity of life and fate.
+
+# Choice Categories and Points
+- Academic Achievement (AA): Choices related to studying, attending lectures, and engaging with professors.
+- Social Interaction (SI): Choices related to forming and maintaining relationships.
+- Mental Health (MH): Choices related to self-care, seeking help, and managing stress.
+- Self-Discovery (SD): Choices related to exploring psychology, ancient wisdom, and personal growth.
+- Moral Choices (MC): Choices reflecting ethical and moral decisions.
+- Occult Knowledge (OK): Choices related to exploring occult, alchemical, and ancient wisdom themes.
+
+# Choice Tree Representation
+The following Mermaid JS chart represents the dynamic choice tree, showing how choices and paths interweave based on the points accumulated. Core events are highlighted to indicate always-occurring moments in the narrative.
+
+mermaid```
+graph TD
+    A[Ordinary World] -->|Call to Adventure| B[Acceptance of University Offer]
+    B -->|Refusal of the Call| C[Initial Reluctance]
+    B -->|Meeting with the Mentor| D[Prof. Hawthorne]
+    D -->|Crossing the Threshold| E[First Days at University]
+
+    E -->|Active Participation| F1[Forming Bonds]
+    E -->|Isolation| F2[Struggling Alone]
+
+    F1 -->|Meet Lucas| G1[Introduction to Jungian Psychology]
+    F1 -->|Meet Zara| G2[Understanding Racism]
+    F1 -->|Meet Maya| G3[Ancient Wisdom and Zen]
+    F1 -->|Meet Raj| G4[Family Systems]
+
+    F2 -->|Low MH| H1[Seek Counseling]
+    F2 -->|High MH| H2[Self-Reflection]
+
+    G1 -->|High SI| I1[Developing Deep Friendship]
+    G1 -->|High SD| I2[Exploring Jungian Concepts]
+    
+    G2 -->|High MC| I3[Stand Against Racism]
+    G2 -->|High SI| I4[Supporting Zara]
+
+    G3 -->|High OK| I5[Occult Exploration]
+    G3 -->|High SD| I6[Spiritual Growth]
+
+    G4 -->|High SI| I7[Understanding Family Dynamics]
+    G4 -->|High SD| I8[Choosing Specialization]
+
+    H1 -->|High MH| J1[Improved Well-being]
+    H1 -->|Low MH| J2[Continued Struggles]
+
+    J1 -->|Approach| K[Deepening Studies and Relationships]
+    J2 -->|Approach| K
+
+    K -->|Tests, Allies, Enemies| L1[Dealing with Bullying]
+    K -->|Tests, Allies, Enemies| L2[Supporting Sarah]
+
+    L1 -->|High MC| M1[Confront Tasha]
+    L1 -->|High SI| M2[Seek Help Against Bullying]
+
+    L2 -->|High MH| M3[Support Sarah's Mental Health]
+    L2 -->|Low MH| M4[Neglect Sarah's Struggles]
+
+    M1 -->|High MC| N1[Resolving Conflict]
+    M2 -->|High SI| N2[Building Stronger Bonds]
+
+    M3 -->|High MH| N3[Sarah's Recovery]
+    M4 -->|Low MH| N4[Sarah's Tragic Fate]
+
+    N1 -->|High SI| O1[Stronger Social Network]
+    N2 -->|High MH| O2[Improved Mental Health]
+
+    N3 -->|High SI| O3[Sarah's Continued Friendship]
+    N4 -->|Low SI| O4[Dealing with Grief]
+
+    O1 -->|Ordeal| P[Facing Final Academic and Personal Challenges]
+    O2 -->|Ordeal| P
+
+    O3 -->|Ordeal| P
+    O4 -->|Ordeal| P
+
+    P -->|Reward| Q[Personal Growth and Achievements]
+    Q -->|The Road Back| R[Returning Home for Breaks]
+    R -->|Resurrection| S[Final Year Challenges]
+    S -->|Return with the Elixir| T[Graduation and Future]
+
+    %% Occult Knowledge Path
+    G3 -->|High OK| I5[Occult Exploration]
+    I5 -->|Secret Books and Manuscripts| U1[Hidden Wisdom]
+    U1 -->|Mystical Experiences| U2[Occult Rituals]
+    U2 -->|High OK| U3[Enlightenment Path]
+
+    U3 -->|Final Ritual| V[Achieving Enlightenment]
+    V -->|High OK| W[Enlightenment Ending]
+    
+    %% Ending Paths
+    T -->|High AA and SD| X1[Academic Success Ending]
+    T -->|High SI| X2[Social Butterfly Ending]
+    T -->|High MH and MC| X3[Mental Health Advocate Ending]
+    T -->|Low MH and SI| X4[Tragic Ending]
+    T -->|Balanced Points| X5[Balanced Growth Ending]
+    W -->|High OK| X6[Enlightenment Ending]
+```
+
+# Key Story Progression Points
+- Ordinary World: Sets the stage with Amelia's life in London.
+- Call to Adventure: Amelia receives her acceptance letter to Plymouth University.
+- Refusal of the Call: Amelia's initial reluctance and fears.
+- Meeting with the Mentor: Introduction to Prof. Hawthorne.
+- Crossing the Threshold: Moving to Plymouth and starting university.
+- Tests, Allies, Enemies: Forming bonds, facing bullying, and supporting friends.
+- Approach: Delving deeper into studies and relationships.
+- Ordeal: Facing major academic and personal challenges.
+- Reward: Achieving personal growth and academic success.
+- The Road Back: Returning home for breaks and reflecting on growth.
+- Resurrection: Final year challenges and synthesizing growth.
+- Return with the Elixir: Graduation and looking forward to the future.
+
+Additional Key Points
+- Occult Knowledge Path: Secret books, mystical experiences, and occult rituals leading to potential enlightenment.
+- Interwoven Paths: Opportunities to gain points in various categories through different paths, ensuring a rich and interconnected narrative.
