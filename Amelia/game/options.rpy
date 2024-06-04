@@ -19,7 +19,7 @@ define config.name = _("TheCK")
 # values are (800, 600), (1024, 768), (1280, 720), (1280, 800), and
 # (1920, 1080).
 
-define config.screen_width = 1000
+define config.screen_width = 2000
 define config.screen_height = 1000
 
 
@@ -70,7 +70,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-define config.main_menu_music = "bg_6.mp3"
+# define config.main_menu_music = "bg_6.mp3"
 
 
 ## Transitions #################################################################

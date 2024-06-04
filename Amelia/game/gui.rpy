@@ -29,11 +29,11 @@ define config.check_conflicting_properties = True
 define gui.accent_color = '#FFD700'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#000000'
+define gui.idle_color = '#25566d'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#000000'
+define gui.idle_small_color = '#25566d'
 
 ## The color that is used for buttons and bars that are hovered.
 define gui.hover_color = '#FFD700'
@@ -47,14 +47,17 @@ define gui.insensitive_color = '#8888887f'
 
 ## Colors used for the portions of bars that are not filled in. These are not
 ## used directly, but are used when re-generating bar image files.
-define gui.muted_color = '#000000'
+define gui.muted_color = '#ffffff'
 define gui.hover_muted_color = '#FFD700'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#ffffff'
+define gui.text_color = '#000000'
 define gui.interface_text_color = '#ffffff'
 
-
+define gui.dialogue_text_outlines = [ (3, "#ffffff", 0, 0) ]
+define gui.dialogue_outline_scaling = "linear"
+define gui.charaters_text_outlines = [ (3, "#ffffff", 0, 0) ]
+define gui.characters_outline_scaling = "linear"
 
 ## Fonts and Font Sizes ########################################################
 
@@ -68,10 +71,10 @@ define gui.name_text_font = "DejaVuSans.ttf"
 define gui.interface_text_font = "DejaVuSans.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 33
+define gui.text_size = 25
 
 ## The size of character names.
-define gui.name_text_size = 45
+define gui.name_text_size = 40
 
 ## The size of text in the game's user interface.
 define gui.interface_text_size = 33
@@ -90,7 +93,8 @@ define gui.title_text_size = 75
 
 ## The images used for the main and game menus.
 # define gui.main_menu_background = "gui/gui_bg_1.png"
-image mm_vid = Movie(channel="movie_dp", play = "gui/bg_video_1.webm")
+#image mm_vid = Movie(channel="movie_dp", play = "gui/bg_video_1.webm")
+image mm_vid = Movie(channel="movie_dp", play = "gui/Amelia_Intro_BG.webm")
 define gui.main_menu_background = "mm_vid"
 define gui.game_menu_background = "gui/game_menu.png"
 
@@ -110,8 +114,8 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 200
-define gui.name_ypos = 0
+define gui.name_xpos = 850
+define gui.name_ypos = 65
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -124,7 +128,7 @@ define gui.namebox_height = None
 
 ## The borders of the box containing the character's name, in left, top, right,
 ## bottom order.
-define gui.namebox_borders = Borders(5, 5, 5, 5)
+define gui.namebox_borders = Borders(75, 10, 10, 10)
 
 ## If True, the background of the namebox will be tiled, if False, the
 ## background of the namebox will be scaled.
@@ -134,11 +138,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 82
-define gui.dialogue_ypos = 75
+define gui.dialogue_xpos = 640
+define gui.dialogue_ypos = 150
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 900
+define gui.dialogue_width = 700
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -215,13 +219,13 @@ define gui.navigation_button_height = 55
 define gui.choice_button_width = 1185
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(150, 8, 150, 8)
+define gui.choice_button_borders = Borders(150, 30, 150, 30)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#888888'
-define gui.choice_button_text_hover_color = "#ffffff"
-define gui.choice_button_text_insensitive_color = '#8888887f'
+define gui.choice_button_text_idle_color = '#2f4d6e'
+define gui.choice_button_text_hover_color = "#fbff00"
+define gui.choice_button_text_insensitive_color = '#8f9aff7f'
 
 
 ## File Slot Buttons ###########################################################

@@ -5,112 +5,225 @@ define j = Character("James")
 define p = Character("Parents")
 define n = Character("Narrator")
 
+default AA = 0
+default SI = 0
+default MH = 0
+default SD = 0
+default MC = 0
+default OK = 0
+
+define music.second_child_restless_child = "second_child_restless_child.mp3"
+define music.soldier_poet_king = "soldier_poet_king.mp3"
+define music.chapter_2 = "chapter_2.mp3"
+
+
 # The game starts here.
-label start_3:
-    play music "chapter_0_2.mp3" fadein 1.0 volume 0.1
-    scene amelia_bedroom_morning
+
+label start:
+    play music second_child_restless_child fadein 1.0 volume 0.5
+    #scene chapter_0
+    #with dissolve
+
+    #pause 4.0
+
+    scene screen_0
+    with dissolve
+    n "Amelias curiosity about the mind began in a room of dreams and playful experiments."
+
+    scene screen_m3
+    with dissolve
+    n "High school was a theater of emotions and social hierarchies; a ripe field for observation"
+
+    scene screen_m2
+    with dissolve
+    n "University, a beacon of hope, promising a sanctuary where curiosity intertwines with opportunit"
+
+    scene screen_m1
+    with dissolve
+    n "With every passing moment, the future lingered, veiled in an envelope yet to arrive."
+
+
+    stop music fadeout 2.0
+    # Show a background. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
+    scene chapter_1
     with dissolve
 
-    n "Amelia James, a bright-eyed young woman with an insatiable curiosity about the human mind, is about to embark on a life-changing journey."
+    pause 4.0
 
-    show amelia_bedroom_closeup
+    scene screen_1
+    with dissolve
+    play music soldier_poet_king fadein 2.0 volume 0.5
+    
+    a "I got in! I actually got in!"
+    a "Holy moly, this is the best ever!"
+
+
+    show screen_2
+    with dissolve
+    a "Whooohooo!"
+    a "Plymouth, here I come!"
+
+
+    show screen_3
     with dissolve
 
-    a "Today is the day... I can't believe it's finally here."
-
-    n "Her room is a testament to her passions - books on psychology and notebooks filled with her thoughts and observations."
-
-    show amelia_bedroom_books
-    with dissolve
-
-    n "High school was a theater of emotions and social hierarchies; a ripe field for observation."
-
-    show amelia_highschool
-    with dissolve
-
-    a "I learned so much about people just by watching and listening. But there's so much more to understand."
-
-    scene amelia_family_living_room
-    with dissolve
-
-    n "Amelia's family dynamics are equally important. Her parents have always been supportive, though sometimes a bit overprotective."
-
-    show amelia_family_breakfast
-    with dissolve
-
-    p "Amelia, breakfast is ready!"
-
-    a "Coming, Mom!"
-
-    show amelia_breakfast_table
-    with dissolve
-
-    p "Are you excited about the big news today?"
-
-    a "I am. I just hope everything goes as planned."
-
-    n "Her parents' support has always been her anchor."
-
-    show amelia_hugging_parents
-    with dissolve
-
-    a "Thank you both for always being there for me. I couldn't have done it without you."
-
-    p "We're so proud of you, Amelia. You're going to do great things."
-
-    scene amelia_park_day
-    with dissolve
-
-    n "A walk in the park often helps Amelia clear her mind. Today, it's especially important."
-
-    show amelia_park_entrance
-    with dissolve
-
-    a "It's such a beautiful day. The park is always so calming."
-
-    show amelia_park_bench
-    with dissolve
-
-    a "I'll just sit here for a while and think about everything."
+    a "But... who do I tell first?"
 
     menu:
-        "Reflect on her future":
+        "Tell Ella first":
+            
+            #### Screen 4: Sharing with Ella (Choice: Ella)
+            #- **Setting**: Park bench outside.
+            #- **Description**: Amelia sitting with Ella, showing her the letter.
+            #- **Dialogue**: "Ella, look! I'm going to Plymouth!"#
             $ SD += 1
-            show amelia_park_future
+            show screen_4
             with dissolve
-            n "Amelia sat on a bench, her mind drifting to thoughts of the future. Plymouth University was a fresh start, a place to pursue her passion for psychology."
-            a "I wonder what my life will be like there. So many new opportunities and challenges await."
-            show amelia_park_future2
-            with dissolve
-            a "I hope I can handle everything that's coming my way. It's exciting but also a bit scary."
-            show amelia_park_future3
-            with dissolve
-            n "The sound of children playing and birds singing brought a sense of peace, but Amelia couldn't shake the nervousness about the unknown."
-            a "I need to stay positive and open to all the new experiences. This is a chance to grow."
+            a "Ella, look! I'm going to Plymouth!"
+            $renpy.notify("SD + 1")
 
-        "Think about her current relationships":
+            e "Whaaaa... That is amazing!"
+            e "That's amazing, Millie! I knew you could do it!"
+            e "I'm so proud of you. You've worked so hard for this."
+            a "Thank you, Ella. Your support means everything to me."
+            e "Of course, you know I'll always be here for you. Even if we're miles apart."
+            a "I know. It's going to be tough being away from you and everyone here."
+            e "Hey, don't worry. We'll stay in touch. Weekly video calls, daily texts, care packages - the works!"
+            a "Definitely! I'm going to spam you with so many photos of my new life."
+            e "And I'll be living vicariously through all of them! But seriously, Millie, you're going to have the best time."
+            a "I hope so. I'm excited but also pretty nervous. It's a big change."
+            e "That's totally normal. But I know you, and I know you're going to thrive. You've got this."
+            a "Thanks, Ella. I needed to hear that. I'm really going to miss our daily chats though."
+            e "Me too. But hey, absence makes the heart grow fonder, right? Our friendship can handle a little distance."
+            a "Absolutely. Best friends forever, no matter what."
+            e "Exactly. Now, let's make the most of the time we have left. I'm thinking movie marathon and junk food this weekend?"
+            a "You read my mind! It's a date."
+            e "Perfect. And Millie? I'm really, really happy for you. You deserve this."
+            a "Thanks, Ella. I love you."
+
+            show screen_8
+            with dissolve
+            a "Mum, Dad, Plymouth said YES!"
+
+            p "We always knew you'd make it, darling."
+            p "Congratulations, sweetheart! This is wonderful news."
+            a "I can hardly believe it. I'm going to university!"
+            p "We're so proud of you, Amelia. You've put in so much hard work."
+            a "I couldn't have done it without your support. Thank you for always believing in me."
+            p "Of course, honey. We'll always be your biggest cheerleaders."
+            a "I know. I'm so grateful for you both."
+            p "And we're grateful to have such an amazing daughter. You're going to do great things, Amelia."
+            a "I hope so. I want to make you proud."
+            p "You already have, sweetheart. Every single day."
+            a "Thanks, Mum. Thanks, Dad. I love you both so much."
+            p "We love you too, Amelia. More than words can say."
+            a "I'm going to miss you when I'm away at university."
+            p "We'll miss you too, honey. But we're only a phone call away, always."
+            a "I know. And I'll come home to visit as often as I can."
+            p "Good. Because this will always be your home, no matter where life takes you."
+            a "That means a lot. Thank you."
+            p "Now, I think this calls for a celebration! How about we go out for your favorite dinner tonight?"
+            a "Really? That sounds perfect!"
+            p "Anything for our university-bound girl. We're so excited for you, Amelia."
+            a "Me too. I can't wait to start this new chapter. But I'll always be thankful for the love and support I have here."
+            p "And you'll always have it, sweetheart. Always."
+
+            #### Screen 11: Imagined Adventures
+            #- **Setting**: Amelia's bedroom.
+            #- **Description**: Amelia laying down, deep in daydreams.
+            #- **Dialogue**: "University life... I wonder what it'll be like."#
+
+            show screen_11
+            with dissolve
+            a "University life... I wonder what it'll be like"
+
+
+            #### Screen 12: Texted Plans
+            #- **Description**: Amelia's phone vibrates with a new message.
+            #- **Text Notification**: Ella: "Let's meet up before you leave?"#
+
+            #show screen_12
+            #with dissolve
+            #e "Let's meet up before you leave?"
+
+
+        "Tell Parents first":
+            #### Screen 8: Parents' Joy (Choice: Parents)
+            #- **Setting**: Amelia's living room.
+            #- **Description**: Amelia displaying the letter to her parents.
+            #- **Dialogue**: "Mum, Dad, Plymouth said YES!"#
             $ SI += 1
-            show amelia_park_walk
+            show screen_8
             with dissolve
-            n "Amelia walked slowly, thinking about her friends and family. She felt a mix of excitement and sadness, knowing she would miss them."
-            a "I hope I can keep in touch with everyone. Ella, my parents, and even my teachers. They've all been such a big part of my life."
-            show amelia_park_walk2
+            a "Mum, Dad, Plymouth said YES!"
+            $renpy.notify("SI + 1")
+
+            p "We always knew you'd make it, darling."
+            p "Congratulations, sweetheart! This is wonderful news."
+            a "I can hardly believe it. I'm going to university!"
+            p "We're so proud of you, Amelia. You've put in so much hard work."
+            a "I couldn't have done it without your support. Thank you for always believing in me."
+            p "Of course, honey. We'll always be your biggest cheerleaders."
+            a "I know. I'm so grateful for you both."
+            p "And we're grateful to have such an amazing daughter. You're going to do great things, Amelia."
+            a "I hope so. I want to make you proud."
+            p "You already have, sweetheart. Every single day."
+            a "Thanks, Mum. Thanks, Dad. I love you both so much."
+            p "We love you too, Amelia. More than words can say."
+            a "I'm going to miss you when I'm away at university."
+            p "We'll miss you too, honey. But we're only a phone call away, always."
+            a "I know. And I'll come home to visit as often as I can."
+            p "Good. Because this will always be your home, no matter where life takes you."
+            a "That means a lot. Thank you."
+            p "Now, I think this calls for a celebration! How about we go out for your favorite dinner tonight?"
+            a "Really? That sounds perfect!"
+            p "Anything for our university-bound girl. We're so excited for you, Amelia."
+            a "Me too. I can't wait to start this new chapter. But I'll always be thankful for the love and support I have here."
+            p "And you'll always have it, sweetheart. Always."
+
+            #### Screen 11: Imagined Adventures
+            #- **Setting**: Amelia's bedroom.
+            #- **Description**: Amelia laying down, deep in daydreams.
+            #- **Dialogue**: "University life... I wonder what it'll be like."#
+
+            show screen_11
             with dissolve
-            a "It's going to be hard to say goodbye, but I know this is the right step for me."
-            show amelia_park_walk3
+            a "University life... I wonder what it'll be like"
+
+
+            #### Screen 4: Sharing with Ella (Choice: Ella)
+            #- **Setting**: Park bench outside.
+            #- **Description**: Amelia sitting with Ella, showing her the letter.
+            #- **Dialogue**: "Ella, look! I'm going to Plymouth!"#
+
+            show screen_4
             with dissolve
-            n "She watched families and couples enjoying the park, feeling a pang of longing for the familiar comfort of home."
-            a "I'll make new friends and create new memories, just like I did here."
+            e "Whaaaa... That is amazing!"
+            e "That's amazing, Millie! I knew you could do it!"
+            e "I'm so proud of you. You've worked so hard for this."
+            a "Thank you, Ella. Your support means everything to me."
+            e "Of course, you know I'll always be here for you. Even if we're miles apart."
+            a "I know. It's going to be tough being away from you and everyone here."
+            e "Hey, don't worry. We'll stay in touch. Weekly video calls, daily texts, care packages - the works!"
+            a "Definitely! I'm going to spam you with so many photos of my new life."
+            e "And I'll be living vicariously through all of them! But seriously, Millie, you're going to have the best time."
+            a "I hope so. I'm excited but also pretty nervous. It's a big change."
+            e "That's totally normal. But I know you, and I know you're going to thrive. You've got this."
+            a "Thanks, Ella. I needed to hear that. I'm really going to miss our daily chats though."
+            e "Me too. But hey, absence makes the heart grow fonder, right? Our friendship can handle a little distance."
+            a "Absolutely. Best friends forever, no matter what."
+            e "Exactly. Now, let's make the most of the time we have left. I'm thinking movie marathon and junk food this weekend?"
+            a "You read my mind! It's a date."
+            e "Perfect. And Millie? I'm really, really happy for you. You deserve this."
+            a "Thanks, Ella. I love you."
 
-    show amelia_park_exit
-    with dissolve
 
-    a "It's time to head home and start preparing. There's so much to do."
-
-    jump preparing_for_university
+            jump preparing_for_university
 
 label preparing_for_university:
-    play music "chapter_1.mp3" fadein 1.0 volume 0.1
+    #play music "chapter_1.mp3" fadein 3.0 volume 0.5
     scene amelia_room_packing
     with dissolve
 
@@ -119,7 +232,7 @@ label preparing_for_university:
     show amelia_room_closet
     with dissolve
 
-    a "Clothes, check. Books, check. What else do I need?"
+    a "Okay, let's see. Clothes, toiletries, bedding... what else?"
 
     show amelia_room_bookshelf
     with dissolve
@@ -129,6 +242,8 @@ label preparing_for_university:
             $ AA += 1
             show amelia_room_study
             with dissolve
+            a "Oh, my books! I can't forget those. And my laptop, of course."
+            $renpy.notify("AA + 1")
             n "Amelia carefully sorted her textbooks and notes, making sure everything was in order for her studies."
             a "These books will be my lifeline at university. I need to make sure I have everything."
             show amelia_room_desk
@@ -143,6 +258,7 @@ label preparing_for_university:
             show amelia_phone_call
             with dissolve
             a "Hi Ella! I just wanted to share how excited I am about Plymouth. I can't wait to start!"
+            $renpy.notify("SI + 1")
             show ella_phone_screen
             with dissolve
             e "That's amazing, Amelia! I'm so happy for you. We'll definitely keep in touch."
@@ -150,6 +266,8 @@ label preparing_for_university:
             with dissolve
             a "Thanks, Ella. Your support means the world to me."
             e "You'll do great. Just remember to have fun too!"
+            e "Let's meet by the tea house later yeah?"
+            a "Great idea Ella, I'll see you there!."
             show amelia_phone_call_end
             with dissolve
             a "Talking to Ella always makes me feel better. I'm lucky to have her as a friend."
@@ -159,6 +277,7 @@ label preparing_for_university:
             show amelia_meditation
             with dissolve
             n "Amelia took a deep breath and sat down to meditate. She focused on her breathing, letting the calm wash over her."
+            $renpy.notify("MH + 1")
             a "I need to stay calm and focused. Everything will be fine."
             show amelia_meditation_2
             with dissolve
@@ -170,7 +289,13 @@ label preparing_for_university:
 
     show amelia_room_finished_packing
     with dissolve
-
+    a "I should probably make a list, so I don't forget anything important."
+    a "I wonder what the dorms will be like? I hope my roommate is nice."
+    a "It's going to be strange living away from home. But it's all part of the experience, I guess."
+    a "I'm excited, but I'm also kind of nervous. It's a big change."
+    a "But I know I'm ready for this. I've been preparing for it for so long."
+    a "I just need to stay organized and focused. I've got this."
+    a "Right, time to start packing. One step at a time."
     a "All done! Now to have dinner with my parents."
 
     jump dinner_with_parents
@@ -190,18 +315,31 @@ label dinner_with_parents:
             $ MC += 1
             show dinner_future_plans
             with dissolve
-            a "I've been thinking a lot about how I want to contribute to society through psychology. It's so important to understand and help people."
-            p "That's wonderful, Amelia. We're so proud of your ambitions."
+            p "So, Amelia, are you excited about starting university?"
+            $renpy.notify("MC + 1")
+            a "I am! It's a bit overwhelming, but I'm really looking forward to it."
+            p "That's great, honey. It's normal to feel a mix of emotions."
+            a "Yeah, I'm excited about the classes and meeting new people, but I'm also nervous about being on my own."
+            p "That's understandable. But remember, we're always here for you, no matter what."
+            a "I know. And I'm so grateful for that."
+
             show dinner_future_plans_2
             with dissolve
-            a "Thank you. I really hope I can make a difference."
-            p "With your dedication and passion, we know you will."
+            p "Have you thought about what you want to study? I know you've always been interested in psychology."
+            a "Definitely. I want to learn more about how the mind works and how I can help people."
+            p "That's a wonderful ambition, Amelia. You have such a kind heart."
+            a "Thanks, Dad. I just want to make a difference, you know?"
+            p "You will, sweetheart. We have no doubt about that."
+            a "I hope so. I'm going to work really hard."
+            p "We know you will. But don't forget to take care of yourself too, okay?"
+            a "I won't. I promise."
 
         "Ask for advice from her parents":
             $ SI += 1
             show dinner_ask_advice
             with dissolve
             a "Do you have any advice for me? I want to make the most of my time at university."
+            $renpy.notify("SI + 1")
             p "Just be yourself, work hard, and don't be afraid to ask for help when you need it."
             show dinner_ask_advice_2
             with dissolve
@@ -213,6 +351,7 @@ label dinner_with_parents:
             show dinner_gratitude
             with dissolve
             a "Thank you both for all your support. I couldn't have done this without you."
+            $renpy.notify("MH + 1")
             p "We're so proud of you, Amelia. You're going to do great things."
             show dinner_gratitude_2
             with dissolve
@@ -226,6 +365,10 @@ label dinner_with_parents:
 
     p "We'll miss you too, but we know you're going to do great."
 
+    a "I'm heading out to meet Ella, I'll be back later."
+
+    p "Okay hun, don't stay out too late"
+
     jump afternoon_tea_with_ella
 
 label afternoon_tea_with_ella:
@@ -234,6 +377,9 @@ label afternoon_tea_with_ella:
 
     e "I'm going to miss our afternoon teas. But I'm so excited for you!"
     a "I'll miss this too. We need to stay in touch."
+    e "Definitely! I want to hear all about your university adventures."
+    a "I'll make sure to call you all the time. And we can still have virtual tea dates!"
+    e "Yes! It won't be the same, but it's something. I'm just so proud of you, Amelia."
 
     show tea_conversation
     with dissolve
@@ -244,6 +390,7 @@ label afternoon_tea_with_ella:
             show tea_university_plans
             with dissolve
             a "I've been thinking about my schedule and the classes I'm going to take. It's going to be intense, but I'm ready."
+            $renpy.notify("SI + 1")
             e "You’ve got this, Amelia. Just remember to take breaks and enjoy the experience."
             show tea_university_plans_2
             with dissolve
@@ -255,6 +402,7 @@ label afternoon_tea_with_ella:
             show tea_remember_school
             with dissolve
             a "Remember that time in high school when we stayed up all night studying for finals?"
+            $renpy.notify("MH + 1")
             e "How could I forget? We were so stressed, but we made it through together."
             show tea_remember_school_2
             with dissolve
@@ -266,6 +414,7 @@ label afternoon_tea_with_ella:
             show tea_share_fears
             with dissolve
             a "I have to admit, I'm a bit scared about moving and starting over. What if I don't fit in?"
+            $renpy.notify("SD + 1")
             e "It's normal to feel that way, but you're going to make new friends and have amazing experiences. Trust yourself."
             show tea_share_fears_2
             with dissolve
@@ -275,15 +424,25 @@ label afternoon_tea_with_ella:
     show tea_goodbye
     with dissolve
 
-    e "I'll miss you, but I know you'll do great. Let's keep in touch."
+    a "Thanks, Ella. That means a lot."
+    e "You've dreamed about this for so long. And now it's finally happening."
+    a "I know. It's surreal. But I'm ready. At least, I think I am."
+    e "Of course you are! You're Amelia freaking Johnson! You can handle anything."
+    a "Ha, I'm not sure about that. But I'll certainly try my best."
+    e "That's all anyone can ask. And remember, if you ever need anything, I'm just a phone call away."
+    a "I know. You're the best friend anyone could ask for."
+    e "Right back at you. Now, let's enjoy this tea and make some more memories before you go off and become a superstar psychologist."
+    a "Sounds perfect. Cheers to new beginnings!"
+    e "Cheers!"
 
-    a "Absolutely. Thanks, Ella."
 
     jump exploring_the_museum
 
 label exploring_the_museum:
     scene museum_entrance
     with dissolve
+
+    n "As Amelia and Ella parted ways for the way, Amelia thought she might unwind at the museum."
 
     n "Amelia wandered through the exhibits, taking in the history and culture."
 
@@ -296,10 +455,15 @@ label exploring_the_museum:
             show museum_human_evolution
             with dissolve
             n "Amelia spent time in the anthropology section, fascinated by the development of the human species."
+            $renpy.notify("AA + 1")
             a "It's amazing how much we've evolved over time."
             show museum_human_evolution_2
             with dissolve
-            a "I can't wait to study more about human behavior and psychology."
+            a "I know I want to help people, to understand them better. Psychology feels like the right path for that."
+            a "But there's still so much I have to learn. About the world, about myself."
+            a "I guess that's what university is for, right? To grow and discover."
+            a "I'm excited for the journey, even if it's a little scary."
+            a "But places like this remind me of why I'm doing it. To understand the human experience, in all its complexity."
             show museum_human_evolution_3
             with dissolve
             n "The detailed exhibits provided a lot of insight and sparked Amelia's curiosity even more."
@@ -309,10 +473,14 @@ label exploring_the_museum:
             show museum_ancient_artifacts
             with dissolve
             n "Amelia explored the exhibits on ancient civilizations, pondering the wisdom they held."
+            $renpy.notify("SD + 1")
             a "There's so much we can learn from the past."
             show museum_ancient_artifacts_2
             with dissolve
-            a "These artifacts tell such fascinating stories."
+            a "The anthropology exhibit is fascinating. To think about how much we've evolved over time..."
+            a "And these ancient artifacts! They hold so much history and wisdom."
+            a "It's humbling, isn't it? To see the span of human existence laid out like this."
+            a "It makes me think about my own place in the world. What kind of impact do I want to have?"
             show museum_ancient_artifacts_3
             with dissolve
             n "The intricate designs and historical significance of each piece captivated her."
@@ -322,6 +490,7 @@ label exploring_the_museum:
             show museum_reflect_humanity
             with dissolve
             n "The exhibits inspired Amelia to think deeply about what it means to be human and the complexities of our existence."
+            $renpy.notify("MH + 1")
             a "What does it truly mean to be human? It's such a profound question."
             show museum_reflect_humanity_2
             with dissolve
@@ -341,7 +510,15 @@ label evening_by_the_thames:
     scene thames_evening
     with dissolve
 
-    n "As the sun set over the river, Amelia felt a sense of peace."
+    a "I love this spot. The river always makes me feel so peaceful."
+    a "There's something about watching the water flow by. It's like it puts everything into perspective."
+    a "All the changes happening in my life... they're just part of the current, you know?"
+    a "I have to trust that I'm being carried in the right direction."
+    a "Even if there are rapids and obstacles along the way, I'll get through them."
+    a "I've got my family, my friends, my own strength to rely on."
+    a "And moments like these, to remind me of the beauty in the world."
+    a "I should write some of this down. Capture this feeling."
+    a "Maybe I'll come back here whenever I need to clear my head."
 
     show thames_sunset
     with dissolve
@@ -352,6 +529,7 @@ label evening_by_the_thames:
             show thames_sunset_closeup
             with dissolve
             n "Amelia watched the colors of the sky change, feeling inspired and hopeful about the future."
+            $renpy.notify("SD + 1")
             a "This is so beautiful. It's like the world is full of endless possibilities."
             show thames_sunset_end
             with dissolve
@@ -362,6 +540,7 @@ label evening_by_the_thames:
             show thames_journal
             with dissolve
             n "Amelia took out her journal and wrote down her thoughts and feelings, helping her process her emotions."
+            $renpy.notify("MH + 1")
             a "Writing always helps me clear my mind."
             show thames_journal_closeup
             with dissolve
@@ -375,6 +554,7 @@ label evening_by_the_thames:
             show thames_people_watching
             with dissolve
             n "Amelia observed the people around her, practicing her skills of observation and thinking about the different aspects of human behavior."
+            $renpy.notify("AA + 1")
             a "Everyone has their own story. I can't wait to learn more about what makes us all tick."
             show thames_people_watching_closeup
             with dissolve
@@ -383,9 +563,11 @@ label evening_by_the_thames:
             with dissolve
             a "Understanding behavior is key to understanding the mind."
 
+
     show thames_exit
     with dissolve
-
+    a "Okay, the sun is starting to set. Time for one more stop."
+    n "As the sun set over the river, Amelia felt a sense of peace."
     a "That was refreshing. Now, to the bookstore for some last-minute shopping."
 
     jump browsing_the_bookstore
@@ -395,6 +577,7 @@ label browsing_the_bookstore:
     with dissolve
 
     n "Amelia wandered through the aisles of the quaint bookstore, feeling at home among the shelves of books."
+    a "I could live in bookstores. The smell of books, the endless possibilities on every shelf..."
 
     show bookstore_aisles
     with dissolve
@@ -405,10 +588,14 @@ label browsing_the_bookstore:
             show bookstore_psychology
             with dissolve
             n "Amelia browsed through the latest psychology books, feeling inspired by the wealth of knowledge."
-            a "There's so much to learn. I can't wait to dive into these books."
+            $renpy.notify("AA + 1")
+            a "Ooh, the psychology section! Let's see what they've got."
             show bookstore_psychology_closeup
             with dissolve
             a "I'll get this one on cognitive psychology and this one on developmental stages."
+            a "So many fascinating topics... cognitive psychology, developmental stages, behavioral analysis..."
+            a "I'll definitely need to stock up before I leave. These will be great resources."
+            a "There's so much to learn. I can't wait to dive into these books."
             show bookstore_psychology_end
             with dissolve
             a "These will be great resources for my studies."
@@ -418,10 +605,13 @@ label browsing_the_bookstore:
             show bookstore_occult
             with dissolve
             n "Amelia found herself intrigued by ancient texts and mystical books, sparking a curiosity for the unknown."
-            a "These books look fascinating. I wonder what secrets they hold."
+            $renpy.notify("? + 1")
+            a "Huh, the occult section. That's intriguing."
+            a "I've always been curious about ancient wisdom and mystical traditions."
+            a "Maybe I'll grab a few of these, just for some light reading."
             show bookstore_occult_closeup
             with dissolve
-            a "This one on alchemy and this one on ancient wisdom seem interesting."
+            a "This one on alchemy and this one on ancient wisdom seem interesting, yet.. complex?"
             show bookstore_occult_end
             with dissolve
             a "I'll add these to my collection and explore them when I have time."
@@ -431,13 +621,18 @@ label browsing_the_bookstore:
             show bookstore_meditation
             with dissolve
             n "Amelia purchased a book on meditation, eager to explore mindfulness practices."
+            $renpy.notify("SD + 1")
             a "This should help me stay calm and focused during my studies."
             show bookstore_meditation_closeup
             with dissolve
+            a "Oh, and a meditation guide! That could come in handy with the stress of university."
             a "I'll start with this beginner's guide and work my way up."
             show bookstore_meditation_end
             with dissolve
-            a "Meditation will be a great tool for managing stress."
+
+            a "I'll need all the tools I can get to stay balanced."
+            a "Okay, I think this is plenty for now. My suitcase might burst at the seams!"
+            a "But you can never have too many books, right?"
 
     show bookstore_exit
     with dissolve
@@ -454,13 +649,31 @@ label ordinary_world_end:
 
     show amelia_bedroom_night_closeup
     with dissolve
-
-    a "It's really happening. Tomorrow, everything changes. I'm ready for this."
+    a "What a day. I can't believe tomorrow is the start of everything."
+    a "It feels like I've been waiting for this moment forever, and now it's here."
+    a "I wonder what university will really be like? Will I make friends easily? Will the classes be as interesting as I hope?"
+    a "I guess there's no way to know until I'm there, living it."
+    a "That's the exciting part, isn't it? The unknown, the possibilities."
+    a "Even if it's scary, it's also thrilling. Like standing on the edge of a cliff, ready to fly."
+    a "I know there will be challenges. Moments of doubt, of homesickness, of stress."
+    a "But I also know I'm ready to face them. I've been preparing for this, not just academically, but emotionally too."
+    a "The conversations with Mum and Dad, with Ella... they've given me strength."
+    a "And the things I've learned about myself... at the museum, by the river, in the bookstore... they've shown me that I'm capable of growth, of reflection, of resilience."
+    a "I have tools now, tools I didn't have before. Meditation, writing, observing... ways to process and understand the world around me."
+    a "And most importantly, I have a sense of purpose. A drive to learn, to help, to make a difference."
+    a "That's what will guide me through whatever comes next."
+    a "So, as much as part of me wants to cling to the familiarity of home... I know it's time."
+    a "Okay, Amelia. Time to sleep. Tomorrow... tomorrow is the first day of the rest of your life."
 
     show amelia_bedroom_night_window
     with dissolve
 
-    a "Goodnight, London. Next stop, Plymouth."
+    a "Time to let go, to trust myself, to embrace the journey ahead."
+    a "Goodnight, London. Thank you for all you've taught me."
+    a "And good morning, Plymouth. I can't wait to see what lessons you have in store."
 
     stop music fadeout 1.0
-    jump call_to_adventure
+
+    return
+
+    # jump call_to_adventure

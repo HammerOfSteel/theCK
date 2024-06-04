@@ -247,7 +247,7 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 1.0
+            yalign 1.5
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
@@ -290,7 +290,7 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
+        xpos gui.navigation_xpos + 450
         yalign 0.0
 
         spacing gui.navigation_spacing
@@ -354,7 +354,6 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
 screen main_menu():
-
 
 
     ## This ensures that any other menu screen is replaced.
