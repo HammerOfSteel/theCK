@@ -101,3 +101,8 @@ If personal: Amelia writes a reflective journal entry about her challenges and t
 - Dialogue: Amelia (writing): "This semester has been a rollercoaster, but I've learned so much about myself. I'm stronger than I thought, and I'm ready to keep growing."
 
 These expanded parts provide a more detailed and immersive experience of Amelia's first semester at Plymouth University. The dialogues delve deeper into the themes of mental health, family dynamics, racism, and mystical experiences, while the choices allow for greater player agency in shaping Amelia's journey. As Amelia navigates the challenges of academics, social life, and personal growth, she develops a stronger sense of self and a deeper understanding of the complexities of the human mind. The inclusion of Jungian psychology and mystical experiences adds a layer of depth and introspection to her journey. The mental health struggles and panic attack serve as a turning point for Amelia, forcing her to confront her own well-being and seek support. This subplot highlights the importance of self-care and the prevalence of mental health issues among university students. Overall, this chapter sets the stage for Amelia's continued growth and sets up the challenges and opportunities that await her in the coming semesters.
+
+## prompt table
+```
+
+```

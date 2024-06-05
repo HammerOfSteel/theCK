@@ -97,3 +97,8 @@ Regardless of the outcome, this event is a profound and traumatic experience for
 For the player, this event is a stark and emotional reminder of the stakes of Amelia's journey, and how their choices and actions (or lack thereof) can have profound, sometimes life-altering consequences. It's a moment that demands reflection, empathy, and a reckoning with one's own values and priorities.
 
 In the aftermath of this ordeal, Amelia (and the player) must find a way to process this trauma, to honor Sarah's struggle, and to carry forward the lessons learned from this painful experience. The path ahead will be shaped by this pivotal moment, as Amelia continues to navigate the complexities of mental health, friendship, and personal growth in an imperfect world.
+
+## prompt table
+```
+
+```

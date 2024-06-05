@@ -53,3 +53,8 @@ If OK and MH are high: Amelia experiences a profound spiritual awakening that cl
 If AA, SI, MH, and MC are balanced: Amelia is recognized as a model student and leader, and is offered a significant opportunity (e.g., a fellowship, an internship, a special project).
 
 In this chapter, Amelia must synthesize her learning and experiences to make strategic choices and take on new levels of responsibility. Her decisions and actions will lay the groundwork for the major challenges and transformations to come, as she approaches the climax of her journey.
+
+## prompt table
+```
+
+```

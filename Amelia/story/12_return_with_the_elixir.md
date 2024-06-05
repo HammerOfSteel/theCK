@@ -53,3 +53,8 @@ Regardless of the specific ending, Amelia's return is a poignant mixture of joy,
 Amelia knows that this is just the beginning of her journey, and that the lessons and growth of her first year will continue to unfold and shape her path forward. Whether she's destined for academic brilliance, social connection, mental health advocacy, spiritual enlightenment, or a more challenging road of healing, Amelia is grateful for the experiences and ready to embrace what comes next.
 
 As she looks out her window at the familiar London skyline, Amelia smiles, knowing that wherever her journey takes her, she'll always carry the wisdom and growth of this transformative first year with her. The credits roll, but Amelia's story is far from over. The player is left with a sense of accomplishment, reflection, and excitement for what the future holds for Amelia and for themselves.
+
+## prompt table
+```
+
+```

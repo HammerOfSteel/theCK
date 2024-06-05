@@ -53,3 +53,8 @@ In this chapter, Amelia will face a series of trials that will test her resolve,
 - If SI and MH are high: Amelia's friends rally around her during a personal crisis, revealing the depth of their bond.
 - If OK is very high: Amelia uncovers a secret about the history of the university that sheds light on her occult path.
 - If SD and MC are high: Amelia is invited to join a selective ethics committee, recognizing her moral insight and personal growth.
+
+## prompt table
+```
+
+```

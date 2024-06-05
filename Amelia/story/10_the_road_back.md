@@ -53,3 +53,8 @@ In this chapter, Amelia is not just revisiting her old life, but seeing it throu
 
 The choices and events in this chapter allow Amelia (and the player) to reflect on the impact of their decisions and growth, and to start charting a course for the future that honors all aspects of their journey.
 As Amelia navigates the familiar yet changed landscape of her hometown and her relationships, she's also symbolically preparing for the final challenges and climax of her journey. The road back is not just a physical return, but a psychological and spiritual one, setting the stage for the ultimate tests and transformation to come.
+
+## prompt table
+```
+
+```

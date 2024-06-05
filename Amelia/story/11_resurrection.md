@@ -55,3 +55,8 @@ The choices and events in this chapter allow Amelia (and the player) to make mea
 As Amelia navigates the bittersweet mix of endings and beginnings, she's also symbolically dying to her old self and being reborn into a new phase of her journey. The resurrection here is not just about conquering final challenges, but about integrating the transformative experiences of the year and emerging with a renewed sense of self and purpose.
 
 This chapter sets the stage for Amelia's continued journey in the subsequent years, where she'll build on the foundation of this transformative first year and continue to grow, learn, and evolve in profound new ways.
+
+## prompt table
+```
+
+```

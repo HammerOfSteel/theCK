@@ -62,3 +62,8 @@ Choice: Express gratitude and commitment to the mentor's teachings (+ all catego
 - As Amelia moves into the next chapter, "Crossing the Threshold," she will be better prepared to face the challenges and opportunities that await her, with her mentor's guidance and support to lean on.
 
 - The mentor relationship will continue to evolve and deepen throughout the story, with the mentor offering ongoing guidance, challenges, and support as Amelia navigates the complexities of her university journey and personal growth.
+
+## prompt table
+```
+
+```

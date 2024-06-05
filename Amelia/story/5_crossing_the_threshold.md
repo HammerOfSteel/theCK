@@ -54,3 +54,8 @@ In this chapter, Amelia fully immerses herself in university life, navigating th
 - If MC is high: Amelia is recognized for her moral leadership and invited to speak at a university event.
 
 This chapter will challenge Amelia to find balance and purpose amidst the competing demands and opportunities of university life. Her choices will shape her academics, friendships, personal growth, and potentially her occult path, setting the stage for the trials and transformations to come.
+
+## prompt table
+```
+
+```
