@@ -1,62 +1,4 @@
-# Chapter 6: Tests, Allies, Enemies
-
-## Overview
-In this chapter, Amelia will face a series of trials that will test her resolve, beliefs, and relationships. She will confront academic challenges, personal crises, and moral dilemmas, while also forging stronger bonds with her allies and confronting her enemies.
-
-## Characters
-
-- Amelia: The protagonist, now deeply immersed in her university journey and facing significant tests.
-- Prof. Hawthorne, Dr. Simmons, or Maya: Amelia's mentor, who provides guidance and support during challenging times.
-- Lucas, Zara, and Raj: Amelia's close friends, who face their own tests and support each other.
-- Sarah: Amelia's friend, whose mental health crisis reaches a critical point.
-- Tasha: The bully, who may attempt to sabotage Amelia's efforts.
-- Michael: The student activist, who faces opposition and challenges Amelia to take a stand.
-- Sophia: Amelia's academic rival, who competes with her for opportunities and recognition.
-
-## Places
-
-- Plymouth University: The main setting, where the majority of the tests and confrontations occur.
-- Dorm Room: A space for introspection and personal challenges.
-- Lecture Halls and Classrooms: Where academic tests and competitions play out.
-- Library: A setting for intense study sessions and potential confrontations.
-- Student Union: A hub for social and political activism.
-- Psychological Research Lab: Where Amelia may face ethical dilemmas in her work.
-- Outdoor Spaces: For moments of reflection and crucial conversations.
-- Hospital or Counseling Center: Where Sarah's mental health crisis comes to a head.
-
-## Choices and Points
-
-- Academic Choices: Prioritize own projects (+AA, -SI), help Sophia (+AA, +MC), or focus on exams (+AA, +SD).
-- Social Choices: Support friends in crisis (+SI, +MH), confront Tasha (+SI, +MC), or withdraw (-SI, -MH).
-- Mental Health Choices: Seek therapy (+MH, +SD), support Sarah intensively (+MH, -AA), or neglect own needs (-MH).
-- Moral Choices: Stand up for Michael (+MC, +SI), report unethical research (+MC, -AA), or stay silent (-MC).
-- Occult Path Choices (if OK is high): Perform a high-stakes ritual (+OK, -MH), teach others (+OK, +SI), or retreat (-OK, +SD).
-
-## Challenges and Events
-
-- Academic Challenge: Amelia must complete a major project or exam that stretches her abilities and knowledge.
-- Personal Crisis: One of Amelia's friends (Lucas, Zara, or Raj) faces a significant personal problem and needs her support.
-- Bullying Escalation: Tasha's bullying reaches a new level, potentially threatening Amelia's academic standing or personal life.
-- Activism Challenge: Michael faces serious opposition or consequences for his activism, and Amelia must decide whether to stand with him.
-- Sarah's Crisis: Sarah's mental health deteriorates, and Amelia must navigate the challenges of supporting her while maintaining her own - well-being.
-- Moral Dilemma: Amelia witnesses or is asked to participate in unethical behavior (e.g., cheating, plagiarism, or unethical research) and must decide how to respond.
-
-## RNG Events
-
-- Unexpected academic opportunities (e.g., a chance to present at a conference, a surprising research finding).
-- Personal revelations from friends or mentors (e.g., a secret shared, a hidden struggle revealed).
-- Moral quandaries in daily life (e.g., witnessing discrimination, being asked to compromise integrity).
-
-## Special Events
-
-- If AA and MC are high: Amelia is offered a chance to co-author a paper with Prof. Hawthorne, but discovers a potential ethical issue in his research.
-- If SI and MH are high: Amelia's friends rally around her during a personal crisis, revealing the depth of their bond.
-- If OK is very high: Amelia uncovers a secret about the history of the university that sheds light on her occult path.
-- If SD and MC are high: Amelia is invited to join a selective ethics committee, recognizing her moral insight and personal growth.
-
-## prompt table
-```
-file_name,label,character,location,style,description,detailed_description,prompt
+file_name,label,character,location,style,description,detailed_description
 6_continues.rpy,show amelia_dorm_morning,Amelia (18, fair skin, long brown hair, blue eyes, wearing casual clothes),Dorm room (morning light, study desk, bed),Semi-realistic,"An 18-year-old girl named Amelia waking up in her dorm room. Amelia has fair skin, long brown hair, and blue eyes. She is wearing casual clothes. The dorm room has morning light, a study desk, and a bed. Semi-realistic art style.","A [character age]-year-old [character description] waking up in her dorm room. The dorm room has [environment details]. [Artstyle] art style."
 6_continues.rpy,show amelia_studying_library,Amelia (18, fair skin, long brown hair, blue eyes, wearing casual clothes),Library (bookshelves, study tables, quiet atmosphere),Semi-realistic,"An 18-year-old girl named Amelia studying in the library. Amelia has fair skin, long brown hair, and blue eyes. She is wearing casual clothes. The library has bookshelves, study tables, and a quiet atmosphere. Semi-realistic art style.","A [character age]-year-old [character description] studying in the library. The library has [environment details]. [Artstyle] art style."
 6_continues.rpy,show sophia_approaches_library,Sophia (18, fair skin, short black hair, green eyes, wearing a blouse and jeans),Library (bookshelves, study tables, quiet atmosphere),Semi-realistic,"An 18-year-old girl named Sophia approaching Amelia in the library. Sophia has fair skin, short black hair, and green eyes. She is wearing a blouse and jeans. The library has bookshelves, study tables, and a quiet atmosphere. Semi-realistic art style.","A [character age]-year-old [character description] approaching Amelia in the library. The library has [environment details]. [Artstyle] art style."
@@ -148,4 +90,3 @@ file_name,label,character,location,style,description,detailed_description,prompt
 6_continues.rpy,show amelia_ritual_spell,Amelia (18, fair skin, long brown hair, blue eyes, wearing ritual robes, casting a spell),Occult room (candles, ritual circle, mystical symbols),Semi-realistic,"An 18-year-old girl named Amelia casting a spell in an occult room. Amelia has fair skin, long brown hair, and blue eyes. She is wearing ritual robes. The occult room has candles, a ritual circle, and mystical symbols. Semi-realistic art style.","A [character age]-year-old [character description] casting a spell in an occult room. The occult room has [environment details]. [Artstyle] art style."
 6_continues.rpy,show amelia_ritual_alone,Amelia (18, fair skin, long brown hair, blue eyes, wearing ritual robes, performing a ritual alone),Occult room (candles, ritual circle, mystical symbols),Semi-realistic,"An 18-year-old girl named Amelia performing a ritual alone in an occult room. Amelia has fair skin, long brown hair, and blue eyes. She is wearing ritual robes. The occult room has candles, a ritual circle, and mystical symbols. Semi-realistic art style.","A [character age]-year-old [character description] performing a ritual alone in an occult room. The occult room has [environment details]. [Artstyle] art style."
 6_continues.rpy,show amelia_ritual_complete,Amelia (18, fair skin, long brown hair, blue eyes, wearing ritual robes, looking empowered),Occult room (candles, ritual circle, mystical symbols),Semi-realistic,"An 18-year-old girl named Amelia looking empowered after completing a ritual in an occult room. Amelia has fair skin, long brown hair, and blue eyes. She is wearing ritual robes. The occult room has candles, a ritual circle, and mystical symbols. Semi-realistic art style.","A [character age]-year-old [character description] looking empowered after completing a ritual in an occult room. The occult room has [environment details]. [Artstyle] art style."
-```
