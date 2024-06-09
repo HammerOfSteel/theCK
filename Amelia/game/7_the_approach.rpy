@@ -4,7 +4,7 @@ label chapter_7_part_1:
 
     menu:
         "Focus on academics":
-            jump focus_on_academics
+            jump focus_on_academics_2
 
         "Support friends in crisis":
             jump support_friends
@@ -12,7 +12,7 @@ label chapter_7_part_1:
         "Engage in occult research":
             jump engage_occult_research
 
-label focus_on_academics:
+label focus_on_academics_2:
     show amelia_library_morning with dissolve
     "Amelia decides to start her day in the library, determined to make progress on her thesis."
 
@@ -76,7 +76,7 @@ label discuss_challenges:
 
     $ AA += 2
     $ SI += 1
-    jump academic_success
+    jump academic_success_2
 
 label share_progress:
     show amelia_happy with dissolve
@@ -97,7 +97,7 @@ label share_progress:
 
     $ AA += 1
     $ SI += 1
-    jump academic_success
+    jump academic_success_2
 
 label prefer_alone:
     show amelia_thoughtful with dissolve
@@ -109,9 +109,9 @@ label prefer_alone:
     "Amelia returns to her research, feeling a bit more isolated but also deeply focused."
 
     $ AA += 1
-    jump academic_success
+    jump academic_success_2
 
-label academic_success:
+label academic_success_2:
     show amelia_library_late with dissolve
     "Hours pass as Amelia diligently works on her thesis. By the time she leaves the library, she feels a sense of accomplishment."
 
@@ -152,7 +152,7 @@ label ask_question:
     "Amelia feels a sense of pride and satisfaction from engaging with the material on a deeper level."
 
     $ AA += 1
-    jump academic_success
+    jump academic_success_2
 
 label discuss_lecture:
     show amelia_talking_classmates with dissolve
@@ -172,7 +172,7 @@ label discuss_lecture:
 
     $ AA += 1
     $ SI += 1
-    jump academic_success
+    jump academic_success_2
 
 label study_with_sophia:
     show amelia_and_sophia_studying with dissolve
@@ -204,7 +204,7 @@ label focus_challenging_topics:
 
     $ AA += 1
     $ SI += 1
-    jump academic_success
+    jump academic_success_2
 
 label review_lectures:
     show amelia_and_sophia_reviewing_notes with dissolve
@@ -222,7 +222,7 @@ label review_lectures:
 
     $ AA += 1
     $ SI += 1
-    jump academic_success
+    jump academic_success_2
 
 label support_friends:
     show amelia_cafe_with_friends with dissolve
@@ -1355,12 +1355,12 @@ label explore_mystical_rituals:
 
     menu:
         "Perform a small ritual":
-            jump perform_small_ritual
+            jump perform_small_ritual_2
 
         "Document the rituals":
             jump document_rituals
 
-label perform_small_ritual:
+label perform_small_ritual_2:
     show amelia_preparing_ritual with dissolve
     "Amelia decides to perform a small ritual, carefully following the steps outlined in her books."
 
@@ -1384,16 +1384,3 @@ label document_rituals:
     $ OK += 1
     $ SD += 1
     jump end_of_day
-
-label end_of_day:
-    scene amelia_dorm_evening with dissolve
-    "As the day comes to an end, Amelia returns to her dorm room, reflecting on the day's experiences."
-
-    show amelia_reflective_evening with dissolve
-    a "(Today was incredible. I learned so much and had such meaningful experiences. I feel more connected to my path than ever before.)"
-
-    "With a sense of fulfillment and anticipation for what tomorrow will bring, Amelia settles into bed, ready for the next chapter of her journey."
-
-    jump chapter_8
-
-

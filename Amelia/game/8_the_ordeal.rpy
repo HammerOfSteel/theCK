@@ -47,7 +47,7 @@ label work_thesis_proposal:
     a "I'm making progress, but there's still so much to do. I need to keep pushing."
 
     $ AA += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label study_upcoming_exams:
     show amelia_studying_books with dissolve
@@ -58,12 +58,12 @@ label study_upcoming_exams:
 
     menu:
         "Take detailed notes":
-            jump take_detailed_notes
+            jump take_detailed_notes_2
 
         "Create a study group":
             jump create_study_group
 
-label take_detailed_notes:
+label take_detailed_notes_2:
     show amelia_writing_notes with dissolve
     "Amelia meticulously writes out notes, highlighting key concepts and making connections between topics."
 
@@ -72,7 +72,7 @@ label take_detailed_notes:
 
     $ AA += 1
     $ SD += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label create_study_group:
     show amelia_texting_friends with dissolve
@@ -92,7 +92,7 @@ label create_study_group:
 
     $ AA += 1
     $ SI += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label research_hawthorne_project:
     scene library_research with dissolve
@@ -109,7 +109,7 @@ label research_hawthorne_project:
 
     $ AA += 1
     $ SD += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label check_on_sarah:
     scene sarah_dorm_room with dissolve
@@ -126,12 +126,12 @@ label check_on_sarah:
 
     menu:
         "Offer emotional support":
-            jump offer_emotional_support
+            jump offer_emotional_support_2
 
         "Encourage professional help":
             jump encourage_professional_help
 
-label offer_emotional_support:
+label offer_emotional_support_2:
     show amelia_sitting_sarah with dissolve
     a "I'm here for you, Sarah. Whatever you're going through, you're not alone."
 
@@ -143,7 +143,7 @@ label offer_emotional_support:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label encourage_professional_help:
     show amelia_sitting_sarah with dissolve
@@ -157,7 +157,7 @@ label encourage_professional_help:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label reflect_recent_events:
     scene campus_night with dissolve
@@ -188,7 +188,7 @@ label think_academic_goals:
 
     $ AA += 1
     $ SD += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label reflect_friendships:
     show amelia_thinking_bench with dissolve
@@ -199,7 +199,7 @@ label reflect_friendships:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label contemplate_occult_research:
     show amelia_thinking_bench with dissolve
@@ -210,18 +210,7 @@ label contemplate_occult_research:
 
     $ OK += 1
     $ SD += 1
-    jump end_of_day
-
-label end_of_day:
-    scene amelia_dorm_night with dissolve
-    "As the night deepens, Amelia returns to her dorm room, feeling the weight of the day's decisions."
-
-    show amelia_reflective_night with dissolve
-    a "(Every choice I make is shaping my path. I need to stay strong and true to myself.)"
-
-    "With a mix of resolve and trepidation, Amelia prepares for bed, knowing that tomorrow will bring new challenges and opportunities."
-
-    jump chapter_8_part_2
+    jump end_of_day_2
 
 label chapter_8_part_2:
     scene amelia_dorm_morning with dissolve
@@ -354,7 +343,7 @@ label end_library_session:
     show amelia_satisfied with dissolve
     a "(I’ve made good progress today. This knowledge will be invaluable.)"
 
-    jump end_of_day
+    jump end_of_day_2
 
 label visit_student_union:
     scene student_union_interior with dissolve
@@ -389,7 +378,7 @@ label join_campaign:
 
     $ SI += 1
     $ MC += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label offer_moral_support:
     show amelia_michael_talking with dissolve
@@ -399,7 +388,7 @@ label offer_moral_support:
     m "I understand, Amelia. Any support you can give is appreciated."
 
     $ SI += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label check_on_sarah_again:
     scene sarah_dorm_room with dissolve
@@ -433,7 +422,7 @@ label encourage_small_steps:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label discuss_long_term_plans:
     show amelia_sitting_sarah with dissolve
@@ -447,18 +436,7 @@ label discuss_long_term_plans:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
-
-label end_of_day:
-    scene amelia_dorm_evening with dissolve
-    "As the day ends, Amelia reflects on her choices and their impact."
-
-    show amelia_reflective_evening with dissolve
-    a "(Every action I take matters. I need to stay true to my values and support those around me.)"
-
-    "With a sense of purpose, Amelia prepares for bed, knowing that the challenges are far from over."
-
-    jump chapter_8_part_3
+    jump end_of_day_2
 
 label chapter_8_part_3:
     scene amelia_dorm_morning with dissolve
@@ -526,7 +504,7 @@ label end_academic_session:
     show amelia_satisfied with dissolve
     a "(I’ve made good progress today. This will be invaluable for my project.)"
 
-    jump end_of_day
+    jump end_of_day_2
 
 label check_on_sarah_third_time:
     scene sarah_dorm_room with dissolve
@@ -560,7 +538,7 @@ label encourage_small_steps_third_time:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label discuss_long_term_plans_third_time:
     show amelia_sitting_sarah with dissolve
@@ -574,7 +552,7 @@ label discuss_long_term_plans_third_time:
 
     $ SI += 1
     $ MH += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label attend_student_union_meeting:
     scene student_union_meeting with dissolve
@@ -605,7 +583,7 @@ label volunteer_mental_health_initiative:
 
     $ SI += 1
     $ MC += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label suggest_campus_wide_event:
     show amelia_speaking_union with dissolve
@@ -616,9 +594,9 @@ label suggest_campus_wide_event:
 
     $ SI += 1
     $ MC += 1
-    jump end_of_day
+    jump end_of_day_2
 
-label end_of_day:
+label end_of_day_2:
     scene amelia_dorm_evening with dissolve
     "As the day ends, Amelia reflects on her choices and their impact."
 
@@ -693,7 +671,7 @@ label confront_cheating_students:
 
     $ AA += 1
     $ MC += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label ignore_cheating:
     show amelia_focused with dissolve
@@ -712,7 +690,7 @@ label ignore_cheating:
     a "(Was I wrong to stay silent? Maybe I should have said something...)"
 
     $ MC -= 1
-    jump end_of_day
+    jump end_of_day_2
 
 label support_sarah_intensively:
     scene hospital_room with dissolve
@@ -741,7 +719,7 @@ label support_sarah_intensively:
 
     $ MH += 1
     $ SI += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label join_michaels_campaign:
     scene student_union_meeting with dissolve
@@ -778,7 +756,7 @@ label plan_major_rally:
 
     $ SI += 1
     $ MC += 1
-    jump end_of_day
+    jump end_of_day_2
 
 label organize_petition_drive:
     show amelia_speaking_union with dissolve
@@ -795,18 +773,7 @@ label organize_petition_drive:
 
     $ SI += 1
     $ MC += 1
-    jump end_of_day
-
-label end_of_day:
-    scene amelia_dorm_evening with dissolve
-    "As the day ends, Amelia reflects on her choices and their impact."
-
-    show amelia_reflective_evening with dissolve
-    a "(Every action I take matters. I need to stay true to my values and support those around me.)"
-
-    "With a sense of purpose, Amelia prepares for bed, knowing that the challenges are far from over."
-
-    jump chapter_8_part_5
+    jump end_of_day_2
 
 label chapter_8_part_5:
     scene amelia_dorm_morning with dissolve
@@ -860,7 +827,7 @@ label accept_sophia_help:
 
     $ AA += 1
     $ SI += 1
-    jump end_of_day_academics
+    jump end_of_day_2_academics
 
 label refuse_sophia_help:
     show amelia_determined_study with dissolve
@@ -876,9 +843,9 @@ label refuse_sophia_help:
     "After hours of intense focus, she finally finishes the project, feeling a deep sense of accomplishment."
 
     $ AA += 2
-    jump end_of_day_academics
+    jump end_of_day_2_academics
 
-label end_of_day_academics:
+label end_of_day_2_academics:
     scene amelia_dorm_evening with dissolve
     "As the day ends, Amelia reflects on her hard work and the importance of collaboration."
 
@@ -889,7 +856,7 @@ label end_of_day_academics:
 
     jump chapter_8_part_6
 
-label check_on_sarah:
+label check_on_sarah_4:
     scene sarah_dorm_room with dissolve
     "Amelia decides to check on Sarah, feeling a deep concern for her friend."
 
@@ -942,7 +909,7 @@ label offer_walk_sarah:
 
     $ MH += 1
     $ SI += 1
-    jump end_of_day_sarah
+    jump end_of_day_2_sarah
 
 label suggest_counseling_sarah:
     show amelia_gently_suggesting with dissolve
@@ -961,7 +928,7 @@ label suggest_counseling_sarah:
     a "I'm glad to hear that. And I'll be here to support you every step of the way."
 
     $ MH += 1
-    jump end_of_day_sarah
+    jump end_of_day_2_sarah
 
 label sit_and_talk_sarah:
     show amelia_sitting_beside_sarah with dissolve
@@ -984,9 +951,9 @@ label sit_and_talk_sarah:
 
     $ MH += 1
     $ SI += 1
-    jump end_of_day_sarah
+    jump end_of_day_2_sarah
 
-label end_of_day_sarah:
+label end_of_day_2_sarah:
     scene amelia_dorm_evening with dissolve
     "After spending time with Sarah, Amelia returns to her dorm room, feeling the weight of her friend's struggles but also a sense of purpose."
 
@@ -1046,7 +1013,7 @@ label discuss_recent_events:
     a "Thank you, Maya. Your words always bring me clarity."
 
     $ OK += 1
-    jump end_of_day_maya
+    jump end_of_day_2_maya
 
 label ask_about_ritual:
     show amelia_curious with dissolve
@@ -1068,7 +1035,7 @@ label ask_about_ritual:
     m "Good. And remember, I'm here to support you through it."
 
     $ OK += 1
-    jump end_of_day_maya
+    jump end_of_day_2_maya
 
 label share_personal_struggle:
     show amelia_vulnerable with dissolve
@@ -1087,9 +1054,9 @@ label share_personal_struggle:
     a "Thank you, Maya. Your words always bring me comfort."
 
     $ OK += 1
-    jump end_of_day_maya
+    jump end_of_day_2_maya
 
-label end_of_day_maya:
+label end_of_day_2_maya:
     scene amelia_dorm_evening with dissolve
     "After her session with Maya, Amelia returns to her dorm room, feeling more balanced and ready to face her challenges."
 

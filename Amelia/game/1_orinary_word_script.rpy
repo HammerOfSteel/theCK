@@ -1,9 +1,19 @@
 # Define characters
 define a = Character("Amelia")
 define e = Character("Ella")
+define ella = Character("Ella")
 define j = Character("James")
 define p = Character("Parents")
 define n = Character("Narrator")
+define student = Character("Student")
+define roommate = Character("Liz")
+define mom = Character("Mom")
+define dad = Character("Dad")
+define staff = Character("Staff")
+define professor = Character("Professor")
+define woman = Character("Mysterious woman")
+
+
 
 default AA = 0
 default SI = 0
@@ -11,6 +21,13 @@ default MH = 0
 default SD = 0
 default MC = 0
 default OK = 0
+
+#Academic Achievement (AA) - Points accumulated based on Amelia's academic performance and her dedication to studies.
+#Social Interaction (SI) - Points based on Amelia's relationships with friends, mentors, and other characters.
+#Mental Health (MH) - Points reflecting Amelia's mental well-being, affected by her ability to cope with stress, depression, and personal challenges.
+#Self-Discovery (SD) - Points representing Amelia's exploration of psychology, ancient wisdom, Zen, and personal growth.
+#Moral Choices (MC) - Points determined by Amelia's ethical and moral decisions throughout the story.
+#Occult Knowledge (OK) - Points gathered by Amelia exploring deeper occult, alchemical, and ancient wisdom themes.
 
 define music.second_child_restless_child = "second_child_restless_child.mp3"
 define music.soldier_poet_king = "soldier_poet_king.mp3"
@@ -20,6 +37,88 @@ define music.chapter_2 = "chapter_2.mp3"
 # The game starts here.
 
 label start:
+    scene black
+    $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
+    with dissolve
+    menu:
+        "Chapter selection 1-6":
+            jump chapter_selection_1_6
+
+        "Chapter selection 7-12":
+            jump chapter_selection_7_12
+        
+        "Ending selection":
+            jump ending_selection
+
+label chapter_selection_1_6:
+    scene black
+    with dissolve
+    menu:
+        "Go to start of chapter 1":
+            jump start_chapter_1
+           
+        "Go to chapter2":
+            jump call_to_adventure
+
+        "Go to chapter3":
+            jump chapter_3_part_1
+
+        "Go to chapter4":
+            jump chapter_4_part_1
+
+        "Go to chapter5":
+            jump chapter_5_part_1
+
+        "Go to chapter6":
+            jump chapter_6_part_1
+
+
+label chapter_selection_7_12:
+    scene black
+    with dissolve
+    menu:
+        "Go to chapter7":
+            jump chapter_7_part_1
+
+        "Go to chapter8":
+            jump chapter_8_part_1
+
+        "Go to chapter9":
+            jump chapter_9_part_1
+
+        "Go to chapter10":
+            jump chapter_10_part_1
+
+        "Go to chapter11":
+            jump chapter_11_part_1
+
+        "Go to chapter12":
+            jump chapter_12_part_1
+
+label ending_selection:
+    scene black
+    with dissolve
+    menu:
+        "Go to AA ending":
+            jump chapter_12_academic_success
+
+        "Go to SI ending":
+            jump chapter_12_social_butterfly
+
+        "Go to MH ending":
+            jump chapter_12_mental_health_advocate
+
+        "Go to SD ending":
+            jump chapter_12_balanced_growth
+
+        "Go to MC ending":
+            jump chapter_12_tragic_ending
+
+        "Go to OK ending":
+            jump chapter_12_enlightenment
+
+
+label start_chapter_1:
     play music second_child_restless_child fadein 1.0 volume 0.5
     #scene chapter_0
     #with dissolve
@@ -673,7 +772,5 @@ label ordinary_world_end:
     a "And good morning, Plymouth. I can't wait to see what lessons you have in store."
 
     stop music fadeout 1.0
-
-    return
-
-    # jump call_to_adventure
+    #$ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
+    jump call_to_adventure

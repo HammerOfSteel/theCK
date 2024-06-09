@@ -15,7 +15,7 @@ label chapter_6_part_1:
 
         "Focus on personal growth and occult studies":
             $ SD += 1
-            jump personal_growth
+            jump personal_growth_2
 
 label major_project:
     show amelia_studying_library
@@ -81,13 +81,13 @@ label academic_pressure:
     menu:
         "Take a walk to clear your mind (+MH)":
             $ MH += 1
-            jump walk_campus
+            jump walk_campus_2
 
         "Push through and continue working (+AA)":
             $ AA += 1
             jump continue_working
 
-label walk_campus:
+label walk_campus_2:
     show amelia_walking_campus
     with dissolve
 
@@ -101,14 +101,14 @@ label walk_campus:
     menu:
         "Run into Tasha (+MC)":
             $ MC += 1
-            jump run_into_tasha
+            jump run_into_tasha_2
 
         "Meet Michael and discuss activism (+MC, +SI)":
             $ MC += 1
             $ SI += 1
-            jump meet_michael
+            jump meet_michael_2
 
-label run_into_tasha:
+label run_into_tasha_2:
     show tasha_confronting
     with dissolve
 
@@ -119,13 +119,13 @@ label run_into_tasha:
     menu:
         "Stand up to Tasha (+MC)":
             $ MC += 1
-            jump stand_up_tasha
+            jump stand_up_tasha_2
 
         "Try to defuse the situation (+SI)":
             $ SI += 1
-            jump defuse_tasha
+            jump defuse_tasha_2
 
-label stand_up_tasha:
+label stand_up_tasha_2:
     show amelia_determined_tasha
     with dissolve
 
@@ -138,9 +138,9 @@ label stand_up_tasha:
 
     "Tasha walks away, and Amelia feels a sense of accomplishment for standing up for herself."
 
-    jump walk_continued
+    jump walk_continued_2
 
-label defuse_tasha:
+label defuse_tasha_2:
     show amelia_calm_tasha
     with dissolve
 
@@ -153,9 +153,9 @@ label defuse_tasha:
 
     "Tasha leaves, and Amelia continues her walk, feeling relieved."
 
-    jump walk_continued
+    jump walk_continued_2
 
-label meet_michael:
+label meet_michael_2:
     show michael_introducing
     with dissolve
 
@@ -167,13 +167,13 @@ label meet_michael:
         "Join the protest (+MC, +SI)":
             $ MC += 1
             $ SI += 1
-            jump join_protest
+            jump join_protest_2
 
         "Decline politely (+MC)":
             $ MC += 1
-            jump decline_protest
+            jump decline_protest_2
 
-label join_protest:
+label join_protest_2:
     show amelia_michael_protest
     with dissolve
 
@@ -183,9 +183,9 @@ label join_protest:
 
     "Amelia feels a sense of purpose as she agrees to join the protest."
 
-    jump walk_continued
+    jump walk_continued_2
 
-label decline_protest:
+label decline_protest_2:
     show amelia_michael_decline
     with dissolve
 
@@ -195,9 +195,9 @@ label decline_protest:
 
     "Amelia feels good about being honest while also standing up for her values."
 
-    jump walk_continued
+    jump walk_continued_2
 
-label walk_continued:
+label walk_continued_2:
     show amelia_walking_park
     with dissolve
 
@@ -221,14 +221,14 @@ label friends_support:
     menu:
         "Make weekend plans (+SI)":
             $ SI += 1
-            jump weekend_plans
+            jump weekend_plans_2
 
         "Talk to Lucas about his challenges (+SI, +MC)":
             $ SI += 1
             $ MC += 1
             jump talk_lucas_challenges
 
-label weekend_plans:
+label weekend_plans_2:
     show amelia_smiling_union
     with dissolve
 
@@ -243,7 +243,7 @@ label weekend_plans:
 
     "They finalize their plans and enjoy the rest of the afternoon together."
 
-    jump friendship_strengthening
+    jump friendship_strengthening_2
 
 label talk_lucas_challenges:
     show amelia_concerned_lucas
@@ -281,7 +281,7 @@ label help_lucas_studies:
 
     "Amelia feels closer to Lucas as they plan to support each other academically."
 
-    jump friendship_strengthening
+    jump friendship_strengthening_2
 
 label suggest_break:
     show amelia_caring_lucas
@@ -296,9 +296,9 @@ label suggest_break:
 
     "Amelia feels good about encouraging Lucas to take care of himself."
 
-    jump friendship_strengthening
+    jump friendship_strengthening_2
 
-label friendship_strengthening:
+label friendship_strengthening_2:
     show amelia_dorm_evening
     with dissolve
 
@@ -310,7 +310,7 @@ label friendship_strengthening:
 
     jump chapter_6_part_1_end
 
-label personal_growth:
+label personal_growth_2:
     show amelia_library
     with dissolve
 
@@ -324,14 +324,14 @@ label personal_growth:
     menu:
         "Study ancient philosophies (+SD)":
             $ SD += 1
-            jump study_philosophies
+            jump study_philosophies_2
 
         "Research occult practices (+OK, +SD)":
             $ OK += 1
             $ SD += 1
-            jump research_occult
+            jump research_occult_2
 
-label study_philosophies:
+label study_philosophies_2:
     show amelia_reading_book
     with dissolve
 
@@ -341,9 +341,9 @@ label study_philosophies:
 
     "She gains new insights and feels more connected to her personal growth journey."
 
-    jump personal_growth_continued
+    jump personal_growth_2_continued
 
-label research_occult:
+label research_occult_2:
     show amelia_researching_occult
     with dissolve
 
@@ -353,9 +353,9 @@ label research_occult:
 
     "Her studies deepen her understanding of the occult and enhance her personal growth."
 
-    jump personal_growth_continued
+    jump personal_growth_2_continued
 
-label personal_growth_continued:
+label personal_growth_2_continued:
     show amelia_dorm_evening
     with dissolve
 
@@ -454,7 +454,7 @@ label accept_research_project:
 
     prof_hawthorne "Excellent. We'll start meeting next week. Prepare by reviewing these materials."
 
-    jump academic_pressure_continued
+    jump academic_pressure_continued_2
 
 label ask_details_research_project:
     show amelia_curious
@@ -482,7 +482,7 @@ label accept_after_consideration:
 
     prof_hawthorne "Glad to hear it. I'll send you the initial reading list."
 
-    jump academic_pressure_continued
+    jump academic_pressure_continued_2
 
 label politely_decline:
     show amelia_declining
@@ -492,7 +492,7 @@ label politely_decline:
 
     prof_hawthorne "I understand. If you change your mind, the offer stands."
 
-    jump academic_pressure_continued
+    jump academic_pressure_continued_2
 
 label take_notes_class:
     show amelia_writing_notes
@@ -504,9 +504,9 @@ label take_notes_class:
 
     "After class, she spends extra time in the library, deepening her understanding."
 
-    jump academic_pressure_continued
+    jump academic_pressure_continued_2
 
-label academic_pressure_continued:
+label academic_pressure_continued_2:
     show amelia_library
     with dissolve
 

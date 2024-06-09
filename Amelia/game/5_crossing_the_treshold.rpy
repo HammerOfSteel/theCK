@@ -30,7 +30,7 @@ label chapter_5_part_1:
 
         "Continue studying in the library (+AA)":
             $ AA += 1
-            jump continue_studying
+            jump continue_studying_2
 
 label coffee_break:
     show cafe_interior
@@ -106,7 +106,7 @@ label individual_study:
 
     jump academic_pressure_continued
 
-label continue_studying:
+label continue_studying_2:
     show amelia_studying_library
     with dissolve
 
@@ -542,31 +542,31 @@ label reflect_alone:
 
 label explore_occult_path:
     if OK >= 5:
-    show amelia_secret_meeting
-    with dissolve
+        show amelia_secret_meeting
+        with dissolve
 
-    "Amelia decides to attend a secret society meeting she's been invited to, curious about the occult knowledge they offer."
+        "Amelia decides to attend a secret society meeting she's been invited to, curious about the occult knowledge they offer."
 
-    show occult_leader_speaking
-    with dissolve
+        show occult_leader_speaking
+        with dissolve
 
-    occult_leader "Welcome, Amelia. Tonight, we delve into the mysteries of the mind and the unseen world."
+        occult_leader "Welcome, Amelia. Tonight, we delve into the mysteries of the mind and the unseen world."
 
-    show amelia_listening_intently
-    with dissolve
+        show amelia_listening_intently
+        with dissolve
 
-    "Amelia listens intently as the leader speaks, feeling a deep connection to the knowledge being shared."
+        "Amelia listens intently as the leader speaks, feeling a deep connection to the knowledge being shared."
 
-    menu:
-        "Participate in a ritual (+OK, -SI)":
-            $ OK += 1
-            $ SI -= 1
-            jump participate_ritual
-        
-        "Study esoteric texts (+OK, +SD)":
-            $ OK += 1
-            $ SD += 1
-            jump study_esoteric_texts
+        menu:
+            "Participate in a ritual (+OK, -SI)":
+                $ OK += 1
+                $ SI -= 1
+                jump participate_ritual
+            
+            "Study esoteric texts (+OK, +SD)":
+                $ OK += 1
+                $ SD += 1
+                jump study_esoteric_texts
 
 label participate_ritual:
     show ritual_circle

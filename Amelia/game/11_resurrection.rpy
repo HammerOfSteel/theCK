@@ -26,13 +26,13 @@ label chapter_11_part_1:
     menu:
         "Agree to meet up with friends":
             $ SI += 1
-            jump meet_up_with_friends
+            jump meet_up_with_friends_2
         
         "Decline and focus on studying":
             $ AA += 1
             jump decline_and_study
         
-label meet_up_with_friends:
+label meet_up_with_friends_2:
     show amelia_texting_lucas_yes
     with dissolve
     

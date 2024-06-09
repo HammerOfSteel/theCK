@@ -1,8 +1,14 @@
+define music.paperwork = "paperwork.mp3"
+define music.the_moss = "the_moss.mp3"
+define music.new_river = "new_river.mp3"
+
 label call_to_adventure:
-    stop music fadeout 1.0
+    #stop music fadeout 1.0
+    play music paperwork fadein 1.0 volume 0.5
 
     show black
     with dissolve
+    $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
 
     "The Call to Adventure"
 
@@ -337,7 +343,9 @@ label call_to_adventure:
         a "I will, absolutely. This is an incredible opportunity. I'm so grateful to be part of this department."
 
     # 6. First Classes
+    stop music fadeout 1.0
     show amelia_first_classes_full
+    play music new_river fadein 1.0 volume 0.5
     with dissolve
 
     a "My first official classes... I've been waiting for this moment."
@@ -479,7 +487,9 @@ label call_to_adventure:
         a "I would love that, Lucas. I have a feeling this is the start of a great friendship."
 
     # 8. Facing Initial Challenges
+    stop music fadeout 1.0
     show amelia_dorm_room_night_full
+    play music the_moss fadein 1.0 volume 0.5
     with dissolve
 
     a "Ugh, I'm feeling so overwhelmed. Balancing classes, socializing, and self-care is harder than I thought."
@@ -593,7 +603,8 @@ label call_to_adventure:
                     "She feels a growing sense of self-awareness and a desire to apply these insights to her personal growth."
 
     # Special Scene (if OK > 3 and AA > 12)
-    if OK > 3 and AA > 12:
+    $ OK += 4
+    if OK > 3:
         show amelia_library_full
         with dissolve
 
@@ -617,7 +628,7 @@ label call_to_adventure:
     show amelia_dorm_room_evening_full
     with dissolve
 
-    a "As the first semester comes to a close, I feel like I've already grown so much."
+    a "As the first week comes to a close, I feel like I've already experienced so much."
 
     show amelia_motivated_full
     a "But I know this is just the beginning. There's so much more to learn, so many more challenges to face."
@@ -625,6 +636,6 @@ label call_to_adventure:
     show amelia_happy_full
     a "And you know what? I'm ready for it. Bring on the rest of this university adventure."
 
-    "Thus concludes the chapter of The Call to Adventure. Amelia has taken her first steps into the world of university and the study of the mind, but the true journey of transformation is just beginning."
+    "Amelia has taken her first steps into the world of university and the study of the mind, but the true journey of transformation is just beginning."
 
     return
