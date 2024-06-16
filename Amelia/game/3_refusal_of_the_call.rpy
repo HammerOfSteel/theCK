@@ -7,7 +7,7 @@ label chapter_3_part_1:
     show amelia_determined_dorm_full
     with dissolve
     n "Amelia starts her first semester at Plymouth with a mix of excitement and nervousness, but she's determined to make the most of her university experience."
-
+    hide amelia_determined_dorm_full
     show black
     window hide
 
