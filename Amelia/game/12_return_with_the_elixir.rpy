@@ -1,5 +1,5 @@
 define music.weight_of_gold = "weight_of_gold.mp3"
-define music.jag_finns_kvar = "jag_finns_kvar.mp3"
+define music.i_have_made_mistakes = "i_have_made_mistakes.mp3"
 
 label chapter_12_part_1:
     show amelia_returning_home
@@ -213,20 +213,20 @@ label chapter_12_academic_success:
     show amelia_in_room_reflecting
     with dissolve
 
-    "Amelia sits in her room, surrounded by the familiar comforts of home. She looks at the photos on her desk, memories from her first year at Plymouth University. She picks up a picture of her and her friends from a memorable day at Hoe Park."
+    n "Amelia sits in her room, surrounded by the familiar comforts of home. She looks at the photos on her desk, memories from her first year at Plymouth University. She picks up a picture of her and her friends from a memorable day at Hoe Park."
 
     a "(So much has changed in just one year. I've grown in ways I never imagined.)"
 
-    "She takes a deep breath, feeling the weight of her journey."
+    n "She takes a deep breath, feeling the weight of her journey."
 
     show amelia_journal_open
     with dissolve
 
-    "Amelia opens her journal, gifted by Dr. Simmons, and begins to write."
+    n "Amelia opens her journal, gifted by Dr. Simmons, and begins to write."
 
     a "{i}This year has been a whirlwind of experiences. I've faced challenges, made lifelong friends, and discovered so much about myself. It's been transformative. I feel... reborn.{/i}"
 
-    "Her phone buzzes, interrupting her thoughts. It's a message from Zara."
+    n "Her phone buzzes, interrupting her thoughts. It's a message from Zara."
 
     show amelia_looking_at_phone
     with dissolve
@@ -891,179 +891,444 @@ label chapter_12_balanced_growth:
     return
 
 label chapter_12_enlightenment:
+    show intro_ok_ending
+    with dissolve
+    n "This is the ending that the player gets if they initially wandered into the occult section in the bookshop,{p=2}{nw}"
+    n "If they talked to Sarah the first time they saw her{p=2}{nw}"
+    n "And if they then diligently worked to find all the hiden occult references and choices in the game{p=2}{nw}"
+    n "Eventually gaining enough OK points{p=2}{nw}"
+    hide intro_ok_ending
+
     play music weight_of_gold fadein 1.0 volume 0.8
+
+    show black
     show amelia_in_room_preparing_ritual
     with dissolve
+    n "Amelia stands in her room, surrounded by alchemical texts she has begun to rely on{p=2}{nw}"
+    n "The ingredients for an intense spagyric process laying on a table infront of her.{p=2}{nw}"
+    n "Tonight, she will attempt to create the philosopher's stone{p=2}{nw}"
+    n "The culmination of her alchemical journey research and studies.{p=2}{nw}"
+    hide amelia_in_room_preparing_ritual
 
-    "Amelia stands in her room, surrounded by alchemical texts she has begun to rely on{p=1}{nw}"
-    "The ingredients for an intense spagyric process laying on a table infront of her.{p=1}{nw}"
-    "Tonight, she will attempt to create the philosopher's stone{p=1}{nw}"
-    "The culmination of her alchemical journey research and studies.{p=1}{nw}"
-
-    a "(This is it. Everything I've learned has led me to this moment. It's time to see if I can create the stone.){p=1}{nw}"
-
+    show black
     show amelia_beginning_ritual
     with dissolve
+    a "(This is it. Everything I've learned has led me to this moment. It's time to see if I can create the stone.){p=2}{nw}"
+    n "She begins the ritual, carefully following the intricate steps described in the ancient manuscripts.{p=2}{nw}"
+    hide amelia_beginning_ritual
 
-    "She begins the ritual, carefully following the intricate steps described in the ancient manuscripts.{p=1}{nw}"
-    "The air in the room grows heavy with anticipation and the scent of the alchemical ingredients.{p=1}{nw}"
+    show black
+    show room_anticipation_scent
+    with dissolve
+    n "The air in the room grows heavy with anticipation and the scent of the alchemical ingredients.{p=2}{nw}"
+    a "(Focus, Amelia. This is about intention, about transformation.){p=3}{nw}"
+    hide room_anticipation_scent
 
-    a "(Focus, Amelia. This is about intention, about transformation.){p=1}{nw}"
+    show black
+    show amelia_working_diligently
+    with dissolve
+    n "Hours pass as Amelia works diligently, her movements precise and her mind clear.{p=4}{nw}"
 
-    "Hours pass as Amelia works diligently, her movements precise and her mind clear.{p=1}{nw}"
-    "Finally, the process is complete.{p=1}{nw}"
-    
+    hide amelia_working_diligently
+    show black
+    show process_complete
+    with dissolve
+    n "Finally, the process is complete.{p=4}{nw}"
+    hide process_complete
+
+    show black
     show amelia_holding_stone
     with dissolve
-    "Before her lies a small, glowing stone, pulsating with an otherworldly energy.{p=2}{nw}"
-    "She holds the philosopher's stone in her hands, feeling its power{p=2}{nw}"
-    "But not noticing any immediate change within herself.{p=1}{nw}"
+    n "Before her lies a small, glowing stone, pulsating with an otherworldly energy.{p=2}{nw}"
+    n "She holds the philosopher's stone in her hands, feeling its power{p=3}{nw}"
+    hide amelia_holding_stone
 
-    a "This is it. The culmination of my journey.{p=1}{nw}"
-    a "But... I don't feel any different.{p=1}{nw}"
+    show black
+    show amelia_no_immediate_change
+    with dissolve
+    n "But not noticing any immediate change within herself.{p=4}{nw}"
+    hide amelia_no_immediate_change
 
+    show black
+    show amelia_culmination_of_journey
+    with dissolve
+    a "This is it. The culmination of my journey.{p=2}{nw}"
+    a "But... I don't feel any different.{p=3}{nw}"
+    hide amelia_culmination_of_journey
+
+    show black
     show amelia_ingesting_stone
     with dissolve
+    n "With a deep breath, Amelia ingests the stone.{p=4}{nw}"
+    hide amelia_ingesting_stone
 
-    "With a deep breath, Amelia ingests the stone.{p=4}{nw}"
-    "She waits for a moment, expecting a profound transformation, but nothing happens immediately.{p=2}{nw}"
-    "Feeling slightly disappointed but hopeful, she decides to go for a walk to clear her mind.{p=2}{nw}"
+    show black
+    show amelia_doesnt_feel_different
+    with dissolve
+    n "She waits for a moment, expecting a profound transformation, but nothing happens immediately.{p=4}{nw}"
+    n "Feeling slightly disappointed but hopeful, she decides to go for a walk to clear her mind.{p=2}{nw}"
+    a "(Maybe the effects take time. A walk will help me think.){p=3}{nw}"
+    hide amelia_doesnt_feel_different
 
-    a "(Maybe the effects take time. A walk will help me think.){p=2}{nw}"
     stop music fadeout 2.0
-    play music jag_finns_kvar fadein 2.0 volume 0.3
+    play music i_have_made_mistakes fadein 2.0 volume 0.3
 
+    show black
     show amelia_walking_outside
     with dissolve
+    n "Amelia steps outside, the cool evening air refreshing her senses.{p=2}{nw}"
+    hide amelia_walking_outside
 
-    "Amelia steps outside, the cool evening air refreshing her senses.{p=2}{nw}"
-    "She wanders through the streets, lost in thought about her journey and the stone's potential.{p=2}{nw}"
-
+    show black
+    show amelia_wandering_streets
+    with dissolve
+    n "She wanders through the streets, lost in thought about her journey and the stone's potential.{p=2}{nw}"
     a "I've come so far. Even if I don't feel different now{p=2}{nw}"
-    "The journey itself has been transformative.{p=2}{nw}"
+    n "The journey itself has been transformative.{p=2}{nw}"
+    hide amelia_wandering_streets
 
+    show black
     show mysterious_garden
     with dissolve
+    n "Her wandering leads her to a garden she has never seen before.{p=2}{nw}"
+    n "It's lush and vibrant, filled with flowers of every color.{p=2}{nw}"
+    n "In the center, there is a fountain, and by the fountain stands a woman. She radiates a serene and powerful presence.{p=4}{nw}"
+    hide mysterious_garden
 
-    "Her wandering leads her to a garden she has never seen before.{p=2}{nw}"
-    "It's lush and vibrant, filled with flowers of every color.{p=2}{nw}"
-    "In the center, there is a fountain, and by the fountain stands a woman. She radiates a serene and powerful presence.{p=4}{nw}"
-
+    show black
     show amelia_approaching_woman
     with dissolve
-
-    "Amelia approaches the woman, feeling a strange sense of familiarity.{p=2}{nw}"
-
+    n "Amelia approaches the woman, feeling a strange sense of familiarity.{p=2}{nw}"
     a "Hello. I don't think I've seen you here before.{p=2}{nw}"
+    woman "Welcome, Amelia. I've been waiting for you.{p=2}{nw}"
+    hide amelia_approaching_woman
 
-    "Welcome, Amelia. I've been waiting for you.{p=2}{nw}"
-
+    show black
     show amelia_confused
     with dissolve
-
     a "Waiting for me? Who are you?{p=2}{nw}"
+    hide amelia_confused
 
+    show black
     show woman_smiling
     with dissolve
+    woman "Names are not important. What matters is the journey you are on and the wisdom you seek.{p=4}{nw}"
+    hide woman_smiling
 
-    "Names are not important. What matters is the journey you are on and the wisdom you seek.{p=4}{nw}"
-
+    show black
     show amelia_listening_intently
     with dissolve
-
     a "What wisdom do you mean?{p=2}{nw}"
+    woman "Sit with me by the fountain, and I will tell you a story.{p=2}{nw}"
+    hide amelia_listening_intently
 
-    "Sit with me by the fountain, and I will tell you a story.{p=2}{nw}"
-
+    show black
     show amelia_sitting_by_fountain
     with dissolve
+    woman "Amelia sits beside the woman, the sound of the water calming her.{p=4}{nw}"
+    hide amelia_sitting_by_fountain
 
-    "Amelia sits beside the woman, the sound of the water calming her.{p=2}{nw}"
-    "The woman begins to speak, her voice soft and soothing.{p=2}{nw}"
+    show black
+    show mysterious_woman_talking
+    with dissolve
+    woman "The woman begins to speak, her voice soft and soothing.{p=2}{nw}"
+    woman "Your journey began long before you set foot in Plymouth.{p=3}{nw}"
+    hide mysterious_woman_talking
 
-    "Your journey began long before you set foot in Plymouth.{p=0.5}{nw}"
-    "Your recent past has been marked by trials, pushing you to the edge of your very understanding of the world and your place within it.{p=0.5}{nw}"
-    "You've faced academic pressures that tested your intellect and personal challenges that weighed heavily on your heart.{p=0.5}{nw}"
-    "Amelia, your journey has been a crucible, shaping and refining you in ways you might not yet fully comprehend.{p=0.5}{nw}"
+    show black
+    show amelia_reflecting_journey
+    with dissolve
+    woman "Your recent past has been marked by trials, pushing you to the edge of your very understanding of the world and your place within it.{p=2}{nw}"
+    woman "You've faced academic pressures that tested your intellect and personal challenges that weighed heavily on your heart.{p=2}{nw}"
+    woman "Amelia, your journey has been a crucible, shaping and refining you in ways you might not yet fully comprehend.{p=2}{nw}"
+    woman "You arrived at Plymouth full of hope, yet unaware of the shadows you would encounter.{p=2}{nw}"
+    hide amelia_reflecting_journey
 
-    "You arrived at Plymouth full of hope, yet unaware of the shadows you would encounter.{p=0.5}{nw}"
-    "The friends you've made—Ella, Zara, Lucas, Maya, Raj—each brought a piece of the puzzle that is your life.{p=0.5}{nw}"
-    "They've taught you the beauty of diversity, the strength found in unity, and the power of compassion.{p=0.5}{nw}"
+    show black
+    show friends_puzzle_pieces
+    with dissolve
+    woman "The friends you've made—Ella, Zara, Lucas, Maya, Raj—each brought a piece of the puzzle that is your life.{p=2}{nw}"
+    woman "They've taught you the beauty of diversity, the strength found in unity, and the power of compassion.{p=3}{nw}"
+    hide friends_puzzle_pieces
 
-    "But, my dear, it is Sarah who left the most indelible mark.{p=0.5}{nw}"
-    "Her struggle with depression was a mirror, reflecting the unspoken fears and hidden pains within you.{p=0.5}{nw}"
-    "Her fate was a profound lesson, reminding you of the fragility of life and the importance of mental health.{p=0.5}{nw}"
-    "The day you found her, you realized the gravity of your role in this world.{p=0.5}{nw}"
-    "Whether she found peace or succumbed to her pain, her story intertwined with yours, urging you to advocate for those who suffer in silence.{p=0.5}{nw}"
+    show black
+    show amelia_sarah_reflection
+    with dissolve
+    woman "But, my dear, it is Sarah who left the most indelible mark.{p=2}{nw}"
+    woman "Her struggle with depression was a mirror, reflecting the unspoken fears and hidden pains within you.{p=2}{nw}"
+    woman "Her fate was a profound lesson, reminding you of the fragility of life and the importance of mental health.{p=3}{nw}"
+    hide amelia_sarah_reflection
 
-    "Every choice you've made has led you here, standing at the threshold of true understanding.{p=0.5}{nw}"
-    "You've delved into the depths of psychology, explored the mystical and the unknown, and faced your darkest fears.{p=0.5}{nw}"
-    "You've grown, Amelia, more than you can see.{p=0.5}{nw}"
-    "The enlightenment you seek is not a destination but a journey, a continuous path of learning, compassion, and self-discovery.{p=0.5}{nw}"
+    hide amelia_sarah_reflection
+    show black
+    show amelia_gravity_role
+    with dissolve
+    woman "The day you found her, you realized the gravity of your role in this world.{p=2}{nw}"
+    woman "Whether she found peace or succumbed to her pain, her story intertwined with yours, urging you to advocate for those who suffer in silence.{p=3}{nw}"
+    hide amelia_gravity_role
 
-    "Remember Sarah, remember her struggle and her strength.{p=0.5}{nw}"
-    "Use that memory to fuel your resolve to make a difference.{p=0.5}{nw}"
-    "Your story is far from over, and your potential is limitless.{p=0.5}{nw}"
-    "Embrace your past, cherish your present, and step boldly into your future.{p=0.5}{nw}"
+    show black
+    show amelia_threshold_understanding
+    with dissolve
+    woman "Every choice you've made has led you here, standing at the threshold of true understanding.{p=2}{nw}"
+    woman "You've delved into the depths of psychology, explored the mystical and the unknown, and faced your darkest fears.{p=3}{nw}"
+    hide amelia_threshold_understanding
 
+    show black
+    show amelia_grown
+    with dissolve
+    woman "You've grown, Amelia, more than you can see.{p=2}{nw}"
+    woman "The enlightenment you seek is not a destination but a journey, a continuous path of learning, compassion, and self-discovery.{p=3}{nw}"
+    hide amelia_grown
+
+    show black
+    show amelia_resolve_to_make_difference
+    with dissolve
+    woman "Remember Sarah, remember her struggle and her strength.{p=2}{nw}"
+    woman "Use that memory to fuel your resolve to make a difference.{p=2}{nw}"
+    woman "Your story is far from over, and your potential is limitless.{p=2}{nw}"
+    hide amelia_resolve_to_make_difference
+
+    show black
+    show amelia_embracing_past_future
+    with dissolve
+    woman "Embrace your past, cherish your present, and step boldly into your future.{p=4}{nw}"
+    hide amelia_embracing_past_future
+
+    show black
     show amelia_listening_emotional
     with dissolve
+    a "Yes, it has been challenging... but I've learned so much.{p=4}{nw}"
+    hide amelia_listening_emotional
 
-    a "Yes, it has been challenging... but I've learned so much.{p=1}{nw}"
+    show black
+    show amelia_shaped_experiences
+    with dissolve
+    woman "These experiences have shaped you, prepared you for the path you walk now.{p=4}{nw}"
+    hide amelia_shaped_experiences
 
-    "These experiences have shaped you, prepared you for the path you walk now.{p=1}{nw}"
-    "Your heart has been forged in the fires of adversity, and through it, you have discovered your strength.{p=1}{nw}"
+    show black
+    show amelia_forged_adversity
+    with dissolve
+    woman "Your heart has been forged in the fires of adversity, and through it, you have discovered your strength.{p=3}{nw}"
+    hide amelia_forged_adversity
 
-    "The woman’s voice takes on a more cryptic tone{p=1}{nw}"
+    show black
+    show woman_cryptic_tone
+    with dissolve
+    n "The woman’s voice takes on a more cryptic tone{p=3}{nw}"
+    hide woman_cryptic_tone
 
-    "The path ahead is one of transformation. Just as the two always become the one.{p=1}{nw}"
-    "The Prima Materia within you, the raw essence of your being, will undergo a sacred transformation.{p=1}{nw}" 
-    "You will navigate the Nigredo, the darkness and dissolution, and emerge into the Albedo, the purification in the double sign of your own mercury.{p=1}{nw}"
+    show black
+    show amelia_path_transformation
+    with dissolve
+    woman "The path ahead is one of transformation. Just as the two always become the one.{p=3}{nw}"
+    hide amelia_path_transformation
 
+    show black
+    show amelia_prima_materia
+    with dissolve
+    woman "The Prima Materia within you, the raw essence of your being, will undergo a sacred transformation.{p=4}{nw}"
+    hide amelia_prima_materia
+
+    show black
+    show amelia_nigredo_albedo
+    with dissolve
+    woman "You will navigate the Nigredo, the darkness and dissolution, and emerge into the Albedo, the purification in the double sign of your own mercury.{p=5}{nw}"
+    hide amelia_nigredo_albedo
+
+    show black
     show amelia_fully_absorbed
     with dissolve
+    n "Amelia listens, her heart and mind fully absorbed by the woman’s words.{p=3}{nw}"
+    hide amelia_fully_absorbed
 
-    "Amelia listens, her heart and mind fully absorbed by the woman’s words.{p=1}{nw}"
+    show black
+    show amelia_citrinitas
+    with dissolve
+    woman "In the Citrinitas, the dawning of the new consciousness, you will find clarity and purpose.{p=4}{nw}"
+    hide amelia_citrinitas
 
-    "In the Citrinitas, the dawning of the new consciousness, you will find clarity and purpose.{p=1}{nw}" 
-    "And finally, in the Rubedo, the reddening, you will achieve the Great Work{p=1}{nw}"
-    "Trust in the process, and know that every challenge, every joy, is part of the divine tapestry of your life.{p=1}{nw}"
+    show black
+    show amelia_rubedo
+    with dissolve
+    woman "And finally, in the Rubedo, the reddening, you will achieve the Great Work{p=4}{nw}"
+    hide amelia_rubedo
 
-    "Amelia feels the weight of the transmission, settling deep within her soul.{p=1}{nw}"
-    "Tears begin to well up in her eyes as she realizes the profound truth of the woman’s words.{p=1}{nw}"
+    show black
+    show amelia_divine_tapestry
+    with dissolve
+    woman "Trust in the process, and know that every challenge, every joy, is part of the divine tapestry of your life.{p=4}{nw}"
+    hide amelia_divine_tapestry
 
-    a "I... I understand. At last I understand{p=1}{nw}"
+    show black
+    show amelia_weight_transmission
+    with dissolve
+    n "Amelia feels the weight of the transmission, settling deep within her soul.{p=3}{nw}"
+    hide amelia_weight_transmission
 
+    show black
+    show amelia_tears_truth
+    with dissolve
+    n "Tears begin to well up in her eyes as she realizes the profound truth of the woman’s words.{p=4}{nw}"
+    hide amelia_tears_truth
+
+    show black
+    show amelia_understanding
+    with dissolve
+    a "I... I understand. At last I understand{p=3}{nw}"
+    hide amelia_understanding
+
+    show black
     show woman_fading
     with dissolve
-
-    "The woman smiles, her form beginning to fade.{p=1}{nw}"
-
-    "With that, the woman vanishes, leaving Amelia alone by the fountain, her heart full and her mind buzzing with new insights.{p=1}{nw}"
-
+    n "The woman smiles, her form beginning to fade.{p=2}{nw}"
+    n "With that, the woman vanishes, leaving Amelia alone by the fountain, her heart full and her mind buzzing with new insights.{p=3}{nw}"
+    hide woman_fading
+    
+    show black
     show amelia_waking_up_in_bed
     with dissolve
+    n "Amelia wakes up in her bed, unsure if the encounter was real or a dream.{p=3}{nw}"
+    hide amelia_waking_up_in_bed
 
-    "Amelia wakes up in her bed, unsure if the encounter was real or a dream.{p=1}{nw}"
-    "But the tears on her face and the deep sense of peace within her tell her{p=1}{nw}"
-    "It was more than just a figment of her imagination.{p=1}{nw}"
+    show black
+    show amelia_tears_peace
+    with dissolve
+    n "But the tears on her face and the deep sense of peace within her tell her{p=2}{nw}"
+    n "It was more than just a figment of her imagination.{p=3}{nw}"
+    hide amelia_tears_peace
 
-    a "(This is just the beginning, I can achieve anything.){p=1}{nw}"
+    show black
+    show amelia_beginning_achieve
+    with dissolve
+    a "(This is just the beginning, I can achieve anything.){p=3}{nw}"
+    hide amelia_beginning_achieve
 
+    show black
     show amelia_in_room_reflecting
     with dissolve
+    n "Back in her room, Amelia sits down and begins to write in her journal, capturing the emotions and insights from the encounter.{p=3}{nw}"
+    a "{i}Tonight, I received a gift beyond measure. The wisdom of an ancient lineage flows through me now.{/i}{p=3}{nw}"
+    a "{i}My journey is just beginning, and I feel ready to face whatever comes next.{/i}{p=3}{nw}"
+    hide amelia_in_room_reflecting
 
-    "Back in her room, Amelia sits down and begins to write in her journal, capturing the emotions and insights from the encounter.{p=1}{nw}"
-
-    a "{i}Tonight, I received a gift beyond measure. The wisdom of an ancient lineage flows through me now.{/i}{p=1}{nw}"
-    a "{i}My journey is just beginning, and I feel ready to face whatever comes next.{/i}"
-
+    show black
     show amelia_lying_in_bed_3
     with dissolve
+    n "As she lies in bed, Amelia feels a profound sense of peace and readiness for the future.{p=3}{nw}"
+    hide amelia_lying_in_bed_3
 
-    "As she lies in bed, Amelia feels a profound sense of peace and readiness for the future."
-
+    show black
+    show amelia_ready_challenges
+    with dissolve
     a "(I’m ready for whatever comes next, I can face any challenge.)"
+    hide amelia_ready_challenges
+    jump ok_ending_credits
+
+label ok_ending_credits:
+    window hide
+    stop music
+    play music birds_of_a_feather fadein 1.0 volume 0.8 
+    show black
+    # call screen credits
+    
+    window hide
+    show amelia_cornwall_sea_halo
+    with dissolve
+    credit_text "By GizmoBot studios{p=15}{nw}"
+
+    window hide
+    show ok_credits_2
+    with dissolve
+    credit_text "Story and Game design - Luna Ironfoot{p=15}{nw}"
+
+    window hide
+    show ok_credits_3
+    with dissolve
+    credit_text "Art and history - Zara Greenleaf{p=15}{nw}"
+
+    window hide
+    show ok_credits_3
+    with dissolve
+    credit_text "Sound design - Mira Silverbranch{p=15}{nw}"
+
+    window hide
+    show ok_credits_4
+    with dissolve
+    credit_text "Music - Fish in a bird card - Birds of a feather{p=15}{nw}"
+
+    window hide
+    show ok_credits_5
+    with dissolve
+    credit_text "Music - Fish in a bird card - Sand{p=15}{nw}"
+
+    window hide
+    show ok_credits_6
+    with dissolve
+    credit_text "Music - Fish in a bird card - Weight of gold{p=15}{nw}"
+
+    window hide
+    show ok_credits_7
+    with dissolve
+    credit_text "Music - The Oh hellos - New river{p=15}{nw}"
+
+    window hide
+    show ok_credits_8
+    with dissolve
+    credit_text "Music - The Oh hellos - Second child restless child{p=15}{nw}"
+
+    window hide
+    show ok_credits_9
+    with dissolve
+    credit_text "Music - The Oh hellos - Soldier poet king{p=15}{nw}"
+
+    window hide
+    show ok_credits_10
+    with dissolve
+    credit_text "Music - The Oh hellos - I have made mistakes{p=15}{nw}"
+
+    window hide
+    show ok_credits_11
+    with dissolve
+    credit_text "Music - Fish in a bird card - Paperwork{p=15}{nw}"
+
+    window hide
+    show ok_credits_12
+    with dissolve
+    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
+
+    window hide
+    stop music fadeout 5
+    play music sand fadein 3.0 volume 0.8 
+    show ok_credits_13
+    with dissolve
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=15}{nw}"
+
+    window hide
+    show ok_credits_15
+    with dissolve
+    credit_text "Music - Cosmo Sheldrake - Moss{p=15}{nw}"
+
+    window hide
+    show ok_credits_16
+    with dissolve
+    credit_text "Special thanks - rubaphilos salfluere {p=15}{nw}"
+
+    window hide
+    show ok_credits_18
+    with dissolve
+    credit_text "Special thanks - Cornwalls rich history and nature {p=15}{nw}"
+
+    window hide
+    show ok_credits_19
+    with dissolve
+    credit_text "Special thanks - Many more {p=15}{nw}"
+
+    window hide
+    show ok_credits_20
+    with dissolve
+    pause 15
 
     return
 

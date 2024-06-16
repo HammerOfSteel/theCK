@@ -1,18 +1,42 @@
-# Define characters
-define a = Character("Amelia")
-define e = Character("Ella")
-define ella = Character("Ella")
-define j = Character("James")
-define p = Character("Parents")
-define n = Character("Narrator")
-define student = Character("Student")
-define roommate = Character("Liz")
-define mom = Character("Mom")
-define dad = Character("Dad")
-define staff = Character("Staff")
-define professor = Character("Professor")
-define woman = Character("Mysterious woman")
+# todos:
+# 0. Fix chapter 2, 3 keywords to match chapter 1 and 12 syntax
+# 1. Fix music variance for chapter 1, it need more songs and at better intervals
+# 2. All other endings (OK ending is done)
+# 3. Chapter 4
+# 4. Chapter 5
+# 5. Chapter 6
+# 6. Chapter 7
+# 7. Chapter 8
+# 8. Chapter 9
+# 9. Chapter 10
+# 10. Chapter 11
+# 11. Chapter 12 begining
 
+# Define characters
+define a = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
+define e = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define ella = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define j = Character("James", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define p = Character("Parents", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define n = Character("Narrator", window_style="window_n", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
+define student = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define roommate = Character("Liz", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define mom = Character("Mom", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define dad = Character("Dad", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define staff = Character("Staff", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define professor = Character("Professor", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define woman = Character("Mysterious woman", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define m = Character("Maya", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define l = Character("Lucas", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define liz = Character("Liz", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define instructor = Character("Instructor", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define scientist = Character("Scientist", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define zara = Character("Zara", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define sarah = Character("Sarah", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define student_2 = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define lucas = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define lucas_text = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define credit_text = Character(window_style="window_c", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
 
 
 default AA = 0
@@ -32,90 +56,122 @@ default OK = 0
 define music.second_child_restless_child = "second_child_restless_child.mp3"
 define music.soldier_poet_king = "soldier_poet_king.mp3"
 define music.chapter_2 = "chapter_2.mp3"
-
+define music.drinking_song_for_the_socially_anxious = "drinking_song_for_the_socially_anxious.mp3"
+define music.inkpot_gods = "inkpot_gods.mp3"
+define music.sand = "sand.mp3"
+define music.birds_of_a_feather = "birds_of_a_feather.mp3"
 
 # The game starts here.
 
 label start:
     scene black
     $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
+    show thames_sunset_end
     with dissolve
     menu:
         "Chapter selection 1-6":
+            hide thames_sunset_end
             jump chapter_selection_1_6
 
-        "Chapter selection 7-12":
-            jump chapter_selection_7_12
+        #"Chapter selection 7-12":
+        #    hide thames_sunset_end
+        #    jump chapter_selection_7_12
         
         "Ending selection":
+            hide thames_sunset_end
             jump ending_selection
 
 label chapter_selection_1_6:
     scene black
+    show thames_sunset_end
     with dissolve
     menu:
         "Go to start of chapter 1":
+            hide thames_sunset_end
             jump start_chapter_1
            
         "Go to chapter2":
+            hide thames_sunset_end
             jump call_to_adventure
 
         "Go to chapter3":
+            hide thames_sunset_end
             jump chapter_3_part_1
 
-        "Go to chapter4":
-            jump chapter_4_part_1
+        #"Go to chapter4":
+        #    hide thames_sunset_end
+        #    jump chapter_4_part_1
 
-        "Go to chapter5":
-            jump chapter_5_part_1
+        #"Go to chapter5":
+        #    hide thames_sunset_end
+        #    jump chapter_5_part_1
 
-        "Go to chapter6":
-            jump chapter_6_part_1
+        #"Go to chapter6":
+        #    hide thames_sunset_end
+        #    jump chapter_6_part_1
 
 
-label chapter_selection_7_12:
-    scene black
-    with dissolve
-    menu:
-        "Go to chapter7":
-            jump chapter_7_part_1
+#label chapter_selection_7_12:
+    #scene black
+    #show thames_sunset_end
+    #with dissolve
+    #menu:
+        #"Go to chapter7":
+        #    hide thames_sunset_end
+        #    jump chapter_7_part_1
 
-        "Go to chapter8":
-            jump chapter_8_part_1
+        #"Go to chapter8":
+        #    hide thames_sunset_end
+        #    jump chapter_8_part_1
 
-        "Go to chapter9":
-            jump chapter_9_part_1
+        #"Go to chapter9":
+        #    hide thames_sunset_end
+        #    jump chapter_9_part_1
 
-        "Go to chapter10":
-            jump chapter_10_part_1
+        #"Go to chapter10":
+        #    hide thames_sunset_end
+        #    jump chapter_10_part_1
 
-        "Go to chapter11":
-            jump chapter_11_part_1
+        #"Go to chapter11":
+        #    hide thames_sunset_end
+        #    jump chapter_11_part_1
 
-        "Go to chapter12":
-            jump chapter_12_part_1
+        #"Go to chapter12":
+        #    hide thames_sunset_end
+        #    jump chapter_12_part_1
 
 label ending_selection:
     scene black
+    show thames_sunset_end
     with dissolve
     menu:
-        "Go to AA ending":
-            jump chapter_12_academic_success
+        #"Go to AA ending":
+        #    hide thames_sunset_end
+        #    jump chapter_12_academic_success
 
-        "Go to SI ending":
-            jump chapter_12_social_butterfly
+        #"Go to SI ending":
+        #    hide thames_sunset_end
+        #    jump chapter_12_social_butterfly
 
-        "Go to MH ending":
-            jump chapter_12_mental_health_advocate
+        #"Go to MH ending":
+        #    hide thames_sunset_end
+        #    jump chapter_12_mental_health_advocate
 
-        "Go to SD ending":
-            jump chapter_12_balanced_growth
+        #"Go to SD ending":
+        #    hide thames_sunset_end
+        #    jump chapter_12_balanced_growth
 
-        "Go to MC ending":
-            jump chapter_12_tragic_ending
+        #"Go to MC ending":
+        #    hide thames_sunset_end
+        #    jump chapter_12_tragic_ending
 
         "Go to OK ending":
+            hide thames_sunset_end
             jump chapter_12_enlightenment
+        
+        "Go to OK credits":
+            hide thames_sunset_end
+            jump ok_ending_credits
 
 
 label start_chapter_1:
@@ -124,50 +180,62 @@ label start_chapter_1:
     #with dissolve
 
     #pause 4.0
-
-    scene screen_0
+    show black
+    show screen_0
     with dissolve
     n "Amelias curiosity about the mind began in a room of dreams and playful experiments."
+    hide screen_0
+    show black
+    window hide   
 
-    scene screen_m3
+    show screen_m3
     with dissolve
     n "High school was a theater of emotions and social hierarchies; a ripe field for observation"
+    hide screen_m3
+    show black
+    window hide
 
-    scene screen_m2
+    show screen_m2
     with dissolve
     n "University, a beacon of hope, promising a sanctuary where curiosity intertwines with opportunit"
+    hide screen_m2
+    window hide
 
-    scene screen_m1
+    show screen_m1
     with dissolve
     n "With every passing moment, the future lingered, veiled in an envelope yet to arrive."
-
+    hide screen_m1
+    show black
+    window hide
 
     stop music fadeout 2.0
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-    scene chapter_1
+
+    show chapter_1
     with dissolve
-
     pause 4.0
+    hide chapter_1
+    show black
+    window hide
 
-    scene screen_1
+    show screen_1
     with dissolve
     play music soldier_poet_king fadein 2.0 volume 0.5
-    
     a "I got in! I actually got in!"
     a "Holy moly, this is the best ever!"
-
+    hide screen_1
+    show black
+    window hide
 
     show screen_2
     with dissolve
     a "Whooohooo!"
     a "Plymouth, here I come!"
-
+    hide screen_2
+    show black
+    window hide
 
     show screen_3
     with dissolve
-
     a "But... who do I tell first?"
 
     menu:
@@ -178,6 +246,10 @@ label start_chapter_1:
             #- **Description**: Amelia sitting with Ella, showing her the letter.
             #- **Dialogue**: "Ella, look! I'm going to Plymouth!"#
             $ SD += 1
+            hide screen_3
+            show black
+            window hide
+
             show screen_4
             with dissolve
             a "Ella, look! I'm going to Plymouth!"
@@ -201,11 +273,13 @@ label start_chapter_1:
             a "You read my mind! It's a date."
             e "Perfect. And Millie? I'm really, really happy for you. You deserve this."
             a "Thanks, Ella. I love you."
+            hide screen_4
+            show black
+            window hide
 
             show screen_8
             with dissolve
             a "Mum, Dad, Plymouth said YES!"
-
             p "We always knew you'd make it, darling."
             p "Congratulations, sweetheart! This is wonderful news."
             a "I can hardly believe it. I'm going to university!"
@@ -228,6 +302,9 @@ label start_chapter_1:
             p "Anything for our university-bound girl. We're so excited for you, Amelia."
             a "Me too. I can't wait to start this new chapter. But I'll always be thankful for the love and support I have here."
             p "And you'll always have it, sweetheart. Always."
+            hide screen_8
+            show black
+            window hide
 
             #### Screen 11: Imagined Adventures
             #- **Setting**: Amelia's bedroom.
@@ -237,7 +314,9 @@ label start_chapter_1:
             show screen_11
             with dissolve
             a "University life... I wonder what it'll be like"
-
+            hide screen_11
+            show black
+            window hide
 
             #### Screen 12: Texted Plans
             #- **Description**: Amelia's phone vibrates with a new message.
@@ -246,7 +325,6 @@ label start_chapter_1:
             #show screen_12
             #with dissolve
             #e "Let's meet up before you leave?"
-
 
         "Tell Parents first":
             #### Screen 8: Parents' Joy (Choice: Parents)
@@ -258,8 +336,7 @@ label start_chapter_1:
             with dissolve
             a "Mum, Dad, Plymouth said YES!"
             $renpy.notify("SI + 1")
-
-            p "We always knew you'd make it, darling."
+            p "We always knew you'd make it, darling." 
             p "Congratulations, sweetheart! This is wonderful news."
             a "I can hardly believe it. I'm going to university!"
             p "We're so proud of you, Amelia. You've put in so much hard work."
@@ -281,6 +358,9 @@ label start_chapter_1:
             p "Anything for our university-bound girl. We're so excited for you, Amelia."
             a "Me too. I can't wait to start this new chapter. But I'll always be thankful for the love and support I have here."
             p "And you'll always have it, sweetheart. Always."
+            hide screen_8
+            show black
+            window hide
 
             #### Screen 11: Imagined Adventures
             #- **Setting**: Amelia's bedroom.
@@ -290,7 +370,9 @@ label start_chapter_1:
             show screen_11
             with dissolve
             a "University life... I wonder what it'll be like"
-
+            hide screen_11
+            show black
+            window hide
 
             #### Screen 4: Sharing with Ella (Choice: Ella)
             #- **Setting**: Park bench outside.
@@ -317,7 +399,9 @@ label start_chapter_1:
             a "You read my mind! It's a date."
             e "Perfect. And Millie? I'm really, really happy for you. You deserve this."
             a "Thanks, Ella. I love you."
-
+            hide screen_4
+            show black
+            window hide
 
             jump preparing_for_university
 
@@ -325,13 +409,17 @@ label preparing_for_university:
     #play music "chapter_1.mp3" fadein 3.0 volume 0.5
     scene amelia_room_packing
     with dissolve
-
     a "There's so much to pack. I need to be organized."
+    hide amelia_room_packing
+    show black
+    window hide
 
     show amelia_room_closet
     with dissolve
-
     a "Okay, let's see. Clothes, toiletries, bedding... what else?"
+    hide amelia_room_closet
+    show black
+    window hide
 
     show amelia_room_bookshelf
     with dissolve
@@ -339,52 +427,101 @@ label preparing_for_university:
     menu:
         "Organize her study materials":
             $ AA += 1
+            hide amelia_room_bookshelf
+            show black
+            window hide
+
             show amelia_room_study
             with dissolve
             a "Oh, my books! I can't forget those. And my laptop, of course."
             $renpy.notify("AA + 1")
             n "Amelia carefully sorted her textbooks and notes, making sure everything was in order for her studies."
             a "These books will be my lifeline at university. I need to make sure I have everything."
+            hide amelia_room_study
+            show black
+            window hide
+
             show amelia_room_desk
             with dissolve
             a "Notes, check. Pens and highlighters, check. Laptop, check."
+            hide amelia_room_desk
+            show black
+            window hide
+
             show amelia_room_study_done
             with dissolve
             a "Alright, I think I'm all set academically. I feel a bit more prepared now."
+            hide amelia_room_study_done
+            show black
+            window hide
 
         "Call Ella to talk about her excitement":
             $ SI += 1
+            hide amelia_room_bookshelf
+            show black
+            window hide
+
             show amelia_phone_call
             with dissolve
             a "Hi Ella! I just wanted to share how excited I am about Plymouth. I can't wait to start!"
             $renpy.notify("SI + 1")
+            hide amelia_phone_call
+            show black
+            window hide
+
             show ella_phone_screen
             with dissolve
             e "That's amazing, Amelia! I'm so happy for you. We'll definitely keep in touch."
+            hide ella_phone_screen
+            show black
+            window hide
+
             show amelia_phone_call_2
             with dissolve
             a "Thanks, Ella. Your support means the world to me."
             e "You'll do great. Just remember to have fun too!"
             e "Let's meet by the tea house later yeah?"
             a "Great idea Ella, I'll see you there!."
+            hide amelia_phone_call_2
+            show black
+            window hide
+
             show amelia_phone_call_end
             with dissolve
             a "Talking to Ella always makes me feel better. I'm lucky to have her as a friend."
+            hide amelia_phone_call_end
+            show black
+            window hide
 
         "Meditate to calm her nerves":
             $ MH += 1
+            hide amelia_room_bookshelf
+            show black
+            window hide
+
             show amelia_meditation
             with dissolve
             n "Amelia took a deep breath and sat down to meditate. She focused on her breathing, letting the calm wash over her."
             $renpy.notify("MH + 1")
             a "I need to stay calm and focused. Everything will be fine."
+            hide amelia_meditation
+            show black
+            window hide
+
             show amelia_meditation_2
             with dissolve
             a "Inhale... exhale... Just let the tension go."
+            hide amelia_meditation_2
+            show black
+            window hide
+
             show amelia_meditation_3
             with dissolve
             n "With each breath, she felt her anxiety melting away, replaced by a sense of peace and readiness."
             a "I can do this. I'm ready for whatever comes next."
+            hide amelia_meditation_3
+            show black
+            window hide
 
     show amelia_room_finished_packing
     with dissolve
@@ -396,15 +533,19 @@ label preparing_for_university:
     a "I just need to stay organized and focused. I've got this."
     a "Right, time to start packing. One step at a time."
     a "All done! Now to have dinner with my parents."
-
+    hide amelia_room_finished_packing
+    show black
+    window hide
     jump dinner_with_parents
 
 label dinner_with_parents:
     scene dinner_table
     with dissolve
-
     p "So, Amelia, are you excited about starting university?"
     a "I am! It's a bit overwhelming, but I'm really looking forward to it."
+    hide dinner_table
+    show black
+    window hide
 
     show dinner_family_talking
     with dissolve
@@ -412,6 +553,10 @@ label dinner_with_parents:
     menu:
         "Discuss her future plans":
             $ MC += 1
+            hide dinner_family_talking
+            show black
+            window hide
+
             show dinner_future_plans
             with dissolve
             p "So, Amelia, are you excited about starting university?"
@@ -421,6 +566,9 @@ label dinner_with_parents:
             a "Yeah, I'm excited about the classes and meeting new people, but I'm also nervous about being on my own."
             p "That's understandable. But remember, we're always here for you, no matter what."
             a "I know. And I'm so grateful for that."
+            hide dinner_future_plans
+            show black
+            window hide
 
             show dinner_future_plans_2
             with dissolve
@@ -432,53 +580,78 @@ label dinner_with_parents:
             a "I hope so. I'm going to work really hard."
             p "We know you will. But don't forget to take care of yourself too, okay?"
             a "I won't. I promise."
+            hide dinner_future_plans_2
+            show black
+            window hide
 
         "Ask for advice from her parents":
             $ SI += 1
+            hide dinner_family_talking
+            show black
+            window hide
+
             show dinner_ask_advice
             with dissolve
             a "Do you have any advice for me? I want to make the most of my time at university."
             $renpy.notify("SI + 1")
             p "Just be yourself, work hard, and don't be afraid to ask for help when you need it."
+            hide dinner_ask_advice
+            show black
+            window hide
+
             show dinner_ask_advice_2
             with dissolve
             a "Thanks, Mom and Dad. I really appreciate your support."
             p "Remember, it's okay to make mistakes. It's all part of the learning process."
+            hide dinner_ask_advice_2
+            show black
+            window hide
 
         "Express her gratitude to her parents":
             $ MH += 1
+            hide dinner_family_talking
+            show black
+            window hide
+
             show dinner_gratitude
             with dissolve
             a "Thank you both for all your support. I couldn't have done this without you."
             $renpy.notify("MH + 1")
             p "We're so proud of you, Amelia. You're going to do great things."
+            hide dinner_gratitude
+            show black
+            window hide
+            
             show dinner_gratitude_2
             with dissolve
             a "I'll make you proud."
             p "You already have, sweetheart."
+            hide dinner_gratitude_2
+            show black
+            window hide
 
     show dinner_conversation
     with dissolve
-
     a "I'm going to miss these family dinners."
-
     p "We'll miss you too, but we know you're going to do great."
-
     a "I'm heading out to meet Ella, I'll be back later."
-
     p "Okay hun, don't stay out too late"
-
+    hide dinner_conversation
+    show black
+    window hide
     jump afternoon_tea_with_ella
 
 label afternoon_tea_with_ella:
     scene tea_house
     with dissolve
-
     e "I'm going to miss our afternoon teas. But I'm so excited for you!"
     a "I'll miss this too. We need to stay in touch."
     e "Definitely! I want to hear all about your university adventures."
     a "I'll make sure to call you all the time. And we can still have virtual tea dates!"
     e "Yes! It won't be the same, but it's something. I'm just so proud of you, Amelia."
+    hide tea_house
+    show black
+    window hide
 
     show tea_conversation
     with dissolve
@@ -486,43 +659,75 @@ label afternoon_tea_with_ella:
     menu:
         "Discuss university plans":
             $ SI += 1
+            hide tea_conversation
+            show black
+            window hide
+
             show tea_university_plans
             with dissolve
             a "I've been thinking about my schedule and the classes I'm going to take. It's going to be intense, but I'm ready."
             $renpy.notify("SI + 1")
             e "You’ve got this, Amelia. Just remember to take breaks and enjoy the experience."
+            hide tea_university_plans
+            show black
+            window hide
+
             show tea_university_plans_2
             with dissolve
             a "I will. Thanks for the advice, Ella."
             e "No problem! I'm here for you."
+            hide tea_university_plans_2
+            show black
+            window hide
 
         "Reminisce about school days":
             $ MH += 1
+            hide tea_conversation
+            show black
+            window hide
+
             show tea_remember_school
             with dissolve
             a "Remember that time in high school when we stayed up all night studying for finals?"
             $renpy.notify("MH + 1")
             e "How could I forget? We were so stressed, but we made it through together."
+            hide tea_remember_school
+            show black
+            window hide
+
             show tea_remember_school_2
             with dissolve
             a "Those were some tough times, but also some of the best memories."
             e "Definitely. We'll make more memories, even with you away."
+            hide tea_remember_school_2
+            show black
+            window hide
 
         "Share fears about the future":
             $ SD += 1
+            hide tea_conversation
+            show black
+            window hide
+
             show tea_share_fears
             with dissolve
             a "I have to admit, I'm a bit scared about moving and starting over. What if I don't fit in?"
             $renpy.notify("SD + 1")
             e "It's normal to feel that way, but you're going to make new friends and have amazing experiences. Trust yourself."
+            hide tea_share_fears
+            show black
+            window hide
+
             show tea_share_fears_2
             with dissolve
             a "Thanks, Ella. Your support means so much to me."
             e "You'll do great. Just be yourself."
+            hide tea_share_fears_2
+            show black
+            window hide
 
     show tea_goodbye
     with dissolve
-
     a "Thanks, Ella. That means a lot."
     e "You've dreamed about this for so long. And now it's finally happening."
     a "I know. It's surreal. But I'm ready. At least, I think I am."
@@ -533,17 +738,19 @@ label afternoon_tea_with_ella:
     e "Right back at you. Now, let's enjoy this tea and make some more memories before you go off and become a superstar psychologist."
     a "Sounds perfect. Cheers to new beginnings!"
     e "Cheers!"
-
-
+    hide tea_goodbye
+    show black
+    window hide
     jump exploring_the_museum
 
 label exploring_the_museum:
     scene museum_entrance
     with dissolve
-
     n "As Amelia and Ella parted ways for the way, Amelia thought she might unwind at the museum."
-
     n "Amelia wandered through the exhibits, taking in the history and culture."
+    hide museum_entrance
+    show black
+    window hide
 
     show museum_hall
     with dissolve
@@ -551,11 +758,19 @@ label exploring_the_museum:
     menu:
         "Learn about human evolution":
             $ AA += 1
+            hide museum_hall
+            show black
+            window hide
+
             show museum_human_evolution
             with dissolve
             n "Amelia spent time in the anthropology section, fascinated by the development of the human species."
             $renpy.notify("AA + 1")
             a "It's amazing how much we've evolved over time."
+            hide museum_human_evolution
+            show black
+            window hide
+
             show museum_human_evolution_2
             with dissolve
             a "I know I want to help people, to understand them better. Psychology feels like the right path for that."
@@ -563,52 +778,89 @@ label exploring_the_museum:
             a "I guess that's what university is for, right? To grow and discover."
             a "I'm excited for the journey, even if it's a little scary."
             a "But places like this remind me of why I'm doing it. To understand the human experience, in all its complexity."
+            hide museum_human_evolution_2
+            show black
+            window hide
+
             show museum_human_evolution_3
             with dissolve
             n "The detailed exhibits provided a lot of insight and sparked Amelia's curiosity even more."
+            hide museum_human_evolution_3
+            show black
+            window hide
 
         "Study ancient artifacts":
             $ SD += 1
+            hide museum_hall
+            show black
+            window hide
+
             show museum_ancient_artifacts
             with dissolve
             n "Amelia explored the exhibits on ancient civilizations, pondering the wisdom they held."
             $renpy.notify("SD + 1")
             a "There's so much we can learn from the past."
+            hide museum_ancient_artifacts
+            show black
+            window hide
+
             show museum_ancient_artifacts_2
             with dissolve
             a "The anthropology exhibit is fascinating. To think about how much we've evolved over time..."
             a "And these ancient artifacts! They hold so much history and wisdom."
             a "It's humbling, isn't it? To see the span of human existence laid out like this."
             a "It makes me think about my own place in the world. What kind of impact do I want to have?"
+            hide museum_ancient_artifacts_2
+            show black
+            window hide
+
             show museum_ancient_artifacts_3
             with dissolve
             n "The intricate designs and historical significance of each piece captivated her."
+            hide museum_ancient_artifacts_3
+            show black
+            window hide
 
         "Reflect on the nature of humanity":
             $ MH += 1
+            hide museum_hall
+            show black
+            window hide
+
             show museum_reflect_humanity
             with dissolve
             n "The exhibits inspired Amelia to think deeply about what it means to be human and the complexities of our existence."
             $renpy.notify("MH + 1")
             a "What does it truly mean to be human? It's such a profound question."
+            hide museum_reflect_humanity
+            show black
+            window hide
+
             show museum_reflect_humanity_2
             with dissolve
             a "I want to understand the deeper aspects of our nature."
+            hide museum_reflect_humanity_2
+            show black
+            window hide
+
             show museum_reflect_humanity_3
             with dissolve
             n "Amelia felt a deep sense of connection with the human journey through time."
+            hide museum_reflect_humanity_3
+            show black
+            window hide
 
     show museum_exit
     with dissolve
-
     a "That was enlightening. Time to head to the river for some fresh air."
-
+    hide museum_exit
+    show black
+    window hide
     jump evening_by_the_thames
 
 label evening_by_the_thames:
     scene thames_evening
     with dissolve
-
     a "I love this spot. The river always makes me feel so peaceful."
     a "There's something about watching the water flow by. It's like it puts everything into perspective."
     a "All the changes happening in my life... they're just part of the current, you know?"
@@ -618,6 +870,9 @@ label evening_by_the_thames:
     a "And moments like these, to remind me of the beauty in the world."
     a "I should write some of this down. Capture this feeling."
     a "Maybe I'll come back here whenever I need to clear my head."
+    hide thames_evening
+    show black
+    window hide
 
     show thames_sunset
     with dissolve
@@ -625,42 +880,83 @@ label evening_by_the_thames:
     menu:
         "Watch the sunset":
             $ SD += 1
+            hide thames_sunset
+            show black
+            window hide
+
             show thames_sunset_closeup
             with dissolve
             n "Amelia watched the colors of the sky change, feeling inspired and hopeful about the future."
             $renpy.notify("SD + 1")
             a "This is so beautiful. It's like the world is full of endless possibilities."
+            hide thames_sunset_closeup
+            show black
+            window hide
+
             show thames_sunset_end
             with dissolve
             a "I need to hold onto this feeling of peace and carry it with me."
+            hide thames_sunset_end
+            show black
+            window hide
 
         "Write in her journal":
             $ MH += 1
+            hide thames_sunset
+            show black
+            window hide
+
             show thames_journal
             with dissolve
             n "Amelia took out her journal and wrote down her thoughts and feelings, helping her process her emotions."
             $renpy.notify("MH + 1")
             a "Writing always helps me clear my mind."
+            hide thames_journal
+            show black
+            window hide
+
             show thames_journal_closeup
             with dissolve
             a "I feel more at ease now, putting my thoughts into words."
+            hide thames_journal_closeup
+            show black
+            window hide
+
             show thames_journal_end
             with dissolve
             a "I'll look back on these notes whenever I need encouragement."
+            hide thames_journal_end
+            show black
+            window hide
 
         "People-watch and observe behaviors":
             $ AA += 1
+            hide thames_sunset
+            show black
+            window hide
+
             show thames_people_watching
             with dissolve
             n "Amelia observed the people around her, practicing her skills of observation and thinking about the different aspects of human behavior."
             $renpy.notify("AA + 1")
             a "Everyone has their own story. I can't wait to learn more about what makes us all tick."
+            hide thames_people_watching
+            show black
+            window hide
+
             show thames_people_watching_closeup
             with dissolve
             a "These observations will be useful in my studies."
+            hide thames_people_watching_closeup
+            show black
+            window hide
+
             show thames_people_watching_end
             with dissolve
             a "Understanding behavior is key to understanding the mind."
+            hide thames_people_watching_end
+            show black
+            window hide
 
 
     show thames_exit
@@ -668,15 +964,19 @@ label evening_by_the_thames:
     a "Okay, the sun is starting to set. Time for one more stop."
     n "As the sun set over the river, Amelia felt a sense of peace."
     a "That was refreshing. Now, to the bookstore for some last-minute shopping."
-
+    hide thames_exit
+    show black
+    window hide
     jump browsing_the_bookstore
 
 label browsing_the_bookstore:
     scene bookstore
     with dissolve
-
     n "Amelia wandered through the aisles of the quaint bookstore, feeling at home among the shelves of books."
     a "I could live in bookstores. The smell of books, the endless possibilities on every shelf..."
+    hide bookstore
+    show black
+    window hide
 
     show bookstore_aisles
     with dissolve
@@ -684,23 +984,42 @@ label browsing_the_bookstore:
     menu:
         "Explore the psychology section":
             $ AA += 1
+            hide bookstore_aisles
+            show black
+            window hide
+
             show bookstore_psychology
             with dissolve
             n "Amelia browsed through the latest psychology books, feeling inspired by the wealth of knowledge."
             $renpy.notify("AA + 1")
             a "Ooh, the psychology section! Let's see what they've got."
+            hide bookstore_psychology
+            show black
+            window hide
+
             show bookstore_psychology_closeup
             with dissolve
             a "I'll get this one on cognitive psychology and this one on developmental stages."
             a "So many fascinating topics... cognitive psychology, developmental stages, behavioral analysis..."
             a "I'll definitely need to stock up before I leave. These will be great resources."
             a "There's so much to learn. I can't wait to dive into these books."
+            hide bookstore_psychology_closeup
+            show black
+            window hide
+
             show bookstore_psychology_end
             with dissolve
             a "These will be great resources for my studies."
+            hide bookstore_psychology_end
+            show black
+            window hide
 
         "Wander into the occult section":
             $ OK += 1
+            hide bookstore_aisles
+            show black
+            window hide
+
             show bookstore_occult
             with dissolve
             n "Amelia found herself intrigued by ancient texts and mystical books, sparking a curiosity for the unknown."
@@ -708,43 +1027,71 @@ label browsing_the_bookstore:
             a "Huh, the occult section. That's intriguing."
             a "I've always been curious about ancient wisdom and mystical traditions."
             a "Maybe I'll grab a few of these, just for some light reading."
+            hide bookstore_occult
+            show black
+            window hide
+
             show bookstore_occult_closeup
             with dissolve
             a "This one on alchemy and this one on ancient wisdom seem interesting, yet.. complex?"
+            hide bookstore_occult_closeup
+            show black
+            window hide
+
             show bookstore_occult_end
             with dissolve
             a "I'll add these to my collection and explore them when I have time."
+            hide bookstore_occult_end
+            show black
+            window hide
 
         "Buy a meditation guide":
             $ SD += 1
+            hide bookstore_aisles
+            show black
+            window hide
+
             show bookstore_meditation
             with dissolve
             n "Amelia purchased a book on meditation, eager to explore mindfulness practices."
             $renpy.notify("SD + 1")
             a "This should help me stay calm and focused during my studies."
+            hide bookstore_meditation
+            show black
+            window hide
+
             show bookstore_meditation_closeup
             with dissolve
             a "Oh, and a meditation guide! That could come in handy with the stress of university."
             a "I'll start with this beginner's guide and work my way up."
+            hide bookstore_meditation_closeup
+            show black
+            window hide
+
             show bookstore_meditation_end
             with dissolve
-
             a "I'll need all the tools I can get to stay balanced."
             a "Okay, I think this is plenty for now. My suitcase might burst at the seams!"
             a "But you can never have too many books, right?"
+            hide bookstore_meditation_end
+            show black
+            window hide
 
     show bookstore_exit
     with dissolve
-
     a "I think I have everything I need now. Time to head home and get some rest."
-
+    hide bookstore_exit
+    show black
+    window hide
     jump ordinary_world_end
 
 label ordinary_world_end:
     scene amelia_bedroom_night
     with dissolve
-
     n "As Amelia lay in bed, she felt a mix of excitement and nervousness. Tomorrow, she would embark on a new journey, leaving her old life behind."
+    hide amelia_bedroom_night
+    show black
+    window hide
 
     show amelia_bedroom_night_closeup
     with dissolve
@@ -763,13 +1110,18 @@ label ordinary_world_end:
     a "That's what will guide me through whatever comes next."
     a "So, as much as part of me wants to cling to the familiarity of home... I know it's time."
     a "Okay, Amelia. Time to sleep. Tomorrow... tomorrow is the first day of the rest of your life."
+    hide amelia_bedroom_night_closeup
+    show black
+    window hide
 
     show amelia_bedroom_night_window
     with dissolve
-
     a "Time to let go, to trust myself, to embrace the journey ahead."
     a "Goodnight, London. Thank you for all you've taught me."
     a "And good morning, Plymouth. I can't wait to see what lessons you have in store."
+    hide amelia_bedroom_night_window
+    show black
+    window hide
 
     stop music fadeout 1.0
     #$ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")

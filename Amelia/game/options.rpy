@@ -19,8 +19,8 @@ define config.name = _("TheCK")
 # values are (800, 600), (1024, 768), (1280, 720), (1280, 800), and
 # (1920, 1080).
 
-define config.screen_width = 2000
-define config.screen_height = 1000
+define config.screen_width = 1920
+define config.screen_height = 1080
 
 
 ## Determines if the title given above is shown on the main menu screen. Set

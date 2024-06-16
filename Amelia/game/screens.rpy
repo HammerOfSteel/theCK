@@ -131,12 +131,34 @@ style namebox_label is say_label
 
 
 style window:
-    xalign 0.5
+    xalign 0.0
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
+    background Image("gui/textbox.png", xalign=0.0, yalign=1.0)
+
+style window_n:
+    xalign 0.5
+    xfill True
+    yalign 0.0
+    ysize gui.textbox_height
+
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+
+style window_2:
+    xalign 1.0
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+
+    background Image("gui/textbox.png", xalign=1.0, yalign=1.0)
+
+style window_c:
+    xalign 0.5
+    xfill True
+    yalign 0.5
+    ysize gui.textbox_height
 
 style namebox:
     xpos gui.name_xpos
@@ -145,7 +167,7 @@ style namebox:
     ypos gui.name_ypos
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    #background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
 style say_label:
@@ -160,7 +182,7 @@ style say_dialogue:
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
 
-    adjust_spacing False
+    adjust_spacing True
 
 ## Input screen ################################################################
 ##
@@ -195,6 +217,8 @@ style input_prompt:
 style input:
     xalign gui.dialogue_text_xalign
     xmaximum gui.dialogue_width
+
+    
 
 
 ## Choice screen ###############################################################
@@ -1612,3 +1636,113 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+
+
+# end credit scene.rpy
+###################################### ending credit screen
+
+transform credits_scroll(speed):
+    ypos 1000
+    linear speed ypos -26000
+
+screen credits():
+
+    ## Ensure that the credits screens can't be stopped
+    key "K_ESCAPE" action NullAction()
+    key "K_MENU" action NullAction()
+    key "mouseup_3" action NullAction()
+
+    style_prefix "credits"
+
+    timer 12.5 action Return()
+    ## Adjust this number to control when the Credits screen is hidden and the game
+    ## returns to its normal flow.
+
+    frame at credits_scroll(165.0): #bigger is slower
+        ## Adjust this number to control the speed at which the credits scroll.
+        background None
+        xalign 0.5
+
+        vbox:
+            label "Credits"
+            null height 75
+            label "Producer"
+            null height 75
+            text "Gizmobot"
+            null height 150
+            label "Art"
+            null height 75
+            text "Luna Ironfoot"
+            null height 150
+            label "Programming"
+            null height 75
+            text "Luna Ironfoot"
+            null height 150
+            label "Special Thanks"
+            null height 10
+            label "To my" xalign 0.5
+            null height 10
+            label "Writers and others"
+            null height 15
+            text "Zara Greenleaf"
+            null height 10
+            text "1"
+            null height 10
+            text "2"
+            null height 10
+            text "3"
+            null height 10
+            text "4"
+            null height 10
+            text "5"
+            null height 10
+            text "6"
+            null height 10
+            text "7"
+            null height 10
+            text "8"
+            null height 10
+            text "9"
+            null height 10
+            text "10"
+            null height 10
+            text "11"
+            null height 10
+            text "12"
+            null height 10
+            text "13"
+            null height 10
+            text "14"
+            null height 10
+            text "15"
+            null height 10
+            text "16"
+            null height 10
+            null height 450
+            label "Thanks for Reading!" xalign 0.5
+
+style credits_hbox:
+    spacing 40
+    ysize 30
+
+style credits_vbox:
+    xalign 0.5
+    text_align 0.5
+
+style credits_label:
+    xalign 0.5
+
+style credits_label_text:
+    xalign 0.5
+    justify True
+    size 125
+    text_align 0.5
+    color "#ff0000"
+
+style credits_text:
+    xalign 0.5
+    size 60
+    justify True
+    text_align 0.5
+    color "#ffffff"
