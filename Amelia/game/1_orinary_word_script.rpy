@@ -64,6 +64,7 @@ define music.birds_of_a_feather = "birds_of_a_feather.mp3"
 # The game starts here.
 
 label start:
+    stop music
     scene black
     $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
     show thames_sunset_end

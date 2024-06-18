@@ -1256,17 +1256,17 @@ label ok_ending_credits:
     window hide
     show ok_credits_4
     with dissolve
-    credit_text "Music - Fish in a bird card - Birds of a feather{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Birds of a feather{p=15}{nw}"
 
     window hide
     show ok_credits_5
     with dissolve
-    credit_text "Music - Fish in a bird card - Sand{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Sand{p=15}{nw}"
 
     window hide
     show ok_credits_6
     with dissolve
-    credit_text "Music - Fish in a bird card - Weight of gold{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Weight of gold{p=15}{nw}"
 
     window hide
     show ok_credits_7
@@ -1291,7 +1291,7 @@ label ok_ending_credits:
     window hide
     show ok_credits_11
     with dissolve
-    credit_text "Music - Fish in a bird card - Paperwork{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Paperwork{p=15}{nw}"
 
     window hide
     show ok_credits_12
