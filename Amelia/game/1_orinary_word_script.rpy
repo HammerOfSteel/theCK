@@ -64,6 +64,7 @@ define music.birds_of_a_feather = "birds_of_a_feather.mp3"
 # The game starts here.
 
 label start:
+    stop music
     scene black
     $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
     show thames_sunset_end
@@ -97,6 +98,10 @@ label chapter_selection_1_6:
         "Go to chapter3":
             hide thames_sunset_end
             jump chapter_3_part_1
+
+        "Go to chapter12":
+            hide thames_sunset_end
+            jump chapter_12_part_1
 
         #"Go to chapter4":
         #    hide thames_sunset_end
