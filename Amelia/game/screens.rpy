@@ -144,7 +144,7 @@ style window_n:
     yalign 0.0
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("gui/textbox_black.png", xalign=0.5, yalign=1.0)
 
 style window_2:
     xalign 1.0
@@ -152,7 +152,7 @@ style window_2:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=1.0, yalign=1.0)
+    background Image("gui/textbox_green.png", xalign=1.0, yalign=1.0)
 
 style window_c:
     xalign 0.5

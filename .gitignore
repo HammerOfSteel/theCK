@@ -91,19 +91,27 @@ Amelia/game/saves/auto-9-LT1.save
 Amelia/game/saves/auto-10-LT1.save
 Amelia/game/saves/navigation.json
 Amelia/game/saves/persistent
+<<<<<<< HEAD
+=======
+Amelia/log.txt
+>>>>>>> 20a78fd2e32ad41d00c31a66c3b97d0bc1c5cdeb
 Amelia/game/audio/birds_of_a_feather.mp3
 Amelia/game/audio/drinking_song_for_the_socially_anxious.mp3
 Amelia/game/audio/i_have_made_mistakes.mp3
 Amelia/game/audio/inkpot_gods.mp3
 Amelia/game/audio/sand.mp3
+<<<<<<< HEAD
 Amelia/game/gui/Amelia_Intro_BG_NO_SOUND.webm
 Amelia/errors.txt
 Amelia/log.txt
 Amelia/traceback.txt
+=======
+>>>>>>> 20a78fd2e32ad41d00c31a66c3b97d0bc1c5cdeb
 Amelia/game/cache/bytecode-39.rpyb
 Amelia/game/cache/py3analysis.rpyb
 Amelia/game/cache/screens.rpyb
 Amelia/game/cache/shaders.txt
+<<<<<<< HEAD
 Amelia/game/saves/1-1-LT1.save
 Amelia/game/saves/auto-1-LT1.save
 Amelia/game/saves/auto-2-LT1.save
@@ -116,4 +124,7 @@ Amelia/game/saves/auto-8-LT1.save
 Amelia/game/saves/auto-9-LT1.save
 Amelia/game/saves/auto-10-LT1.save
 Amelia/game/saves/navigation.json
+=======
+Amelia/game/gui/Amelia_Intro_BG_NO_SOUND.webm
+>>>>>>> 20a78fd2e32ad41d00c31a66c3b97d0bc1c5cdeb
 Amelia/game/saves/persistent
