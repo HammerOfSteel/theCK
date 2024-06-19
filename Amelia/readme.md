@@ -85,7 +85,7 @@ Following the Hero’s Journey, the story would have:
 
 - Refusal - Amelia's initial reluctance due to the fear of the unknown.
 
-- Meeting with the Mentor - Introduction to Prof. Hawthorne.
+- Meeting with the Mentor - Introduction to one of three mentors based on points combination, introduction of this mentor and her background and building up their relationship. We also need to keep the story going with friends and exploring Cornwall a little. There is also a 4th mentor possible from having very high OC scores.
 
 - Crossing the Threshold - Amelia moves to Plymouth.
 

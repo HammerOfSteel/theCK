@@ -318,7 +318,7 @@ graph TD
 - Crossing the Threshold: Moving to Plymouth and starting university.
 - Tests, Allies, Enemies: Forming bonds, facing bullying, and supporting friends.
 - Approach: Delving deeper into studies and relationships.
-- Ordeal: Facing major academic and personal challenges.
+- Ordeal: Facing major academic and personal challenges, Sarahs suicide if player does not have very high scores in all categories.
 - Reward: Achieving personal growth and academic success.
 - The Road Back: Returning home for breaks and reflecting on growth.
 - Resurrection: Final year challenges and synthesizing growth.
