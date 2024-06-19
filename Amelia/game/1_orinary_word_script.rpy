@@ -39,7 +39,7 @@ define student_2 = Character("Student", window_style="window_2", what_xpos=1160,
 define lucas = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define lucas_text = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define credit_text = Character(window_style="window_c", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
-
+define hawthorne = Character("Hawthorne", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 
 default AA = 0
 default SI = 0
@@ -62,6 +62,7 @@ define music.drinking_song_for_the_socially_anxious = "drinking_song_for_the_soc
 define music.inkpot_gods = "inkpot_gods.mp3"
 define music.sand = "sand.mp3"
 define music.birds_of_a_feather = "birds_of_a_feather.mp3"
+define music.liar_and_a_thief = "liar_and_a_thief.mp3"
 
 # The game starts here.
 
@@ -175,11 +176,20 @@ label ending_selection:
         "Go to OK ending":
             hide thames_sunset_end
             jump chapter_12_enlightenment
+
+        "Go to Tragic ending":
+            hide thames_sunset_end
+            jump chapter_12_tragic_ending
+
         
         "Go to OK credits":
             hide thames_sunset_end
             jump ok_ending_credits
 
+        "Go to Tragic credits":
+            hide thames_sunset_end
+            jump te_ending_credits
+        
 
 label start_chapter_1:
     play music second_child_restless_child fadein 1.0 volume 0.5
@@ -995,12 +1005,12 @@ label browsing_the_bookstore:
             show black
             window hide
 
-            show bookstore_psychology
+            show bookstore_psychology_closeup
             with dissolve
             n "Amelia browsed through the latest psychology books, feeling inspired by the wealth of knowledge."
             $renpy.notify("AA + 1")
             a "Ooh, the psychology section! Let's see what they've got."
-            hide bookstore_psychology
+            hide bookstore_psychology_closeup
             show black
             window hide
 

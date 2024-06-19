@@ -1452,17 +1452,23 @@ label ok_ending_credits:
 label chapter_12_tragic_ending:
     show black
     window hide
-    show amelia_in_room_reflecting
+
+    stop music
+    play music sand fadein 1.0 volume 0.8 
+
+    show amelia_in_room_reflecting_2
     with dissolve
     n "Amelia sits in her room, surrounded by the familiar comforts of home, but the weight of the past year bears heavily on her shoulders."
     n "She looks at the photos on her desk, memories from her first year at Plymouth University, but one photo in particular catches her eye – a picture of her and Sarah, smiling together before everything changed."
     a "(Sarah... I wish things had turned out differently. The pain of losing her is still so fresh.)"
+    hide amelia_in_room_reflecting_2
 
     show black
     window hide
     show amelia_tearful
     with dissolve
     n "Tears well up in her eyes as she remembers the night Sarah passed away. The grief is overwhelming, and the sense of loss is immeasurable."
+    hide amelia_tearful
 
     show black
     window hide
@@ -1472,6 +1478,7 @@ label chapter_12_tragic_ending:
     a "Sarah, I'm so sorry. We tried everything... I miss you so much."
     n "The scene fades back to Amelia in her room, the weight of grief pressing down on her."
     a "(Her memory will always be with me. I'll carry her spirit forward in everything I do.)"
+    hide amelia_flashback_sarah
 
     show black
     window hide
@@ -1479,6 +1486,7 @@ label chapter_12_tragic_ending:
     with dissolve
     n "Amelia sits in silence, staring at the wall, feeling the emptiness left by Sarah's absence. Her parents, noticing her distress, enter the room quietly."
     dad "Amelia, sweetheart, are you okay?"
+    hide amelia_staring_at_wall
 
     show black
     window hide
@@ -1486,23 +1494,31 @@ label chapter_12_tragic_ending:
     with dissolve
     a "No, Dad. I'm not. I miss her so much. I don't know how to move on."
     mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you."
+    hide amelia_shaking_head
 
     show black
     window hide
-    show amelia_hugging_parents
+    show amelia_hugging_parents_2
     with dissolve
     n "Amelia breaks down, hugging her parents tightly. Their warmth and love provide some comfort, but the pain remains."
     a "Thank you... I just wish things were different."
+    hide amelia_hugging_parents_2
 
+    show black
+    window hide
     show amelia_sitting_in_garden
     with dissolve
     n "Later, Amelia goes to the garden, seeking solace in nature. She sits on a bench, lost in thought."
     a "(Everything feels so empty without her. I don't know how to fill this void.)"
+    hide amelia_sitting_in_garden
 
+    show black
+    window hide
     show amelia_receiving_text
     with dissolve
     n "Her phone buzzes with a text from Lucas."
     lucas "{i}Hey Amelia, just checking in. How are you holding up?{/i}"
+    hide amelia_receiving_text
 
     show black
     window hide
@@ -1510,6 +1526,7 @@ label chapter_12_tragic_ending:
     with dissolve
     n "Amelia types a response, her fingers trembling."
     a "{i}Hi Lucas. I'm struggling. Everything feels so heavy without Sarah.{/i}"
+    hide amelia_texting_back
 
     show black
     window hide
@@ -1518,13 +1535,15 @@ label chapter_12_tragic_ending:
     n "A moment later, Lucas's reply comes through."
     lucas "{i}I can't imagine how hard it is for you. Just remember, you're not alone. We're all here for you.{/i}"
     a "{i}Thank you, Lucas. I appreciate it.{/i}"
+    hide amelia_waiting_for_response
 
     show black
     window hide
-    show amelia_crying_in_garden
+    show amelia_crying_in_garden_2
     with dissolve
     n "Amelia puts her phone down and cries, the weight of her grief overwhelming her. She feels a hand on her shoulder and looks up to see Zara standing there."
     zara "Amelia, I’m so sorry. I know how much Sarah meant to you."
+    hide amelia_crying_in_garden_2
 
     show black
     window hide
@@ -1532,52 +1551,111 @@ label chapter_12_tragic_ending:
     with dissolve
     a "Thank you, Zara. I don't know how to get through this."
     zara "You don't have to do it alone. We're all here for you. Lean on us when you need to."
+    hide amelia_hugging_zara
 
     show black
     window hide
-    show amelia_nodding
+    show amelia_hugging_zara
     with dissolve
     a "I will. It's just so hard."
     n "They sit together in silence, the shared grief bringing a small measure of comfort."
+    hide amelia_hugging_zara
 
     show black
     window hide
-    show amelia_talking_to_professor_hawthorne
+    show amelia_talking_to_professor_hawthorne_2
     with dissolve
     n "The next day, Amelia meets with Professor Hawthorne, who has been a mentor and support throughout her journey."
     hawthorne "Amelia, I'm deeply sorry for your loss. Sarah was a wonderful person."
     amelia "Thank you, Professor. I feel lost without her."
     hawthorne "Grief is a difficult path to walk. It's important to allow yourself to feel, to grieve. But remember, Sarah's memory can be a source of strength as well."
+    hide amelia_talking_to_professor_hawthorne_2
 
     show black
     window hide
-    show amelia_nodding_sadly
+    show amelia_talking_to_professor_hawthorne_2
     with dissolve
     a "I’ll try. It's just... everything feels so empty."
     hawthorne "In time, you will find ways to honor her memory and find strength in her spirit. Lean on your friends, your family. They will help you through this."
+    hide amelia_talking_to_professor_hawthorne_2
 
     show black
     window hide
-    show amelia_at_memorial
+    show amelia_at_memorial_2
     with dissolve
     n "Later, Amelia visits a small memorial she has set up for Sarah. She lights a candle and places a photo of them together next to it."
     a "(Sarah, I hope you can hear me. I miss you every day. I'm trying to find my way without you.)"
     n "She sits there for a while, the flickering flame offering a small comfort."
+    hide amelia_at_memorial_2
 
     show black
     window hide
-    show amelia_journaling
+    show amelia_journaling_2
     with dissolve
     n "Back in her room, Amelia writes in her journal, capturing her thoughts and feelings."
     a "{i}Today was another difficult day. I visited Sarah's memorial and talked to my friends. Their support means so much, but the pain is still overwhelming. I keep telling myself that it will get easier, that time will heal, but right now it feels like an endless void.{/i}"
+    hide amelia_journaling_2
 
     show black
     window hide
-    show amelia_lying_in_bed
+    show amelia_lying_in_bed_tg
     with dissolve
     n "As she lies in bed, Amelia feels a deep sense of loss and uncertainty about the future."
     a "(I don’t know what comes next. But I know I have to keep going, for Sarah and for myself.)"
     n "She closes her eyes, the tears still fresh on her cheeks, and falls into a restless sleep, hoping that one day, the pain will lessen and she will find a way to move forward."
+    hide amelia_lying_in_bed_tg
 
-    # jump te_ending_credits
+    show black
+    window hide
+
+    jump te_ending_credits
+
+label te_ending_credits:
+    window hide
+    stop music
+    play music liar_and_a_thief fadein 5.0 volume 0.8 
+    show black
+    # call screen credits
+    
+    window hide
+    show tragic_credits_1
+    with dissolve
+    credit_text "By GizmoBot studios{p=15}{nw}"
+
+    window hide
+    show tragic_credits_2
+    with dissolve
+    credit_text "Story and Game design - Luna Ironfoot{p=15}{nw}"
+
+    window hide
+    show tragic_credits_3
+    with dissolve
+    credit_text "Art and history - Zara Greenleaf{p=15}{nw}"
+    credit_text "Sound design - Mira Silverbranch{p=15}{nw}"
+
+    window hide
+    show tragic_credits_4
+    with dissolve
+
+    credit_text "Music - Fish in a bird cage - Birds of a feather{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Sand{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Weight of gold{p=5}{nw}"
+    credit_text "Music - The Oh hellos - New river{p=5}{nw}"
+
+
+    window hide
+    show tragic_credits_6
+    with dissolve
+    credit_text "Music - The Oh hellos - I have made mistakes{p=5}{nw}"
+    credit_text "Music - Fish in a bird cage - Paperwork{p=5}{nw}"
+    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=5}{nw}"
+
+    window hide
+    show tragic_credits_7
+    with dissolve
+    credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
+    credit_text "Special thanks - Cornwalls rich history and nature {p=5}{nw}"
+    credit_text "Special thanks - Many more {p=5}{nw}"
+
     return
