@@ -14,8 +14,10 @@
 
 # Define characters
 define a = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
+define amelia = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
 define e = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define ella = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define lily = Character("Lily", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define j = Character("James", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define p = Character("Parents", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define n = Character("", window_style="window_n", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
@@ -98,6 +100,10 @@ label chapter_selection_1_6:
         "Go to chapter3":
             hide thames_sunset_end
             jump chapter_3_part_1
+
+        "Go to chapter12":
+            hide thames_sunset_end
+            jump chapter_12_part_1
 
         #"Go to chapter4":
         #    hide thames_sunset_end
