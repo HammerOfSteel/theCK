@@ -11,26 +11,30 @@ label chapter_12_part_1:
     show amelia_returning_home
     with dissolve
     n "Amelia steps off the train at London’s bustling station, a wave of nostalgia washing over her. She sees her parents and Ella waiting eagerly, their smiles wide and welcoming."
+    hide amelia_returning_home
 
     show black
     window hide
     show amelia_hugging_parents
     with dissolve
     n "Her parents envelop her in a warm embrace, and she feels the comfort of their familiar presence."
-    mr_james "Welcome back, Amelia! We've missed you so much."
-    mrs_james "Look at you, all grown up and wiser."
+    dad "Welcome back, Amelia! We've missed you so much."
+    mom "Look at you, all grown up and wiser."
+    hide amelia_hugging_parents
 
     show black
     window hide   
     show amelia_smiling_happy
     with dissolve
     a "It's good to be home, Mom, Dad. I missed you both too."
+    hide amelia_smiling_happy
 
     show black
     window hide   
     show ella_running_to_amelia
     with dissolve
     ella "Amelia! I've missed you so much!"
+    hide ella_running_to_amelia
 
     show black
     window hide   
@@ -39,6 +43,7 @@ label chapter_12_part_1:
     a "Ella! I’ve missed you too. There’s so much to tell you."
     ella "Come on, let's get your bags and head home. I want to hear everything!"
     n "They spend the car ride home catching up, Ella bombarding Amelia with questions about university life."
+    hide amelia_and_ella_hugging
 
     show black
     window hide   
@@ -48,33 +53,38 @@ label chapter_12_part_1:
     amelia "Absolutely, Ella. The campus is stunning, and the city has so much history and charm. I even visited some incredible places in Cornwall."
     ella "Oh, I'm so jealous! And how about the people? Did you make any good friends?"
     amelia "Yes, I did. There's Lucas, Zara, Raj, and Maya. We've all grown really close. And of course, my professors have been amazing."
+    hide car_ride_home
 
     show black
     window hide   
-    show amelia_in_living_room_with_family
+    show amelia_smiling_reflecting
     with dissolve
     n "Back home, the James family sits around the living room, the atmosphere filled with joy and curiosity."
-    mrs_james "Tell us everything, darling. How was your first year?"
+    mom "Tell us everything, darling. How was your first year?"
+    hide amelia_smiling_reflecting
 
     show black
     window hide   
     show amelia_smiling_reflecting
     with dissolve
     a "It was... transformative. I learned so much, not just academically, but about myself."
-    mr_james "We're so proud of you, Amelia. You've come a long way."
+    dad "We're so proud of you, Amelia. You've come a long way."
+    hide amelia_smiling_reflecting
 
     show black
     window hide   
     show amelia_nodding_smile
     with dissolve
     a "Thank you. The experiences, the people I met, everything has contributed to my growth. It wasn't always easy, but it was worth it."
-    mrs_james "We could see the change in you the moment you stepped off the train. You've grown into such a strong, confident young woman."
+    mom "We could see the change in you the moment you stepped off the train. You've grown into such a strong, confident young woman."
+    hide amelia_nodding_smile
 
     show black
     window hide   
     show amelia_blushing
     with dissolve
     a "Thanks, Mom. Your support meant everything to me. There were times I felt really overwhelmed, but knowing I had you all cheering for me kept me going."
+    hide amelia_blushing
 
     jump reunion_with_ella
 
@@ -85,6 +95,7 @@ label reunion_with_ella:
     with dissolve
     n "Later, at Ella’s house, the two friends sit in their favorite spot, reminiscing about old times and sharing new stories."
     ella "So, what’s the biggest change? You seem... different, in a good way."
+    hide amelia_in_room_with_ella
 
     show black
     window hide   
@@ -92,6 +103,7 @@ label reunion_with_ella:
     with dissolve
     a "I feel different. More confident, more aware of who I am and what I want to do. I guess facing so many challenges helped me discover my strengths."
     ella "I’m so proud of you, Amelia. You’re really becoming the person you were meant to be."
+    hide amelia_smiling
 
     show black
     window hide      
@@ -99,6 +111,7 @@ label reunion_with_ella:
     with dissolve
     a "Thanks, Ella. You've always believed in me, even when I didn't believe in myself. That means a lot."
     ella "Always. So, tell me more about your friends. They sound amazing."
+    hide amelia_thankful
 
     show black
     window hide   
@@ -106,12 +119,14 @@ label reunion_with_ella:
     with dissolve
     a "They are. Lucas is my roommate, and he's into Jungian psychology, which is fascinating. Zara has faced a lot of racism but she's incredibly strong and insightful. Maya is into Zen philosophy, and she's helped me explore spiritual dimensions. And Raj is studying family systems, which has given me a lot of perspective on relationships."
     ella "Wow, it sounds like you have a diverse group of friends. It must be so enriching to learn from each other."
+    hide amelia_reflecting
 
     show black
     window hide   
-    show amelia_nodding
+    show amelia_reflecting
     with dissolve
     a "It is. We've all supported each other through some tough times, especially with Sarah... She's had a really hard year, and we've all tried to be there for her."
+    hide amelia_nodding
 
     jump family_dinner
 
@@ -121,20 +136,23 @@ label family_dinner:
     show amelia_family_dinner
     with dissolve
     n "At the family dinner that night, Amelia's parents toast to her successful year."
-    mr_james "To Amelia, for tackling her first year with such grace and determination."
+    dad "To Amelia, for tackling her first year with such grace and determination."
+    hide amelia_family_dinner
 
     show black
     window hide   
     show amelia_smiling_teary
     with dissolve
     a "Thank you, Dad. I couldn’t have done it without all your support."
-    mrs_james "We’re so proud of you, Amelia. You’ve grown so much."
+    mom "We’re so proud of you, Amelia. You’ve grown so much."
+    hide amelia_smiling_teary
 
     show black
     window hide   
     show lily_looking_up_to_amelia
     with dissolve
     lily "Amelia, I want to hear more about your classes! What was your favorite part?"
+    hide lily_looking_up_to_amelia
 
     show black
     window hide   
@@ -144,28 +162,33 @@ label family_dinner:
     lily "That sounds so interesting! I want to learn about psychology too when I grow up."
     amelia "And you will, Lily. You're already so curious and smart. Just keep asking questions and exploring what you love."
     n "They share a meal filled with laughter and love, the warmth of home enveloping Amelia."
+    hide amelia_smiling_warmly
 
     jump mentor_check_in
 
 label mentor_check_in:
     if mentor == "Professor Hawthorne":
         show black
-        window hide   
+        window hide
+
         show amelia_checking_email
         with dissolve
         n "The next day, Amelia checks her email and finds a message from Professor Hawthorne."
+        hide amelia_checking_email
 
         show black
         window hide   
-        show hawthorne_email
+        show amelia_checking_email
         with dissolve
         hawthorne "{i}Dear Amelia, congratulations on completing your first year. Your growth and achievements have been remarkable. I have no doubt you'll continue to excel. Best, Prof. Hawthorne{/i}"
+        hide amelia_checking_email
 
         show black
         window hide   
         show amelia_smiling_at_email
         with dissolve
         a "(Thank you, Professor. Your guidance meant the world to me.)"
+        hide amelia_smiling_at_email
 
     elif mentor == "Dr. Simmons":
         show black
@@ -173,19 +196,21 @@ label mentor_check_in:
         show amelia_getting_call
         with dissolve
         n "Amelia receives a call from Dr. Simmons, her voice warm and encouraging."
+        hide amelia_getting_call
 
         show black
         window hide   
         show amelia_on_phone
         with dissolve
         simmons "Amelia, I just wanted to say how proud I am of you. Your journey has been incredible, and I know you’ll continue to make a difference."
+        hide amelia_on_phone
 
         show black
         window hide   
         show amelia_nodding_on_phone
         with dissolve
         a "Thank you, Dr. Simmons. Your support has been invaluable."
-
+        hide amelia_nodding_on_phone
 
     elif mentor == "Maya":
         show black
@@ -193,30 +218,31 @@ label mentor_check_in:
         show amelia_receiving_letter
         with dissolve
         n "Amelia finds a letter from Maya in her mailbox, filled with words of wisdom and encouragement."
+        hide amelia_receiving_letter
 
         show black
         window hide   
         show maya_letter
         with dissolve
         maya "{i}Dear Amelia, your journey this year has been a testament to your strength and spirit. Continue to seek wisdom and embrace the path of enlightenment. With love, Maya{/i}"
+        hide maya_letter
 
         show black
         window hide   
         show amelia_tearful_smile
         with dissolve
         a "(Maya, thank you. Your guidance has been my beacon.)"
+        hide amelia_tearful_smile
 
     else:
         menu:
             "Go back to main menu":
-                hide amelia_waking_dorm_morning_light_full
                 show black
                 window hide
 
                 return
             
             "Checkout the Occult hidden ending":
-                hide amelia_waking_dorm_morning_light_full
                 show black
                 window hide
 
@@ -326,14 +352,14 @@ label chapter_12_academic_success:
     show amelia_in_living_room_with_family
     with dissolve
     n "Later that evening, the family gathers in the living room for a cozy night in. Amelia's parents notice her deep in thought."
-    mrs_james "Amelia, dear, is everything alright?"
+    mom "Amelia, dear, is everything alright?"
 
     show black
     window hide  
     show amelia_smiling_warmly
     with dissolve
     a "Yes, Mom. Just a lot on my mind. This year has been... intense."
-    mr_james "We can see that. You've grown so much. We're incredibly proud of you."
+    dad "We can see that. You've grown so much. We're incredibly proud of you."
 
     show black
     window hide  
@@ -367,14 +393,14 @@ label chapter_12_academic_success:
     show amelia_talking_with_parents
     with dissolve
     n "After the game, Amelia sits with her parents, talking late into the night about her experiences, her dreams, and her plans for the future."
-    mr_james "What's next for you, Amelia? Do you have any plans for the summer?"
+    dad "What's next for you, Amelia? Do you have any plans for the summer?"
 
     show black
     window hide  
     show amelia_enthusiastic
     with dissolve
     a "I’m thinking of applying for a summer research position at the university. I want to dive deeper into my studies and maybe even contribute to some groundbreaking work."
-    mrs_james "That sounds wonderful. We're here to support you every step of the way."
+    mom "That sounds wonderful. We're here to support you every step of the way."
     n "They continue to talk, the night growing deeper and the bond between them stronger than ever."
 
     show black
@@ -401,8 +427,8 @@ label chapter_12_social_butterfly:
     show amelia_leaving_home
     with dissolve
     n "She grabs her purse and heads out the door, waving goodbye to her parents."
-    mrs_james "Have a great time, sweetheart! Say hello to everyone for us."
-    mr_james "Enjoy yourself, Amelia. You deserve it."
+    mom "Have a great time, sweetheart! Say hello to everyone for us."
+    dad "Enjoy yourself, Amelia. You deserve it."
 
     show black
     window hide  
@@ -622,15 +648,15 @@ label chapter_12_mental_health_advocate:
     show amelia_leaving_home
     with dissolve
     n "Amelia heads out, waving goodbye to her parents."
-    mrs_james "Good luck today, Amelia. We're so proud of you."
-    mr_james "You’re doing important work. We're here for you."
+    mom "Good luck today, Amelia. We're so proud of you."
+    dad "You’re doing important work. We're here for you."
 
     show black
     window hide  
     show amelia_smiling_wave
     with dissolve
     a "Thanks, Mom, Dad. I’ll see you later."
-´
+    
     show black
     window hide
     show mental_health_organization
@@ -714,14 +740,14 @@ label chapter_12_mental_health_advocate:
     show amelia_in_living_room_with_family
     with dissolve
     n "At dinner, Amelia shares her experiences with her family."
-    mr_james "How was your first day, Amelia?"
+    dad "How was your first day, Amelia?"
 
     show black
     window hide  
     show amelia_smiling_warmly
     with dissolve
     a "It was amazing. I talked to so many people, heard their stories, and provided support. It felt incredibly rewarding."
-    mrs_james "We're so proud of you. Your compassion and dedication are truly admirable."
+    mom "We're so proud of you. Your compassion and dedication are truly admirable."
 
     show black
     window hide  
@@ -786,8 +812,8 @@ label chapter_12_balanced_growth:
     show amelia_leaving_home
     with dissolve
     n "Amelia heads out, waving goodbye to her parents."
-    mrs_james "Enjoy your day, Amelia. We're so proud of you."
-    mr_james "You've become such an amazing young woman."
+    mom "Enjoy your day, Amelia. We're so proud of you."
+    dad "You've become such an amazing young woman."
 
     show black
     window hide  
@@ -832,7 +858,7 @@ label chapter_12_balanced_growth:
     show amelia_with_family
     with dissolve
     n "Later, Amelia spends time with her family in the park. They have a picnic, enjoying the sunny day and each other's company."
-    mrs_james "It's so nice to have you home, Amelia. We’ve missed these moments."
+    mom "It's so nice to have you home, Amelia. We’ve missed these moments."
 
     show black
     window hide
@@ -1452,14 +1478,14 @@ label chapter_12_tragic_ending:
     show amelia_staring_at_wall
     with dissolve
     n "Amelia sits in silence, staring at the wall, feeling the emptiness left by Sarah's absence. Her parents, noticing her distress, enter the room quietly."
-    mr_james "Amelia, sweetheart, are you okay?"
+    dad "Amelia, sweetheart, are you okay?"
 
     show black
     window hide
     show amelia_shaking_head
     with dissolve
     a "No, Dad. I'm not. I miss her so much. I don't know how to move on."
-    mrs_james "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you."
+    mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you."
 
     show black
     window hide
