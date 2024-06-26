@@ -95,7 +95,7 @@ define gui.title_text_size = 75
 # define gui.main_menu_background = "gui/gui_bg_1.png"
 #image mm_vid = Movie(channel="movie_dp", play = "gui/bg_video_1.webm")
 define config.main_menu_music = 'birds_of_a_feather.mp3'
-image mm_vid = Movie(channel="movie_dp", play = "gui/Amelia_Intro_BG_NO_SOUND.webm")
+image mm_vid = Movie(channel="movie_dp", play = "gui/Amelia_Intro_BG_NO_SOUND_V2.webm")
 define gui.main_menu_background = "mm_vid"
 define gui.game_menu_background = "gui/game_menu.png"
 
