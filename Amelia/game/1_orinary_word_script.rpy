@@ -68,8 +68,8 @@ define scientist = Character("Scientist", window_style="window_2", what_xpos=116
 define zara = Character("Zara", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define sarah = Character("Sarah", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define student_2 = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
-define lucas = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
-define lucas_text = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define lucas = Character("Lucas", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define lucas_text = Character("Lucas", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define credit_text = Character(window_style="window_c", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
 define hawthorne = Character("Hawthorne", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 
@@ -99,6 +99,8 @@ define music.inkpot_gods = "inkpot_gods.mp3"
 define music.sand = "sand.mp3"
 define music.birds_of_a_feather = "birds_of_a_feather.mp3"
 define music.liar_and_a_thief = "liar_and_a_thief.mp3"
+define music.come_with_me = "come_with_me.mp3"
+
 
 transform half_size_center: 
     zoom 0.5 #adjust as required

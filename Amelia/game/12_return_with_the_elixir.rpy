@@ -990,71 +990,71 @@ label chapter_12_enlightenment:
     window hide
 
     show black
-    show amelia_beginning_ritual
+    show amelia_beginning_ritual_3
     with dissolve
     a "(This is it. Everything I've learned has led me to this moment. It's time to see if I can create the stone.){p=4}{nw}"
     n "She begins the ritual, carefully following the intricate steps described in the ancient manuscripts.{p=4}{nw}"
-    hide amelia_beginning_ritual
+    hide amelia_beginning_ritual_3
     window hide
     
     show black
-    show room_anticipation_scent
+    show room_anticipation_scent_2
     with dissolve
     n "The air in the room grows heavy with anticipation and the scent of the alchemical ingredients.{p=4}{nw}"
     a "(Focus, Amelia. This is about intention, about transformation.){p=4}{nw}"
-    hide room_anticipation_scent
+    hide room_anticipation_scent_2
 
     show black
-    show amelia_working_diligently
+    show amelia_working_diligently_3
     with dissolve
     n "Hours pass as Amelia works diligently, her movements precise and her mind clear.{p=4}{nw}"
-    hide amelia_working_diligently
+    hide amelia_working_diligently_3
     window hide
 
     show black
-    show process_complete
+    show process_complete_5
     with dissolve
     n "Finally, the process is complete.{p=4}{nw}"
-    hide process_complete
+    hide process_complete_5
     window hide
 
     show black
-    show amelia_holding_stone
+    show amelia_holding_stone_2
     with dissolve
     n "Before her lies a small, glowing stone, pulsating with an otherworldly energy.{p=4}{nw}"
     n "She holds the philosopher's stone in her hands, feeling its power{p=4}{nw}"
-    hide amelia_holding_stone
+    hide amelia_holding_stone_2
     window hide
 
     show black
-    show amelia_no_immediate_change
+    show amelia_no_immediate_change_2
     with dissolve
     n "But not noticing any immediate change within herself.{p=4}{nw}"
-    hide amelia_no_immediate_change
+    hide amelia_no_immediate_change_2
     window hide
 
     show black
-    show amelia_culmination_of_journey
+    show amelia_culmination_of_journey_2
     with dissolve
     a "This is it. The culmination of my journey.{p=4}{nw}"
     a "But... I don't feel any different.{p=4}{nw}"
-    hide amelia_culmination_of_journey
+    hide amelia_culmination_of_journey_2
     window hide
 
     show black
-    show amelia_ingesting_stone
+    show amelia_ingesting_stone_3
     with dissolve
     n "With a deep breath, Amelia ingests the stone.{p=4}{nw}"
-    hide amelia_ingesting_stone
+    hide amelia_ingesting_stone_3
     window hide
 
     show black
-    show amelia_doesnt_feel_different
+    show amelia_doesnt_feel_different_2
     with dissolve
     n "She waits for a moment, expecting a profound transformation, but nothing happens immediately.{p=4}{nw}"
     n "Feeling slightly disappointed but hopeful, she decides to go for a walk to clear her mind.{p=4}{nw}"
     a "(Maybe the effects take time. A walk will help me think.){p=4}{nw}"
-    hide amelia_doesnt_feel_different
+    hide amelia_doesnt_feel_different_2
     window hide
     
     show black
@@ -1065,24 +1065,24 @@ label chapter_12_enlightenment:
     window hide
 
     show black
-    show amelia_wandering_streets
+    show amelia_wandering_streets_2
     with dissolve
     n "She wanders through the streets, lost in thought about her journey and the stone's potential.{p=4}{nw}"
     a "I've come so far. Even if I don't feel different now{p=4}{nw}"
     n "The journey itself has been transformative.{p=4}{nw}"
-    hide amelia_wandering_streets
+    hide amelia_wandering_streets_2
     window hide
 
     stop music fadeout 5.0
     play music i_have_made_mistakes fadein 4.0 volume 0.3
 
     show black
-    show mysterious_garden
+    show mysterious_garden_2
     with dissolve
     n "Her wandering leads her to a garden she has never seen before.{p=4}{nw}"
     n "It's lush and vibrant, filled with flowers of every color.{p=4}{nw}"
     n "In the center, there is a fountain, and by the fountain stands a woman. She radiates a serene and powerful presence.{p=4}{nw}"
-    hide mysterious_garden
+    hide mysterious_garden_2
     window hide
 
     show black
@@ -1149,13 +1149,22 @@ label chapter_12_enlightenment:
     hide friends_puzzle_pieces
     window hide
 
+    stop music fadeout 5.0
+    play music come_with_me fadein 3.0 volume 0.4
+
     show black
     show amelia_sarah_reflection
     with dissolve
     woman "But, my dear, it is Sarah who left the most indelible mark.{p=4}{nw}"
+    show amelia_sarah_reflection_2
+    with dissolve
     woman "Her struggle with depression was a mirror, reflecting the unspoken fears and hidden pains within you.{p=4}{nw}"
+    show amelia_sarah_reflection_3
+    with dissolve
     woman "Her fate was a profound lesson, reminding you of the fragility of life and the importance of mental health.{p=4}{nw}"
     hide amelia_sarah_reflection
+    hide amelia_sarah_reflection_2
+    hide amelia_sarah_reflection_3
     window hide
 
     hide amelia_sarah_reflection
@@ -1214,10 +1223,10 @@ label chapter_12_enlightenment:
     window hide
 
     show black
-    show amelia_forged_adversity
+    show amelia_forged_adversity_2
     with dissolve
     woman "Your heart has been forged in the fires of adversity, and through it, you have discovered your strength.{p=4}{nw}"
-    hide amelia_forged_adversity
+    hide amelia_forged_adversity_2
     window hide
 
     # show black
@@ -1458,151 +1467,148 @@ label chapter_12_tragic_ending:
 
     show amelia_in_room_reflecting_2
     with dissolve
-    n "Amelia sits in her room, surrounded by the familiar comforts of home, but the weight of the past year bears heavily on her shoulders."
-    n "She looks at the photos on her desk, memories from her first year at Plymouth University, but one photo in particular catches her eye – a picture of her and Sarah, smiling together before everything changed."
-    a "(Sarah... I wish things had turned out differently. The pain of losing her is still so fresh.)"
+    n "Amelia sits in her room, surrounded by the familiar comforts of home, but the weight of the past year bears heavily on her shoulders.{p=3}{nw}"
+    n "She looks at the photos on her desk, memories from her first year at Plymouth University, but one photo in particular catches her eye – a picture of her and Sarah, smiling together before everything changed.{p=3}{nw}"
+    a "(Sarah... I wish things had turned out differently. The pain of losing her is still so fresh.){p=3}{nw}"
     hide amelia_in_room_reflecting_2
 
     show black
     window hide
     show amelia_tearful
     with dissolve
-    n "Tears well up in her eyes as she remembers the night Sarah passed away. The grief is overwhelming, and the sense of loss is immeasurable."
+    n "Tears well up in her eyes as she remembers the night Sarah passed away. The grief is overwhelming, and the sense of loss is immeasurable.{p=3}{nw}"
     hide amelia_tearful
 
     show black
     window hide
     show amelia_flashback_sarah
     with dissolve
-    n "Flashback to the night Sarah passed away. Amelia at Sarah's bedside, tears streaming down her face. The room is filled with a profound silence."
-    a "Sarah, I'm so sorry. We tried everything... I miss you so much."
-    n "The scene fades back to Amelia in her room, the weight of grief pressing down on her."
-    a "(Her memory will always be with me. I'll carry her spirit forward in everything I do.)"
+    n "Flashback to the night Sarah passed away. Amelia at Sarah's bedside, tears streaming down her face. The room is filled with a profound silence.{p=3}{nw}"
+    a "Sarah, I'm so sorry. We tried everything... I miss you so much.{p=3}{nw}"
+    n "The scene fades back to Amelia in her room, the weight of grief pressing down on her.{p=3}{nw}"
+    a "(Her memory will always be with me. I'll carry her spirit forward in everything I do.){p=3}{nw}"
     hide amelia_flashback_sarah
 
     show black
     window hide
     show amelia_staring_at_wall
     with dissolve
-    n "Amelia sits in silence, staring at the wall, feeling the emptiness left by Sarah's absence. Her parents, noticing her distress, enter the room quietly."
-    dad "Amelia, sweetheart, are you okay?"
+    n "Amelia sits in silence, staring at the wall, feeling the emptiness left by Sarah's absence. Her parents, noticing her distress, enter the room quietly.{p=3}{nw}"
+    dad "Amelia, sweetheart, are you okay?{p=3}{nw}"
     hide amelia_staring_at_wall
 
     show black
     window hide
     show amelia_shaking_head
     with dissolve
-    a "No, Dad. I'm not. I miss her so much. I don't know how to move on."
-    mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you."
+    a "No, Dad. I'm not. I miss her so much. I don't know how to move on.{p=3}{nw}"
+    mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you.{p=3}{nw}"
     hide amelia_shaking_head
 
     show black
     window hide
     show amelia_hugging_parents_2
     with dissolve
-    n "Amelia breaks down, hugging her parents tightly. Their warmth and love provide some comfort, but the pain remains."
-    a "Thank you... I just wish things were different."
+    n "Amelia breaks down, hugging her parents tightly. Their warmth and love provide some comfort, but the pain remains.{p=3}{nw}"
+    a "Thank you... I just wish things were different.{p=3}{nw}"
     hide amelia_hugging_parents_2
 
     show black
     window hide
     show amelia_sitting_in_garden
     with dissolve
-    n "Later, Amelia goes to the garden, seeking solace in nature. She sits on a bench, lost in thought."
-    a "(Everything feels so empty without her. I don't know how to fill this void.)"
+    n "Later, Amelia goes to the garden, seeking solace in nature. She sits on a bench, lost in thought.{p=3}{nw}"
+    a "(Everything feels so empty without her. I don't know how to fill this void.){p=3}{nw}"
     hide amelia_sitting_in_garden
 
     show black
     window hide
     show amelia_receiving_text
     with dissolve
-    n "Her phone buzzes with a text from Lucas."
-    lucas "{i}Hey Amelia, just checking in. How are you holding up?{/i}"
+    n "Her phone buzzes with a text from Lucas.{p=3}{nw}"
+    lucas "{i}Hey Amelia, just checking in. How are you holding up?{/i}{p=3}{nw}"
     hide amelia_receiving_text
 
     show black
     window hide
     show amelia_texting_back
     with dissolve
-    n "Amelia types a response, her fingers trembling."
-    a "{i}Hi Lucas. I'm struggling. Everything feels so heavy without Sarah.{/i}"
+    n "Amelia types a response, her fingers trembling.{p=3}{nw}"
+    a "{i}Hi Lucas. I'm struggling. Everything feels so heavy without Sarah.{/i}{p=3}{nw}"
+    n "A moment later, Lucas's reply comes through.{p=3}{nw}"
+    lucas "{i}I can't imagine how hard it is for you. Just remember, you're not alone. We're all here for you.{/i}{p=3}{nw}"
+    a "{i}Thank you, Lucas. I appreciate it.{/i}{p=3}{nw}"
     hide amelia_texting_back
-
-    show black
-    window hide
-    show amelia_waiting_for_response
-    with dissolve
-    n "A moment later, Lucas's reply comes through."
-    lucas "{i}I can't imagine how hard it is for you. Just remember, you're not alone. We're all here for you.{/i}"
-    a "{i}Thank you, Lucas. I appreciate it.{/i}"
-    hide amelia_waiting_for_response
 
     show black
     window hide
     show amelia_crying_in_garden_2
     with dissolve
-    n "Amelia puts her phone down and cries, the weight of her grief overwhelming her. She feels a hand on her shoulder and looks up to see Zara standing there."
-    zara "Amelia, I’m so sorry. I know how much Sarah meant to you."
+    n "Amelia puts her phone down and cries, the weight of her grief overwhelming her. She feels a hand on her shoulder and looks up to see Zara standing there.{p=3}{nw}"
+    zara "Amelia, I’m so sorry. I know how much Sarah meant to you.{p=3}{nw}"
     hide amelia_crying_in_garden_2
 
     show black
     window hide
     show amelia_hugging_zara
     with dissolve
-    a "Thank you, Zara. I don't know how to get through this."
-    zara "You don't have to do it alone. We're all here for you. Lean on us when you need to."
+    a "Thank you, Zara. I don't know how to get through this.{p=3}{nw}"
+    zara "You don't have to do it alone. We're all here for you. Lean on us when you need to.{p=3}{nw}"
     hide amelia_hugging_zara
 
     show black
     window hide
     show amelia_hugging_zara
     with dissolve
-    a "I will. It's just so hard."
-    n "They sit together in silence, the shared grief bringing a small measure of comfort."
+    a "I will. It's just so hard.{p=3}{nw}"
+    n "They sit together in silence, the shared grief bringing a small measure of comfort.{p=3}{nw}"
     hide amelia_hugging_zara
+
+    stop music
+    play music come_with_me fadein 1.0 volume 0.8 
 
     show black
     window hide
     show amelia_talking_to_professor_hawthorne_2
     with dissolve
-    n "The next day, Amelia meets with Professor Hawthorne, who has been a mentor and support throughout her journey."
-    hawthorne "Amelia, I'm deeply sorry for your loss. Sarah was a wonderful person."
-    amelia "Thank you, Professor. I feel lost without her."
-    hawthorne "Grief is a difficult path to walk. It's important to allow yourself to feel, to grieve. But remember, Sarah's memory can be a source of strength as well."
+    n "The next day, Amelia meets with Professor Hawthorne, who has been a mentor and support throughout her journey.{p=3}{nw}"
+    hawthorne "Amelia, I'm deeply sorry for your loss. Sarah was a wonderful person.{p=3}{nw}"
+    amelia "Thank you, Professor. I feel lost without her.{p=3}{nw}"
+    hawthorne "Grief is a difficult path to walk. It's important to allow yourself to feel, to grieve. But remember, Sarah's memory can be a source of strength as well.{p=3}{nw}"
     hide amelia_talking_to_professor_hawthorne_2
 
     show black
     window hide
     show amelia_talking_to_professor_hawthorne_2
     with dissolve
-    a "I’ll try. It's just... everything feels so empty."
-    hawthorne "In time, you will find ways to honor her memory and find strength in her spirit. Lean on your friends, your family. They will help you through this."
+    a "I’ll try. It's just... everything feels so empty.{p=3}{nw}"
+    hawthorne "In time, you will find ways to honor her memory and find strength in her spirit. Lean on your friends, your family. They will help you through this.{p=3}{nw}"
     hide amelia_talking_to_professor_hawthorne_2
 
     show black
     window hide
     show amelia_at_memorial_2
     with dissolve
-    n "Later, Amelia visits a small memorial she has set up for Sarah. She lights a candle and places a photo of them together next to it."
-    a "(Sarah, I hope you can hear me. I miss you every day. I'm trying to find my way without you.)"
-    n "She sits there for a while, the flickering flame offering a small comfort."
+    n "Later, Amelia visits a small memorial she has set up for Sarah. She lights a candle and places a photo of them together next to it.{p=3}{nw}"
+    a "(Sarah, I hope you can hear me. I miss you every day. I'm trying to find my way without you.){p=3}{nw}"
+    n "She sits there for a while, the flickering flame offering a small comfort.{p=3}{nw}"
     hide amelia_at_memorial_2
 
     show black
     window hide
     show amelia_journaling_2
     with dissolve
-    n "Back in her room, Amelia writes in her journal, capturing her thoughts and feelings."
-    a "{i}Today was another difficult day. I visited Sarah's memorial and talked to my friends. Their support means so much, but the pain is still overwhelming. I keep telling myself that it will get easier, that time will heal, but right now it feels like an endless void.{/i}"
+    n "Back in her room, Amelia writes in her journal, capturing her thoughts and feelings.{p=3}{nw}"
+    a "{i}Today was another difficult day. I visited Sarah's memorial and talked to my friends. Their support means so much, but the pain is still overwhelming. I keep telling myself that it will get easier, that time will heal, but right now it feels like an endless void.{/i}{p=3}{nw}"
     hide amelia_journaling_2
 
     show black
     window hide
     show amelia_lying_in_bed_tg
     with dissolve
-    n "As she lies in bed, Amelia feels a deep sense of loss and uncertainty about the future."
-    a "(I don’t know what comes next. But I know I have to keep going, for Sarah and for myself.)"
-    n "She closes her eyes, the tears still fresh on her cheeks, and falls into a restless sleep, hoping that one day, the pain will lessen and she will find a way to move forward."
+    n "As she lies in bed, Amelia feels a deep sense of loss and uncertainty about the future.{p=3}{nw}"
+    a "(I don’t know what comes next. But I know I have to keep going, for Sarah and for myself.){p=3}{nw}"
+    n "She closes her eyes, the tears still fresh on her cheeks, and falls into a restless sleep, hoping that one day, the pain will lessen and she will find a way to move forward.{p=3}{nw}"
     hide amelia_lying_in_bed_tg
 
     show black
