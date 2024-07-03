@@ -164,6 +164,18 @@ label family_dinner:
     n "They share a meal filled with laughter and love, the warmth of home enveloping Amelia."
     hide amelia_smiling_warmly
 
+    if mentor == "None":
+        n "Please select your mentor to continue"
+        menu:
+            "Professor Hawthorne":
+                $ mentor = "Professor Hawthorne"
+            
+            "Dr. Simmons":
+                $ mentor = "Dr. Simmons"
+
+            "Maya":
+                $ mentor = "Maya"
+
     jump mentor_check_in
 
 label mentor_check_in:
@@ -234,19 +246,30 @@ label mentor_check_in:
         a "(Maya, thank you. Your guidance has been my beacon.)"
         hide amelia_tearful_smile
 
-    else:
-        menu:
-            "Go back to main menu":
-                show black
-                window hide
+    menu:
+        "Go back to main menu":
+            show black
+            window hide
+            return
+        
+        "Checkout the Occult hidden ending":
+            show black
+            window hide
 
-                return
-            
-            "Checkout the Occult hidden ending":
-                show black
-                window hide
+            jump chapter_12_enlightenment
 
-                jump chapter_12_enlightenment
+        "Checkout the Social butterfly ending":
+            show black
+            window hide
+
+            jump chapter_12_social_butterfly
+
+        "Checkout the Tragic ending":
+            show black
+            window hide
+
+            jump chapter_12_tragic_ending
+
 
     # if AA >= 18 and SD >= 15:
     #     jump chapter_12_academic_success
@@ -416,216 +439,306 @@ label chapter_12_academic_success:
 
 label chapter_12_social_butterfly:
     show black
-    window hide  
+    window hide
+
+    stop music
+    play music super_trouper fadein 1.0 volume 0.8
+
     show amelia_in_room_preparing
     with dissolve
-    n "Amelia stands in front of her mirror, adjusting her dress and smiling at her reflection. Tonight is the big reunion with her friends from Plymouth, and she's filled with excitement and anticipation."
-    a "(I can't wait to see everyone again. This year has been incredible, and it's all thanks to the amazing people I've met.)"
+    n "Amelia stands in front of her mirror, adjusting her dress and smiling at her reflection. Tonight is the big reunion with her friends from Plymouth, and she's filled with excitement and anticipation.{p=3}{nw}"
+    a "(I can't wait to see everyone again. This year has been incredible, and it's all thanks to the amazing people I've met.){p=3}{nw}"
+    mom "Have a great time, sweetheart! Say hello to everyone for us.{p=3}{nw}"
+    dad "Enjoy yourself, Amelia. You deserve it.{p=3}{nw}"
+    a "Thanks, Mom, Dad. I'll be back later tonight.{p=3}{nw}"
+    hide amelia_in_room_preparing
 
     show black
     window hide  
     show amelia_leaving_home
     with dissolve
-    n "She grabs her purse and heads out the door, waving goodbye to her parents."
-    mom "Have a great time, sweetheart! Say hello to everyone for us."
-    dad "Enjoy yourself, Amelia. You deserve it."
-
-    show black
-    window hide  
-    show amelia_smiling_wave
-    with dissolve
-    a "Thanks, Mom, Dad. I'll be back later tonight."
+    n "She grabs her purse and heads out the door, waving goodbye to her parents.{p=3}{nw}"
+    hide amelia_leaving_home
 
     show black
     window hide  
     show reunion_location
     with dissolve
-    n "Amelia arrives at a trendy café in the heart of London, the chosen spot for their reunion. The place is buzzing with energy, and she immediately spots her friends at a corner table, waving enthusiastically."
+    n "Amelia arrives at a trendy café in the heart of London, the chosen spot for their reunion. The place is buzzing with energy, and she immediately spots her friends at a corner table, waving enthusiastically.{p=3}{nw}"
+    hide reunion_location
 
     show black
     window hide  
     show amelia_greeting_friends
     with dissolve
-    a "Hey everyone! It's so good to see you all!"
-
-    show black
-    window hide  
-    show friends_hugging_amelia
-    with dissolve
-    lucas "Amelia! We've missed you!"
-    zara "It's been too long!"
-    raj "Our social butterfly has returned!"
+    a "Hey everyone! It's so good to see you all!{p=3}{nw}"
+    lucas "Amelia! We've missed you!{p=3}{nw}"
+    zara "It's been too long!{p=3}{nw}"
+    raj "Our social butterfly has returned!{p=3}{nw}"
+    hide amelia_greeting_friends
 
     show black
     window hide  
     show amelia_sitting_with_friends
     with dissolve
-    n "They all sit down, and the conversation flows effortlessly. Stories of their summer so far, reminiscing about their favorite memories from the past year, and plans for the future fill the air."
-    lucas "Remember that night at the Union when we all decided to dance like nobody was watching?"
-
-    show black
-    window hide  
-    show group_laughing
-    with dissolve
-    amelia "How could I forget? That was the best night ever!"
-    zara "And the time we stayed up all night studying for that psychology exam? We were all so exhausted, but we made it through together."
-
-    show black
-    window hide  
-    show amelia_nodding
-    with dissolve
-    a "We've been through so much. I'm so grateful for each and every one of you."
-
-    show black
-    window hide  
-    show raj_smiling
-    with dissolve
-    raj "You've brought so much joy and light into our lives, Amelia. Your energy is infectious."
-
-    show black
-    window hide  
-    show amelia_blushing
-    with dissolve
-    a "Thank you, Raj. You all have been my rock. I wouldn't have made it through the year without your support."
-
-    show black
-    window hide  
-    show zara_raising_glass
-    with dissolve
-    zara "A toast, to Amelia. For being the heart and soul of our group. To friendships that last a lifetime."
-
-    show black
-    window hide  
-    show friends_toasting
-    with dissolve
-    all "To Amelia!"
-
-    show black
-    window hide  
-    show amelia_emotional
-    with dissolve
-    n "As they clink glasses, Amelia feels a swell of emotion. She looks around at her friends, the people who have become her second family."
-    a "(These moments, these connections, they mean everything to me. I'm so lucky to have found such incredible friends.)"
-
-    show black
-    window hide  
-    show amelia_talking_to_lucas
-    with dissolve
-    n "Later in the evening, Lucas pulls Amelia aside, a serious look on his face."
-    lucas "Amelia, can I talk to you for a moment?"
-    amelia "Of course, Lucas. What's up?"
-
-    show black
-    window hide  
-    show lucas_confiding
-    with dissolve
-    lucas "I just wanted to say... thank you. For everything. You've helped me come out of my shell in ways I never thought possible. You've made such a difference in my life."
-
-    show black
-    window hide  
-    show amelia_touched
-    with dissolve
-    a "Lucas, that means so much to me. You've been an amazing friend. We've all grown together."
-    lucas "I know I've struggled with opening up, but you made it feel safe. You've got a gift, Amelia. You bring people together."
-
-    show black
-    window hide  
-    show amelia_hugging_lucas
-    with dissolve
-    n "They share a heartfelt hug, the bond between them stronger than ever."
-
-    show black
-    window hide  
-    show amelia_talking_to_zara
-    with dissolve
-    n "Amelia then finds herself chatting with Zara, who looks contemplative."
-    amelia "Zara, is everything okay?"
-
-    show black
-    window hide  
-    show zara_confiding
-    with dissolve
-    zara "I've been reflecting a lot lately. About how far we've come, and how much you've helped me understand and cope with the challenges I've faced."
-
-    show black
-    window hide  
-    show amelia_listening
-    with dissolve
-    a "Zara, you're one of the strongest people I know. You've taught me so much about resilience and courage."
-    zara "And you've shown me the power of empathy and friendship. You've always been there, even when things were tough."
-
-    show black
-    window hide  
-    show amelia_smiling
-    with dissolve
-    a "That's what friends are for. We'll always have each other's backs."
-
-    show black
-    window hide  
-    show zara_hugging_amelia
-    with dissolve
-    n "They hug tightly, a moment of deep connection and understanding."
-
-    show black
-    window hide  
-    show amelia_talking_to_raj
-    with dissolve
-    n "Finally, Amelia finds herself with Raj, who seems lost in thought."
-    amelia "Raj, what’s on your mind?"
-
-    show black
-    window hide  
-    show raj_confiding
-    with dissolve
-    raj "I’ve been thinking about the future. About how we’re all going to move forward with our lives. It’s exciting, but also a little scary."
-
-    show black
-    window hide  
-    show amelia_nodding
-    with dissolve
-    a "I know what you mean. Change can be daunting. But we have each other, no matter where life takes us."
-    raj "You’ve given me so much confidence, Amelia. Your positivity and support have made all the difference."
-
-    show black
-    window hide  
-    show amelia_touched
-    with dissolve
-    a "And you've given me the same, Raj. We're all in this together."
+    n "They all sit down, and the conversation flows effortlessly. Stories of their summer so far, reminiscing about their favorite memories from the past year, and plans for the future fill the air.{p=3}{nw}"
+    lucas "Remember that night at the Union when we all decided to dance like nobody was watching?{p=3}{nw}"
+    hide amelia_sitting_with_friends
 
     show black
     window hide  
     show group_talking_and_laughing
     with dissolve
-    n "The night continues with more laughter, stories, and heartfelt conversations. Amelia feels a profound sense of belonging and love."
-    a "(These friendships are the most precious things in my life. They've shaped me, supported me, and made me who I am today.)"
+    amelia "How could I forget? That was the best night ever!{p=3}{nw}"
+    zara "And the time we stayed up all night studying for that psychology exam? We were all so exhausted, but we made it through together.{p=3}{nw}"
+    hide group_talking_and_laughing
+
+    show black
+    window hide  
+    show amelia_nodding_sb
+    with dissolve
+    a "We've been through so much. I'm so grateful for each and every one of you.{p=3}{nw}"
+    hide amelia_nodding_sb
+
+    show black
+    window hide  
+    show raj_confiding
+    with dissolve
+    raj "You've brought so much joy and light into our lives, Amelia. Your energy is infectious.{p=3}{nw}"
+    hide raj_confiding
+
+    show black
+    window hide  
+    show amelia_blushing_sb
+    with dissolve
+    a "Thank you, Raj. You all have been my rock. I wouldn't have made it through the year without your support.{p=3}{nw}"
+    hide amelia_blushing_sb
+
+    show black
+    window hide  
+    show zara_confiding
+    with dissolve
+    zara "A toast, to Amelia. For being the heart and soul of our group. To friendships that last a lifetime.{p=3}{nw}"
+    hide zara_confiding
+
+    show black
+    window hide  
+    show friends_toasting
+    with dissolve
+    zara "To Amelia!{p=3}{nw}"
+    hide friends_toasting
+
+    show black
+    window hide  
+    show amelia_emotional_sb
+    with dissolve
+    n "As they clink glasses, Amelia feels a swell of emotion. She looks around at her friends, the people who have become her second family.{p=3}{nw}"
+    a "(These moments, these connections, they mean everything to me. I'm so lucky to have found such incredible friends.){p=3}{nw}"
+    hide amelia_emotional_sb
+
+    show black
+    window hide  
+    show amelia_talking_to_lucas
+    with dissolve
+    n "Later in the evening, Lucas pulls Amelia aside, a serious look on his face.{p=3}{nw}"
+    lucas "Amelia, can I talk to you for a moment?{p=3}{nw}"
+    amelia "Of course, Lucas. What's up?{p=3}{nw}"
+    hide amelia_talking_to_lucas
+
+    show black
+    window hide  
+    show lucas_confiding
+    with dissolve
+    lucas "I just wanted to say... thank you. For everything. You've helped me come out of my shell in ways I never thought possible. You've made such a difference in my life.{p=3}{nw}"
+    hide lucas_confiding
+
+    show black
+    window hide  
+    show amelia_touched_sb
+    with dissolve
+    a "Lucas, that means so much to me. You've been an amazing friend. We've all grown together.{p=3}{nw}"
+    lucas "I know I've struggled with opening up, but you made it feel safe. You've got a gift, Amelia. You bring people together.{p=3}{nw}"
+    hide amelia_touched_sb
+
+    show black
+    window hide  
+    show amelia_hugging_lucas
+    with dissolve
+    n "They share a heartfelt hug, the bond between them stronger than ever.{p=3}{nw}"
+    hide amelia_hugging_lucas
+
+    show black
+    window hide  
+    show amelia_talking_to_zara
+    with dissolve
+    n "Amelia then finds herself chatting with Zara, who looks contemplative.{p=3}{nw}"
+    amelia "Zara, is everything okay?{p=3}{nw}"
+    hide amelia_talking_to_zara
+
+    show black
+    window hide  
+    show zara_confiding
+    with dissolve
+    zara "I've been reflecting a lot lately. About how far we've come, and how much you've helped me understand and cope with the challenges I've faced.{p=3}{nw}"
+    hide zara_confiding
+
+    stop music fadeout 3.0
+    play music homegrown fadein 2.0 volume 0.8
+
+    show black
+    window hide  
+    show amelia_listening_sb
+    with dissolve
+    a "Zara, you're one of the strongest people I know. You've taught me so much about resilience and courage.{p=3}{nw}"
+    zara "And you've shown me the power of empathy and friendship. You've always been there, even when things were tough.{p=3}{nw}"
+    hide amelia_listening_sb
+
+    show black
+    window hide  
+    show amelia_smiling_sb
+    with dissolve
+    a "That's what friends are for. We'll always have each other's backs.{p=3}{nw}"
+    hide amelia_smiling_sb
+
+    show black
+    window hide  
+    show zara_hugging_amelia
+    with dissolve
+    n "They hug tightly, a moment of deep connection and understanding.{p=3}{nw}"
+    hide zara_hugging_amelia
+
+    show black
+    window hide  
+    show amelia_talking_to_raj
+    with dissolve
+    n "Finally, Amelia finds herself with Raj, who seems lost in thought.{p=3}{nw}"
+    amelia "Raj, what’s on your mind?{p=3}{nw}"
+    hide amelia_talking_to_raj
+
+    show black
+    window hide  
+    show raj_confiding
+    with dissolve
+    raj "I’ve been thinking about the future. About how we’re all going to move forward with our lives. It’s exciting, but also a little scary.{p=3}{nw}"
+    hide raj_confiding
+
+    show black
+    window hide  
+    show amelia_nodding_sb
+    with dissolve
+    a "I know what you mean. Change can be daunting. But we have each other, no matter where life takes us.{p=3}{nw}"
+    raj "You’ve given me so much confidence, Amelia. Your positivity and support have made all the difference.{p=3}{nw}"
+    hide amelia_nodding_sb
+
+    show black
+    window hide  
+    show amelia_touched_sb
+    with dissolve
+    a "And you've given me the same, Raj. We're all in this together.{p=3}{nw}"
+    hide amelia_touched_sb
+
+    show black
+    window hide  
+    show group_talking_and_laughing
+    with dissolve
+    n "The night continues with more laughter, stories, and heartfelt conversations. Amelia feels a profound sense of belonging and love.{p=3}{nw}"
+    a "(These friendships are the most precious things in my life. They've shaped me, supported me, and made me who I am today.){p=3}{nw}"
+    hide group_talking_and_laughing
 
     show black
     window hide  
     show amelia_and_friends_at_end_of_night
     with dissolve
-    n "As the evening draws to a close, the group gathers outside the café, the cool night air filled with the promise of more adventures to come."
-    lucas "This has been amazing. We need to do this more often."
-    zara "Definitely. Let’s make it a tradition."
-    raj "Agreed. To many more nights like this."
+    n "As the evening draws to a close, the group gathers outside the café, the cool night air filled with the promise of more adventures to come.{p=3}{nw}"
+    lucas "This has been amazing. We need to do this more often.{p=3}{nw}"
+    zara "Definitely. Let’s make it a tradition.{p=3}{nw}"
+    raj "Agreed. To many more nights like this.{p=3}{nw}"
+    hide amelia_and_friends_at_end_of_night
 
     show black
     window hide  
-    show amelia_smiling_content
+    show amelia_smiling_content_sb
     with dissolve
-    a "To friendship, and to the amazing journey ahead of us."
+    a "To friendship, and to the amazing journey ahead of us.{p=3}{nw}"
+    hide amelia_smiling_content_sb
 
-    show amelia_walking_home
+    show amelia_walking_home_sb
     with dissolve
-    n "As Amelia walks home, she reflects on the night and the incredible bonds she's formed."
-    a "(I've come a long way from that shy, unsure girl who started university. I'm surrounded by love and friendship, and I know I can face anything with these amazing people by my side.)"
+    n "As Amelia walks home, she reflects on the night and the incredible bonds she's formed.{p=3}{nw}"
+    a "(I've come a long way from that shy, unsure girl who started university. I'm surrounded by love and friendship, and I know I can face anything with these amazing people by my side.){p=3}{nw}"
+    hide amelia_walking_home_sb
 
     show black
     window hide  
-    show amelia_smiling_upward
+    show amelia_smiling_upward_sb
     with dissolve
-    a "Here's to the future, and to the beautiful friendships that make life so wonderful."
+    a "Here's to the future, and to the beautiful friendships that make life so wonderful.{p=3}{nw}"
+    hide amelia_smiling_upward_sb
 
-    # jump sb_ending_credits:
+    jump sb_ending_credits
+
+label sb_ending_credits:
+    window hide
+    stop music
+    play music eurus fadein 5.0 volume 0.8 
+    show black
+    # call screen credits
+    
+    window hide
+    show sb_credits_1
+    with dissolve
+    credit_text "By GizmoBot studios{p=17}{nw}"
+
+    window hide
+    show sb_credits_2
+    with dissolve
+    credit_text "Story and Game design - Luna Ironfoot{p=17}{nw}"
+
+    window hide
+    show sb_credits_3
+    with dissolve
+    credit_text "Art and history - Zara Greenleaf{p=17}{nw}"
+
+    window hide
+    show sb_credits_4
+    with dissolve
+    credit_text "Sound design - Mira Silverbranch{p=17}{nw}"
+
+    window hide
+    show sb_credits_5
+    with dissolve
+    credit_text "Music - Fish in a bird cage - Birds of a feather{p=8}{nw}"
+    credit_text "Music - Fish in a bird cage - Sand{p=8}{nw}"
+
+    window hide
+    show sb_credits_6
+    with dissolve
+    credit_text "Music - Fish in a bird cage - Weight of gold{p=8}{nw}"
+    credit_text "Music - The Oh hellos - New river{p=8}{nw}"
+
+    window hide
+    show sb_credits_7
+    with dissolve
+    credit_text "Music - The Oh hellos - I have made mistakes{p=8}{nw}"
+    credit_text "Music - Fish in a bird cage - Paperwork{p=8}{nw}"
+
+    window hide
+    show sb_credits_8
+    with dissolve
+    credit_text "Music - The amazing devil - Inkpot gods{p=8}{nw}"
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=8}{nw}"
+
+    window hide
+    show sb_credits_9
+    with dissolve
+    credit_text "Music - Cosmo Sheldrake - Moss{p=8}{nw}"
+    credit_text "Special thanks - Cornwalls rich history and nature {p=8}{nw}"
+
+    window hide
+    show sb_credits_10
+    with dissolve
+    credit_text "Special thanks - Many more {p=20}{nw}"
+
     return
 
 label chapter_12_mental_health_advocate:
@@ -938,7 +1051,7 @@ label chapter_12_balanced_growth:
     show friends_toasting
     with dissolve
     n "They raise their glasses in a toast to their friendship and shared journey."
-    all "To friendship and growth!"
+    lucas "To friendship and growth!"
 
     show black
     window hide

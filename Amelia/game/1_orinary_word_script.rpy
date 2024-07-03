@@ -72,6 +72,8 @@ define lucas = Character("Lucas", window_style="window_2", what_xpos=1160, what_
 define lucas_text = Character("Lucas", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define credit_text = Character(window_style="window_c", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
 define hawthorne = Character("Hawthorne", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+define raj = Character("Raj", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
+
 
 default art_style = "default"
 
@@ -83,6 +85,7 @@ default MC = 0
 default OK = 0
 default told_ella = 0
 default told_parents = 0
+default mentor = "None"
 
 #Academic Achievement (AA) - Points accumulated based on Amelia's academic performance and her dedication to studies.
 #Social Interaction (SI) - Points based on Amelia's relationships with friends, mentors, and other characters.
@@ -100,6 +103,9 @@ define music.sand = "sand.mp3"
 define music.birds_of_a_feather = "birds_of_a_feather.mp3"
 define music.liar_and_a_thief = "liar_and_a_thief.mp3"
 define music.come_with_me = "come_with_me.mp3"
+define music.super_trouper = "super_trouper.mp3"
+define music.eurus = "eurus.mp3"
+define music.homegrown = "homegrown.mp3"
 
 
 transform half_size_center: 
@@ -251,6 +257,11 @@ label ending_selection:
             jump chapter_12_enlightenment
             window hide
 
+        "Go to SB ending":
+            hide thames_sunset_end
+            jump chapter_12_social_butterfly
+            window hide
+
         "Go to Tragic ending":
             hide thames_sunset_end
             jump chapter_12_tragic_ending
@@ -259,6 +270,11 @@ label ending_selection:
         "Go to OK credits":
             hide thames_sunset_end
             jump ok_ending_credits
+            window hide
+
+        "Go to SB credits":
+            hide thames_sunset_end
+            jump sb_ending_credits
             window hide
 
         "Go to Tragic credits":
