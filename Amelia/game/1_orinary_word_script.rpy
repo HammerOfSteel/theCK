@@ -45,6 +45,7 @@
 # show amelia_thinking
 
 # Define characters
+define n = Character("", window_style="window_n", what_xpos=470, what_ypos=+25, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
 define a = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
 define amelia = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
 define e = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
@@ -52,7 +53,6 @@ define ella = Character("Ella", window_style="window_2", what_xpos=1160, what_te
 define lily = Character("Lily", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define j = Character("James", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define p = Character("Parents", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
-define n = Character("", window_style="window_n", what_xpos=620, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
 define student = Character("Student", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define roommate = Character("Liz", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define mom = Character("Mom", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)

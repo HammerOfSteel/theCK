@@ -1232,14 +1232,14 @@ label chapter_12_enlightenment:
     show black
     show amelia_sitting_by_fountain
     with dissolve
-    woman "Amelia sits beside the woman, the sound of the water calming her.{p=4}{nw}"
+    n "Amelia sits beside the woman, the sound of the water calming her.{p=4}{nw}"
     hide amelia_sitting_by_fountain
     window hide
 
     show black
     show mysterious_woman_talking
     with dissolve
-    woman "The woman begins to speak, her voice soft and soothing.{p=4}{nw}"
+    n "The woman begins to speak, her voice soft and soothing.{p=4}{nw}"
     woman "Your journey began long before you set foot in Plymouth.{p=4}{nw}"
     hide mysterious_woman_talking
     window hide
@@ -1282,64 +1282,53 @@ label chapter_12_enlightenment:
 
     hide amelia_sarah_reflection
     show black
-    show amelia_gravity_role
+    show amelia_shaped_experiences
     with dissolve
     woman "The day you found her, you realized the gravity of your role in this world.{p=4}{nw}"
-    woman "Whether she found peace or succumbed to her pain, her story intertwined with yours, urging you to advocate for those who suffer in silence.{p=4}{nw}"
-    hide amelia_gravity_role
+    woman "Whether she found peace or succumbed to her pain, her story intertwined with yours, urging you to advocate for those who suffer in silence.{p=3}{nw}"
+    hide amelia_shaped_experiences
     window hide
 
     show black
-    show amelia_threshold_understanding
+    show amelia_tears_peace
     with dissolve
-    woman "Every choice you've made has led you here, standing at the threshold of true understanding.{p=4}{nw}"
-    woman "You've delved into the depths of psychology, explored the mystical and the unknown, and faced your darkest fears.{p=4}{nw}"
-    hide amelia_threshold_understanding
-    window hide
-
-    show black
-    show amelia_grown
-    with dissolve
-    woman "You've grown, Amelia, more than you can see.{p=4}{nw}"
-    woman "The enlightenment you seek is not a destination but a journey, a continuous path of learning, compassion, and self-discovery.{p=4}{nw}"
-    hide amelia_grown
-    window hide
-
-    show black
-    show amelia_resolve_to_make_difference
-    with dissolve
-    woman "Remember Sarah, remember her struggle and her strength.{p=4}{nw}"
-    woman "Use that memory to fuel your resolve to make a difference.{p=4}{nw}"
-    woman "Your story is far from over, and your potential is limitless.{p=4}{nw}"
-    hide amelia_resolve_to_make_difference
-    window hide
-
-    show black
-    show amelia_embracing_past_future
-    with dissolve
-    woman "Embrace your past, cherish your present, and step boldly into your future.{p=4}{nw}"
-    hide amelia_embracing_past_future
+    n "Tears begin to well up in her eyes as she realizes the profound truth of the woman’s words.{p=2}{nw}"
+    hide amelia_tears_truth
     window hide
 
     show black
     show amelia_listening_emotional
     with dissolve
-    a "Yes, it has been challenging... but I've learned so much.{p=4}{nw}"
+    a "Yes, it has been challenging... but I've learned so much.{p=2}{nw}"
+    woman "These experiences have shaped you, prepared you for the path you walk now.{p=2}{nw}"
     hide amelia_listening_emotional
     window hide
 
     show black
-    show amelia_shaped_experiences
+    show amelia_listening_emotional
     with dissolve
-    woman "These experiences have shaped you, prepared you for the path you walk now.{p=4}{nw}"
-    hide amelia_shaped_experiences
+    woman "Every choice you've made has led you here, standing at the threshold of true understanding.{p=2}{nw}"
+    woman "You've delved into the depths of psychology, explored the mystical and the unknown, and faced your darkest fears.{p=2}{nw}"
+    hide amelia_listening_emotional
     window hide
 
     show black
-    show amelia_forged_adversity_2
+    show amelia_listening_emotional_2
     with dissolve
-    woman "Your heart has been forged in the fires of adversity, and through it, you have discovered your strength.{p=4}{nw}"
-    hide amelia_forged_adversity_2
+    woman "You've grown, Amelia, more than you can see.{p=2}{nw}"
+    woman "The enlightenment you seek is not a destination but a journey, a continuous path of learning, compassion, and self-discovery.{p=2}{nw}"
+    woman "Remember Sarah, remember her struggle and her strength.{p=2}{nw}"
+    woman "Use that memory to fuel your resolve to make a difference.{p=2}{nw}"
+    woman "Your story is far from over, and your potential is limitless.{p=2}{nw}"
+    hide amelia_listening_emotional_2
+    window hide
+
+    show black
+    show amelia_understanding
+    with dissolve
+    woman "Your heart has been forged in the fires of adversity, and through it, you have discovered your strength.{p=2}{nw}"
+    woman "Embrace your past, cherish your present, and step boldly into your future.{p=2}{nw}"
+    hide amelia_understanding
     window hide
 
     # show black
@@ -1387,7 +1376,7 @@ label chapter_12_enlightenment:
     show black
     show amelia_divine_tapestry
     with dissolve
-    woman "Trust in the process, and know that every challenge, every joy, is part of the divine tapestry of your life.{p=4}{nw}"
+    woman "Trust in the process, and know that every challenge, every joy, is part of the divine tapestry of your life.{p=2}{nw}"
     hide amelia_divine_tapestry
     window hide
 
@@ -1399,18 +1388,11 @@ label chapter_12_enlightenment:
     window hide
 
     show black
-    show amelia_tears_peace
-    with dissolve
-    n "Tears begin to well up in her eyes as she realizes the profound truth of the woman’s words.{p=4}{nw}"
-    hide amelia_tears_truth
-    window hide
-
-    show black
-    show amelia_understanding
+    show amelia_embracing_past_future
     with dissolve
     a "All that I have been through, All this time, I never understood...{p=4}{nw}"
     a "Finally I understand..{p=4}{nw}"
-    hide amelia_understanding
+    hide amelia_embracing_past_future
     window hide
 
     show black
@@ -1418,7 +1400,6 @@ label chapter_12_enlightenment:
     with dissolve
     n "The woman smiles, her form beginning to fade.{p=2}{nw}"
     n "With that, the woman vanishes, leaving Amelia alone by the fountain, her heart full and her mind buzzing with newfound insights.{p=3}{nw}"
-    n "As in a haze, Amelia makes her way back to her home..{p=3}{nw}"
     hide woman_fading
     window hide
 
@@ -1467,8 +1448,8 @@ label chapter_12_enlightenment:
 
 label ok_ending_credits:
     window hide
-    stop music
-    play music birds_of_a_feather fadein 1.0 volume 0.8 
+    stop music fadeout 5.0
+    play music birds_of_a_feather fadein 2.0 volume 0.8 
     show black
     # call screen credits
     
