@@ -86,6 +86,7 @@ default OK = 0
 default told_ella = 0
 default told_parents = 0
 default mentor = "None"
+default sarah_alive = 0
 
 #Academic Achievement (AA) - Points accumulated based on Amelia's academic performance and her dedication to studies.
 #Social Interaction (SI) - Points based on Amelia's relationships with friends, mentors, and other characters.
@@ -106,7 +107,14 @@ define music.come_with_me = "come_with_me.mp3"
 define music.super_trouper = "super_trouper.mp3"
 define music.eurus = "eurus.mp3"
 define music.homegrown = "homegrown.mp3"
+define music.run_run_run = "run_run_run.mp3"
+define music.ghost = "ghost.mp3"
+define music.junk_of_the_heart = "junk_of_the_heart.mp3"
+define music.closer_to_the_heart = "closer_to_the_heart.mp3"
 
+transform fix_size: 
+    zoom 1.42 #adjust as required
+    center
 
 transform half_size_center: 
     zoom 0.5 #adjust as required
@@ -160,6 +168,10 @@ label start:
         "Ending selection":
             hide thames_sunset_end
             jump ending_selection
+
+        "Credits selection":
+            hide thames_sunset_end
+            jump ending_credits
 
 label chapter_selection_1_6:
     scene black
@@ -252,6 +264,11 @@ label ending_selection:
         #    hide thames_sunset_end
         #    jump chapter_12_tragic_ending
 
+        "Go to AS ending":
+            hide thames_sunset_end
+            jump chapter_12_academic_success
+            window hide
+
         "Go to OK ending":
             hide thames_sunset_end
             jump chapter_12_enlightenment
@@ -261,12 +278,28 @@ label ending_selection:
             hide thames_sunset_end
             jump chapter_12_social_butterfly
             window hide
+        
+        "Go to MH ending":
+            hide thames_sunset_end
+            jump chapter_12_mental_health_advocate
+            window hide
 
         "Go to Tragic ending":
             hide thames_sunset_end
             jump chapter_12_tragic_ending
             window hide
-        
+
+label ending_credits:
+    scene black
+    show thames_sunset_end
+    with dissolve
+    menu:
+
+        "Go to AS credits":
+            hide thames_sunset_end
+            jump as_ending_credits
+            window hide
+
         "Go to OK credits":
             hide thames_sunset_end
             jump ok_ending_credits
@@ -275,6 +308,11 @@ label ending_selection:
         "Go to SB credits":
             hide thames_sunset_end
             jump sb_ending_credits
+            window hide
+
+        "Go to MH credits":
+            hide thames_sunset_end
+            jump mh_ending_credits
             window hide
 
         "Go to Tragic credits":
