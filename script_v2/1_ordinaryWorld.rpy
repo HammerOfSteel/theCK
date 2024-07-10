@@ -40,23 +40,24 @@ default art_style = "default"
 
 label prologue:
     play music "intro_theme.mp3" fadein 2.0
-    scene bg aerial_uk with pan
+    scene bg 1_above_london with pan
     narrator "Above the verdant tapestry of the United Kingdom, our view descends from the tranquil skies. We pass over rolling hills and age-old cities, bustling with life and rich with history."
 
-    scene bg aerial_london with pan
+    scene bg 1_above_london_2 with pan
     narrator "As we approach London, the landscape shifts from green fields to the dense, vibrant sprawl of urban life. We zoom into the quieter outskirts, where family homes dot the landscape like quaint islands amidst the city's rush."
 
-    scene bg suburban_home_exterior_day with pan
+    scene bg 1_home_street with pan
     narrator "Here in a peaceful suburb, we find a modest home with a well-tended garden, the late afternoon sun casting long shadows across the lawn."
 
-    scene bg amelia_bedroom_night with dissolve
+    scene bg 1_amelia_sleeping with dissolve
     narrator "Inside, the bedroom of eighteen-year-old Amelia is bathed in the soft glow of twilight. Stuffed animals line the shelves, and books are stacked neatly by the bed. Amelia herself lies asleep, her chest rising and falling with each deep, even breath."
 
     narrator "As night deepens, the boundaries between reality and dreams begin to blur. We dive into Amelia's subconscious, entering a dreamscape crafted from her memories and imaginations."
 
-    scene bg dream_landscape with dissolve
+    scene bg 1_dream_park_1 with dissolve
     narrator "Amelia finds herself in a vast park, sunlight filtering through the leaves, casting patterns of light and shadow. This is no ordinary park; it's a realm where her childhood memories come to life, populated by figures both familiar and fantastical."
 
+    scene bg 1_dream_park_2 with dissolve
     show m and d at center
     m "Amelia, dear, enjoy your adventure!"
     d "We'll be right here if you need us."
@@ -69,6 +70,7 @@ label prologue:
     define adult2 = Character('Guide from the Quiet Grove', color="#a2b6c8")
     define adult3 = Character('Historian from the Forgotten Trail', color="#a2c8c2")
 
+    scene bg 1_dream_park_4 with dissolve
     show child1 at left
     show child2 at right
     show child3 at center
@@ -90,15 +92,16 @@ label prologue:
 # Expanded dialogue and interaction for "The Golden Path: The Festival Day" in "The CK - Amelia"
 
 label golden_path:
-    scene bg golden_path with dissolve
+    scene bg 1_dream_park_golden_road with dissolve
     play music "magical_festival_tune.mp3" loop
     narrator "Following a trail paved with golden bricks, Amelia ventures through a grove that parts to reveal the enchanting entrance to a festival, reminiscent of the joyful fairs of her early childhood."
 
+    scene bg 1_golden_path_festival_5 with dissolve
     show amelia at center
     a "It’s just like the festivals I visited with Mom. Everything’s pulsing with life and color!"
 
     # Scene 1: Entering the Festival
-    scene bg festival_entrance with dissolve
+    scene bg 1_golden_path_festival_ticketbooth_2 with dissolve
     narrator "The festival gates tower above, ornate and welcoming, beckoning all who approach to enter a world of wonder and laughter."
     
     show vendor at right
@@ -107,15 +110,16 @@ label golden_path:
     vendor "Ah, in this realm, your currency is wonder and your ticket is curiosity. Explore to your heart's content, little adventurer!"
 
     # Scene 2: House of Mirrors
-    scene bg house_of_mirrors_entrance with dissolve
+    scene bg 1_golden_path_festival_houseOfMirrors_portal with dissolve
     narrator "Curiosity piqued, Amelia steps into the House of Mirrors. Within, the world bends and twists, reality stretching into fantastical shapes and sizes."
     
+    scene bg 1_golden_path_festival_houseOfMirrors_2 with dissolve
     show amelia_child at center
     narrator "Caught in a twisted mirror, Amelia glimpses herself as a child, her reflection echoing her inner youthfulness."
     a "Am I really that little again? Or is it just the magic of this place playing tricks on me?"
 
     # Scene 3: Meeting the Lost Boy
-    scene bg house_of_mirrors_inside with dissolve
+    scene bg 1_golden_path_festival_houseOfMirrors_6 with dissolve
     show boy at left
     boy "Ah! You startled me!"
     a "I didn’t mean to scare you. Are you alright?"
@@ -123,8 +127,11 @@ label golden_path:
     a "Let’s find your teddy together. It’s easy to get lost in here, but I’ll help you."
 
     # Scene 4: Journey to the Ferris Wheel
-    scene bg festival_grounds with dissolve
-    narrator "Together, they navigate the labyrinth of mirrors, emerging into the carnival's heart, where the Ferris wheel spins majestically against the sky."
+    scene bg 1_golden_path_festival_houseOfMirrors_maze with dissolve
+    narrator "Together, they navigate the labyrinth of mirrors"
+
+    scene bg 1_golden_path_festival_ferrisWheel with dissolve
+    narrator "emerging into the carnival's heart, where the Ferris wheel spins majestically against the sky."
     
     show ferris_wheel_operator at right
     ferris_wheel_operator "To reach the sky and touch the stars, solve me this, and you shall pass."
@@ -137,8 +144,10 @@ label golden_path:
     ferris_wheel_operator "Right you are! Up you go, to the heavens above!"
 
     # Scene 5: Atop the Ferris Wheel
-    scene bg ferris_wheel_top with dissolve
+    scene bg 1_golden_path_festival_above with dissolve
     narrator "As the wheel climbs, Amelia's heart soars with it, the entire festival sprawling below them like a kingdom of joy."
+    
+    scene bg 1_golden_path_festival_teddybear_2 with dissolve
     boy "There! Look! My teddy’s caught up there!"
     
 
@@ -149,28 +158,32 @@ label golden_path:
         "Hold the boy's hand":
             boy "You’re really brave, you know that?"
             a "blushing, feeling a flutter in her heart."
+            scene bg 1_kissing with dissolve
+            n "Suddenly the boy kisses her unexpectedly"
         "Smile at the boy":
             a "Just doing what friends do!"
             boy "stammers his thanks, cheeks tinted with a shy blush."
 
     # Scene 6: Waking from the Dream
-    scene bg golden_path_return with dissolve
+    scene bg 1_golden_path_festival_above_3 with dissolve
     narrator "As the Ferris wheel gently descends, the enchanting edges of the festival blur into the mists of awakening."
+
+    scene bg 1_going_back with dissolve
     a "Was it all a dream? It felt so real, so vivid."
     narrator "Amelia's heart is full as she steps off the golden path, the echoes of laughter and newfound courage warming her as she stirs awake."
-
-    show dad at distance
     dad "Time to wake up, Amelia."
     
+    show 1_amelia_wake_in_bed
     narrator "With her father’s call, Amelia awakens, her spirit carrying the joy and magic of the festival day into the waking world."
 
     jump full_english
 
 label shaded_grove:
-    scene bg_grove_entrance with fade
+    scene 1_dream_park_ruby_road with fade
     play music "calm_woods.mp3" loop
     narrator "As Amelia leaves the clamor of the festival, a serene path lined with ancient trees draws her into its embrace, whispering promises of peace."
 
+    scene 1_dream_park_ruby_road_2 with fade
     show amelia centered at t11
     a "This silence... it feels like it's washing over me, washing the chaos away."
     
@@ -253,15 +266,16 @@ label shaded_grove:
     jump full_english
 
 label forgotten_trail:
-    scene bg_festival_path with fade
+    scene 1_dream_park_emerald_road_3 with fade
     play music "mystical_forest.mp3" loop
     narrator "Amelia leaves the lively festival behind, drawn to a winding path strewn with fallen leaves and overgrown roots, beckoning her towards the unknown."
 
+    scene 1_dream_park_emerald_road_6 with fade
     show amelia centered at t11
     a "This path... it feels like it's calling me."
 
     # Scene 1: Entering the Trail
-    scene bg_forgotten_trail with dissolve
+    scene 1_dream_park_emerald_road_7 with dissolve
     narrator "Amelia steps onto the forgotten trail, the sounds of the festival fading away as the earthy scent of the forest fills the air."
 
     # Scene 2: Discovery of a Map

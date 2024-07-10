@@ -114,6 +114,10 @@ define music.closer_to_the_heart = "closer_to_the_heart.mp3"
 define music.sunshine_in_the_rain = "sunshine_in_the_rain.mp3"
 define music.wake_me_up = "wake_me_up.mp3"
 define music.irish_eyes = "irish_eyes.mp3"
+define music.bright = "bright.mp3"
+define music.anywhere = "anywhere.mp3"
+define music.good_time = "good_time.mp3"
+define music.here_comes_the_sun = "here_comes_the_sun.mp3"
 
 transform fix_size: 
     zoom 1.42 #adjust as required
@@ -159,11 +163,11 @@ label start:
     with dissolve
 
     menu:
-        "Chapter selection 1-6":
-            hide thames_sunset_end
-            jump chapter_selection_1_6
+        # "Chapter selection 1-6":
+        #    hide thames_sunset_end
+        #    jump chapter_selection_1_6
 
-        #"Chapter selection 7-12":
+        # "Chapter selection 7-12":
         #    hide thames_sunset_end
         #    jump chapter_selection_7_12
         
@@ -175,9 +179,9 @@ label start:
             hide thames_sunset_end
             jump ending_credits
 
-        "Function testing":
-            hide thames_sunset_end
-            jump function_testing
+        # "Function testing":
+        #    hide thames_sunset_end
+        #    jump function_testing
 
 label chapter_selection_1_6:
     scene black
@@ -270,29 +274,34 @@ label ending_selection:
         #    hide thames_sunset_end
         #    jump chapter_12_tragic_ending
 
-        "Go to AS ending":
+        "Watch Academic success ending":
             hide thames_sunset_end
             jump chapter_12_academic_success
             window hide
 
-        "Go to OK ending":
+        "Watch Balancer growth ending":
             hide thames_sunset_end
-            jump chapter_12_enlightenment
+            jump chapter_12_balanced_growth
             window hide
 
-        "Go to SB ending":
-            hide thames_sunset_end
-            jump chapter_12_social_butterfly
-            window hide
-        
-        "Go to MH ending":
+        "Watch Mental health advocate ending":
             hide thames_sunset_end
             jump chapter_12_mental_health_advocate
             window hide
 
-        "Go to Tragic ending":
+        "Watch Social butterfly ending":
+            hide thames_sunset_end
+            jump chapter_12_social_butterfly
+            window hide
+        
+        "Watch Tragic ending":
             hide thames_sunset_end
             jump chapter_12_tragic_ending
+            window hide
+
+        "Watch Secret ending":
+            hide thames_sunset_end
+            jump chapter_12_enlightenment
             window hide
 
 label ending_credits:
@@ -301,27 +310,27 @@ label ending_credits:
     with dissolve
     menu:
 
-        "Go to AS credits":
+        "Watch Academic success credits":
             hide thames_sunset_end
             jump as_ending_credits
             window hide
 
-        "Go to OK credits":
+        "Watch Secret credits":
             hide thames_sunset_end
             jump ok_ending_credits
             window hide
 
-        "Go to SB credits":
+        "Watch Social butterfly credits":
             hide thames_sunset_end
             jump sb_ending_credits
             window hide
 
-        "Go to MH credits":
+        "Watch Mental health advocate credits":
             hide thames_sunset_end
             jump mh_ending_credits
             window hide
 
-        "Go to Tragic credits":
+        "Watch Tragic credits":
             hide thames_sunset_end
             jump te_ending_credits
             window hide

@@ -369,7 +369,7 @@ label chapter_12_academic_success:
         window hide  
         show as_amelia_flashback_sarah
         with dissolve
-        n "Ttears streaming down her face. The room is filled with a profound silence{p=4}{nw}."
+        n "Tears streaming down her face. The room is filled with a profound silence{p=4}{nw}."
         a "Sarah, I'm so sorry. We tried everything... I miss you so much.{p=3}{nw}"
         a "(Her memory will always be with me. I'll carry her spirit forward in everything I do.){p=4}{nw}"
 
@@ -415,6 +415,9 @@ label chapter_12_academic_success:
     with dissolve
     n "Amelia laughs heartily, feeling a deep sense of belonging and love.{p=3}{nw}"
     a "(This is what it's all about. Family, love, connection. These are the things that matter most.){p=4}{nw}"
+
+    stop music fadeout 3.0
+    play music soldier_poet_king fadein 2.0 volume 0.8
 
     show black
     window hide  
@@ -462,13 +465,13 @@ label as_ending_credits:
     window hide
     show as_credits_2 at fix_size
     with dissolve
-    credit_text "Story and Game design - Luna Ironfoot{p=7}{nw}"
-    credit_text "Art and history - Zara Greenleaf{p=7}{nw}"    
+    credit_text "Story and Game design - HammerOfSteel{p=7}{nw}"
+    credit_text "Art and history - HammerOfSteel{p=7}{nw}"    
 
     window hide
     show as_credits_4 at fix_size
     with dissolve
-    credit_text "Sound design - Mira Silverbranch{p=7}{nw}"
+    credit_text "Sound design - HammerOfSteel{p=7}{nw}"
 
     window hide
     show as_credits_5 at fix_size
@@ -523,236 +526,207 @@ label chapter_12_social_butterfly:
     stop music
     play music super_trouper fadein 1.0 volume 0.8
 
-    show amelia_in_room_preparing
+    show sb_amelia_in_room_preparing at fix_size
     with dissolve
     n "Amelia stands in front of her mirror, adjusting her dress and smiling at her reflection. Tonight is the big reunion with her friends from Plymouth, and she's filled with excitement and anticipation.{p=3}{nw}"
     a "(I can't wait to see everyone again. This year has been incredible, and it's all thanks to the amazing people I've met.){p=3}{nw}"
     mom "Have a great time, sweetheart! Say hello to everyone for us.{p=3}{nw}"
     dad "Enjoy yourself, Amelia. You deserve it.{p=3}{nw}"
     a "Thanks, Mom, Dad. I'll be back later tonight.{p=3}{nw}"
-    hide amelia_in_room_preparing
+    hide sb_amelia_in_room_preparing
 
     show black
     window hide  
-    show amelia_leaving_home
+    show sb_amelia_leaving_home at fix_size
     with dissolve
     n "She grabs her purse and heads out the door, waving goodbye to her parents.{p=3}{nw}"
-    hide amelia_leaving_home
+    hide sb_amelia_leaving_home
 
     show black
     window hide  
-    show reunion_location
+    show sb_reunion_location at fix_size
     with dissolve
     n "Amelia arrives at a trendy café in the heart of London, the chosen spot for their reunion. The place is buzzing with energy, and she immediately spots her friends at a corner table, waving enthusiastically.{p=3}{nw}"
-    hide reunion_location
+    hide sb_reunion_location
 
     show black
     window hide  
-    show amelia_greeting_friends
+    show sb_amelia_greeting_friends at fix_size
     with dissolve
     a "Hey everyone! It's so good to see you all!{p=3}{nw}"
-    lucas "Amelia! We've missed you!{p=3}{nw}"
-    zara "It's been too long!{p=3}{nw}"
-    raj "Our social butterfly has returned!{p=3}{nw}"
-    hide amelia_greeting_friends
+    hide sb_amelia_greeting_friends
 
     show black
     window hide  
-    show amelia_sitting_with_friends
+    show sb_amelia_greeting_friends_1 at fix_size
+    with dissolve
+    lucas "Amelia! We've missed you!{p=3}{nw}"
+    hide sb_amelia_greeting_friends_1
+
+    show black
+    window hide  
+    show sb_amelia_greeting_friends_2 at fix_size
+    with dissolve
+    zara "It's been too long!{p=3}{nw}"
+    hide sb_amelia_greeting_friends_2
+
+    show black
+    window hide  
+    show sb_amelia_greeting_friends_3 at fix_size
+    with dissolve
+    raj "Our social butterfly has returned!{p=3}{nw}"
+    hide sb_amelia_greeting_friends_3
+
+    show black
+    window hide  
+    show sb_amelia_sitting_with_friends at fix_size
     with dissolve
     n "They all sit down, and the conversation flows effortlessly. Stories of their summer so far, reminiscing about their favorite memories from the past year, and plans for the future fill the air.{p=3}{nw}"
+    hide sb_amelia_sitting_with_friends
+
+    show black
+    window hide  
+    show sb_group_talking_and_laughing at fix_size
+    with dissolve  
     lucas "Remember that night at the Union when we all decided to dance like nobody was watching?{p=3}{nw}"
-    hide amelia_sitting_with_friends
-
-    show black
-    window hide  
-    show group_talking_and_laughing
-    with dissolve
     amelia "How could I forget? That was the best night ever!{p=3}{nw}"
+    hide sb_group_talking_and_laughing
+
+
+    show black
+    window hide  
+    show sb_group_talking_and_laughing_1 at fix_size
+    with dissolve  
     zara "And the time we stayed up all night studying for that psychology exam? We were all so exhausted, but we made it through together.{p=3}{nw}"
-    hide group_talking_and_laughing
-
-    show black
-    window hide  
-    show amelia_nodding_sb
-    with dissolve
     a "We've been through so much. I'm so grateful for each and every one of you.{p=3}{nw}"
-    hide amelia_nodding_sb
+    hide sb_group_talking_and_laughing_1
 
     show black
     window hide  
-    show raj_confiding
+    show sb_raj_confiding at fix_size
     with dissolve
     raj "You've brought so much joy and light into our lives, Amelia. Your energy is infectious.{p=3}{nw}"
-    hide raj_confiding
-
-    show black
-    window hide  
-    show amelia_blushing_sb
-    with dissolve
     a "Thank you, Raj. You all have been my rock. I wouldn't have made it through the year without your support.{p=3}{nw}"
-    hide amelia_blushing_sb
+    hide sb_raj_confiding
 
     show black
     window hide  
-    show zara_confiding
+    show sb_zara_cheers at fix_size
     with dissolve
     zara "A toast, to Amelia. For being the heart and soul of our group. To friendships that last a lifetime.{p=3}{nw}"
-    hide zara_confiding
-
-    show black
-    window hide  
-    show friends_toasting
-    with dissolve
     zara "To Amelia!{p=3}{nw}"
-    hide friends_toasting
+    hide sb_zara_cheers
 
     show black
     window hide  
-    show amelia_emotional_sb
+    show sb_amelia_emotional_sb at fix_size
     with dissolve
     n "As they clink glasses, Amelia feels a swell of emotion. She looks around at her friends, the people who have become her second family.{p=3}{nw}"
     a "(These moments, these connections, they mean everything to me. I'm so lucky to have found such incredible friends.){p=3}{nw}"
-    hide amelia_emotional_sb
+    hide sb_amelia_emotional_sb
 
     show black
     window hide  
-    show amelia_talking_to_lucas
+    show sb_lucas_confiding at fix_size
     with dissolve
     n "Later in the evening, Lucas pulls Amelia aside, a serious look on his face.{p=3}{nw}"
     lucas "Amelia, can I talk to you for a moment?{p=3}{nw}"
     amelia "Of course, Lucas. What's up?{p=3}{nw}"
-    hide amelia_talking_to_lucas
-
-    show black
-    window hide  
-    show lucas_confiding
-    with dissolve
     lucas "I just wanted to say... thank you. For everything. You've helped me come out of my shell in ways I never thought possible. You've made such a difference in my life.{p=3}{nw}"
-    hide lucas_confiding
-
-    show black
-    window hide  
-    show amelia_touched_sb
-    with dissolve
     a "Lucas, that means so much to me. You've been an amazing friend. We've all grown together.{p=3}{nw}"
     lucas "I know I've struggled with opening up, but you made it feel safe. You've got a gift, Amelia. You bring people together.{p=3}{nw}"
-    hide amelia_touched_sb
+    hide sb_lucas_confiding
 
     show black
     window hide  
-    show amelia_hugging_lucas
+    show sb_amelia_hugging_lucas at fix_size
     with dissolve
     n "They share a heartfelt hug, the bond between them stronger than ever.{p=3}{nw}"
-    hide amelia_hugging_lucas
+    hide sb_amelia_hugging_lucas
 
-    show black
-    window hide  
-    show amelia_talking_to_zara
-    with dissolve
-    n "Amelia then finds herself chatting with Zara, who looks contemplative.{p=3}{nw}"
-    amelia "Zara, is everything okay?{p=3}{nw}"
-    hide amelia_talking_to_zara
-
-    show black
-    window hide  
-    show zara_confiding
-    with dissolve
-    zara "I've been reflecting a lot lately. About how far we've come, and how much you've helped me understand and cope with the challenges I've faced.{p=3}{nw}"
-    hide zara_confiding
 
     stop music fadeout 3.0
     play music homegrown fadein 2.0 volume 0.8
 
     show black
     window hide  
-    show amelia_listening_sb
+    show sb_zara_confiding at fix_size
     with dissolve
+    n "Amelia then finds herself chatting with Zara, who looks contemplative.{p=3}{nw}"
+    amelia "Zara, is everything okay?{p=3}{nw}"
+    zara "I've been reflecting a lot lately. About how far we've come, and how much you've helped me understand and cope with the challenges I've faced.{p=3}{nw}"
     a "Zara, you're one of the strongest people I know. You've taught me so much about resilience and courage.{p=3}{nw}"
     zara "And you've shown me the power of empathy and friendship. You've always been there, even when things were tough.{p=3}{nw}"
-    hide amelia_listening_sb
-
-    show black
-    window hide  
-    show amelia_smiling_sb
-    with dissolve
     a "That's what friends are for. We'll always have each other's backs.{p=3}{nw}"
-    hide amelia_smiling_sb
+    hide sb_zara_confiding
 
     show black
     window hide  
-    show zara_hugging_amelia
-    with dissolve
-    n "They hug tightly, a moment of deep connection and understanding.{p=3}{nw}"
-    hide zara_hugging_amelia
-
-    show black
-    window hide  
-    show amelia_talking_to_raj
+    show sb_raj_confiding at fix_size
     with dissolve
     n "Finally, Amelia finds herself with Raj, who seems lost in thought.{p=3}{nw}"
     amelia "Raj, what’s on your mind?{p=3}{nw}"
-    hide amelia_talking_to_raj
-
-    show black
-    window hide  
-    show raj_confiding
-    with dissolve
     raj "I’ve been thinking about the future. About how we’re all going to move forward with our lives. It’s exciting, but also a little scary.{p=3}{nw}"
-    hide raj_confiding
-
-    show black
-    window hide  
-    show amelia_nodding_sb
-    with dissolve
     a "I know what you mean. Change can be daunting. But we have each other, no matter where life takes us.{p=3}{nw}"
     raj "You’ve given me so much confidence, Amelia. Your positivity and support have made all the difference.{p=3}{nw}"
-    hide amelia_nodding_sb
-
-    show black
-    window hide  
-    show amelia_touched_sb
-    with dissolve
     a "And you've given me the same, Raj. We're all in this together.{p=3}{nw}"
-    hide amelia_touched_sb
+    hide sb_raj_confiding
 
     show black
     window hide  
-    show group_talking_and_laughing
+    show sb_group_talking_and_laughing_3 at fix_size
     with dissolve
     n "The night continues with more laughter, stories, and heartfelt conversations. Amelia feels a profound sense of belonging and love.{p=3}{nw}"
     a "(These friendships are the most precious things in my life. They've shaped me, supported me, and made me who I am today.){p=3}{nw}"
-    hide group_talking_and_laughing
+    hide sb_group_talking_and_laughing_3
 
     show black
     window hide  
-    show amelia_and_friends_at_end_of_night
+    show sb_amelia_and_friends_at_end_of_night at fix_size
     with dissolve
     n "As the evening draws to a close, the group gathers outside the café, the cool night air filled with the promise of more adventures to come.{p=3}{nw}"
-    lucas "This has been amazing. We need to do this more often.{p=3}{nw}"
-    zara "Definitely. Let’s make it a tradition.{p=3}{nw}"
-    raj "Agreed. To many more nights like this.{p=3}{nw}"
-    hide amelia_and_friends_at_end_of_night
+    hide sb_amelia_and_friends_at_end_of_night
 
     show black
     window hide  
-    show amelia_smiling_content_sb
+    show sb_amelia_and_friends_at_end_of_night_2 at fix_size
+    with dissolve
+    lucas "This has been amazing. We need to do this more often.{p=3}{nw}"
+    hide sb_amelia_and_friends_at_end_of_night_2
+
+    show black
+    window hide  
+    show sb_amelia_and_friends_at_end_of_night_3 at fix_size
+    with dissolve
+    zara "Definitely. Let’s make it a tradition.{p=3}{nw}"
+    hide sb_amelia_and_friends_at_end_of_night_3
+
+    show black
+    window hide  
+    show sb_amelia_and_friends_at_end_of_night_4 at fix_size
+    with dissolve
+    raj "Agreed. To many more nights like this.{p=3}{nw}"
+    hide sb_amelia_and_friends_at_end_of_night_4
+
+    show black
+    window hide  
+    show sb_amelia_and_friends_at_end_of_night_5 at fix_size
     with dissolve
     a "To friendship, and to the amazing journey ahead of us.{p=3}{nw}"
-    hide amelia_smiling_content_sb
+    hide sb_amelia_and_friends_at_end_of_night_5
 
-    show amelia_walking_home_sb
+    show sb_amelia_walking_home_sb at fix_size
     with dissolve
     n "As Amelia walks home, she reflects on the night and the incredible bonds she's formed.{p=3}{nw}"
     a "(I've come a long way from that shy, unsure girl who started university. I'm surrounded by love and friendship, and I know I can face anything with these amazing people by my side.){p=3}{nw}"
-    hide amelia_walking_home_sb
+    hide sb_amelia_walking_home_sb
 
     show black
     window hide  
-    show amelia_smiling_upward_sb
+    show sb_amelia_smiling_upward_sb at fix_size
     with dissolve
     a "Here's to the future, and to the beautiful friendships that make life so wonderful.{p=3}{nw}"
-    hide amelia_smiling_upward_sb
+    hide sb_amelia_smiling_upward_sb
 
     jump sb_ending_credits
 
@@ -771,17 +745,17 @@ label sb_ending_credits:
     window hide
     show sb_credits_2
     with dissolve
-    credit_text "Story and Game design - Luna Ironfoot{p=17}{nw}"
+    credit_text "Story and Game design - HammerOfSteel{p=17}{nw}"
 
     window hide
     show sb_credits_3
     with dissolve
-    credit_text "Art and history - Zara Greenleaf{p=17}{nw}"
+    credit_text "Art and history - HammerOfSteel{p=17}{nw}"
 
     window hide
     show sb_credits_4
     with dissolve
-    credit_text "Sound design - Mira Silverbranch{p=17}{nw}"
+    credit_text "Sound design - HammerOfSteel{p=17}{nw}"
 
     window hide
     show sb_credits_5
@@ -826,7 +800,7 @@ label chapter_12_mental_health_advocate:
 
     show black
     window hide  
-    show mh_amelia_in_room_preparing at fix_size
+    show mh_amelia_in_room_preparing_3 at fix_size
     with dissolve
     n "Amelia sits at her desk, going through notes and resources she's gathered over the past year.{p=4}{nw}" 
     n "Her commitment to mental health advocacy has only grown stronger after her experiences with Sarah and her own challenges.{p=4}{nw}"
@@ -896,6 +870,10 @@ label chapter_12_mental_health_advocate:
     with dissolve
     n "Later that evening, back home, Amelia reflects on the day's experiences.{p=3}{nw}"
     a "(Today was just the beginning. There's so much more to do, so many people to help.){p=3}{nw}"
+
+    stop music fadeout 5.0
+    play music here_comes_the_sun fadein 2.0 volume 0.8 
+
 
     if sarah_alive:
         show black
@@ -986,13 +964,13 @@ label mh_ending_credits:
     show mh_credits_1 at fix_size
     with dissolve
     credit_text "By GizmoBot studios{p=5}{nw}"
-    credit_text "Story and Game design - Luna Ironfoot{p=5}{nw}"
-    credit_text "Art and history - Zara Greenleaf{p=5}{nw}"
+    credit_text "Story and Game design - HammerOfSteel{p=5}{nw}"
+    credit_text "Art and history - HammerOfSteel{p=5}{nw}"
 
     window hide
     show mh_credits_2 at fix_size
     with dissolve
-    credit_text "Sound design - Mira Silverbranch{p=5}{nw}"
+    credit_text "Sound design - HammerOfSteel{p=5}{nw}"
     credit_text "Music - Fish in a bird cage - Birds of a feather{p=5}{nw}"
     credit_text "Music - Fish in a bird cage - Sand{p=5}{nw}"
 
@@ -1035,176 +1013,239 @@ label mh_ending_credits:
     return
 
 label chapter_12_balanced_growth:
-    show black
-    window hide  
-    show amelia_in_room_preparing
-    with dissolve
-    n "Amelia stands in her room, taking a deep breath as she looks around at the familiar surroundings. This past year has been a journey of immense personal growth, and she's ready to bring that balance into her everyday life."
-    a "(I've learned so much about balancing my academic pursuits, social life, and personal well-being. It's time to integrate all of it.)"
+
+    stop music fadeout 5.0
+    play music bright fadein 2.0 volume 0.8 
 
     show black
     window hide  
-    show amelia_packing_bag
+    show bh_amelia_in_room_preparing at fix_size
     with dissolve
-    n "She packs a bag with a few essentials: a journal, a couple of books on psychology, and some photos of her friends. Today, she's meeting her mentor and later, spending time with family and friends."
-    a "(It's important to remember the people who supported me and the lessons I've learned.)"
+    n "Amelia stands in her room, taking a deep breath as she looks around at the familiar surroundings. This past year has been a journey of immense personal growth, and she's ready to bring that balance into her everyday life.{p=4}{nw}"
+    a "(I've learned so much about balancing my academic pursuits, social life, and personal well-being. It's time to integrate all of it.){p=3}{nw}"
+
+    show black
+    window hide  
+    show bh_amelia_packing_bag at fix_size
+    with dissolve
+    n "She packs a bag with a few essentials: a journal, a couple of books on psychology, and some photos of her friends. Today, she's meeting her mentor and later, spending time with family and friends.{p=3}{nw}"
+    a "(It's important to remember the people who supported me and the lessons I've learned.){p=3}{nw}"
 
 
     show black
     window hide  
-    show amelia_leaving_home
+    show bh_amelia_leaving_home at fix_size
     with dissolve
-    n "Amelia heads out, waving goodbye to her parents."
-    mom "Enjoy your day, Amelia. We're so proud of you."
-    dad "You've become such an amazing young woman."
+    n "Amelia heads out, waving goodbye to her parents.{p=3}{nw}"
+    mom "Enjoy your day, Amelia. We're so proud of you.{p=3}{nw}"
+    dad "You've become such an amazing young woman.{p=3}{nw}"
+    a "Thank you, Mom, Dad. I'll see you later.{p=3}{nw}"
 
     show black
     window hide  
-    show amelia_smiling_wave
+    show bh_amelia_meeting_mentor at fix_size
     with dissolve
-    a "Thank you, Mom, Dad. I'll see you later."
+    n "Amelia arrives at a quiet café where she's meeting her mentor, Prof. Hawthorne.{p=3}{nw}"
 
     show black
     window hide  
-    show amelia_meeting_mentor
+    show bh_amelia_meeting_mentor_2 at fix_size
     with dissolve
-    n "Amelia arrives at a quiet café where she's meeting her mentor, Prof. Hawthorne."
-    hawthorne "Amelia, it's wonderful to see you. How have you been?"
+    hawthorne "Amelia, it's wonderful to see you. How have you been?{p=3}{nw}"
 
     show black
     window hide
-    show amelia_smiling_sitting
+    show bh_amelia_meeting_mentor_3 at fix_size
     with dissolve
-    a "I've been well, Professor. Reflecting on everything I've learned this year."
+    a "I've been well, Professor. Reflecting on everything I've learned this year.{p=3}{nw}"
+    hawthorne "You've had quite the journey. Balancing your studies, friendships, and personal growth isn't easy, but you've done an exemplary job.{p=3}{nw}"
 
     show black
     window hide
-    show hawthorne_nodding
+    show bh_amelia_meeting_mentor_4 at fix_size
     with dissolve
-    hawthorne "You've had quite the journey. Balancing your studies, friendships, and personal growth isn't easy, but you've done an exemplary job."
+    a "Thank you. Your guidance has been invaluable. I've learned to prioritize what's truly important and maintain a healthy balance.{p=3}{nw}"
+    hawthorne "That's a lesson many struggle to learn. I'm proud of your progress. Keep nurturing those aspects of your life, and you'll continue to thrive.{p=3}{nw}"
+    a "I will, Professor. Thank you for everything.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_grateful
+    show bh_amelia_with_family at fix_size
     with dissolve
-    a "Thank you. Your guidance has been invaluable. I've learned to prioritize what's truly important and maintain a healthy balance."
-    hawthorne "That's a lesson many struggle to learn. I'm proud of your progress. Keep nurturing those aspects of your life, and you'll continue to thrive."
+    n "Later, Amelia spends time with her family in the park. They have a picnic, enjoying the sunny day and each other's company.{p=3}{nw}"
+    mom "It's so nice to have you home, Amelia. We’ve missed these moments.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_reflecting
+    show bh_amelia_smiling_warmly at fix_size
     with dissolve
-    a "I will, Professor. Thank you for everything."
+    a "I've missed them too. Being away has made me appreciate family time even more.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_with_family
+    show bh_lily_looking_up_to_amelia at fix_size
     with dissolve
-    n "Later, Amelia spends time with her family in the park. They have a picnic, enjoying the sunny day and each other's company."
-    mom "It's so nice to have you home, Amelia. We’ve missed these moments."
+    lily "Amelia, can we play a game? Like we used to?{p=3}{nw}"
 
     show black
     window hide
-    show amelia_smiling_warmly
+    show bh_lily_looking_up_to_amelia_2 at fix_size
     with dissolve
-    a "I've missed them too. Being away has made me appreciate family time even more."
+    a "Of course, Lily. What do you want to play?{p=3}{nw}"
+    lily "How about hide and seek?{p=3}{nw}"
 
     show black
     window hide
-    show lily_looking_up_to_amelia
+    show bh_amelia_laughing at fix_size
     with dissolve
-    lily "Amelia, can we play a game? Like we used to?"
+    a "Alright, you're on!{p=3}{nw}"
+    n "They play hide and seek, laughter echoing through the park. Amelia feels a profound sense of joy and balance.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_nodding_smile
+    show sb_amelia_greeting_friends at fix_size
     with dissolve
-    a "Of course, Lily. What do you want to play?"
-    lily "How about hide and seek?"
+    n "In the evening, Amelia meets her friends for dinner at a local restaurant.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_laughing
+    show sb_amelia_greeting_friends_1 at fix_size
     with dissolve
-    a "Alright, you're on!"
-    n "They play hide and seek, laughter echoing through the park. Amelia feels a profound sense of joy and balance."
+    lucas "Amelia! It’s great to see you.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_with_friends
+    show sb_amelia_greeting_friends_2 at fix_size
     with dissolve
-    n "In the evening, Amelia meets her friends for dinner at a local restaurant."
-    lucas "Amelia! It’s great to see you."
-    zara "We’ve missed you!"
-    raj "Our balanced achiever is back!"
+    zara "We’ve missed you!{p=3}{nw}"
 
     show black
     window hide
-    show amelia_smiling_at_friends
+    show sb_amelia_greeting_friends_3 at fix_size
     with dissolve
-    a "I've missed you all too. It's so good to be back together."
+    raj "Our balanced achiever is back!{p=3}{nw}"
+
+    stop music fadeout 5.0
+    play music good_time fadein 2.0 volume 0.8 
 
     show black
     window hide
-    show group_dining
+    show sb_amelia_sitting_with_friends at fix_size
     with dissolve
-    n "They enjoy a meal together, sharing stories and catching up on each other's lives."
-    zara "You seem so at peace, Amelia. It's inspiring."
+    a "I've missed you all too. It's so good to be back together.{p=3}{nw}"
+    n "They enjoy a meal together, sharing stories and catching up on each other's lives.{p=3}{nw}"
+    zara "You seem so at peace, Amelia. It's inspiring.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_reflecting_on_growth
+    show sb_amelia_emotional_sb at fix_size
     with dissolve
-    a "I've learned the importance of balance. It's been a journey, but I feel like I'm in a good place now."
-    raj "Your journey has been incredible to witness. You’ve grown so much."
+    a "I've learned the importance of balance. It's been a journey, but I feel like I'm in a good place now.{p=3}{nw}"
+    raj "Your journey has been incredible to witness. You’ve grown so much.{p=3}{nw}"
+    a "Thank you. We've all grown together. Your support has meant the world to me.{p=3}{nw}"
 
     show black
     window hide
-    show amelia_grateful
+    show sb_lucas_confiding at fix_size
     with dissolve
-    a "Thank you. We've all grown together. Your support has meant the world to me."
+    lucas "We’re here for each other, no matter what.{p=3}{nw}"
+    a "I couldn’t have done it without you all. Our friendship has been my anchor.{p=3}{nw}"
 
     show black
     window hide
-    show lucas_nodding
+    show lucas_toast at fix_size
     with dissolve
-    lucas "We’re here for each other, no matter what."
+    n "They raise their glasses in a toast to their friendship and shared journey.{p=3}{nw}"
+    lucas "To friendship and growth!{p=3}{nw}"
 
     show black
     window hide
-    show amelia_talking_to_group
+    show mh_amelia_writing_in_journal at fix_size
     with dissolve
-    a "I couldn’t have done it without you all. Our friendship has been my anchor."
+    n "Later that night, Amelia sits in her room, writing in her journal.{p=3}{nw}"
+    n "{i}This year has taught me so much about balance. Balancing my academic goals, my social life, and my personal well-being has been key to my growth. I've realized the importance of nurturing each part of my life.{/i}{p=3}{nw}"
+    n "{i}I've grown academically, formed deep and meaningful friendships, and taken care of my mental health. It's a continuous journey, but I feel ready to face whatever comes next with this newfound sense of balance.{/i}{p=3}{nw}"
+    a "(This is just the beginning. With balance, I can achieve anything.){p=3}{nw}"
 
-    show black
+    jump bh_ending_credits
+
+label bh_ending_credits:
     window hide
-    show friends_toasting
-    with dissolve
-    n "They raise their glasses in a toast to their friendship and shared journey."
-    lucas "To friendship and growth!"
-
+    stop music fadeout 5.0
+    play music anywhere fadein 2.0 volume 0.8 
     show black
+    # call screen credits
+    
     window hide
-    show amelia_reflecting_in_room
+    show bh_credits_1 at fix_size
     with dissolve
-    n "Later that night, Amelia sits in her room, writing in her journal."
-    a "{i}This year has taught me so much about balance. Balancing my academic goals, my social life, and my personal well-being has been key to my growth. I've realized the importance of nurturing each part of my life.{/i}"
-    a "{i}I've grown academically, formed deep and meaningful friendships, and taken care of my mental health. It's a continuous journey, but I feel ready to face whatever comes next with this newfound sense of balance.{/i}"
+    credit_text "By GizmoBot studios{p=10}{nw}"
 
-    show black
     window hide
-    show amelia_determined
+    show bh_credits_2 at fix_size
     with dissolve
-    a "(This is just the beginning. With balance, I can achieve anything.)"
+    credit_text "Story and Game design - HammerOfSteel{p=5}{nw}"
+    credit_text "Art and history - HammerOfSteel{p=5}{nw}"
+    credit_text "Sound design - HammerOfSteel{p=5}{nw}"
 
-    show black
     window hide
-    show amelia_lying_in_bed
+    show bh_credits_3 at fix_size
     with dissolve
-    n "As she lies in bed, Amelia feels a profound sense of peace and readiness for the future."
-    a "(I’m ready for whatever comes next. With balance and the support of my loved ones, I can face any challenge.)"
+    credit_text "Music - Fish in a bird cage - Birds of a feather{p=5}{nw}"
+    credit_text "Music - Fish in a bird cage - Sand{p=5}{nw}"
 
-    # jump bg_ending_credits
+    window hide
+    show bh_credits_3 at fix_size
+    with dissolve
+    credit_text "Music - Fish in a bird cage - Weight of gold{p=5}{nw}"
+    credit_text "Music - The Oh hellos - New river{p=5}{nw}"
+
+    window hide
+    show bh_credits_4 at fix_size
+    with dissolve
+    credit_text "Music - The Oh hellos - Second child restless child{p=5}{nw}"
+
+    window hide
+    show bh_credits_5 at fix_size
+    with dissolve
+    credit_text "Music - The Oh hellos - Soldier poet king{p=5}{nw}"
+
+    window hide
+    show bh_credits_6 at fix_size
+    with dissolve
+    credit_text "Music - The Oh hellos - I have made mistakes{p=5}{nw}"
+
+    window hide
+    show bh_credits_7 at fix_size
+    with dissolve
+    credit_text "Music - Fish in a bird cage - Paperwork{p=5}{nw}"
+
+    window hide
+    show bh_credits_8 at fix_size
+    with dissolve
+    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
+
+    window hide
+    show bh_credits_9 at fix_size
+    with dissolve
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=5}{nw}"
+
+    window hide
+    show bh_credits_10 at fix_size
+    with dissolve
+    credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
+
+    window hide
+    show bh_credits_11 at fix_size
+    with dissolve
+    credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
+
+    window hide
+    show bh_credits_12 at fix_size
+    with dissolve
+    credit_text "Special thanks - Cornwalls rich history and nature {p=4}{nw}"
+    credit_text "The end{p=3}{nw}"
+
     return
 
 label chapter_12_enlightenment:
@@ -1591,9 +1632,9 @@ label ok_ending_credits:
     window hide
     show ok_credits_2
     with dissolve
-    credit_text "Story and Game design - Luna Ironfoot{p=5}{nw}"
-    credit_text "Art and history - Zara Greenleaf{p=5}{nw}"
-    credit_text "Sound design - Mira Silverbranch{p=5}{nw}"
+    credit_text "Story and Game design - HammerOfSteel{p=5}{nw}"
+    credit_text "Art and history - HammerOfSteel{p=5}{nw}"
+    credit_text "Sound design - HammerOfSteel{p=5}{nw}"
 
     window hide
     show ok_credits_3
@@ -1662,49 +1703,56 @@ label chapter_12_tragic_ending:
     stop music
     play music sand fadein 1.0 volume 0.8 
 
-    show amelia_in_room_reflecting_2
+    show tragic_amelia_in_room_reflecting  at fix_size
     with dissolve
     n "Amelia sits in her room, surrounded by the familiar comforts of home, but the weight of the past year bears heavily on her shoulders.{p=3}{nw}"
     n "She looks at the photos on her desk, memories from her first year at Plymouth University, but one photo in particular catches her eye – a picture of her and Sarah, smiling together before everything changed.{p=3}{nw}"
     a "(Sarah... I wish things had turned out differently. The pain of losing her is still so fresh.){p=3}{nw}"
-    hide amelia_in_room_reflecting_2
+    hide tragic_amelia_in_room_reflecting
 
     show black
     window hide
-    show amelia_tearful
+    show tragic_amelia_tearful at fix_size
     with dissolve
     n "Tears well up in her eyes as she remembers the night Sarah passed away. The grief is overwhelming, and the sense of loss is immeasurable.{p=3}{nw}"
-    hide amelia_tearful
+    hide tragic_amelia_tearful
 
     show black
     window hide
-    show amelia_flashback_sarah
+    show as_amelia_flashback_sarah
     with dissolve
     n "Flashback to the night Sarah passed away. Amelia at Sarah's bedside, tears streaming down her face. The room is filled with a profound silence.{p=3}{nw}"
     a "Sarah, I'm so sorry. We tried everything... I miss you so much.{p=3}{nw}"
     n "The scene fades back to Amelia in her room, the weight of grief pressing down on her.{p=3}{nw}"
     a "(Her memory will always be with me. I'll carry her spirit forward in everything I do.){p=3}{nw}"
-    hide amelia_flashback_sarah
+    hide as_amelia_flashback_sarah
 
     show black
     window hide
-    show amelia_staring_at_wall
+    show tragic_amelia_staring_at_wall at fix_size
     with dissolve
     n "Amelia sits in silence, staring at the wall, feeling the emptiness left by Sarah's absence. Her parents, noticing her distress, enter the room quietly.{p=3}{nw}"
-    dad "Amelia, sweetheart, are you okay?{p=3}{nw}"
-    hide amelia_staring_at_wall
+    hide tragic_amelia_staring_at_wall
 
     show black
     window hide
-    show amelia_shaking_head
+    show tragic_dad at fix_size
     with dissolve
+    dad "Amelia, sweetheart, are you okay?{p=3}{nw}"
     a "No, Dad. I'm not. I miss her so much. I don't know how to move on.{p=3}{nw}"
-    mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you.{p=3}{nw}"
-    hide amelia_shaking_head
+    hide tragic_dad
 
     show black
     window hide
-    show amelia_hugging_parents_2
+    show tragic_mon at fix_size
+    with dissolve
+    mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you.{p=3}{nw}"
+    hide tragic_mon
+
+
+    show black
+    window hide
+    show amelia_hugging_parents_2 at fix_size
     with dissolve
     n "Amelia breaks down, hugging her parents tightly. Their warmth and love provide some comfort, but the pain remains.{p=3}{nw}"
     a "Thank you... I just wish things were different.{p=3}{nw}"
@@ -1712,101 +1760,89 @@ label chapter_12_tragic_ending:
 
     show black
     window hide
-    show amelia_sitting_in_garden
+    show tragic_amelia_sitting_in_garden at fix_size
     with dissolve
     n "Later, Amelia goes to the garden, seeking solace in nature. She sits on a bench, lost in thought.{p=3}{nw}"
     a "(Everything feels so empty without her. I don't know how to fill this void.){p=3}{nw}"
-    hide amelia_sitting_in_garden
+    hide tragic_amelia_sitting_in_garden
 
     show black
     window hide
-    show amelia_receiving_text
+    show tragic_amelia_receiving_text at fix_size
     with dissolve
     n "Her phone buzzes with a text from Lucas.{p=3}{nw}"
     lucas "{i}Hey Amelia, just checking in. How are you holding up?{/i}{p=3}{nw}"
-    hide amelia_receiving_text
-
-    show black
-    window hide
-    show amelia_texting_back
-    with dissolve
     n "Amelia types a response, her fingers trembling.{p=3}{nw}"
     a "{i}Hi Lucas. I'm struggling. Everything feels so heavy without Sarah.{/i}{p=3}{nw}"
     n "A moment later, Lucas's reply comes through.{p=3}{nw}"
     lucas "{i}I can't imagine how hard it is for you. Just remember, you're not alone. We're all here for you.{/i}{p=3}{nw}"
     a "{i}Thank you, Lucas. I appreciate it.{/i}{p=3}{nw}"
-    hide amelia_texting_back
-
-    show black
-    window hide
-    show amelia_crying_in_garden_2
-    with dissolve
     n "Amelia puts her phone down and cries, the weight of her grief overwhelming her. She feels a hand on her shoulder and looks up to see Zara standing there.{p=3}{nw}"
-    zara "Amelia, I’m so sorry. I know how much Sarah meant to you.{p=3}{nw}"
-    hide amelia_crying_in_garden_2
+    hide tragic_amelia_receiving_text
 
     show black
     window hide
-    show amelia_hugging_zara
+    show tragic_amelia_crying_in_garden_2 at fix_size
     with dissolve
+    zara "Amelia, I’m so sorry. I know how much Sarah meant to you.{p=3}{nw}"
     a "Thank you, Zara. I don't know how to get through this.{p=3}{nw}"
     zara "You don't have to do it alone. We're all here for you. Lean on us when you need to.{p=3}{nw}"
-    hide amelia_hugging_zara
+    a "I will. It's just so hard.{p=3}{nw}"
+    hide tragic_amelia_crying_in_garden_2
 
     show black
     window hide
-    show amelia_hugging_zara
+    show tragic_amelia_hugging_zara at fix_size
     with dissolve
-    a "I will. It's just so hard.{p=3}{nw}"
     n "They sit together in silence, the shared grief bringing a small measure of comfort.{p=3}{nw}"
-    hide amelia_hugging_zara
+    hide tragic_amelia_hugging_zara
 
     stop music
     play music come_with_me fadein 1.0 volume 0.8 
 
     show black
     window hide
-    show amelia_talking_to_professor_hawthorne_2
+    show tragic_amelia_talking_to_professor_hawthorne_2 at fix_size
     with dissolve
     n "The next day, Amelia meets with Professor Hawthorne, who has been a mentor and support throughout her journey.{p=3}{nw}"
     hawthorne "Amelia, I'm deeply sorry for your loss. Sarah was a wonderful person.{p=3}{nw}"
     amelia "Thank you, Professor. I feel lost without her.{p=3}{nw}"
-    hawthorne "Grief is a difficult path to walk. It's important to allow yourself to feel, to grieve. But remember, Sarah's memory can be a source of strength as well.{p=3}{nw}"
-    hide amelia_talking_to_professor_hawthorne_2
+    hide tragic_amelia_talking_to_professor_hawthorne_2
 
     show black
     window hide
-    show amelia_talking_to_professor_hawthorne_2
+    show tragic_amelia_talking_to_professor_hawthorne_4 at fix_size
     with dissolve
+    hawthorne "Grief is a difficult path to walk. It's important to allow yourself to feel, to grieve. But remember, Sarah's memory can be a source of strength as well.{p=3}{nw}"
     a "I’ll try. It's just... everything feels so empty.{p=3}{nw}"
     hawthorne "In time, you will find ways to honor her memory and find strength in her spirit. Lean on your friends, your family. They will help you through this.{p=3}{nw}"
-    hide amelia_talking_to_professor_hawthorne_2
+    hide tragic_amelia_talking_to_professor_hawthorne_4
 
     show black
     window hide
-    show amelia_at_memorial_2
+    show tragic_amelia_at_memorial_2 at fix_size
     with dissolve
     n "Later, Amelia visits a small memorial she has set up for Sarah. She lights a candle and places a photo of them together next to it.{p=3}{nw}"
     a "(Sarah, I hope you can hear me. I miss you every day. I'm trying to find my way without you.){p=3}{nw}"
     n "She sits there for a while, the flickering flame offering a small comfort.{p=3}{nw}"
-    hide amelia_at_memorial_2
+    hide tragic_amelia_at_memorial_2
 
     show black
     window hide
-    show amelia_journaling_2
+    show tragic_amelia_journaling_2 at fix_size
     with dissolve
     n "Back in her room, Amelia writes in her journal, capturing her thoughts and feelings.{p=3}{nw}"
-    a "{i}Today was another difficult day. I visited Sarah's memorial and talked to my friends. Their support means so much, but the pain is still overwhelming. I keep telling myself that it will get easier, that time will heal, but right now it feels like an endless void.{/i}{p=3}{nw}"
-    hide amelia_journaling_2
+    n "{i}Today was another difficult day. I visited Sarah's memorial and talked to my friends. Their support means so much, but the pain is still overwhelming. I keep telling myself that it will get easier, that time will heal, but right now it feels like an endless void.{/i}{p=3}{nw}"
+    hide tragic_amelia_journaling_2
 
     show black
     window hide
-    show amelia_lying_in_bed_tg
+    show tragic_amelia_lying_in_bed_tg at fix_size
     with dissolve
     n "As she lies in bed, Amelia feels a deep sense of loss and uncertainty about the future.{p=3}{nw}"
     a "(I don’t know what comes next. But I know I have to keep going, for Sarah and for myself.){p=3}{nw}"
     n "She closes her eyes, the tears still fresh on her cheeks, and falls into a restless sleep, hoping that one day, the pain will lessen and she will find a way to move forward.{p=3}{nw}"
-    hide amelia_lying_in_bed_tg
+    hide tragic_amelia_lying_in_bed_tg
 
     show black
     window hide
@@ -1828,13 +1864,13 @@ label te_ending_credits:
     window hide
     show tragic_credits_2
     with dissolve
-    credit_text "Story and Game design - Luna Ironfoot{p=15}{nw}"
+    credit_text "Story and Game design - HammerOfSteel{p=15}{nw}"
 
     window hide
     show tragic_credits_3
     with dissolve
-    credit_text "Art and history - Zara Greenleaf{p=15}{nw}"
-    credit_text "Sound design - Mira Silverbranch{p=15}{nw}"
+    credit_text "Art and history - HammerOfSteel{p=15}{nw}"
+    credit_text "Sound design - HammerOfSteel{p=15}{nw}"
 
     window hide
     show tragic_credits_4
