@@ -168,6 +168,37 @@ define config.window_icon = "gui/window_icon.png"
 
 init python:
 
+    import random
+
+    def roll_dice_silent(number_of_dice, dice_type):
+        # number_of_dice: how many dice to roll
+        # dice_type: the type of dice (e.g., 6 for d6, 20 for d20)
+        total = 0
+        results = []
+        for i in range(number_of_dice):
+            roll = random.randint(1, dice_type)
+            total += roll
+            results.append(roll)
+        
+        # You can also use this total in other parts of your script
+        return total
+
+    def roll_dice(number_of_dice, dice_type):
+        # number_of_dice: how many dice to roll
+        # dice_type: the type of dice (e.g., 6 for d6, 20 for d20)
+        total = 0
+        results = []
+        for i in range(number_of_dice):
+            roll = random.randint(1, dice_type)
+            total += roll
+            results.append(roll)
+        
+        # Display the results
+        renpy.say(n, "You rolled: " + ", ".join(str(x) for x in results) + " | Total: " + str(total))
+        
+        # You can also use this total in other parts of your script
+        return total
+
     ## The following functions take file patterns. File patterns are case-
     ## insensitive, and matched against the path relative to the base directory,
     ## with and without a leading /. If multiple patterns match, the first is

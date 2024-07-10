@@ -759,7 +759,7 @@ label chapter_12_social_butterfly:
 label sb_ending_credits:
     window hide
     stop music
-    play music eurus fadein 5.0 volume 0.8 
+    play music sunshine_in_the_rain fadein 5.0 volume 0.8 
     show black
     # call screen credits
     
@@ -978,7 +978,7 @@ label chapter_12_mental_health_advocate:
 label mh_ending_credits:
     window hide
     stop music fadeout 5.0
-    play music ghost fadein 2.0 volume 0.8 
+    play music wake_me_up fadein 2.0 volume 0.8 
     show black
     # call screen credits
     
@@ -1579,106 +1579,79 @@ label chapter_12_enlightenment:
 label ok_ending_credits:
     window hide
     stop music fadeout 5.0
-    play music birds_of_a_feather fadein 2.0 volume 0.8 
+    play music irish_eyes fadein 2.0 volume 0.8 
     show black
     # call screen credits
     
     window hide
     show amelia_cornwall_sea_halo
     with dissolve
-    credit_text "By GizmoBot studios{p=15}{nw}"
+    credit_text "By GizmoBot studios{p=10}{nw}"
 
     window hide
     show ok_credits_2
     with dissolve
-    credit_text "Story and Game design - Luna Ironfoot{p=15}{nw}"
+    credit_text "Story and Game design - Luna Ironfoot{p=5}{nw}"
+    credit_text "Art and history - Zara Greenleaf{p=5}{nw}"
+    credit_text "Sound design - Mira Silverbranch{p=5}{nw}"
 
     window hide
     show ok_credits_3
     with dissolve
-    credit_text "Art and history - Zara Greenleaf{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Birds of a feather{p=5}{nw}"
+    credit_text "Music - Fish in a bird cage - Sand{p=5}{nw}"
 
     window hide
     show ok_credits_3
     with dissolve
-    credit_text "Sound design - Mira Silverbranch{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Weight of gold{p=5}{nw}"
+    credit_text "Music - The Oh hellos - New river{p=5}{nw}"
 
     window hide
     show ok_credits_4
     with dissolve
-    credit_text "Music - Fish in a bird cage - Birds of a feather{p=15}{nw}"
+    credit_text "Music - The Oh hellos - Second child restless child{p=5}{nw}"
 
     window hide
     show ok_credits_5
     with dissolve
-    credit_text "Music - Fish in a bird cage - Sand{p=15}{nw}"
+    credit_text "Music - The Oh hellos - Soldier poet king{p=5}{nw}"
 
     window hide
     show ok_credits_6
     with dissolve
-    credit_text "Music - Fish in a bird cage - Weight of gold{p=15}{nw}"
+    credit_text "Music - The Oh hellos - I have made mistakes{p=5}{nw}"
 
     window hide
     show ok_credits_7
     with dissolve
-    credit_text "Music - The Oh hellos - New river{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Paperwork{p=5}{nw}"
 
     window hide
     show ok_credits_8
     with dissolve
-    credit_text "Music - The Oh hellos - Second child restless child{p=15}{nw}"
+    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
 
     window hide
     show ok_credits_9
     with dissolve
-    credit_text "Music - The Oh hellos - Soldier poet king{p=15}{nw}"
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=5}{nw}"
 
     window hide
     show ok_credits_10
     with dissolve
-    credit_text "Music - The Oh hellos - I have made mistakes{p=15}{nw}"
+    credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
 
     window hide
     show ok_credits_11
     with dissolve
-    credit_text "Music - Fish in a bird cage - Paperwork{p=15}{nw}"
+    credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
 
     window hide
     show ok_credits_12
     with dissolve
-    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
-
-    window hide
-    stop music fadeout 5
-    play music sand fadein 3.0 volume 0.8 
-    show ok_credits_13
-    with dissolve
-    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=15}{nw}"
-
-    window hide
-    show ok_credits_15
-    with dissolve
-    credit_text "Music - Cosmo Sheldrake - Moss{p=15}{nw}"
-
-    window hide
-    show ok_credits_16
-    with dissolve
-    credit_text "Special thanks - rubaphilos salfluere {p=15}{nw}"
-
-    window hide
-    show ok_credits_18
-    with dissolve
-    credit_text "Special thanks - Cornwalls rich history and nature {p=15}{nw}"
-
-    window hide
-    show ok_credits_19
-    with dissolve
-    credit_text "Special thanks - Many more {p=15}{nw}"
-
-    window hide
-    show ok_credits_20
-    with dissolve
-    pause 15
+    credit_text "Special thanks - Cornwalls rich history and nature {p=4}{nw}"
+    credit_text "The end{p=3}{nw}"
 
     return
 

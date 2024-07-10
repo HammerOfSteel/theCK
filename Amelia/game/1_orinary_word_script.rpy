@@ -77,11 +77,11 @@ define raj = Character("Raj", window_style="window_2", what_xpos=1160, what_text
 
 default art_style = "default"
 
-default AA = 0
-default SI = 0
-default MH = 0
-default SD = 0
-default MC = 0
+default AA = roll_dice_silent(1, 6)
+default SI = roll_dice_silent(1, 6)
+default MH = roll_dice_silent(1, 6)
+default SD = roll_dice_silent(1, 6)
+default MC = roll_dice_silent(1, 6)
 default OK = 0
 default told_ella = 0
 default told_parents = 0
@@ -111,6 +111,9 @@ define music.run_run_run = "run_run_run.mp3"
 define music.ghost = "ghost.mp3"
 define music.junk_of_the_heart = "junk_of_the_heart.mp3"
 define music.closer_to_the_heart = "closer_to_the_heart.mp3"
+define music.sunshine_in_the_rain = "sunshine_in_the_rain.mp3"
+define music.wake_me_up = "wake_me_up.mp3"
+define music.irish_eyes = "irish_eyes.mp3"
 
 transform fix_size: 
     zoom 1.42 #adjust as required
@@ -152,7 +155,6 @@ transform quarter_size_right:
 label start:
     stop music
     scene black
-    $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
     show thames_sunset_end
     with dissolve
 
@@ -172,6 +174,10 @@ label start:
         "Credits selection":
             hide thames_sunset_end
             jump ending_credits
+
+        "Function testing":
+            hide thames_sunset_end
+            jump function_testing
 
 label chapter_selection_1_6:
     scene black
@@ -320,12 +326,32 @@ label ending_credits:
             jump te_ending_credits
             window hide
 
+
+label function_testing:
+    window hide
+    play music second_child_restless_child fadein 1.0 volume 0.5
+
+    #pause 4.0
+    scene black
+    show childhood_room_2
+    #scene bg childhood_room_4
+    show amelia_kid_5 at half_size_center
+    n "She rolled the dice for her destiny, she needed atleast a 10 to make it..."
+    $ total = roll_dice(3, 6)  # Example: Roll three 6-sided dice
+    if total > 10:
+        n "Yaaaas! She made it, fortune and fame awaits her!"
+        return
+    else:
+        n "She failed... what would she do..."
+        return
+
 label start_chapter_1:
     window hide
     play music second_child_restless_child fadein 1.0 volume 0.5
 
     #pause 4.0
     scene black
+    $ renpy.notify(f"AA {AA} - SI {SI} - MH {MH} - SD {SD} - MC {MC} - OK {OK}")
     show childhood_room_2
     #scene bg childhood_room_4
     show amelia_kid_5 at half_size_center
