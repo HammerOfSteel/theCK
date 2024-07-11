@@ -118,6 +118,7 @@ define music.bright = "bright.mp3"
 define music.anywhere = "anywhere.mp3"
 define music.good_time = "good_time.mp3"
 define music.here_comes_the_sun = "here_comes_the_sun.mp3"
+define music.parting_glass = "parting_glass.mp3"
 
 transform fix_size: 
     zoom 1.42 #adjust as required

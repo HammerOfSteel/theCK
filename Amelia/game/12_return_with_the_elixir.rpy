@@ -1252,254 +1252,316 @@ label chapter_12_enlightenment:
     show black
     window hide
 
-    show intro_ok_ending
+    show ok_ending_1 at fix_size
     with dissolve
     n "This is the ending that the player gets if they initially wandered into the occult section in the bookshop.{p=4}{nw}"
     n "If they talked to Sarah the first time they saw her.{p=4}{nw}"
     n "And if they then diligently worked to find all the hiden occult references and choices in the game.{p=4}{nw}"
     n "Eventually gaining enough OK points{p=4}{nw}"
-    hide intro_ok_ending
+    hide ok_ending_1
     window hide   
 
     play music weight_of_gold fadein 1.0 volume 0.8
 
     show black
-    show amelia_in_room_preparing_ritual
+    show ok_ending_2 at fix_size
     with dissolve
-    n "Amelia stands in her room, surrounded by alchemical texts she has begun to rely on.{p=4}{nw}"
-    n "The ingredients for an intense spagyric process laying on a table infront of her.{p=4}{nw}"
-    n "Tonight, she will attempt to create the philosopher's stone.{p=4}{nw}"
-    n "The culmination of her alchemical journey research and studies.{p=4}{nw}"
-    hide amelia_in_room_preparing_ritual
+    n "Amelia sits at her desk, surrounded by alchemical texts she has begun to rely on.{p=4}{nw}"
+    n "She goes to her room, the ingredients for an intense spagyric process laying on a table infront of her.{p=4}{nw}"
+    hide ok_ending_2
     window hide
 
     show black
-    show amelia_beginning_ritual_3
+    show ok_ending_3 at fix_size
     with dissolve
+    n "Tonight, she will attempt to create the philosopher's stone.{p=4}{nw}"
+    n "The culmination of her alchemical journey research and studies.{p=4}{nw}"
     a "(This is it. Everything I've learned has led me to this moment. It's time to see if I can create the stone.){p=4}{nw}"
+    hide ok_ending_3
+    window hide
+
+    show black
+    show ok_ending_4 at fix_size
+    with dissolve
     n "She begins the ritual, carefully following the intricate steps described in the ancient manuscripts.{p=4}{nw}"
-    hide amelia_beginning_ritual_3
+    hide ok_ending_4
     window hide
     
     show black
-    show room_anticipation_scent_2
+    show ok_ending_5 at fix_size
     with dissolve
     n "The air in the room grows heavy with anticipation and the scent of the alchemical ingredients.{p=4}{nw}"
     a "(Focus, Amelia. This is about intention, about transformation.){p=4}{nw}"
-    hide room_anticipation_scent_2
+    hide ok_ending_5
 
     show black
-    show amelia_working_diligently_3
+    show ok_ending_5b at fix_size
     with dissolve
     n "Hours pass as Amelia works diligently, her movements precise and her mind clear.{p=4}{nw}"
-    hide amelia_working_diligently_3
+    hide ok_ending_5b
     window hide
 
     show black
-    show process_complete_5
+    show ok_ending_6 at fix_size
     with dissolve
     n "Finally, the process is complete.{p=4}{nw}"
-    hide process_complete_5
+    hide ok_ending_6
     window hide
 
     show black
-    show amelia_holding_stone_2
+    show ok_ending_7 at fix_size
     with dissolve
     n "Before her lies a small, glowing stone, pulsating with an otherworldly energy.{p=4}{nw}"
     n "She holds the philosopher's stone in her hands, feeling its power{p=4}{nw}"
-    hide amelia_holding_stone_2
+    hide ok_ending_7
     window hide
 
     show black
-    show amelia_no_immediate_change_2
+    show ok_ending_8 at fix_size
     with dissolve
     n "But not noticing any immediate change within herself.{p=4}{nw}"
-    hide amelia_no_immediate_change_2
+    hide ok_ending_8
     window hide
 
     show black
-    show amelia_culmination_of_journey_2
+    show ok_ending_9 at fix_size
     with dissolve
     a "This is it. The culmination of my journey.{p=4}{nw}"
     a "But... I don't feel any different.{p=4}{nw}"
-    hide amelia_culmination_of_journey_2
+    hide ok_ending_9
     window hide
 
     show black
-    show amelia_ingesting_stone_3
+    show ok_ending_10 at fix_size
     with dissolve
     n "With a deep breath, Amelia ingests the stone.{p=4}{nw}"
-    hide amelia_ingesting_stone_3
+    n "She waits for a moment, expecting a profound transformation, but nothing happens immediately.{p=4}{nw}"
+    n "After a small while, or was it an eternity?.{p=4}{nw}"
+    hide ok_ending_10
     window hide
 
     show black
-    show amelia_doesnt_feel_different_2
+    show ok_ending_11 at fix_size
     with dissolve
-    n "She waits for a moment, expecting a profound transformation, but nothing happens immediately.{p=4}{nw}"
-    n "Feeling slightly disappointed but hopeful, she decides to go for a walk to clear her mind.{p=4}{nw}"
-    a "(Maybe the effects take time. A walk will help me think.){p=4}{nw}"
-    hide amelia_doesnt_feel_different_2
+    n "Rigpa!, A sudden flash of eveything... all at once..{p=4}{nw}"
+    hide ok_ending_11
     window hide
     
     show black
-    show amelia_walking_outside
+    show ok_ending_12 at fix_size
     with dissolve
-    n "Amelia steps outside, the cool evening air refreshing her senses.{p=4}{nw}"
-    hide amelia_walking_outside
+    n "Overwhelmed by the feeling Amelia steps outside, the cool evening air refreshing her senses.{p=4}{nw}"
+    hide ok_ending_12
     window hide
 
     show black
-    show amelia_wandering_streets_2
+    show ok_ending_13 at fix_size
     with dissolve
     n "She wanders through the streets, lost in thought about her journey and the stone's potential.{p=4}{nw}"
-    a "I've come so far. Even if I don't feel different now{p=4}{nw}"
-    n "The journey itself has been transformative.{p=4}{nw}"
-    hide amelia_wandering_streets_2
+    a "What was that, what is this feeling inside of me..{p=4}{nw}"
+    n "Did I make a mistake?{p=4}{nw}"
+    hide ok_ending_13
     window hide
 
     stop music fadeout 5.0
     play music i_have_made_mistakes fadein 4.0 volume 0.3
 
     show black
-    show mysterious_garden_2
+    show ok_ending_14 at fix_size
     with dissolve
     n "Her wandering leads her to a garden she has never seen before.{p=4}{nw}"
     n "It's lush and vibrant, filled with flowers of every color.{p=4}{nw}"
     n "In the center, there is a fountain, and by the fountain stands a woman. She radiates a serene and powerful presence.{p=4}{nw}"
-    hide mysterious_garden_2
+    hide ok_ending_14
     window hide
 
     show black
-    show amelia_approaching_woman
+    show ok_ending_15 at fix_size
     with dissolve
     n "Amelia approaches the woman, feeling a strange sense of familiarity.{p=4}{nw}"
     a "Hello. I don't think I've seen you here before.{p=4}{nw}"
     woman "Welcome, Amelia. I've been waiting for you.{p=4}{nw}"
-    hide amelia_approaching_woman
+    hide ok_ending_15
     window hide
 
     show black
-    show amelia_confused
+    show ok_ending_16 at fix_size
     with dissolve
     a "Waiting for me? Who are you?{p=4}{nw}"
-    hide amelia_confused
+    hide ok_ending_16
     window hide
 
     show black
-    show woman_smiling
+    show ok_ending_15 at fix_size
     with dissolve
     woman "Names are not important. What matters is the journey you are on and the wisdom you seek.{p=4}{nw}"
-    hide woman_smiling
+    hide ok_ending_15
     window hide
 
     show black
-    show amelia_listening_intently
+    show ok_ending_16 at fix_size
     with dissolve
     a "What wisdom do you mean?{p=4}{nw}"
     woman "Sit with me by the fountain, and I will tell you a story.{p=4}{nw}"
-    hide amelia_listening_intently
+    hide ok_ending_16
     window hide
 
     show black
-    show amelia_sitting_by_fountain
+    show ok_ending_17 at fix_size
     with dissolve
     n "Amelia sits beside the woman, the sound of the water calming her.{p=4}{nw}"
-    hide amelia_sitting_by_fountain
+    hide ok_ending_17
     window hide
 
     show black
-    show mysterious_woman_talking
+    show ok_ending_18 at fix_size
     with dissolve
     n "The woman begins to speak, her voice soft and soothing.{p=4}{nw}"
     woman "Your journey began long before you set foot in Plymouth.{p=4}{nw}"
-    hide mysterious_woman_talking
+    hide ok_ending_18
     window hide
 
     show black
-    show amelia_reflecting_journey
+    show ok_ending_19 at fix_size
     with dissolve
     woman "Your recent past has been marked by trials, pushing you to the edge of your very understanding of the world and your place within it.{p=4}{nw}"
-    woman "You've faced academic pressures that tested your intellect and personal challenges that weighed heavily on your heart.{p=4}{nw}"
-    woman "Amelia, your journey has been a crucible, shaping and refining you in ways you might not yet fully comprehend.{p=4}{nw}"
-    woman "You arrived at Plymouth full of hope, yet unaware of the shadows you would encounter.{p=4}{nw}"
-    hide amelia_reflecting_journey
+    hide ok_ending_19
     window hide
 
     show black
-    show friends_puzzle_pieces
+    show ok_ending_19a at fix_size
     with dissolve
-    woman "The friends you've made—Ella, Zara, Lucas, Maya, Raj—each brought a piece of the puzzle that is your life.{p=4}{nw}"
+    woman "You've faced academic pressures that tested your intellect and personal challenges that weighed heavily on your heart.{p=4}{nw}"
+    hide ok_ending_19a
+    window hide
+
+    show black
+    show ok_ending_20 at fix_size
+    with dissolve
+    woman "Amelia, your journey has been a crucible, shaping and refining you in ways you might not yet fully comprehend.{p=4}{nw}"
+    hide ok_ending_20
+    window hide
+    
+    show black
+    show ok_ending_20b at fix_size
+    with dissolve
+    woman "You arrived at Plymouth full of hope, yet unaware of the shadows you would encounter.{p=4}{nw}"
+    woman "The friends you've made..{p=4}{nw}"
+    hide ok_ending_20b
+    window hide
+
+    show black
+    show ok_ending_20c at fix_size
+    with dissolve
+    woman "Lucas{p=4}{nw}"
+    hide ok_ending_20c
+    window hide
+
+    show black
+    show ok_ending_21 at fix_size
+    with dissolve
+    woman "Zara{p=4}{nw}"
+    hide ok_ending_21
+    window hide
+
+    show black
+    show ok_ending_22 at fix_size
+    with dissolve
+    woman "Liz{p=4}{nw}"
+    hide ok_ending_22
+    window hide
+
+    show black
+    show ok_ending_23 at fix_size
+    with dissolve
+    woman "Raj{p=4}{nw}"
+    hide ok_ending_23
+    window hide
+
+    show black
+    show ok_ending_24 at fix_size
+    with dissolve
+    woman "They a piece of the puzzle that is your life.{p=4}{nw}"
     woman "They've taught you the beauty of diversity, the strength found in unity, and the power of compassion.{p=4}{nw}"
-    hide friends_puzzle_pieces
+    hide ok_ending_24
     window hide
 
     stop music fadeout 5.0
-    play music come_with_me fadein 3.0 volume 0.4
+    play music parting_glass fadein 3.0 volume 0.4
 
     show black
-    show amelia_sarah_reflection
+    show ok_ending_25 at fix_size
     with dissolve
     woman "But, my dear, it is Sarah who left the most indelible mark.{p=4}{nw}"
-    show amelia_sarah_reflection_2
-    with dissolve
-    woman "Her struggle with depression was a mirror, reflecting the unspoken fears and hidden pains within you.{p=4}{nw}"
-    show amelia_sarah_reflection_3
-    with dissolve
-    woman "Her fate was a profound lesson, reminding you of the fragility of life and the importance of mental health.{p=4}{nw}"
-    hide amelia_sarah_reflection
-    hide amelia_sarah_reflection_2
-    hide amelia_sarah_reflection_3
+    hide ok_ending_25
     window hide
 
-    hide amelia_sarah_reflection
     show black
-    show amelia_shaped_experiences
+    show ok_ending_26 at fix_size
+    with dissolve
+    woman "Her struggle with depression was a mirror, reflecting the unspoken fears and hidden pains within you.{p=4}{nw}"
+    hide ok_ending_26
+    window hide
+
+    show black
+    show ok_ending_27 at fix_size
+    with dissolve
+    woman "Her fate was a profound lesson, reminding you of the fragility of life and the importance of mental health.{p=4}{nw}"
+    hide ok_ending_27
+    window hide
+
+    show black
+    show ok_ending_28 at fix_size
     with dissolve
     woman "The day you found her, you realized the gravity of your role in this world.{p=4}{nw}"
     woman "Whether she found peace or succumbed to her pain, her story intertwined with yours, urging you to advocate for those who suffer in silence.{p=3}{nw}"
-    hide amelia_shaped_experiences
+    hide ok_ending_28
     window hide
 
     show black
-    show amelia_tears_peace
+    show ok_ending_29 at fix_size
     with dissolve
     n "Tears begin to well up in her eyes as she realizes the profound truth of the woman’s words.{p=2}{nw}"
-    hide amelia_tears_truth
+    hide ok_ending_29
     window hide
 
     show black
-    show amelia_listening_emotional
+    show ok_ending_30 at fix_size
     with dissolve
     a "Yes, it has been challenging... but I've learned so much.{p=2}{nw}"
     woman "These experiences have shaped you, prepared you for the path you walk now.{p=2}{nw}"
-    hide amelia_listening_emotional
+    hide ok_ending_30
     window hide
 
     show black
-    show amelia_listening_emotional
+    show ok_ending_31 at fix_size
     with dissolve
     woman "Every choice you've made has led you here, standing at the threshold of true understanding.{p=2}{nw}"
     woman "You've delved into the depths of psychology, explored the mystical and the unknown, and faced your darkest fears.{p=2}{nw}"
-    hide amelia_listening_emotional
+    hide ok_ending_31
     window hide
 
     show black
-    show amelia_listening_emotional_2
+    show ok_ending_33 at fix_size
     with dissolve
     woman "You've grown, Amelia, more than you can see.{p=2}{nw}"
     woman "The enlightenment you seek is not a destination but a journey, a continuous path of learning, compassion, and self-discovery.{p=2}{nw}"
     woman "Remember Sarah, remember her struggle and her strength.{p=2}{nw}"
     woman "Use that memory to fuel your resolve to make a difference.{p=2}{nw}"
     woman "Your story is far from over, and your potential is limitless.{p=2}{nw}"
-    hide amelia_listening_emotional_2
+    hide ok_ending_33
     window hide
 
     show black
-    show amelia_understanding
+    show ok_ending_34 at fix_size
     with dissolve
     woman "Your heart has been forged in the fires of adversity, and through it, you have discovered your strength.{p=2}{nw}"
     woman "Embrace your past, cherish your present, and step boldly into your future.{p=2}{nw}"
-    hide amelia_understanding
+    woman "Trust in the process, and know that every challenge, every joy, is part of the divine tapestry of your life.{p=2}{nw}"
+    n "Amelia feels the weight of the mysterious womens words settling deep within her soul.{p=4}{nw}"
+    a "All that I have been through, All this time, I never understood...{p=4}{nw}"
+    a "Finally I understand..{p=4}{nw}"
+    hide ok_ending_34
     window hide
 
     # show black
@@ -1544,34 +1606,13 @@ label chapter_12_enlightenment:
     # woman "And finally, in the Rubedo, the reddening, you will achieve the Great Work{p=4}{nw}"
     # hide amelia_rubedo
 
-    show black
-    show amelia_divine_tapestry
-    with dissolve
-    woman "Trust in the process, and know that every challenge, every joy, is part of the divine tapestry of your life.{p=2}{nw}"
-    hide amelia_divine_tapestry
-    window hide
 
     show black
-    show amelia_weight_transmission
-    with dissolve
-    n "Amelia feels the weight of the mysterious womens words settling deep within her soul.{p=4}{nw}"
-    hide amelia_weight_transmission
-    window hide
-
-    show black
-    show amelia_embracing_past_future
-    with dissolve
-    a "All that I have been through, All this time, I never understood...{p=4}{nw}"
-    a "Finally I understand..{p=4}{nw}"
-    hide amelia_embracing_past_future
-    window hide
-
-    show black
-    show woman_fading
+    show ok_ending_15 at fix_size
     with dissolve
     n "The woman smiles, her form beginning to fade.{p=2}{nw}"
     n "With that, the woman vanishes, leaving Amelia alone by the fountain, her heart full and her mind buzzing with newfound insights.{p=3}{nw}"
-    hide woman_fading
+    hide ok_ending_15
     window hide
 
     # show black
@@ -1594,12 +1635,12 @@ label chapter_12_enlightenment:
     # hide amelia_beginning_achieve
 
     show black
-    show amelia_in_room_reflecting
+    show ok_ending_35 at fix_size
     with dissolve
     n "Back in her room, Amelia sits down and begins to write in her journal, capturing the emotions and insights from the encounter.{p=4}{nw}"
     a "{i}Tonight, I received a gift beyond measure. The great work, our great work...{/i}{p=4}{nw}"
     a "{i}My journey is just beginning, and I feel ready to face whatever comes next.{/i}{p=4}{nw}"
-    hide amelia_in_room_reflecting
+    hide ok_ending_35
     window hide
 
     # show black
@@ -1609,10 +1650,10 @@ label chapter_12_enlightenment:
     # hide amelia_lying_in_bed_3
 
     show black
-    show amelia_ready_challenges
+    show ok_ending_36 at fix_size
     with dissolve
     a "(I’m ready for whatever comes next, I can face any challenge.){p=5}{nw}"
-    hide amelia_ready_challenges
+    hide ok_ending_36
     show black
     window hide
     jump ok_ending_credits
