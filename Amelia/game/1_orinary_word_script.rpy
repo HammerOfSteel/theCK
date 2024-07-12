@@ -45,8 +45,8 @@
 # show amelia_thinking
 
 # Define characters
-define n = Character("", window_style="window_n", what_xpos=470, what_ypos=+25, what_text_align=0.0, who_xpos=+400, who_ypos=+15)
-define a = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
+define n = Character("", window_style="window_n", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15, what_xmaximum=1890)
+define a = Character("Amelia", window_style="window_a", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
 define amelia = Character("Amelia", window_style="window", what_xpos=30, what_text_align=0.0, who_xpos=-180, who_ypos=+15)
 define e = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define ella = Character("Ella", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
@@ -74,8 +74,6 @@ define credit_text = Character(window_style="window_c", what_xpos=620, what_text
 define hawthorne = Character("Hawthorne", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 define raj = Character("Raj", window_style="window_2", what_xpos=1160, what_text_align=0.0, who_xpos=+920, who_ypos=+15)
 
-
-default art_style = "default"
 
 default AA = roll_dice_silent(1, 6)
 default SI = roll_dice_silent(1, 6)
@@ -280,7 +278,7 @@ label ending_selection:
             jump chapter_12_academic_success
             window hide
 
-        "Watch Balancer growth ending":
+        "Watch Balanced growth ending":
             hide thames_sunset_end
             jump chapter_12_balanced_growth
             window hide
@@ -316,14 +314,9 @@ label ending_credits:
             jump as_ending_credits
             window hide
 
-        "Watch Secret credits":
+        "Watch Balanced growth credits":
             hide thames_sunset_end
-            jump ok_ending_credits
-            window hide
-
-        "Watch Social butterfly credits":
-            hide thames_sunset_end
-            jump sb_ending_credits
+            jump bh_ending_credits
             window hide
 
         "Watch Mental health advocate credits":
@@ -331,9 +324,19 @@ label ending_credits:
             jump mh_ending_credits
             window hide
 
+        "Watch Social butterfly credits":
+            hide thames_sunset_end
+            jump sb_ending_credits
+            window hide
+
         "Watch Tragic credits":
             hide thames_sunset_end
             jump te_ending_credits
+            window hide
+
+        "Watch Secret credits":
+            hide thames_sunset_end
+            jump ok_ending_credits
             window hide
 
 

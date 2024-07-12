@@ -515,7 +515,8 @@ label as_ending_credits:
     show as_credits_12 at fix_size
     with dissolve
     credit_text "Music - Cosmo Sheldrake - Moss{p=15}{nw}"
-    credit_text "Special thanks - rubaphilos salfluere {p=15}{nw}"
+    credit_text "Special thanks - Cornwalls rich history and nature{p=10}{nw}"
+    credit_text "The end{p=5}{nw}"
 
     return
 
@@ -790,7 +791,7 @@ label sb_ending_credits:
     window hide
     show sb_credits_10
     with dissolve
-    credit_text "Special thanks - Many more {p=20}{nw}"
+    credit_text "The end{p=20}{nw}"
 
     return
 
@@ -1008,7 +1009,7 @@ label mh_ending_credits:
     window hide
     show mh_credits_8 at fix_size
     with dissolve
-    credit_text "Special thanks - Many more {p=15}{nw}"
+    credit_text "The end{p=15}{nw}"
 
     return
 
@@ -1238,12 +1239,11 @@ label bh_ending_credits:
     window hide
     show bh_credits_11 at fix_size
     with dissolve
-    credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
+    credit_text "Special thanks - Cornwalls rich history and nature {p=4}{nw}"
 
     window hide
     show bh_credits_12 at fix_size
     with dissolve
-    credit_text "Special thanks - Cornwalls rich history and nature {p=4}{nw}"
     credit_text "The end{p=3}{nw}"
 
     return
@@ -1481,7 +1481,7 @@ label chapter_12_enlightenment:
     show black
     show ok_ending_24 at fix_size
     with dissolve
-    woman "They a piece of the puzzle that is your life.{p=4}{nw}"
+    woman "They are each a piece of the puzzle that is your life.{p=4}{nw}"
     woman "They've taught you the beauty of diversity, the strength found in unity, and the power of compassion.{p=4}{nw}"
     hide ok_ending_24
     window hide
@@ -1727,12 +1727,12 @@ label ok_ending_credits:
     window hide
     show ok_credits_11
     with dissolve
-    credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
+    credit_text "Special thanks - Cornwalls rich history and nature{p=4}{nw}"
 
     window hide
     show ok_credits_12
     with dissolve
-    credit_text "Special thanks - Cornwalls rich history and nature {p=4}{nw}"
+    credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
     credit_text "The end{p=3}{nw}"
 
     return
@@ -1789,7 +1789,6 @@ label chapter_12_tragic_ending:
     with dissolve
     mom "It's okay to feel this way, Amelia. Grief is a heavy burden, but you don't have to carry it alone. We're here for you.{p=3}{nw}"
     hide tragic_mon
-
 
     show black
     window hide
@@ -1936,6 +1935,5 @@ label te_ending_credits:
     with dissolve
     credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
     credit_text "Special thanks - Cornwalls rich history and nature {p=5}{nw}"
-    credit_text "Special thanks - Many more {p=5}{nw}"
 
     return

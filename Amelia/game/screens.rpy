@@ -138,13 +138,21 @@ style window:
 
     background Image("gui/textbox.png", xalign=0.0, yalign=1.0)
 
-style window_n:
-    xalign 0.5
+style window_a:
+    xalign 0.0
     xfill True
-    yalign 0.0
+    yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox_black.png", xalign=0.5, yalign=1.0)
+    background Image("gui/textbox_purple.png", xalign=0.0, yalign=1.0)
+
+style window_n:
+    xalign 0.0
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+
+    background Image("gui/textbox_black_half.png", xalign=0.0, yalign=1.0)
 
 style window_2:
     xalign 1.0
