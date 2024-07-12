@@ -1104,11 +1104,4 @@ label next_chapter:
     dad "I'm so proud of you, Amelia. I knew you could do it."
     narrator "Her dad joins her, expressing his pride and a touch of sadness as he realizes how much he will miss her. This emotional moment strengthens their bond and sets the emotional tone for her departure."
 
-    show 1_end_4 with dissolve
-    narrator "As Amelia packs her belongings, her thoughts return to her dream, the choices she made, and how they might shape her future."
-    a "This is it. A new chapter in my life. I'm ready for whatever comes next."
-
-    show 1_end_5 with dissolve
-    narrator "The chapter closes with Amelia feeling a mix of excitement and nervousness, perfectly leading into the 'Call to Adventure' as she prepares to leave her familiar world behind."
-
-    return
+    jump chapter_2
