@@ -1466,4 +1466,356 @@ label letter_lily_finish:
                 jump letter_ella
 
 label therapeutic_packing:
-    # To be continued in this label
+
+    # Introduction to the packing activity
+    narrator "With all her standard items packed, Amelia now faces the task of deciding which keepsakes and books to bring with her to Plymouth University. These items hold deep personal significance and will provide comfort and inspiration in her new journey."
+
+    # Keepsakes selection
+    menu:
+        "Choose a Family Keepsake to pack":
+            "Mom's Locket":
+                $ keepsake_family = "Mom's Locket"
+                a "Mom's locket... It always makes me feel close to her."
+                narrator "Amelia remembers the day her mom gave her the locket. It was her tenth birthday, and they were sitting in the garden, the sun shining brightly. Her mom told her the locket had been passed down through generations, and now it was her turn to keep it. Every time she holds the locket, she feels her mom's love and wisdom guiding her."
+                jump choose_friendship_keepsake
+
+            "Dad's Old Compass":
+                $ keepsake_family = "Dad's Old Compass"
+                a "Dad's old compass... It always pointed me in the right direction."
+                narrator "Amelia remembers the first time her dad showed her the compass. They were on a hiking trip, lost in the woods, but her dad remained calm, using the compass to find their way back. The compass has always been a symbol of his guidance and steady hand, something she knows she’ll need in her new journey."
+                jump choose_friendship_keepsake
+
+            "Family Photo Album":
+                $ keepsake_family = "Family Photo Album"
+                a "The family photo album... So many memories."
+                narrator "Flipping through the album, Amelia sees pictures from family holidays, birthday parties, and quiet Sunday afternoons. Each photo tells a story, a moment of joy and love. Taking the album means carrying these moments with her, a reminder that she is never alone."
+                jump choose_friendship_keepsake
+
+label choose_friendship_keepsake:
+
+    menu:
+        "Choose a Friendship Keepsake to pack":
+            "Friendship Bracelet":
+                $ keepsake_friendship = "Friendship Bracelet"
+                a "The friendship bracelet from Ella... We've been through so much together."
+                narrator "Amelia remembers the summer camp where Ella made the bracelet. They were inseparable, sharing secrets and dreams. The bracelet represents their unbreakable bond, a tangible piece of their friendship she can wear and feel Ella’s presence with her."
+                jump choose_personal_keepsake
+
+            "Signed Concert Ticket":
+                $ keepsake_friendship = "Signed Concert Ticket"
+                a "The signed concert ticket... That night was unforgettable."
+                narrator "The concert was a night to remember. They sang, danced, and felt the music in their souls. The ticket is more than just a stub; it’s a reminder of the joy and freedom of that night, a piece of her high school memories she wants to carry forward."
+                jump choose_personal_keepsake
+
+            "Handwritten Notes":
+                $ keepsake_friendship = "Handwritten Notes"
+                a "A collection of handwritten notes from my friends... Their words always cheer me up."
+                narrator "Each note and letter is a testament to the friendships she’s built. Encouraging words, inside jokes, and heartfelt messages fill the pages. Taking them means carrying her friends' support with her, a source of strength for when she feels alone."
+                jump choose_personal_keepsake
+
+label choose_personal_keepsake:
+
+    menu:
+        "Choose a Personal Keepsake to pack":
+            "Childhood Stuffed Animal":
+                $ keepsake_personal = "Childhood Stuffed Animal"
+                a "My childhood stuffed animal... It always comforts me."
+                narrator "The stuffed animal, a worn-out bunny, has been her companion through thick and thin. It’s a symbol of comfort and security, a piece of her childhood she’s not ready to part with. Taking it with her means bringing a piece of home to her new life."
+                jump choose_first_book
+
+            "Travel Souvenirs":
+                $ keepsake_personal = "Travel Souvenirs"
+                a "Some travel souvenirs... They remind me of happy travels."
+                narrator "Each souvenir tells a story of a different place and a different adventure. A seashell from the beach, a miniature Eiffel Tower from Paris, a tiny carved elephant from India. They are tokens of her family’s love for travel and exploration, something she wants to keep close."
+                jump choose_first_book
+
+            "Journal":
+                $ keepsake_personal = "Journal"
+                a "My personal journal... I want to continue writing."
+                narrator "The journal is a testament to her thoughts, dreams, and fears. Every page filled with her handwriting is a piece of her soul. Taking it with her means she can continue this journey of self-discovery, chronicling her new experiences."
+                jump choose_first_book
+
+# Books selection
+label choose_first_book:
+
+    menu:
+        "Choose the first book to pack":
+
+            "Introduction to Psychology":
+                $ first_book = "Introduction to Psychology"
+                a "This book will be essential for my studies. It covers all the basics and will help me understand the fundamentals of psychology."
+                narrator "Amelia feels a sense of determination as she reads the back cover. The topics covered remind her of the initial curiosity that led her to pursue psychology. She thinks about how understanding these basics will be crucial as she builds her knowledge."
+                jump choose_second_book
+
+            "Theories of Personality":
+                $ first_book = "Theories of Personality"
+                a "This book will help me understand different theories of personality. It’s fascinating to think about what makes people who they are."
+                narrator "As she reads the description, Amelia is reminded of her own quest for self-understanding. Theories of personality intrigue her, and she’s excited to delve into the complexities of human behavior and personality."
+                jump choose_second_book
+
+            "Cognitive Behavioral Therapy for Dummies":
+                $ first_book = "Cognitive Behavioral Therapy for Dummies"
+                a "Cognitive Behavioral Therapy is a key area in psychology. This book could be very useful for learning practical techniques."
+                narrator "Reading the back cover, Amelia is reminded of how CBT can help in dealing with various mental health issues. She feels a sense of purpose in learning these techniques, thinking about how they could be applied to help others."
+                jump choose_second_book
+
+            "Mindfulness and You":
+                $ first_book = "Mindfulness and You"
+                a "Mindfulness practices could really help me manage stress, especially in a new environment."
+                narrator "Amelia recalls how mindfulness exercises helped her during stressful times in high school. She feels that this book could provide her with the tools to stay calm and focused amidst the challenges of university life."
+                jump choose_second_book
+
+            "The Power of Now":
+                $ first_book = "The Power of Now"
+                a "This book could be really inspiring. It’s about finding peace in the present moment."
+                narrator "As she reads the back cover, Amelia thinks about how often she worries about the future or dwells on the past. She feels that this book could help her live more fully in the present, something she aspires to do."
+                jump choose_second_book
+
+            "Pride and Prejudice":
+                $ first_book = "Pride and Prejudice"
+                a "This classic always brings me comfort. It’s like an old friend."
+                narrator "Amelia thinks about the countless times she has read and re-read this novel. It’s a source of comfort and familiarity, a touchstone that makes her feel at home no matter where she is."
+                jump choose_second_book
+
+            "1984":
+                $ first_book = "1984"
+                a "This book is so thought-provoking. It makes you think about society and individual freedom."
+                narrator "Amelia reflects on the powerful themes of the novel. It challenges her to think critically about the world around her, and she feels it will be a good companion for late-night reflections."
+                jump choose_second_book
+
+            "Meditations by Marcus Aurelius":
+                $ first_book = "Meditations by Marcus Aurelius"
+                a "Stoic philosophy has always fascinated me. This book could offer some deep insights."
+                narrator "Amelia thinks about how the principles of Stoicism could help her maintain emotional balance and resilience. The teachings of Marcus Aurelius might provide her with the strength to face any challenge."
+                jump choose_second_book
+
+            "The Tao of Pooh":
+                $ first_book = "The Tao of Pooh"
+                a "This book is such a delightful blend of philosophy and fun. It could be a comforting read."
+                narrator "Amelia smiles as she reads the description. The simplicity and wisdom of Pooh Bear’s adventures always bring her joy. It feels like the perfect book to keep her grounded and happy."
+                jump choose_second_book
+
+label choose_second_book:
+
+    menu:
+        "Choose the second book to pack":
+
+            "Introduction to Psychology":
+                $ second_book = "Introduction to Psychology"
+                a "This book will be essential for my studies. It covers all the basics and will help me understand the fundamentals of psychology."
+                narrator "Amelia feels a sense of determination as she reads the back cover. The topics covered remind her of the initial curiosity that led her to pursue psychology. She thinks about how understanding these basics will be crucial as she builds her knowledge."
+                jump end_packing
+
+            "Theories of Personality":
+                $ second_book = "Theories of Personality"
+                a "This book will help me understand different theories of personality. It’s fascinating to think about what makes people who they are."
+                narrator "As she reads the description, Amelia is reminded of her own quest for self-understanding. Theories of personality intrigue her, and she’s excited to delve into the complexities of human behavior and personality."
+                jump end_packing
+
+            "Cognitive Behavioral Therapy for Dummies":
+                $ second_book = "Cognitive Behavioral Therapy for Dummies"
+                a "Cognitive Behavioral Therapy is a key area in psychology. This book could be very useful for learning practical techniques."
+                narrator "Reading the back cover, Amelia is reminded of how CBT can help in dealing with various mental health issues. She feels a sense of purpose in learning these techniques, thinking about how they could be applied to help others."
+                jump end_packing
+
+            "Mindfulness and You":
+                $ second_book = "Mindfulness and You"
+                a "Mindfulness practices could really help me manage stress, especially in a new environment."
+                narrator "Amelia recalls how mindfulness exercises helped her during stressful times in high school. She feels that this book could provide her with the tools to stay calm and focused amidst the challenges of university life."
+                jump end_packing
+
+            "The Power of Now":
+                $ second_book = "The Power of Now"
+                a "This book could be really inspiring. It’s about finding peace in the present moment."
+                narrator "As she reads the back cover, Amelia thinks about how often she worries about the future or dwells on the past. She feels that this book could help her live more fully in the present, something she aspires to do."
+                jump end_packing
+
+            "Pride and Prejudice":
+                $ second_book = "Pride and Prejudice"
+                a "This classic always brings me comfort. It’s like an old friend."
+                narrator "Amelia thinks about the countless times she has read and re-read this novel. It’s a source of comfort and familiarity, a touchstone that makes her feel at home no matter where she is."
+                jump end_packing
+
+            "1984":
+                $ second_book = "1984"
+                a "This book is so thought-provoking. It makes you think about society and individual freedom."
+                narrator "Amelia reflects on the powerful themes of the novel. It challenges her to think critically about the world around her, and she feels it will be a good companion for late-night reflections."
+                jump end_packing
+
+            "Meditations by Marcus Aurelius":
+                $ second_book = "Meditations by Marcus Aurelius"
+                a "Stoic philosophy has always fascinated me. This book could offer some deep insights."
+                narrator "Amelia thinks about how the principles of Stoicism could help her maintain emotional balance and resilience. The teachings of Marcus Aurelius might provide her with the strength to face any challenge."
+                jump end_packing
+
+            "The Tao of Pooh":
+                $ second_book = "The Tao of Pooh"
+                a "This book is such a delightful blend of philosophy and fun. It could be a comforting read."
+                narrator "Amelia smiles as she reads the description. The simplicity and wisdom of Pooh Bear’s adventures always bring her joy. It feels like the perfect book to keep her grounded and happy."
+                jump end_packing
+
+label end_packing:
+    narrator "Amelia carefully places the keepsakes and books into her suitcase, feeling a sense of comfort and readiness. These items will remind her of home and provide her with strength and inspiration as she embarks on this new journey."
+
+    # Continue to the next part of the chapter
+    jump chapter_2_outro
+
+label chapter_2_outro:
+
+    show 2_outro_1 with dissolve
+    narrator "With her keepsakes and books carefully packed, Amelia feels a mix of excitement and nervousness. It's time to leave for Plymouth. Ella arrives at her house, ready to help her pack the car."
+
+    show 2_outro_2 with dissolve
+    e "Hey, Amelia! Ready for the big move?"
+    a "Hey, Ella. Yeah, I think so. Thanks for helping me with all this."
+    e "Of course! What are best friends for?"
+
+    show 2_outro_3 with dissolve
+    narrator "They spend the next few minutes packing the car. Suitcases, boxes, and a few cherished items are carefully loaded into the trunk."
+
+    show 2_outro_4 with dissolve
+    e "Alright, I think that's everything. Let's hit the road!"
+
+    show 2_outro_5 with dissolve
+    narrator "They get into the car and start the long drive to Plymouth. The sun is shining, and the road stretches out before them."
+
+    # Initial conversation choices
+    menu:
+        "What should we talk about?":
+            "Future plans":
+                $ conversation_topic = "future_plans"
+                e "So, Amelia, what are you most excited about at university?"
+                a "I think... meeting new people and diving into psychology. What about you, Ella? Any big plans?"
+
+                if random.choice([1, 2, 3, 4, 5]) == 1:
+                    e "Actually, I'm thinking about taking a gap year to travel. I want to see the world before diving into work or more studies."
+                    a "That sounds amazing! Any places in particular?"
+                    e "Europe, for sure. Maybe some parts of Asia too. There's just so much out there to explore."
+                    a "I'm sure you'll have an incredible adventure. Just make sure to send me lots of pictures."
+                elif random.choice([1, 2, 3, 4, 5]) == 2:
+                    e "I've been considering getting into art school. I've always loved painting, and I think it might be time to take it seriously."
+                    a "Ella, that's fantastic! Your art is so beautiful. You absolutely should go for it."
+                    e "Thanks, Amelia. I just hope I can make a career out of it."
+                    a "With your talent, I have no doubt you will."
+                elif random.choice([1, 2, 3, 4, 5]) == 3:
+                    e "I'm planning to start an internship at a local NGO. I really want to make a difference in the community."
+                    a "That's so inspiring, Ella. Helping people and making a real impact. I'm proud of you."
+                    e "Thanks, Amelia. I just want to do something meaningful with my time."
+                elif random.choice([1, 2, 3, 4, 5]) == 4:
+                    e "I think I'll just work for a while, save up some money, and figure things out as I go. No rush, right?"
+                    a "That's a smart plan. Taking your time to figure things out can be just as valuable."
+                    e "Exactly. And who knows, maybe I'll discover something I'm passionate about along the way."
+                else:
+                    e "I've been thinking about writing a book. It's always been a dream of mine, and I have some ideas I want to explore."
+                    a "Ella, that's incredible! Your stories have always been so captivating. I'd love to read anything you write."
+                    e "Thanks, Amelia. It's a bit daunting, but I'm excited about the possibility."
+
+            "Nostalgia about school":
+                $ conversation_topic = "nostalgia_school"
+                e "Do you remember that time we got lost in the park during a school trip?"
+                a "Oh my gosh, yes! We were so scared, but it turned out to be an adventure. We found that little pond with the ducks."
+                e "And then we pretended to be explorers discovering new lands."
+                a "Those were the days. Simple joys and endless imagination."
+
+            "Favorite memories together":
+                $ conversation_topic = "favorite_memories"
+                e "What's one of your favorite memories of us together, Amelia?"
+                a "Hmm, I think it has to be our late-night study sessions. We were so tired but kept each other going with snacks and silly jokes."
+                e "I remember those! We got through so many exams because of our 'study marathons.'"
+                a "And the reward was always a big tub of ice cream at the end."
+                e "Those moments are precious. I'll always cherish them."
+
+    show 2_outro_6 with dissolve
+    narrator "The English countryside rolls by, green fields and quaint villages. Amelia's thoughts drift to her world and home, and the new place she's heading to, filled with unknowns."
+
+    a "I can't believe I'm actually leaving London. It's been my home for so long."
+    e "It's a big step, but you're ready for it. And Plymouth isn't the moon, you know. We'll still see each other."
+    a "I know, it's just... change is always a bit scary."
+    e "True, but it's also exciting. Think of all the new experiences waiting for you."
+
+    show 2_outro_7 with dissolve
+    narrator "After a few hours on the road, they decide to make a rest stop halfway. The air is fresh, and the rest area has a small café."
+
+    # Rest stop choices
+    menu:
+        "What should Amelia eat?":
+            "A hearty sandwich":
+                a "I think I'll go for a hearty sandwich. Need to keep my energy up."
+                e "Good choice! I'll have one too."
+                a "Nothing beats a good sandwich on a road trip."
+                e "Agreed. It's the perfect road trip food."
+            "A light salad":
+                a "I'll have a light salad. Don't want to feel too heavy."
+                e "Sounds healthy! I'll go for that as well."
+                a "Keeping it light and fresh. Nice choice."
+                e "Definitely. We need to stay energized."
+            "A slice of pie":
+                a "I could go for a slice of pie. A little treat for the road."
+                e "Yum! I'll join you in that indulgence."
+                a "Pie always hits the spot."
+                e "Especially on a road trip. It's like a mini celebration."
+
+    show 2_outro_8 with dissolve
+    narrator "They sit down with their food, enjoying the break and chatting about various topics."
+
+    # Second conversation choices
+    menu:
+        "What should they talk about?":
+            "Folklore and Cornwall spiritual history":
+                e "You know, Cornwall has a rich history of folklore and spiritual tales. We should explore some of that while you're there."
+                a "Absolutely! It would be fascinating to learn about the local legends and maybe visit some of those mystical sites."
+                e "Imagine all the stories we'll uncover. It sounds like an adventure in itself."
+                a "I can't wait to dive into the history and maybe even find some inspiration for my studies."
+
+            "Favorite authors and books from childhood":
+                e "Do you remember the books we used to read as kids?"
+                a "Of course! I loved 'Harry Potter' and 'The Chronicles of Narnia.' Those stories sparked my imagination."
+                e "Same here! We should have a mini book club and read some of those again."
+                a "That's a great idea. It would be fun to revisit those stories and see how we feel about them now."
+                e "Plus, it would be a nice way to stay connected while you're away."
+
+            "Ella's plans for the future":
+                e "I've been thinking a lot about my future too. It's exciting but also a bit scary."
+                a "You have so many talents, Ella. Whatever you choose, I know you'll excel."
+
+                if random.choice([1, 2, 3, 4, 5]) == 1:
+                    e "Thanks, Amelia. Right now, I'm leaning towards taking a gap year to travel. I want to see the world before diving into anything serious."
+                    a "That sounds incredible. You have to visit all the places we've talked about."
+                    e "I will! And I'll take lots of pictures to share with you."
+                elif random.choice([1, 2, 3, 4, 5]) == 2:
+                    e "I've been considering art school. Painting has always been my passion, and I think it's time to take it seriously."
+                    a "Ella, that's fantastic! Your art is so beautiful. You absolutely should go for it."
+                    e "Thanks, Amelia. I just hope I can make a career out of it."
+                    a "With your talent, I have no doubt you will."
+                elif random.choice([1, 2, 3, 4, 5]) == 3:
+                    e "I'm thinking about an internship at a local NGO. I really want to make a difference in the community."
+                    a "That's so inspiring, Ella. Helping people and making a real impact. I'm proud of you."
+                    e "Thanks, Amelia. I just want to do something meaningful with my time."
+                elif random.choice([1, 2, 3, 4, 5]) == 4:
+                    e "I might just work for a while, save up some money, and figure things out as I go. No rush, right?"
+                    a "That's a smart plan. Taking your time to figure things out can be just as valuable."
+                    e "Exactly. And who knows, maybe I'll discover something I'm passionate about along the way."
+                else:
+                    e "I've been toying with the idea of writing a book. It's a big dream, but I think I have some stories worth telling."
+                    a "Ella, that's incredible! Your stories have always been so captivating. I'd love to read anything you write."
+                    e "Thanks, Amelia. It's a bit daunting, but I'm excited about the possibility."
+
+    show 2_outro_9 with dissolve
+    narrator "They finish their meal and get back on the road. The drive continues smoothly, with the countryside slowly giving way to the coastal beauty of Plymouth."
+
+    show 2_outro_10 with dissolve
+    narrator "Finally, they arrive at the university dorms. Amelia's new home for the next few years."
+
+    a "Well, this is it. My new home."
+    e "You're going to do great here, Amelia. I believe in you."
+
+    show 2_outro_11 with dissolve
+    narrator "They unload her belongings, and with a heartfelt hug, Ella prepares to leave."
+
+    e "Call me as soon as you're settled, okay?"
+    a "I will. Thank you for everything, Ella. You're the best."
+
+    show 2_outro_12 with dissolve
+    narrator "As Ella drives away, Amelia stands in front of her dorm, feeling a mix of excitement and nervousness. A new chapter has begun."
+
+    jump chapter_3
