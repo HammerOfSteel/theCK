@@ -1892,7 +1892,7 @@ label chapter_12_tragic_ending:
 label te_ending_credits:
     window hide
     stop music
-    play music liar_and_a_thief fadein 5.0 volume 0.8 
+    play music rain_clouds fadein 5.0 volume 0.8 
     show black
     # call screen credits
     
