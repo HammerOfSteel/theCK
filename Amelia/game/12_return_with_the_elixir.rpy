@@ -1902,12 +1902,12 @@ label te_ending_credits:
     credit_text "By GizmoBot studios{p=15}{nw}"
 
     window hide
-    show 1_tragic_credits_2 at fix_size
+    show 1_tragic_credits_3 at fix_size
     with dissolve
-    credit_text "Story and Game design - HammerOfSteel{p=15}{nw}"
+    credit_text "Story and Game design - HammerOfSteel{p=18}{nw}"
 
     window hide
-    show 1_tragic_credits_3 at fix_size
+    show 1_tragic_credits_2 at fix_size
     with dissolve
     credit_text "Art and history - HammerOfSteel{p=15}{nw}"
 
@@ -1918,7 +1918,7 @@ label te_ending_credits:
 
     window hide
     show 1_tragic_credits_5 at fix_size
-    with dissolv
+    with dissolve
     credit_text "Music - Fish in a bird cage - Birds of a feather{p=15}{nw}"
 
     window hide
@@ -1939,60 +1939,60 @@ label te_ending_credits:
     window hide
     show 1_tragic_credits_9 at fix_size
     with dissolve
-    credit_text "Music - The Oh hellos - I have made mistakes{p=15}{nw}"
+    credit_text "Music - The Oh hellos - I have made mistakes{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_10 at fix_size
     with dissolve
-    credit_text "Music - Fish in a bird cage - Paperwork{p=15}{nw}"
+    credit_text "Music - Fish in a bird cage - Paperwork{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_11 at fix_size
     with dissolve
-    credit_text "Music - The amazing devil - Inkpot gods{p=15}{nw}"
+    credit_text "Music - The amazing devil - Inkpot gods{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_12 at fix_size
     with dissolve
-    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=15}{nw}"
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_13 at fix_size
     with dissolve
-    credit_text "Music - Cosmo Sheldrake - Moss{p=15}{nw}"
+    credit_text "Music - Cosmo Sheldrake - Moss{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_14 at fix_size
     with dissolve
-    credit_text "Music - The Arcadian Wild - Rain clouds{p=15}{nw}"
+    credit_text "Music - The Arcadian Wild - Rain clouds{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_15 at fix_size
     with dissolve
-    credit_text "Music - The Kooks - Junk of the heart{p=15}{nw}"
+    credit_text "Music - The Kooks - Junk of the heart{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_16 at fix_size
     with dissolve
-    credit_text "Music - Owl City - Good time{p=15}{nw}"
+    credit_text "Music - Owl City - Good time{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_17 at fix_size
     with dissolve
-    credit_text "Music - Zack brown band - Homegrown{p=15}{nw}"
+    credit_text "Music - Zack brown band - Homegrown{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_18 at fix_size
     with dissolve
-    credit_text "Music - Damh the bard - Parting glass{p=15}{nw}"
+    credit_text "Music - Damh the bard - Parting glass{p=10}{nw}"
 
     window hide
     show 1_tragic_credits_19 at fix_size
     with dissolve
-    credit_text "Special thanks - Cornwalls rich history and nature {p=15}{nw}"
+    credit_text "Special thanks - Cornwalls rich history and nature {p=10}{nw}"
 
     window hide
     show 1_tragic_credits_20 at fix_size
     with dissolve
-    credit_text "The end{p=15}{nw}"
+    credit_text "The end{p=8}{nw}"
     return
