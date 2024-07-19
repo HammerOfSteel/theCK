@@ -1897,43 +1897,102 @@ label te_ending_credits:
     # call screen credits
     
     window hide
-    show tragic_credits_1
+    show 1_tragic_credits_1 at fix_size
     with dissolve
     credit_text "By GizmoBot studios{p=15}{nw}"
 
     window hide
-    show tragic_credits_2
+    show 1_tragic_credits_2 at fix_size
     with dissolve
     credit_text "Story and Game design - HammerOfSteel{p=15}{nw}"
 
     window hide
-    show tragic_credits_3
+    show 1_tragic_credits_3 at fix_size
     with dissolve
     credit_text "Art and history - HammerOfSteel{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_4 at fix_size
+    with dissolve
     credit_text "Sound design - HammerOfSteel{p=15}{nw}"
 
     window hide
-    show tragic_credits_4
-    with dissolve
-
+    show 1_tragic_credits_5 at fix_size
+    with dissolv
     credit_text "Music - Fish in a bird cage - Birds of a feather{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_6 at fix_size
+    with dissolve
     credit_text "Music - Fish in a bird cage - Sand{p=15}{nw}"
-    credit_text "Music - Fish in a bird cage - Weight of gold{p=5}{nw}"
-    credit_text "Music - The Oh hellos - New river{p=5}{nw}"
-
 
     window hide
-    show tragic_credits_6
+    show 1_tragic_credits_7 at fix_size
     with dissolve
-    credit_text "Music - The Oh hellos - I have made mistakes{p=5}{nw}"
-    credit_text "Music - Fish in a bird cage - Paperwork{p=5}{nw}"
-    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
-    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=5}{nw}"
+    credit_text "Music - Fish in a bird cage - Weight of gold{p=15}{nw}"
 
     window hide
-    show tragic_credits_7
+    show 1_tragic_credits_8 at fix_size
     with dissolve
-    credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
-    credit_text "Special thanks - Cornwalls rich history and nature {p=5}{nw}"
+    credit_text "Music - The Oh hellos - New river{p=15}{nw}"
 
+    window hide
+    show 1_tragic_credits_9 at fix_size
+    with dissolve
+    credit_text "Music - The Oh hellos - I have made mistakes{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_10 at fix_size
+    with dissolve
+    credit_text "Music - Fish in a bird cage - Paperwork{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_11 at fix_size
+    with dissolve
+    credit_text "Music - The amazing devil - Inkpot gods{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_12 at fix_size
+    with dissolve
+    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_13 at fix_size
+    with dissolve
+    credit_text "Music - Cosmo Sheldrake - Moss{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_14 at fix_size
+    with dissolve
+    credit_text "Music - The Arcadian Wild - Rain clouds{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_15 at fix_size
+    with dissolve
+    credit_text "Music - The Kooks - Junk of the heart{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_16 at fix_size
+    with dissolve
+    credit_text "Music - Owl City - Good time{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_17 at fix_size
+    with dissolve
+    credit_text "Music - Zack brown band - Homegrown{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_18 at fix_size
+    with dissolve
+    credit_text "Music - Damh the bard - Parting glass{p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_19 at fix_size
+    with dissolve
+    credit_text "Special thanks - Cornwalls rich history and nature {p=15}{nw}"
+
+    window hide
+    show 1_tragic_credits_20 at fix_size
+    with dissolve
+    credit_text "The end{p=15}{nw}"
     return
