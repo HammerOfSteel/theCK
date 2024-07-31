@@ -1667,74 +1667,165 @@ label ok_ending_credits:
     # call screen credits
     
     window hide
-    show amelia_cornwall_sea_halo_b  at fix_size
+    show ok_credits_0b  at fix_size
     with dissolve
-    credit_text "By GizmoBot studios{p=10}{nw}"
+    credit_text "By GizmoBot studios{p=3}{nw}"
 
     window hide
-    show ok_credits_2b at fix_size
+    show ok_credits_01b at fix_size
     with dissolve
-    credit_text "Story and Game design - HammerOfSteel{p=5}{nw}"
-    credit_text "Art and history - HammerOfSteel{p=5}{nw}"
-    credit_text "Sound design - HammerOfSteel{p=5}{nw}"
+    credit_text "Story and Game design - HammerOfSteel{p=3}{nw}"
+
+    window hide
+    show ok_credits_02b at fix_size
+    with dissolve
+    credit_text "Art and history - HammerOfSteel{p=3}{nw}"
+
+    window hide
+    show ok_credits_03b at fix_size
+    with dissolve
+    credit_text "Sound design and music - HammerOfSteel / Dancing salamanders{p=3}{nw}"
+
+    window hide
+    show ok_credits_1b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - a stone of home {p=3}{nw}"
 
     window hide
     show ok_credits_3b at fix_size
     with dissolve
-    credit_text "Music - Fish in a bird cage - Birds of a feather{p=5}{nw}"
-    credit_text "Music - Fish in a bird cage - Sand{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - journeys light {p=3}{nw}"
 
     window hide
-    show ok_credits_3b at fix_size
+    show ok_credits_31b at fix_size
     with dissolve
-    credit_text "Music - Fish in a bird cage - Weight of gold{p=5}{nw}"
-    credit_text "Music - The Oh hellos - New river{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - Gathering of hearts {p=3}{nw}"
+
+    window hide
+    show ok_credits_32b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - Ace of spades{p=3}{nw}"
+
+    window hide
+    show ok_credits_33b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - the lesser arcana {p=3}{nw}"
 
     window hide
     show ok_credits_4b at fix_size
     with dissolve
-    credit_text "Music - The Oh hellos - Second child restless child{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - living on the moon {p=3}{nw}"
+
+    window hide
+    show ok_credits_41b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - all work no play {p=3}{nw}"
+
+    window hide
+    show ok_credits_42b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - heidai {p=3}{nw}"
 
     window hide
     show ok_credits_5b at fix_size
     with dissolve
-    credit_text "Music - The Oh hellos - Soldier poet king{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - Am I me {p=3}{nw}"
+
+    window hide
+    show ok_credits_51b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - bathhouse blues {p=3}{nw}"
+
+    window hide
+    show ok_credits_52b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - dartmoor {p=3}{nw}"
 
     window hide
     show ok_credits_6b at fix_size
     with dissolve
-    credit_text "Music - The Oh hellos - I have made mistakes{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - see the sea {p=3}{nw}"
 
     window hide
-    show ok_credits_7b at fix_size
+    show ok_credits_61b at fix_size
     with dissolve
-    credit_text "Music - Fish in a bird cage - Paperwork{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - Oh sarah {p=3}{nw}"
+
+    window hide
+    show ok_credits_62b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - two birds {p=3}{nw}"
 
     window hide
     show ok_credits_8b at fix_size
     with dissolve
-    credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - rumi the ruthless {p=3}{nw}"
+
+    window hide
+    show ok_credits_81b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - I dont want to {p=3}{nw}"
+
+    window hide
+    show ok_credits_82b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - a stone of home {p=3}{nw}"
 
     window hide
     show ok_credits_9b at fix_size
     with dissolve
-    credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - home {p=3}{nw}"
+
+    window hide
+    show ok_credits_91b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - bare with me {p=3}{nw}"
 
     window hide
     show ok_credits_10b at fix_size
     with dissolve
-    credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
+    credit_text "Music - Dancing Salamanders - all the jazz your dads like {p=3}{nw}"
+
+    window hide
+    show ok_credits_101b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - forgetmeknot {p=3}{nw}"
+
+    window hide
+    show ok_credits_102b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - gills and guts {p=3}{nw}"
 
     window hide
     show ok_credits_11b at fix_size
     with dissolve
-    credit_text "Special thanks - Cornwalls rich history and nature{p=4}{nw}"
+    credit_text "Music - Dancing Salamanders - Dancing salamanders {p=3}{nw}"
+
+    window hide
+    show ok_credits_111b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - Amelia {p=3}{nw}"
+
+    window hide
+    show ok_credits_112b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - Lecture hell {p=3}{nw}"
+
+    window hide
+    show ok_credits_113b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - a hawthorne {p=3}{nw}"
+
+    window hide
+    show ok_credits_114b at fix_size
+    with dissolve
+    credit_text "Music - Dancing Salamanders - mindfull meddeling {p=3}{nw}"
 
     window hide
     show ok_credits_12b at fix_size
     with dissolve
-    credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
     credit_text "The end{p=3}{nw}"
+
 
     return
 
