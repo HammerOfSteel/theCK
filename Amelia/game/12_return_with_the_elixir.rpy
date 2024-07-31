@@ -748,32 +748,32 @@ label chapter_12_social_butterfly:
 label sb_ending_credits:
     window hide
     stop music
-    play music sunshine_in_the_rain fadein 5.0 volume 0.8 
+    play music gathering_of_hearts fadein 5.0 volume 0.8 
     show black
     # call screen credits
     
     window hide
-    show sb_credits_1
+    show sb_credits_1b
     with dissolve
     credit_text "By GizmoBot studios{p=17}{nw}"
 
     window hide
-    show sb_credits_2
+    show sb_credits_2b
     with dissolve
     credit_text "Story and Game design - HammerOfSteel{p=17}{nw}"
 
     window hide
-    show sb_credits_3
+    show sb_credits_3b
     with dissolve
     credit_text "Art and history - HammerOfSteel{p=17}{nw}"
 
     window hide
-    show sb_credits_4
+    show sb_credits_4b
     with dissolve
     credit_text "Sound and music - Dancing salamanders{p=17}{nw}"
 
     window hide
-    show sb_credits_5
+    show sb_credits_5b
     with dissolve
     credit_text "Music - Dancing salamanders - Journeys light {p=2}{nw}"
     credit_text "Music - Dancing salamanders - Living on the moon {p=2}{nw}"
@@ -781,7 +781,7 @@ label sb_ending_credits:
     credit_text "Music - Dancing salamanders - I dont want to {p=2}{nw}"
 
     window hide
-    show sb_credits_6
+    show sb_credits_6b
     with dissolve
     credit_text "Music - Dancing salamanders - A stone of hope {p=2}{nw}"
     credit_text "Music - Dancing salamanders - All work no play {p=2}{nw}"
@@ -789,7 +789,7 @@ label sb_ending_credits:
     credit_text "Music - Dancing salamanders - Wolves {p=2}{nw}"
 
     window hide
-    show sb_credits_7
+    show sb_credits_7b
     with dissolve
     credit_text "Music - Dancing salamanders - Journeys light{p=2}{nw}"
     credit_text "Music - Dancing salamanders - Hej {p=2}{nw}"
@@ -797,7 +797,7 @@ label sb_ending_credits:
     credit_text "Music - Dancing salamanders - Home {p=2}{nw}"
 
     window hide
-    show sb_credits_8
+    show sb_credits_8b
     with dissolve
     credit_text "Music - Dancing salamanders - Ace of spades{p=2}{nw}"
     credit_text "Music - Dancing salamanders - Am I me {p=2}{nw}"
@@ -805,7 +805,7 @@ label sb_ending_credits:
     credit_text "Music - Dancing salamanders - Bare with me {p=2}{nw}"
 
     window hide
-    show sb_credits_9
+    show sb_credits_9b
     with dissolve
     credit_text "Music - Dancing salamanders - The lesser arcana{p=2}{nw}"
     credit_text "Music - Dancing salamanders - Bath house blues {p=2}{nw}"
@@ -813,7 +813,7 @@ label sb_ending_credits:
     credit_text "Music - Dancing salamanders - All the jazz your dads like {p=2}{nw}"
 
     window hide
-    show sb_credits_10
+    show sb_credits_10b
     with dissolve
     credit_text "Music - Dancing salamanders - Forgetmeknot {p=3}{nw}"
     credit_text "Music - Dancing salamanders - Gills and guts {p=3}{nw}"
