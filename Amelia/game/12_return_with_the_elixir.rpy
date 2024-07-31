@@ -453,14 +453,14 @@ label chapter_12_academic_success:
 label as_ending_credits:
     window hide
     stop music fadeout 5.0
-    play music junk_of_the_heart fadein 2.0 volume 0.8 
+    play music journeys_light fadein 2.0 volume 0.8 
     show black
     # call screen credits
     
     window hide
     show as_credits_1 at fix_size
     with dissolve
-    credit_text "By GizmoBot studios{p=15}{nw}"
+    credit_text "By GizmoBot studios{p=5}{nw}"
 
     window hide
     show as_credits_2 at fix_size
@@ -514,7 +514,7 @@ label as_ending_credits:
     window hide
     show as_credits_12 at fix_size
     with dissolve
-    credit_text "Music - Cosmo Sheldrake - Moss{p=15}{nw}"
+    credit_text "Music - Cosmo Sheldrake - Moss{p=10}{nw}"
     credit_text "Special thanks - Cornwalls rich history and nature{p=10}{nw}"
     credit_text "The end{p=5}{nw}"
 
@@ -1660,77 +1660,78 @@ label chapter_12_enlightenment:
 
 label ok_ending_credits:
     window hide
+    # $ renpy.movie_cutscene("stone.webm")
     stop music fadeout 5.0
-    play music irish_eyes fadein 2.0 volume 0.8 
+    play music a_stone_of_hope fadein 2.0 volume 0.8 
     show black
     # call screen credits
     
     window hide
-    show amelia_cornwall_sea_halo
+    show amelia_cornwall_sea_halo_b  at fix_size
     with dissolve
     credit_text "By GizmoBot studios{p=10}{nw}"
 
     window hide
-    show ok_credits_2
+    show ok_credits_2b at fix_size
     with dissolve
     credit_text "Story and Game design - HammerOfSteel{p=5}{nw}"
     credit_text "Art and history - HammerOfSteel{p=5}{nw}"
     credit_text "Sound design - HammerOfSteel{p=5}{nw}"
 
     window hide
-    show ok_credits_3
+    show ok_credits_3b at fix_size
     with dissolve
     credit_text "Music - Fish in a bird cage - Birds of a feather{p=5}{nw}"
     credit_text "Music - Fish in a bird cage - Sand{p=5}{nw}"
 
     window hide
-    show ok_credits_3
+    show ok_credits_3b at fix_size
     with dissolve
     credit_text "Music - Fish in a bird cage - Weight of gold{p=5}{nw}"
     credit_text "Music - The Oh hellos - New river{p=5}{nw}"
 
     window hide
-    show ok_credits_4
+    show ok_credits_4b at fix_size
     with dissolve
     credit_text "Music - The Oh hellos - Second child restless child{p=5}{nw}"
 
     window hide
-    show ok_credits_5
+    show ok_credits_5b at fix_size
     with dissolve
     credit_text "Music - The Oh hellos - Soldier poet king{p=5}{nw}"
 
     window hide
-    show ok_credits_6
+    show ok_credits_6b at fix_size
     with dissolve
     credit_text "Music - The Oh hellos - I have made mistakes{p=5}{nw}"
 
     window hide
-    show ok_credits_7
+    show ok_credits_7b at fix_size
     with dissolve
     credit_text "Music - Fish in a bird cage - Paperwork{p=5}{nw}"
 
     window hide
-    show ok_credits_8
+    show ok_credits_8b at fix_size
     with dissolve
     credit_text "Music - The amazing devil - Inkpot gods{p=5}{nw}"
 
     window hide
-    show ok_credits_9
+    show ok_credits_9b at fix_size
     with dissolve
     credit_text "Music - The amazing devil - Drinking song for the socially anxious{p=5}{nw}"
 
     window hide
-    show ok_credits_10
+    show ok_credits_10b at fix_size
     with dissolve
     credit_text "Music - Cosmo Sheldrake - Moss{p=5}{nw}"
 
     window hide
-    show ok_credits_11
+    show ok_credits_11b at fix_size
     with dissolve
     credit_text "Special thanks - Cornwalls rich history and nature{p=4}{nw}"
 
     window hide
-    show ok_credits_12
+    show ok_credits_12b at fix_size
     with dissolve
     credit_text "Special thanks - rubaphilos salfluere {p=4}{nw}"
     credit_text "The end{p=3}{nw}"
@@ -1744,7 +1745,7 @@ label chapter_12_tragic_ending:
     stop music
     play music sand fadein 1.0 volume 0.8 
 
-    show tragic_amelia_in_room_reflecting  at fix_size
+    show tragic_amelia_in_room_reflecting at fix_size
     with dissolve
     n "Amelia sits in her room, surrounded by the familiar comforts of home, but the weight of the past year bears heavily on her shoulders.{p=3}{nw}"
     n "She looks at the photos on her desk, memories from her first year at Plymouth University, but one photo in particular catches her eye – a picture of her and Sarah, smiling together before everything changed.{p=3}{nw}"
