@@ -14,7 +14,7 @@
 - [x] **narrative_structure.md** — Chapter-by-chapter breakdown with acts, scenes, choices
 
 ### 1.2 Remaining Design Work
-- [ ] **choice_map.md** — Full branching tree in diagram form (Mermaid or similar). Every choice, every point value, every conditional branch mapped visually.
+- [x] **choice_map.md** — Full branching tree in diagram form (Mermaid or similar). Every choice, every point value, every conditional branch mapped visually.
 - [ ] **Character relationship matrix** — Detailed tracking of how every character pair's relationship changes per chapter.  
 - [ ] **Dialogue style guide** — Voice samples for every character in different emotional states (calm, angry, vulnerable, drunk, texting). Rules for British university dialogue (slang, register, texting conventions).
 - [ ] **Alchemical thread map** — The hidden layer fully charted: which scenes map to which alchemical stage, what symbolism is embedded where.
