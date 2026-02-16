@@ -15,13 +15,13 @@
 
 ### 1.2 Remaining Design Work
 - [x] **choice_map.md** — Full branching tree in diagram form (Mermaid or similar). Every choice, every point value, every conditional branch mapped visually.
-- [ ] **Character relationship matrix** — Detailed tracking of how every character pair's relationship changes per chapter.  
-- [ ] **Dialogue style guide** — Voice samples for every character in different emotional states (calm, angry, vulnerable, drunk, texting). Rules for British university dialogue (slang, register, texting conventions).
-- [ ] **Alchemical thread map** — The hidden layer fully charted: which scenes map to which alchemical stage, what symbolism is embedded where.
-- [ ] **Cornish folklore reference** — Research document with real Cornish legends, *pellar* traditions, Kernewek phrases, sites, and how they integrate into the narrative.
-- [ ] **Sarah's arc detailed outline** — The most sensitive thread needs its own dedicated document: scene-by-scene arc, the spectrum of outcomes, tone guidelines, content warning implementation.
-- [ ] **art_direction.md** — Visual style guide for V2: character designs, colour palette, UI mood, scene composition rules. Unified art style specification for AI generation or commissioning.
-- [ ] **Point balance spreadsheet** — Every choice in every chapter with its point awards, totalled and balanced. Simulate 5+ different playstyles to verify endings are reachable.
+- [x] **relationship_matrix.md** — Detailed tracking of how every character pair's relationship changes per chapter.  
+- [x] **dialogue_style_guide.md** — Voice samples for every character in different emotional states (calm, angry, vulnerable, drunk, texting). Rules for British university dialogue (slang, register, texting conventions).
+- [x] **alchemical_thread_map.md** — The hidden layer fully charted: which scenes map to which alchemical stage, what symbolism is embedded where.
+- [x] **cornish_folklore_reference.md** — Research document with real Cornish legends, *pellar* traditions, Kernewek phrases, sites, and how they integrate into the narrative.
+- [x] **sarahs_arc.md** — The most sensitive thread needs its own dedicated document: scene-by-scene arc, the spectrum of outcomes, tone guidelines, content warning implementation.
+- [x] **art_direction.md** — Visual style guide for V2: character designs, colour palette, UI mood, scene composition rules. Unified art style specification for AI generation or commissioning.
+- [x] **point_balance_spreadsheet.md** — Every choice in every chapter with its point awards, totalled and balanced. Simulate 6 different playstyles to verify endings are reachable.
 
 ---
 
