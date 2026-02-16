@@ -1,8 +1,121 @@
-'The CK: Amelia'
-# Synopsis
-Amelia's life takes a turn when she gets accepted into a prestigious psychology program at the University of Plymouth. Leaving behind her comfortable life in a London suburb, Amelia embarks on a three-year journey to face academic pressures, personal challenges, and self-discovery. Throughout this visual novel, players will guide Amelia's decisions, facing the harsh realities of bullying, racism, and depression, while also exploring the academic depths of various psychological, philosophical, and spiritual disciplines.
+# The CK: Amelia
 
-# Main Characters
+> A choice-driven visual novel about a young psychology student's transformative first year at the University of Plymouth — where Jungian shadows, Cornish folklore, and the quiet alchemy of growing up collide.
+
+## Synopsis
+
+Amelia James, 18, leaves suburban London for Plymouth to study psychology. What follows is one academic year (October to June) of friendship, heartbreak, intellectual awakening, and difficult choices — guided by the player. Beneath the coming-of-age surface runs a deeper current: the Hero's Journey mapped to the stages of the alchemical *Magnum Opus*, Cornish folklore threaded through the landscape, and a hidden path of genuine esoteric discovery for those who look for it.
+
+The game tracks six dimensions of Amelia's growth — Academic Achievement, Social Interaction, Mental Health, Self-Discovery, Moral Choices, and Occult Knowledge — through a hidden karma system. Small choices compound into fate. Seven distinct endings await.
+
+## Project Status
+
+| Component | Status |
+|---|---|
+| **V1 (Amelia/)** | Chapters 1–3 & 12 playable in Ren'Py. Chapters 4–11 story-only. |
+| **V2 (Amelia_V2/)** | **Phase 1: Foundation — complete.** Design docs for characters, world, mechanics, and full narrative structure. |
+
+### V2 Design Documents
+- `Amelia_V2/overview.md` — Vision, themes, structural changes
+- `Amelia_V2/design/characters.md` — Full character bible (15+ characters with arcs & voice samples)
+- `Amelia_V2/design/world_and_locations.md` — London, Plymouth, Cornwall with sensory detail & folklore
+- `Amelia_V2/design/game_mechanics.md` — Hidden karma system, relationship tracking, karma dice, 7 endings
+- `Amelia_V2/design/narrative_structure.md` — 12 chapters scene-by-scene with every choice mapped
+- `Amelia_V2/todo.md` — Master task tracker across 4 development phases
+
+## Core Themes
+
+- **Leaving home and becoming yourself** — the terror and exhilaration of the first year
+- **Friendship as survival** — the people you meet can save or break you
+- **Mental health is real** — depression, anxiety, and the courage to reach out (handled with care)
+- **The Shadow** — every character mirrors an aspect of Amelia's psyche (Jung)
+- **Solve et Coagula** — the alchemical process of dissolution and rebirth, mapped to the story arc
+- **The Cornish Otherworld** — standing stones, holy wells, and the *pellar* tradition woven into Cornwall's landscape
+- **Fate and free will** — small choices compound into destiny through the hidden karma engine
+
+## Characters
+
+### Main Cast
+| Character | Role | V2 Archetype |
+|---|---|---|
+| **Amelia James** | Protagonist, 18, psychology student | The Seeker — *prima materia* becoming gold |
+| **Ella Chen** | Childhood best friend (London) | The Golden Thread — connection to the ordinary world |
+| **Prof. Hawthorne** | Academic mentor (high AA+MC) | Salt — rigour, structure, the body of knowledge |
+| **Dr. Simmons** | Wellbeing mentor (high MH+SI) | Mercury — fluidity, connection, emotional intelligence |
+| **Maya Patel** | Spiritual friend/mentor (high SD+OK) | Sulphur — the volatile, the spiritual fire |
+| **Elena Trevorran** | Hidden mentor — Cornish *pellar* (very high OK) | The Soror Mystica — the secret guide |
+| **Lucas Adeyemi** | Intellectual companion, Jungian psychology | The Animus — the thinking-partner |
+| **Zara Okafor** | Fighter, faces racism head-on | The Red Lion — transformation through confrontation |
+| **Raj Sharma** | The heart of the group, family systems | The Self in community — warmth and belonging |
+| **Sarah Whitmore** | Quiet, depressed, at risk | The Mirror — *can you save someone who doesn't want to be saved?* |
+| **Tasha Reynolds** | Bully → potential redemption | The Shadow — what Amelia fears and represses |
+
+### Supporting Cast
+Sophia Langford (academic rival), Michael Okonkwo (activist), Liz Torres (roommate), Lily James (cousin), David & Grace James (parents)
+
+## Structure
+
+12 chapters following the Hero's Journey, each mapped to an alchemical stage:
+
+| # | Chapter | Month | Alchemical Stage |
+|---|---|---|---|
+| 1 | The Ordinary World | September | Pre-Nigredo |
+| 2 | The Call to Adventure | October | Early Nigredo |
+| 3 | Refusal of the Call | Oct–Nov | Nigredo deepening |
+| 4 | Meeting the Mentor | November | Late Nigredo / Albedo |
+| 5 | Crossing the Threshold | Nov–Dec | Albedo |
+| 6 | Tests, Allies, Enemies | Dec–Jan | Albedo continued |
+| 7 | The Approach | Jan–Feb | Citrinitas beginning |
+| 8 | **The Ordeal** | February | **Citrinitas — the furnace** |
+| 9 | The Reward | March | Late Citrinitas |
+| 10 | The Road Back | April | Early Rubedo |
+| 11 | The Resurrection | May | Rubedo |
+| 12 | Return with the Elixir | June | Post-Rubedo |
+
+## Game Mechanics (V2)
+
+- **6 stats** tracked silently: AA, SI, MH, SD, MC, OK
+- **Hidden karma system** — the player sees consequences, not numbers
+- **Amelia's journal** as the narrative stat screen
+- **Relationship values** (0–10) per character
+- **Dynamic mentor assignment** at end of Chapter 3
+- **Sarah's fate** determined by cumulative choices across the whole game (4-tier spectrum, not binary)
+- **Karma Dice** (d20 + modifiers) at pivotal moments for genuine uncertainty
+- **7 endings:** The Scholar, The Companion, The Healer, The Alchemist, The Whole, The Grief, The Bittersweet
+
+## Locations
+
+**London** — Bromley home, Thames riverside, the bookshop (where the occult path begins)
+**Plymouth** — Campus, the Hoe, the Barbican, Royal William Yard, halls of residence
+**Cornwall** — St. Ives, Tintagel, Bodmin Moor, Mên-an-Tol, Madron Holy Well, St. Michael's Mount, Lost Gardens of Heligan, Eden Project, Polperro, Penzance, Carn Euny Fogou
+
+## Tech
+
+- **Engine:** [Ren'Py](https://www.renpy.org/)
+- **Resolution:** 1920×1080
+- **Build name:** TheCK
+
+## Development Phases
+
+1. **Foundation** — Character bibles, world-building, game mechanics, narrative structure ✅
+2. **Writing** — Full prose for all 12 chapters, dialogue polish, choice architecture
+3. **Implementation** — Ren'Py scripting, art assets, music, UI
+4. **Polish** — Playtesting, balancing, proofreading, builds
+
+---
+
+*By GizmoBot Studios — Luna Ironfoot (story/design), Zara Greenleaf (art/history), Mira Silverbranch (sound)*
+
+---
+
+# V1 Reference (Original Design)
+
+> The sections below document the original V1 design. Kept for reference — the V2 design documents in `Amelia_V2/` supersede these.
+
+<details>
+<summary>Click to expand V1 design notes</summary>
+
+## V1 Main Characters
 - Amelia - The protagonist. A hopeful psychology student, eager to learn but unaware of the social and personal challenges she'll encounter.
 
 - Ella - Amelia's childhood best friend. A steadfast supporter, she's the link to Amelia's past and provides a comforting voice.
@@ -19,7 +132,7 @@ Amelia's life takes a turn when she gets accepted into a prestigious psychology 
 
 - Sarah - Another student who Amelia meets by chance. Sarah is struggling with severe depression, and her presence in Amelia's life introduces themes of mental health and suicide. Her fate depends on the player's choices, with her potential suicide adding a layer of gravity to the narrative.
 
-# Background Characters
+## V1 Background Characters
 - Mr. & Mrs. James - Amelia's parents, who are both proud and worried about their daughter's journey.
 
 - Lily - Amelia's younger cousin, a few years her junior. She looks up to Amelia and often seeks her advice, providing a familial connection and perspective on Amelia's growth.
@@ -34,8 +147,8 @@ Amelia's life takes a turn when she gets accepted into a prestigious psychology 
 
 - Sophia - Amelia's academic rival. Competitive and driven, she pushes Amelia to excel but also challenges her in unexpected ways.
 
-# Places
-## London
+## V1 Places
+### London
 - Amelia's London Home - A cozy home in the suburbs, representing her comfort zone.
 - Ella's House - The place where Amelia and Ella often hung out during their school days.
 - Local Park - A peaceful green space where Amelia spent time reflecting and relaxing.
@@ -47,12 +160,12 @@ Amelia's life takes a turn when she gets accepted into a prestigious psychology 
 - Bookstore - A quaint bookstore where Amelia often buys her psychology and philosophy books.
 - Tea House - A traditional tea house where Amelia and Ella enjoy afternoon tea, representing their cherished moments together.
 
-## Plymouth
+### Plymouth
 - Plymouth University - The main setting, full of academic buildings, dorms, and student hangouts.
 - Prof. Hawthorne’s Office - A room filled with books, where Amelia gets guidance.
 - City Library - A peaceful place where Amelia spends time studying.
 - Student Union - A hub for student activities and social events.
--Local Café - A cozy spot where Amelia and her friends hang out and discuss life.
+- Local Café - A cozy spot where Amelia and her friends hang out and discuss life.
 - Hoe Park - A large waterfront park offering stunning views of Plymouth Sound, a favorite spot for relaxation and reflection.
 - Barbican - The historic heart of Plymouth with cobbled streets, shops, and restaurants. Amelia explores its rich history and cultural heritage.
 - Royal William Yard - A scenic waterfront area with restaurants, art galleries, and events.
@@ -327,3 +440,4 @@ graph TD
 Additional Key Points
 - Occult Knowledge Path: Secret books, mystical experiences, and occult rituals leading to potential enlightenment.
 - Interwoven Paths: Opportunities to gain points in various categories through different paths, ensuring a rich and interconnected narrative.
+</details>
