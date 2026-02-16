@@ -125,6 +125,9 @@ label chapter_12:
 
     "They're all here. Raj, Liz, Lucas. The corridor is full of boxes, bags, parents' cars arriving."
 
+    # --- SONG SLIDESHOW: "The Quiet of Morning" — The last goodbye ---
+    call slideshow_ch12_the_quiet_of_morning
+
     ## =====================================================================
     ## CHOICE 12.2 — THE LAST GOODBYE
     ## =====================================================================
@@ -284,6 +287,9 @@ label chapter_12:
 
         "Then she goes home."
 
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Grief ending ---
+        call slideshow_ch12_daffodils_grief
+
         scene black
         with fade
 
@@ -362,6 +368,9 @@ label chapter_12:
 
         "{i}Gold.{/i}"
 
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Alchemist ending ---
+        call slideshow_ch12_daffodils_alchemist
+
         scene black
         with fade
 
@@ -410,6 +419,9 @@ label chapter_12:
         "She opens a new notebook. Blank pages. The specific thrill of work that matters."
 
         "She writes a title. The beginning of the beginning."
+
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Scholar ending ---
+        call slideshow_ch12_daffodils_scholar
 
         scene black
         with fade
@@ -484,6 +496,9 @@ label chapter_12:
 
         "{i}lucas: see you in september{/i}"
 
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Companion ending ---
+        call slideshow_ch12_daffodils_companion
+
         scene black
         with fade
 
@@ -554,6 +569,9 @@ label chapter_12:
             "A sunrise. Devon. The moor."
 
             "{i}sarah: i watched this today. thought of you. x{/i}"
+
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Healer ending ---
+        call slideshow_ch12_daffodils_healer
 
         scene black
         with fade
@@ -630,6 +648,9 @@ label chapter_12:
 
         "The sun is shining."
 
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Whole ending ---
+        call slideshow_ch12_daffodils_whole
+
         scene black
         with fade
 
@@ -682,6 +703,9 @@ label chapter_12:
         "Somewhere, a lifetime away, the sea is still there. Cornwall. The moors. The stones."
 
         "Still there. Even when you can't see them."
+
+        # --- SONG SLIDESHOW: "Daffodils in the Snow" — Bittersweet ending ---
+        call slideshow_ch12_daffodils_bittersweet
 
         scene black
         with fade

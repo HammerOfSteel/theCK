@@ -412,6 +412,9 @@ label chapter_9:
 
     "The mentor arranges a Cornwall trip. Not a test this time — a restoration. The landscape as medicine."
 
+    # --- SONG SLIDESHOW: "jolly-rum-ba-low!" — Cornwall healing, spring energy ---
+    call slideshow_ch9_jolly_rum_ba_low
+
     if mentor_path == "hawthorne":
         "Hawthorne drives. He puts Classic FM on and doesn't apologise for it."
 

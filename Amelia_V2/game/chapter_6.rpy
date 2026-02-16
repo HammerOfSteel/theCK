@@ -589,6 +589,9 @@ label chapter_6:
 
     "The question. The real one. Grace doesn't look at her — she watches the water, the soap, her hands. But she's listening with her entire body."
 
+    # --- SONG SLIDESHOW: "Kindeling Kin" — Christmas at home, Grace's kitchen ---
+    call slideshow_ch6_kindeling_kin
+
     ## =====================================================================
     ## CHOICE 6.5 — CHRISTMAS AT HOME — TALKING TO PARENTS
     ## =====================================================================
@@ -758,6 +761,9 @@ label chapter_6:
             "She catches Amelia's eye."
 
             maya "There's a group. In Cornwall. If you're interested."
+
+        # --- SONG SLIDESHOW: "The Mist-Laden Path" — Midwinter solstice (conditional) ---
+        call slideshow_ch6_the_mist_laden_path
 
         ## =====================================================================
         ## CHOICE 6.7 — MIDWINTER SOLSTICE

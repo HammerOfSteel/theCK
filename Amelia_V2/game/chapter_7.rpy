@@ -833,6 +833,9 @@ label chapter_7:
 
     "Ready or not."
 
+    # --- SONG SLIDESHOW: "Mirror of the Mind" — The gathering storm ---
+    call slideshow_ch7_mirror_of_the_mind
+
     ## -----------------------------------------------------------------------
     ## END OF CHAPTER
     ## -----------------------------------------------------------------------

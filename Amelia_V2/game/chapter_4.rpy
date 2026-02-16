@@ -472,6 +472,9 @@ label chapter_4:
 
         elena "Same principle as therapy. Different technology."
 
+    # --- SONG SLIDESHOW: "Hawthorne" — Cornwall trip, ancient landscape ---
+    call slideshow_ch4_hawthorne
+
     ## =====================================================================
     ## CHOICE 4.2 — RESPONSE TO CORNWALL LANDSCAPE (All paths)
     ## =====================================================================

@@ -36,6 +36,9 @@ label chapter_10:
 
     "Amelia watches the landscape change — Cornwall's granite and gorse giving way to Devon's red earth, then Somerset's green, then the gradual grey thickening of the approach to London."
 
+    # --- SONG SLIDESHOW: "The Long Way Home" — Train to London, the reverse journey ---
+    call slideshow_ch10_the_long_way_home
+
     "At Reading, the buildings multiply. At Slough, the sky gets smaller. At Paddington, the station swallows her — noise, movement, pigeons, the smell of brake dust and Costa Coffee."
 
     "London."
@@ -504,6 +507,9 @@ label chapter_10:
     "London in April. Cherry blossom in every park, drifting like pink snow. The sky is blue — proper blue, not the grey she's used to."
 
     "She walks."
+
+    # --- SONG SLIDESHOW: "Here, Now, and Blues" — Solo London contemplation ---
+    call slideshow_ch10_here_now_and_blues
 
     ## =====================================================================
     ## CHOICE 10.4 — SOLO CONTEMPLATION

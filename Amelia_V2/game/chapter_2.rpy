@@ -158,6 +158,9 @@ label chapter_2:
 
     # play music "audio/ch2_drive.ogg" fadein 2.0 volume 0.4
 
+    # --- SONG SLIDESHOW: "Lighthouse in the Fog" — The drive to Plymouth ---
+    call slideshow_ch2_lighthouse_in_the_fog
+
     "The M25. The M3. The M5. England unspooling through the windscreen in shades of grey and green."
 
     "David drives the way he does everything — steady, careful, both hands on the wheel. Radio 2 on low. The wipers going intermittently because it's that annoying kind of rain that can't commit."

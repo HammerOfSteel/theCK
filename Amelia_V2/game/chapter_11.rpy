@@ -746,6 +746,9 @@ label chapter_11:
 
         "The darkness swallows her."
 
+        # --- SONG SLIDESHOW: "Between the Veil" — Fogou, mystical threshold ---
+        call slideshow_ch11_between_the_veil
+
         ## =====================================================================
         ## THE FOGOU SCENE — KARMA DICE
         ## =====================================================================
@@ -1081,6 +1084,9 @@ label chapter_11:
     "The sun crests the horizon. The light pours. Everything is red and gold."
 
     thought "I think it might be."
+
+    # --- SONG SLIDESHOW: "The_Work" — Red Dawn, Rubedo, the climax ---
+    call slideshow_ch11_the_work
 
     ## -----------------------------------------------------------------------
     ## END OF CHAPTER

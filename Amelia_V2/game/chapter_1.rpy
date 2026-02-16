@@ -628,6 +628,9 @@ label chapter_1:
 
             "She stands there until the cold gets too much. Then she walks home."
 
+    # --- SONG SLIDESHOW: "Paper Planes" — Amelia's last London night ---
+    call slideshow_ch1_paper_planes
+
     ## -----------------------------------------------------------------------
     ## SCENE 1.7 — THE NIGHT BEFORE
     ## Amelia's bedroom, late. No choice. Pure narrative.

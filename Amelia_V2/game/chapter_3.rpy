@@ -714,6 +714,9 @@ label chapter_3:
 
             "She does."
 
+    # --- SONG SLIDESHOW: "Two Birds" — Homesickness, missing Ella ---
+    call slideshow_ch3_two_birds
+
     ## =====================================================================
     ## ACT 3: THE PIT (Weeks 7-9)
     ## =====================================================================

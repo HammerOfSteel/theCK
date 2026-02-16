@@ -568,6 +568,9 @@ label chapter_5:
 
     "A smile. Brief. Like a match struck in a dark room."
 
+    # --- SONG SLIDESHOW: "Circles in the Sand" — Group Cornwall trip ---
+    call slideshow_ch5_circles_in_the_sand
+
     ## =====================================================================
     ## CHOICE 5.4 — GROUP CORNWALL TRIP
     ## =====================================================================

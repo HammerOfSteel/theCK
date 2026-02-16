@@ -619,6 +619,9 @@ label chapter_8:
     ## ACT 3: IN THE ASHES
     ## =====================================================================
 
+    # --- SONG SLIDESHOW: "Bare With Me" — The emotional centre of the game ---
+    call slideshow_ch8_bare_with_me
+
     scene black
     with fade
 
@@ -984,6 +987,9 @@ label chapter_8:
     with dissolve
 
     "Night. Her room. The rain has started again."
+
+    # --- SONG SLIDESHOW: "Living on the Moon" — The bottom, isolation ---
+    call slideshow_ch8_living_on_the_moon
 
     if sarah_alive:
         "Sarah is alive."
