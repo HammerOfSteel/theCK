@@ -1,6 +1,7 @@
 # The CK: Amelia V2 — Master TODO
 
-> This is the living task tracker for the V2 rewrite. Items are ordered by dependency — later phases require earlier phases to be complete.
+> Living task tracker for the V2 rewrite. Phases are ordered by dependency.
+> **Art generation is deliberately the final step** — everything else should work with placeholders first.
 
 ---
 
@@ -46,13 +47,6 @@
 - [x] **Chapter 11** — Final term. Exams, Sophia, Tasha resolution, Cornwall, the Fogou
 - [x] **Chapter 12** — Seven endings. Shared opening, unique conclusions, credits
 
-### 2.2 Writing Passes (Future)
-- [ ] **Dialogue polish** — Read all dialogue aloud. Cut anything that feels like a lecture.
-- [ ] **Thematic consistency** — Verify alchemical/Jungian threads are woven subtly, not stated.
-- [ ] **Pacing review** — Each chapter: rising/falling tension, no two scenes at same pitch.
-- [ ] **Character voice audit** — Every character identifiable by dialogue alone.
-- [ ] **Content sensitivity review** — Sarah's arc, racism, bullying, depression — accurate and careful.
-
 ---
 
 ## PHASE 2.5: SONG INTEGRATION ✅ COMPLETE
@@ -66,61 +60,101 @@
 
 ---
 
-## PHASE 3: ART & ASSETS ← CURRENT PHASE
+## PHASE 3: IMAGE PROMPT PACKS ✅ COMPLETE
 
-### 3.1 Image Prompt Packs
-> *Strategy: Create detailed, consistent image generation prompts organised by category. Erik tests with various AI image generators. Focus on the visual novel art direction — quality and consistency over quantity.*
+> *Committed as `c4758a3` (2,208 insertions). 17 prompt files in `Amelia_V2/prompts/`.*
 
-**Prompt files in `Amelia_V2/prompts/`:**
+### Characters (`prompts/characters/`) — 9 files
+- [x] **amelia.md** — 12 expressions × 6 outfit variants. Visual arc across chapters.
+- [x] **ella.md** — 8 expressions × 2 outfits. Phone screen + London chapters.
+- [x] **sarah.md** — 9 expressions × visual deterioration arc. Wren tattoo. Ch6 turning point.
+- [x] **lucas.md** — 8 expressions × 2 outfits.
+- [x] **zara.md** — 8 expressions.
+- [x] **raj.md** — 8 expressions + cooking special.
+- [x] **liz.md** — 6 expressions.
+- [x] **mentors.md** — Hawthorne, Simmons, Maya, Elena. 6 expressions each.
+- [x] **supporting.md** — Tasha, Sophia, Michael, David, Grace, Lily, Mr. Osei.
 
-#### Characters (`prompts/characters/`)
-Each character gets a dedicated prompt file with a master reference prompt (the "character sheet") and per-expression variants. Consistent style prefix, pose, and lighting anchors ensure the same character looks like the same person across every generation.
+### Backgrounds (`prompts/backgrounds/`) — 5 files
+- [x] **london.md** — 12 backgrounds (James house, bookshop, Thames, park, café, train)
+- [x] **plymouth_campus.md** — 18 backgrounds (campus, lectures, library, psych building, offices)
+- [x] **plymouth_living.md** — 14 backgrounds (halls, flat, corridors, individual rooms)
+- [x] **plymouth_hoe.md** — 4 backgrounds + THE BENCH as special motif
+- [x] **cornwall.md** — 9+ backgrounds (Mên-an-Tol, Merry Maidens, Fogou, coast, Elena's cottage)
 
-- [ ] **amelia.md** — 12 expressions × 3 outfit groups (casual/academic/special). Visual arc across chapters.
-- [ ] **ella.md** — 8 expressions × 2 outfits. Primarily phone screen + London chapters.
-- [ ] **sarah.md** — 8 expressions × 2 outfits. Visual deterioration arc. Wren tattoo consistency.
-- [ ] **lucas.md** — 8 expressions × 2 outfits.
-- [ ] **zara.md** — 8 expressions × 1 outfit.
-- [ ] **raj.md** — 8 expressions × 1 outfit (+ apron variant).
-- [ ] **liz.md** — 8 expressions × 1 outfit.
-- [ ] **mentors.md** — Hawthorne, Simmons, Maya, Elena. 6 expressions each.
-- [ ] **supporting.md** — Tasha, Sophia, Michael, David, Grace, Lily, Mr. Osei. 4 expressions each.
+### CG & UI (`prompts/cg/` + `prompts/ui/`) — 3 files
+- [x] **cg_scenes.md** — 12 core CGs + 7 ending variants
+- [x] **slideshow_scenes.md** — Mood backgrounds for 20 song slideshow moments
+- [x] **ui_elements.md** — Main menu, textbox, journal, phone screen, choice menu, content warnings
 
-#### Backgrounds (`prompts/backgrounds/`)
-63 unique scene tags across all chapters. Grouped by location cluster with time-of-day and weather variants.
+---
 
-- [ ] **london.md** — 11 backgrounds (James house, bookshop, Thames, park, café, train, Lily's room)
-- [ ] **plymouth_campus.md** — 18 backgrounds (campus quad, lectures, library, psych building, Barbican)
-- [ ] **plymouth_living.md** — 14 backgrounds (halls, flat kitchen, corridors, individual rooms)
-- [ ] **plymouth_hoe.md** — 4 backgrounds (dawn, day, grey, the Bench). Weather and season variants.
-- [ ] **cornwall.md** — 9 backgrounds (Mên-an-Tol, Merry Maidens, Madron Well, Fogou, coast, moor, Tintagel, Eden)
-- [ ] **special_locations.md** — Elena's cottage (ext+int), mentor offices, Maya's ceremony room
+## PHASE 3.5: PLACEHOLDER ART & TECHNICAL WORK ← CURRENT PHASE
 
-#### CG Event Art (`prompts/cg/`)
-- [ ] **cg_scenes.md** — 12 core CGs + 7 ending variants (Thames, move-in, the bench, mentor meet, Maidens, Sarah's room, Fogou entrance, crisis corridor, results, London return, Fogou interior, endings)
-- [ ] **slideshow_scenes.md** — Mood backgrounds for the 20 song slideshow moments
+> *Goal: Make the game fully runnable with placeholder assets. Complete all Ren'Py engine work so that when we focus on art, we only swap images — no code changes needed.*
 
-#### UI (`prompts/ui/`)
-- [ ] **ui_elements.md** — Main menu background, textbox design, journal mockup, phone screen frame
+### 3.5.1 Placeholder System
+- [x] **placeholders.rpy** — Ren'Py displayable declarations for all 58 backgrounds (coloured solids with text labels, alchemical palette coded). Game runs without any image files.
+- [x] **placeholder_guide.md** — Sourcing guide with recommended sites, search terms, naming conventions, and folder structure for when real images replace placeholders.
+- [x] **images/ directory** — Organised folder tree ready to receive final art.
 
-### 3.2 Technical Implementation
-> *Ren'Py engine work. Core structure exists; screens/GUI/layered images still needed.*
-
-- [x] **Project structure** — Amelia_V2/game/ with definitions.rpy and 12 chapters
-- [x] **Character definitions** — 18 characters defined in definitions.rpy
-- [x] **Variable architecture** — 6-stat karma, relationship vars, flags, conditions in definitions.rpy
-- [ ] **Layered image declarations** — Add `layeredimage` blocks once sprites are generated
+### 3.5.2 Technical Implementation
+- [x] Project structure — Amelia_V2/game/ with definitions.rpy and 12 chapters
+- [x] Character definitions — 18 characters defined in definitions.rpy
+- [x] Variable architecture — 6-stat karma, relationship vars, flags, conditions
 - [ ] **Screen customisation** — Journal screen, custom choice screen, content warning screen, phone screen
 - [ ] **GUI styling** — Textbox, fonts, colours per alchemical phase
 - [ ] **Save system** — Proper save/load with stat tracking intact
+- [ ] **Layered image stubs** — `layeredimage` blocks that reference placeholder sprites, ready for real art swap
 
-### 3.3 Audio
-- [x] **Song integration** — 20 Dancing Salamanders songs placed as slideshow moments
-- [x] **9 song .wav files** available (need .ogg conversion)
+### 3.5.3 Audio
+- [x] Song integration — 20 Dancing Salamanders songs placed as slideshow moments
+- [x] 9 song .wav files available (need .ogg conversion)
 - [ ] **Ambient music** — Per-chapter mood music for non-slideshow scenes
 - [ ] **Sound effects** — Rain, wind, seagulls, kitchen, phone, footsteps
 - [ ] **Ambient loops** — Library hum, café chatter, moor wind, ocean waves, fire crackle
 - [ ] **Song .ogg conversion** — Convert existing .wav files; source remaining 11 songs
+
+### 3.5.4 Writing Passes
+- [ ] **Dialogue polish** — Read all dialogue aloud. Cut anything that feels like a lecture.
+- [ ] **Thematic consistency** — Verify alchemical/Jungian threads are woven subtly, not stated.
+- [ ] **Pacing review** — Each chapter: rising/falling tension, no two scenes at same pitch.
+- [ ] **Character voice audit** — Every character identifiable by dialogue alone.
+- [ ] **Content sensitivity review** — Sarah's arc, racism, bullying, depression — accurate and careful.
+
+---
+
+## PHASE 3.9: ART GENERATION (Final step before Polish)
+
+> *Dedicated art phase. Take your time. Use the prompt packs in `prompts/` and test across generators. Replace placeholder images one category at a time.*
+
+### 3.9.1 Character Sprites
+- [ ] **Amelia** — Master sheet → 12 expressions × outfit variants
+- [ ] **Sarah** — Master sheet → 9 expressions × visual deterioration arc
+- [ ] **Ella** — 8 expressions × 2 outfits
+- [ ] **Lucas** — 8 expressions × 2 outfits
+- [ ] **Zara, Raj, Liz** — 8/8/6 expressions each
+- [ ] **Mentors (4)** — Hawthorne, Simmons, Maya, Elena. 6 expressions each.
+- [ ] **Supporting (7)** — Tasha, Sophia, Michael, David, Grace, Lily, Mr. Osei
+- [ ] **Layered image update** — Swap placeholder `layeredimage` refs to final art
+
+### 3.9.2 Backgrounds
+- [ ] **London** — 12 backgrounds
+- [ ] **Plymouth Campus** — 18 backgrounds
+- [ ] **Plymouth Living** — 14 backgrounds
+- [ ] **Plymouth Hoe** — 4 backgrounds + the Bench
+- [ ] **Cornwall** — 9+ backgrounds
+
+### 3.9.3 CG Event Art
+- [ ] **12 core CGs** — Thames, move-in, bench, mentors, Maidens, Sarah, Fogou, crisis, results, return, endings
+- [ ] **7 ending variants** — Grief, Alchemist, Scholar, Companion, Healer, Whole, Bittersweet
+- [ ] **Slideshow atmospherics** — Mood images for 20 song moments
+
+### 3.9.4 UI Art
+- [ ] **Main menu background**
+- [ ] **Textbox design**
+- [ ] **Journal / phone mockups**
+- [ ] **Choice menu styling**
 
 ---
 
@@ -142,7 +176,8 @@ Each character gets a dedicated prompt file with a master reference prompt (the 
 |--------|-------|-------------|
 | `9caac90` | 1 | Foundation — 13 design documents |
 | `ce173ef` | 2 | Writing — definitions.rpy + 12 chapter scripts (10,655 lines) |
-| `9a0a0d3` | 2.5 | Songs — 3 new placements, updated songs.md + slideshows.rpy |
+| `9a0a0d3` | 2.5 | Songs — 20 placements, updated songs.md + slideshows.rpy |
+| `c4758a3` | 3 | Image prompt packs (17 files, 2,208 lines) + updated todo.md |
 
 ### Asset Counts
 | Category | Count | Status |
@@ -150,22 +185,34 @@ Each character gets a dedicated prompt file with a master reference prompt (the 
 | Design documents | 14 | ✅ Complete |
 | Ren'Py scripts | 14 | ✅ Complete |
 | Slideshow labels | 26 | ✅ Coded |
-| Background scenes needed | 63 | Prompts pending |
-| Character sprite sets needed | ~18 | Prompts pending |
-| CG event illustrations | 19+ | Prompts pending |
-| Song audio files (.wav) | 9 of 20 | Partial |
+| Image prompt files | 17 | ✅ Complete |
+| Background scenes needed | 58 | 🟡 Placeholders active |
+| Character sprite sets needed | ~16 | 🟡 Placeholders pending |
+| CG event illustrations | 19+ | ⬜ Phase 3.9 |
+| Song audio files (.wav) | 9 of 20 | 🟡 Partial |
 
 ### File Structure
 ```
 Amelia_V2/
-├── design/           # 14 design documents (Phase 1)
-├── game/             # 14 .rpy scripts (Phase 2 + 2.5)
-├── prompts/          # Image generation prompts (Phase 3) ← NEXT
-│   ├── characters/   # Per-character sprite prompts
-│   ├── backgrounds/  # Per-location background prompts
-│   ├── cg/           # CG event art + slideshow prompts
-│   └── ui/           # UI element prompts
-└── audio/            # Song files (9 .wav available)
+├── design/              # 14 design documents (Phase 1)
+├── game/                # Ren'Py game files
+│   ├── definitions.rpy  # Characters, variables, functions
+│   ├── chapter_*.rpy    # 12 chapter scripts (Phase 2)
+│   ├── slideshows.rpy   # 26 song slideshow labels (Phase 2.5)
+│   ├── placeholders.rpy # Placeholder image declarations (Phase 3.5)
+│   └── images/          # Final art goes here (Phase 3.9)
+│       ├── bg/          # 58 backgrounds (1920×1080)
+│       ├── characters/  # Per-character sprite folders
+│       ├── cg/          # CG event illustrations
+│       └── ui/          # UI elements
+├── prompts/             # Image generation prompts (Phase 3)
+│   ├── characters/      # 9 character prompt files
+│   ├── backgrounds/     # 5 location cluster files
+│   ├── cg/              # 2 CG + slideshow files
+│   └── ui/              # 1 UI element file
+├── audio/               # Song files (9 .wav available)
+├── placeholder_guide.md # Sourcing guide for placeholder/final art
+└── todo.md              # This file
 ```
 
 ---
