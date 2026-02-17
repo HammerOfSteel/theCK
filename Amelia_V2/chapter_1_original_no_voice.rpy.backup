@@ -35,26 +35,20 @@ label chapter_1:
     scene bg_park_bench_sunset
     with dissolve
 
-    voice "audio/narrator/chapter_1/line_001_L38.ogg"
     "Late September. The kind of afternoon where the light turns everything to amber and you know — without anyone saying it — that summer is ending."
 
-    voice "audio/narrator/chapter_1/line_002_L40.ogg"
     "A park bench in Bromley. Nothing special. The same one she's sat on since she was eleven, back when she used to bring library books here and read until her mum texted her to come home for dinner."
 
-    voice "audio/narrator/chapter_1/line_003_L42.ogg"
     "She's doing the same thing now, more or less. Except the library books have been replaced by a university reading list, and the dinner texts have a new urgency to them."
 
     thought "Two days. Two days until I leave."
 
-    voice "audio/narrator/chapter_1/line_004_L46.ogg"
     "Amelia pushes her hair behind her ear — a tic she'll never quite shake — and looks down at the book in her lap."
 
     thought "Right. Focus. If I'm going to show up to a psychology degree pretending I know things, I should probably actually know things."
 
-    voice "audio/narrator/chapter_1/line_005_L50.ogg"
     "She turns a page. Reads the same paragraph for the third time. Absorbs nothing."
 
-    voice "audio/narrator/chapter_1/line_006_L52.ogg"
     "The trees in the park are just beginning to turn. Green-gold, like old coins."
 
     ## CHOICE 1.1 — What is Amelia reading?
@@ -101,7 +95,6 @@ label chapter_1:
 
             "A cloud passes over the sun. The amber light dims to grey for a moment, then returns."
 
-    voice "audio/narrator/chapter_1/line_007_L98.ogg"
     "She closes the book and checks her phone. Three missed texts from Ella, each more emphatic than the last."
 
     ## -----------------------------------------------------------------------
@@ -110,10 +103,8 @@ label chapter_1:
     ## -----------------------------------------------------------------------
 
     # play sound "audio/sfx_phone_ring.ogg"
-    voice "audio/narrator/chapter_1/line_008_L106.ogg"
     "Her phone buzzes before she even finishes reading the texts. Ella's face fills the screen — the photo is from Year 11, both of them with terrible haircuts, grinning like idiots."
 
-    voice "audio/narrator/chapter_1/line_009_L108.ogg"
     "She picks up."
 
     ella "Finally! Did you die? You literally haven't replied in four hours. Four hours, Amelia, that's a new personal record of neglect."
@@ -122,7 +113,6 @@ label chapter_1:
 
     ella "You've been reading since May. At some point you're going to have to accept that you've already read enough to fake it at university."
 
-    voice "audio/narrator/chapter_1/line_010_L116.ogg"
     "Amelia smiles. This is how Ella talks — in lists and accusations and love disguised as complaints."
 
     ella "Anyway. Two days."
@@ -131,12 +121,10 @@ label chapter_1:
 
     ella "That's... mental, isn't it? Like, actually properly mental."
 
-    voice "audio/narrator/chapter_1/line_011_L124.ogg"
     "A pause. Just long enough that Amelia hears what Ella isn't saying."
 
     ella "You're going to be so far away."
 
-    voice "audio/narrator/chapter_1/line_012_L128.ogg"
     "She says it lightly. But Ella's voice has that thing it does when she's trying not to care too much — it goes slightly higher, slightly faster, like she can outrun the feeling if she just keeps talking."
 
     ella "I mean, not {i}far{/i} far. It's Plymouth, not Mars. But still. I won't be able to just... come round, will I? When something's shit. I can't just get on the bus."
@@ -201,10 +189,8 @@ label chapter_1:
 
     ella "I can't believe I'm losing my best friend to the sea and a biscuit."
 
-    voice "audio/narrator/chapter_1/line_013_L192.ogg"
     "They say goodbye the way they always do — no goodbye at all, just the conversation trailing off into 'okay' and 'okay' and 'I'll text you later' and the line going quiet."
 
-    voice "audio/narrator/chapter_1/line_014_L194.ogg"
     "Amelia sits on the bench for another minute. The light is changing. Long shadows now."
 
     thought "Two days."
@@ -219,10 +205,8 @@ label chapter_1:
 
     # play music "audio/ch1_home.ogg" fadein 2.0 volume 0.5
 
-    voice "audio/narrator/chapter_1/line_015_L208.ogg"
     "The kitchen smells of ackee and saltfish and garlic and the particular warmth of a house where someone has been cooking for hours with love and mild anxiety."
 
-    voice "audio/narrator/chapter_1/line_016_L210.ogg"
     "Grace has cooked Amelia's favourite. She does this when she's worried — feeds you until the fear goes away, or at least until you're too full to argue."
 
     grace "Sit down, sit down. Lily, put that phone away."
@@ -231,23 +215,18 @@ label chapter_1:
 
     grace "You can text them after dinner. In this house we eat with our eyes on each other, not on screens."
 
-    voice "audio/narrator/chapter_1/line_017_L218.ogg"
     "Lily rolls her eyes but puts the phone face-down on the table. She's sixteen and everything is an injustice."
 
-    voice "audio/narrator/chapter_1/line_018_L220.ogg"
     "David comes in from washing his hands. He's been working on the van again — there's engine grease in the creases of his knuckles that never quite washes out. He sits down and immediately starts serving ackee onto Amelia's plate."
 
     a "Dad, I can—"
 
     david "Eat. You'll be living on pot noodles in a week. Let me have this."
 
-    voice "audio/narrator/chapter_1/line_019_L226.ogg"
     "He says it like a joke. It's not entirely a joke."
 
-    voice "audio/narrator/chapter_1/line_020_L228.ogg"
     "They eat. Grace asks about packing. Amelia says it's fine. Lily asks if she can have Amelia's room. Grace says no. Lily asks why. Grace says because."
 
-    voice "audio/narrator/chapter_1/line_021_L230.ogg"
     "Then the conversation shifts. David puts his fork down."
 
     david "So. Plymouth."
@@ -256,7 +235,6 @@ label chapter_1:
 
     david "What are you... hoping for? From it."
 
-    voice "audio/narrator/chapter_1/line_022_L238.ogg"
     "Grace looks at Amelia. Lily looks at her phone under the table. David looks at his hands."
 
     ## CHOICE 1.3 — What Amelia expects from university
@@ -334,10 +312,8 @@ label chapter_1:
 
             "Grace watches Amelia with something between pride and worry — the look parents give when they realise their child is becoming someone they can't entirely predict."
 
-    voice "audio/narrator/chapter_1/line_023_L315.ogg"
     "They finish dinner. Grace insists on seconds. David washes up even though it's Lily's turn. Lily takes advantage of the distraction to reclaim her phone."
 
-    voice "audio/narrator/chapter_1/line_024_L317.ogg"
     "Amelia stands at the kitchen door for a moment, watching them. The yellow bulb over the sink. Her dad's shoulders. Her mum's humming."
 
     thought "I am going to miss this so much."
@@ -350,20 +326,16 @@ label chapter_1:
     scene bg_amelia_bedroom_night
     with dissolve
 
-    voice "audio/narrator/chapter_1/line_025_L329.ogg"
     "Her room is in that strange half-state between lived-in and left. Posters still on the walls — Florence and the Machine, a film print of {i}Spirited Away{/i}, a dog-eared map of London she's been annotating since Year 9. Her books are in boxes. The shelves look like missing teeth."
 
-    voice "audio/narrator/chapter_1/line_026_L331.ogg"
     "She sits on the bed. Around her: clothes folded by Grace (too neatly), toiletries from Boots (too many), and the specific panic of trying to compress eighteen years of a life into a car boot."
 
     thought "Okay. Clothes, check. Books, check. Laptop, check. The fairy lights from above the bed—"
 
-    voice "audio/narrator/chapter_1/line_027_L335.ogg"
     "She pauses. She's forgotten to pack the fairy lights. She unpins them from the wall and the room immediately looks less like hers."
 
     thought "Right. One more thing. There's space for one more thing."
 
-    voice "audio/narrator/chapter_1/line_028_L339.ogg"
     "She looks around the room."
 
     ## CHOICE 1.4 — One last item
@@ -413,15 +385,12 @@ label chapter_1:
 
             "She puts it in her bag, next to her phone charger and her headphones. The essentials."
 
-    voice "audio/narrator/chapter_1/line_029_L388.ogg"
     "She zips the last box. Stands up. Looks at the room."
 
-    voice "audio/narrator/chapter_1/line_030_L390.ogg"
     "The Blu-Tack marks on the wall where the posters were. The dent in the carpet where her desk chair has been sitting for six years. The view from the window: the street, the neighbour's cat on the fence, the streetlight that flickers in winter."
 
     thought "This room will still be here. But it won't be mine anymore. Not really. Lily will probably have it by Easter."
 
-    voice "audio/narrator/chapter_1/line_031_L394.ogg"
     "She turns off the light."
 
     ## -----------------------------------------------------------------------
@@ -434,10 +403,8 @@ label chapter_1:
 
     # play music "audio/ch1_bookshop.ogg" fadein 2.0 volume 0.5
 
-    voice "audio/narrator/chapter_1/line_032_L406.ogg"
     "The bell above the door makes a sound that hasn't changed in ten years. The carpet is worn thin in a path from the entrance to the till. The shelves lean slightly — not dangerously, just eccentrically, like the whole building is eavesdropping."
 
-    voice "audio/narrator/chapter_1/line_033_L408.ogg"
     "Mr. Osei is behind the counter, peering at a book through the bottom of his bifocals. He looks up when she enters and his face does something complicated and warm."
 
     mr_osei "Amelia James. My best customer."
@@ -446,7 +413,6 @@ label chapter_1:
 
     mr_osei "Then best and only. That's even more impressive."
 
-    voice "audio/narrator/chapter_1/line_034_L416.ogg"
     "He comes out from behind the counter. He moves slowly — he's been running this shop since before Amelia was born, and the books have aged better than his knees."
 
     mr_osei "Tomorrow, then?"
@@ -459,7 +425,6 @@ label chapter_1:
 
     mr_osei "Good city. Good university. The sea will do you good. London children don't see enough sky."
 
-    voice "audio/narrator/chapter_1/line_035_L428.ogg"
     "He looks at her the way he always does — like he's filing her away in some private index of people who actually read."
 
     mr_osei "You'll want a book, then. A leaving gift."
@@ -468,18 +433,14 @@ label chapter_1:
 
     mr_osei "I'm not giving it to you. I'm selling it. At a modest discount. Consider it an investment in your education."
 
-    voice "audio/narrator/chapter_1/line_036_L436.ogg"
     "He gestures at the shop."
 
     mr_osei "Browse."
 
-    voice "audio/narrator/chapter_1/line_037_L440.ogg"
     "She does. The shop smells of old paper and wood polish and the faint ghost of pipe tobacco that Mr. Osei swears he gave up years ago."
 
-    voice "audio/narrator/chapter_1/line_038_L442.ogg"
     "She wanders between the shelves. Self-help (she avoids). Fiction (she considers). History. Science. Philosophy."
 
-    voice "audio/narrator/chapter_1/line_039_L444.ogg"
     "And in the back — the shelf she's always been a little curious about. Hand-painted label: {b}ESOTERICA{/b}."
 
     ## CHOICE 1.5 — Which book?
@@ -567,10 +528,8 @@ label chapter_1:
 
             thought "{i}Seek the pellar where the land meets the sea.{/i} I don't even know what a pellar is."
 
-    voice "audio/narrator/chapter_1/line_040_L531.ogg"
     "The bell rings again as she leaves. She pauses on the doorstep and looks back. Mr. Osei is already reading again, as though she was never there."
 
-    voice "audio/narrator/chapter_1/line_041_L533.ogg"
     "She doesn't notice the symbol carved into the door frame at eye level — a serpent eating its own tail. It's been there as long as the shop has. Nobody notices it."
 
     ## -----------------------------------------------------------------------
@@ -583,22 +542,16 @@ label chapter_1:
 
     # play music "audio/ch1_thames.ogg" fadein 3.0 volume 0.5
 
-    voice "audio/narrator/chapter_1/line_042_L545.ogg"
     "She walks along the South Bank because she needs to walk and she needs to be near water and she doesn't know why."
 
-    voice "audio/narrator/chapter_1/line_043_L547.ogg"
     "London at night. The Tate Modern glowing on the opposite bank. The Thames running black and gold — streetlight on dark water, the city reflected in broken lines."
 
-    voice "audio/narrator/chapter_1/line_044_L549.ogg"
     "It's cold for September. She's wearing the corduroy jacket and it's not enough, but she doesn't care."
 
-    voice "audio/narrator/chapter_1/line_045_L551.ogg"
     "There are runners. A couple arguing in Italian. A busker playing something on a guitar that she almost recognises. The air smells of rain and river and the particular exhaust-and-coffee scent of London after dark."
 
-    voice "audio/narrator/chapter_1/line_046_L553.ogg"
     "She stops at the railing and leans against it. The metal is cold."
 
-    voice "audio/narrator/chapter_1/line_047_L555.ogg"
     "Below her, the river moves. It always moves. It doesn't care about her leaving."
 
     ## CHOICE 1.6 — What she thinks about
@@ -687,52 +640,39 @@ label chapter_1:
     scene bg_amelia_bedroom_dark
     with dissolve
 
-    voice "audio/narrator/chapter_1/line_048_L643.ogg"
     "Midnight."
 
-    voice "audio/narrator/chapter_1/line_049_L645.ogg"
     "Her room is boxes and bare walls and the ghost-shapes of things that used to hang there."
 
-    voice "audio/narrator/chapter_1/line_050_L647.ogg"
     "She's in bed. The duvet is the same one she's had since Year 9 — she couldn't bring herself to pack it. She'll take it tomorrow. Her last act of attachment."
 
-    voice "audio/narrator/chapter_1/line_051_L649.ogg"
     "Downstairs, she can hear her parents. Not the words — just the rhythm. Her dad's low mumble. Her mum's laugh. The clink of mugs being washed."
 
-    voice "audio/narrator/chapter_1/line_052_L651.ogg"
     "They've been talking for hours. About her, probably. About the house without her in it."
 
     thought "I am eighteen years old and I have never lived more than forty-five minutes from where I was born."
 
-    voice "audio/narrator/chapter_1/line_053_L655.ogg"
     "She stares at the ceiling. The glow-in-the-dark stars are still up there — she stuck them to the ceiling when she was nine and nobody's taken them down. They barely glow anymore. Just a faint green suggestion."
 
     thought "Tomorrow I will sit in a car with my dad for four hours and at the end of it I will be in a city where I know nobody and I will carry a box into a room that doesn't know me and I will pretend this is normal."
 
-    voice "audio/narrator/chapter_1/line_054_L659.ogg"
     "Her phone lights up on the pillow beside her."
 
     # Phone screen overlay
-    voice "audio/narrator/chapter_1/line_055_L662.ogg"
     "A text from Ella:"
 
     "{i}you're going to be amazing. don't forget me x{/i}"
 
-    voice "audio/narrator/chapter_1/line_056_L666.ogg"
     "She picks up the phone. Types a reply. Deletes it. Types another. Deletes that too."
 
-    voice "audio/narrator/chapter_1/line_057_L668.ogg"
     "She puts the phone down."
 
     thought "I won't forget you. How could I forget you? You're the realest thing I know."
 
-    voice "audio/narrator/chapter_1/line_058_L672.ogg"
     "She closes her eyes."
 
-    voice "audio/narrator/chapter_1/line_059_L674.ogg"
     "Sleep comes slowly, in pieces, like a tide coming in — retreating, returning, retreating again. She dozes and wakes and dozes. At some point, the house goes quiet."
 
-    voice "audio/narrator/chapter_1/line_060_L676.ogg"
     "At some point, the night ends."
 
     # Transition to morning / Chapter 2

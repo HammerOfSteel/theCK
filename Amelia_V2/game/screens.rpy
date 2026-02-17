@@ -759,6 +759,11 @@ screen preferences():
                     label _("Content")
                     textbutton _("Show Warnings") action ToggleVariable("show_content_warnings", True, False)
 
+                vbox:
+                    style_prefix "check"
+                    label _("Audio")
+                    textbutton _("Voice Acting") action ToggleVariable("persistent.voice_enabled", True, False)
+
             null height 10
 
             ## Gold divider between option groups and sliders
@@ -795,6 +800,11 @@ screen preferences():
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
 
+                    if config.has_voice:
+                        label _("Voice Volume")
+                        hbox:
+                            bar value Preference("voice volume")
+
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
 
@@ -803,6 +813,7 @@ screen preferences():
                             style "mute_all_button"
 
 default show_content_warnings = True
+default persistent.voice_enabled = True
 
 ## ── Preferences Styles ──────────────────────────────────────────────────────
 

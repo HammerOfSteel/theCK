@@ -1,0 +1,188 @@
+CHAPTER 1 NARRATOR VOICE MAPPING
+================================================================================
+
+Total narrator lines: 60
+Voice: Nicole (🇺🇸 🚺 Nicole 🎧)
+
+--------------------------------------------------------------------------------
+
+[001] Line   38: line_001_L38.wav
+      Text: Late September. The kind of afternoon where the light turns everything...
+
+[002] Line   40: line_002_L40.wav
+      Text: A park bench in Bromley. Nothing special. The same one she's sat on si...
+
+[003] Line   42: line_003_L42.wav
+      Text: She's doing the same thing now, more or less. Except the library books...
+
+[004] Line   46: line_004_L46.wav
+      Text: Amelia pushes her hair behind her ear — a tic she'll never quite shake...
+
+[005] Line   50: line_005_L50.wav
+      Text: She turns a page. Reads the same paragraph for the third time. Absorbs...
+
+[006] Line   52: line_006_L52.wav
+      Text: The trees in the park are just beginning to turn. Green-gold, like old...
+
+[007] Line   98: line_007_L98.wav
+      Text: She closes the book and checks her phone. Three missed texts from Ella...
+
+[008] Line  106: line_008_L106.wav
+      Text: Her phone buzzes before she even finishes reading the texts. Ella's fa...
+
+[009] Line  108: line_009_L108.wav
+      Text: She picks up.
+
+[010] Line  116: line_010_L116.wav
+      Text: Amelia smiles. This is how Ella talks — in lists and accusations and l...
+
+[011] Line  124: line_011_L124.wav
+      Text: A pause. Just long enough that Amelia hears what Ella isn't saying.
+
+[012] Line  128: line_012_L128.wav
+      Text: She says it lightly. But Ella's voice has that thing it does when she'...
+
+[013] Line  192: line_013_L192.wav
+      Text: They say goodbye the way they always do — no goodbye at all, just the ...
+
+[014] Line  194: line_014_L194.wav
+      Text: Amelia sits on the bench for another minute. The light is changing. Lo...
+
+[015] Line  208: line_015_L208.wav
+      Text: The kitchen smells of ackee and saltfish and garlic and the particular...
+
+[016] Line  210: line_016_L210.wav
+      Text: Grace has cooked Amelia's favourite. She does this when she's worried ...
+
+[017] Line  218: line_017_L218.wav
+      Text: Lily rolls her eyes but puts the phone face-down on the table. She's s...
+
+[018] Line  220: line_018_L220.wav
+      Text: David comes in from washing his hands. He's been working on the van ag...
+
+[019] Line  226: line_019_L226.wav
+      Text: He says it like a joke. It's not entirely a joke.
+
+[020] Line  228: line_020_L228.wav
+      Text: They eat. Grace asks about packing. Amelia says it's fine. Lily asks i...
+
+[021] Line  230: line_021_L230.wav
+      Text: Then the conversation shifts. David puts his fork down.
+
+[022] Line  238: line_022_L238.wav
+      Text: Grace looks at Amelia. Lily looks at her phone under the table. David ...
+
+[023] Line  315: line_023_L315.wav
+      Text: They finish dinner. Grace insists on seconds. David washes up even tho...
+
+[024] Line  317: line_024_L317.wav
+      Text: Amelia stands at the kitchen door for a moment, watching them. The yel...
+
+[025] Line  329: line_025_L329.wav
+      Text: Her room is in that strange half-state between lived-in and left. Post...
+
+[026] Line  331: line_026_L331.wav
+      Text: She sits on the bed. Around her: clothes folded by Grace (too neatly),...
+
+[027] Line  335: line_027_L335.wav
+      Text: She pauses. She's forgotten to pack the fairy lights. She unpins them ...
+
+[028] Line  339: line_028_L339.wav
+      Text: She looks around the room.
+
+[029] Line  388: line_029_L388.wav
+      Text: She zips the last box. Stands up. Looks at the room.
+
+[030] Line  390: line_030_L390.wav
+      Text: The Blu-Tack marks on the wall where the posters were. The dent in the...
+
+[031] Line  394: line_031_L394.wav
+      Text: She turns off the light.
+
+[032] Line  406: line_032_L406.wav
+      Text: The bell above the door makes a sound that hasn't changed in ten years...
+
+[033] Line  408: line_033_L408.wav
+      Text: Mr. Osei is behind the counter, peering at a book through the bottom o...
+
+[034] Line  416: line_034_L416.wav
+      Text: He comes out from behind the counter. He moves slowly — he's been runn...
+
+[035] Line  428: line_035_L428.wav
+      Text: He looks at her the way he always does — like he's filing her away in ...
+
+[036] Line  436: line_036_L436.wav
+      Text: He gestures at the shop.
+
+[037] Line  440: line_037_L440.wav
+      Text: She does. The shop smells of old paper and wood polish and the faint g...
+
+[038] Line  442: line_038_L442.wav
+      Text: She wanders between the shelves. Self-help (she avoids). Fiction (she ...
+
+[039] Line  444: line_039_L444.wav
+      Text: And in the back — the shelf she's always been a little curious about. ...
+
+[040] Line  531: line_040_L531.wav
+      Text: The bell rings again as she leaves. She pauses on the doorstep and loo...
+
+[041] Line  533: line_041_L533.wav
+      Text: She doesn't notice the symbol carved into the door frame at eye level ...
+
+[042] Line  545: line_042_L545.wav
+      Text: She walks along the South Bank because she needs to walk and she needs...
+
+[043] Line  547: line_043_L547.wav
+      Text: London at night. The Tate Modern glowing on the opposite bank. The Tha...
+
+[044] Line  549: line_044_L549.wav
+      Text: It's cold for September. She's wearing the corduroy jacket and it's no...
+
+[045] Line  551: line_045_L551.wav
+      Text: There are runners. A couple arguing in Italian. A busker playing somet...
+
+[046] Line  553: line_046_L553.wav
+      Text: She stops at the railing and leans against it. The metal is cold.
+
+[047] Line  555: line_047_L555.wav
+      Text: Below her, the river moves. It always moves. It doesn't care about her...
+
+[048] Line  643: line_048_L643.wav
+      Text: Midnight.
+
+[049] Line  645: line_049_L645.wav
+      Text: Her room is boxes and bare walls and the ghost-shapes of things that u...
+
+[050] Line  647: line_050_L647.wav
+      Text: She's in bed. The duvet is the same one she's had since Year 9 — she c...
+
+[051] Line  649: line_051_L649.wav
+      Text: Downstairs, she can hear her parents. Not the words — just the rhythm....
+
+[052] Line  651: line_052_L651.wav
+      Text: They've been talking for hours. About her, probably. About the house w...
+
+[053] Line  655: line_053_L655.wav
+      Text: She stares at the ceiling. The glow-in-the-dark stars are still up the...
+
+[054] Line  659: line_054_L659.wav
+      Text: Her phone lights up on the pillow beside her.
+
+[055] Line  662: line_055_L662.wav
+      Text: A text from Ella:
+
+[056] Line  666: line_056_L666.wav
+      Text: She picks up the phone. Types a reply. Deletes it. Types another. Dele...
+
+[057] Line  668: line_057_L668.wav
+      Text: She puts the phone down.
+
+[058] Line  672: line_058_L672.wav
+      Text: She closes her eyes.
+
+[059] Line  674: line_059_L674.wav
+      Text: Sleep comes slowly, in pieces, like a tide coming in — retreating, ret...
+
+[060] Line  676: line_060_L676.wav
+      Text: At some point, the night ends.
+

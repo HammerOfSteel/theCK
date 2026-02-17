@@ -27,6 +27,10 @@ traceback.txt
 TheCK-*-dists/
 *-dists/
 
+# ----- Ren'Py SDK (local installations) -----
+renpy-*-sdk/
+renpy-sdk/
+
 # ----- Large media files (originals / uncompressed) -----
 *.wav
 *.flac
