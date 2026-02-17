@@ -841,6 +841,7 @@ label chapter_7:
     ## END OF CHAPTER
     ## -----------------------------------------------------------------------
 
+    $ complete_chapter(7)
     scene black
     with fade
 

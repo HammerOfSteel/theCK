@@ -676,6 +676,7 @@ label chapter_1:
     "At some point, the night ends."
 
     # Transition to morning / Chapter 2
+    $ complete_chapter(1)
     scene black
     with fade
 

@@ -1037,6 +1037,7 @@ label chapter_8:
     ## END OF CHAPTER
     ## -----------------------------------------------------------------------
 
+    $ complete_chapter(8)
     centered "{size=+6}End of Chapter Eight{/size}"
     pause 2.0
 

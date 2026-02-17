@@ -1019,6 +1019,7 @@ label chapter_3:
         else:
             mentor_path = "maya"
 
+    $ complete_chapter(3)
     scene black
     with fade
 

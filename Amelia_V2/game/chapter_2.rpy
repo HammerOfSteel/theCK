@@ -904,6 +904,7 @@ label chapter_2:
 
     "But something has started. Under the surface. Like a tide turning in the dark."
 
+    $ complete_chapter(2)
     scene black
     with fade
 

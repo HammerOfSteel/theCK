@@ -308,7 +308,7 @@ screen main_menu():
             hbox:
                 spacing 40
                 xalign 0.5
-                textbutton _("Begin") action Start() text_style "mm_button_text"
+                textbutton _("Chapters") action ShowMenu("chapter_select") text_style "mm_button_text"
                 textbutton _("Recall") action ShowMenu("load") text_style "mm_button_text"
                 textbutton _("Reflections") action ShowMenu("preferences") text_style "mm_button_text"
                 textbutton _("About") action ShowMenu("about") text_style "mm_button_text"
@@ -359,12 +359,16 @@ screen navigation():
 
 screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
 
+    ## Cache the Movie object so it isn't re-created on every re-render
+    ## (re-creating it causes a one-frame black flash while the decoder starts)
+    default gm_cached_movie = Movie(play=video_bg, loop=True) if video_bg else None
+
     ## Dark base
     add Solid("#0A0A0A")
 
     ## Video background
-    if video_bg:
-        add Movie(play=video_bg, loop=True)
+    if gm_cached_movie:
+        add gm_cached_movie
 
     ## Dark overlay for readability over video
     add Solid("#00000088")
@@ -516,10 +520,21 @@ style gm_title:
     outlines [(1, "#00000088", 0, 0)]
     text_align 0.5
 
-style gm_tab_button is gui_button:
+style gm_tab_button is button:
     background None
+    idle_background None
+    hover_background None
+    activate_background None
+    selected_background None
+    selected_idle_background None
+    selected_hover_background None
+    selected_activate_background None
+    insensitive_background None
+    selected_insensitive_background None
+    padding (0, 0, 0, 0)
+    margin (0, 0, 0, 0)
 
-style gm_tab_button_text is gui_button_text:
+style gm_tab_button_text:
     size 20
     color "#999999"
     hover_color "#D4A574"
@@ -527,10 +542,21 @@ style gm_tab_button_text is gui_button_text:
     kerning 3.0
     outlines [(1, "#00000088", 0, 0)]
 
-style gm_return_button is gui_button:
+style gm_return_button is button:
     background None
+    idle_background None
+    hover_background None
+    activate_background None
+    selected_background None
+    selected_idle_background None
+    selected_hover_background None
+    selected_activate_background None
+    insensitive_background None
+    selected_insensitive_background None
+    padding (0, 0, 0, 0)
+    margin (0, 0, 0, 0)
 
-style gm_return_button_text is gui_button_text:
+style gm_return_button_text:
     size 20
     color "#888888"
     hover_color "#D4A574"
@@ -928,40 +954,7 @@ style history_label_text:
     xalign 0.5
     color "#888888"
 
-################################################################################
-## About Screen
-################################################################################
-
-screen about():
-    tag menu
-    default about_video = _pick_video(about_videos)
-    use game_menu(_("About"), scroll="viewport", video_bg=about_video):
-
-        style_prefix "about"
-
-        vbox:
-            spacing 15
-
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
-
-            if gui.about:
-                text "[gui.about!t]\n"
-
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
-
-## ── About Styles ────────────────────────────────────────────────────────────
-
-style about_label is gui_label
-style about_label_text is gui_label_text
-style about_text is gui_text
-
-style about_label_text:
-    size gui.label_text_size
-    color "#D4A574"
-
-style about_text:
-    color "#CCCCCC"
+## About screen is now in gallery_screens.rpy (tabbed: Overview/Characters/World/Narrative)
 
 ################################################################################
 ## Help Screen
