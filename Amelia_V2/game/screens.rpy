@@ -414,35 +414,51 @@ screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
         padding (40, 25, 40, 25)
 
         if scroll == "viewport":
-            viewport:
-                yinitial yinitial
-                scrollbars "vertical"
-                mousewheel True
-                draggable True
-                pagekeys True
+            side "c r":
                 xfill True
                 yfill True
-                side_xfill True
-                side_yfill True
+                spacing 15
 
-                vbox:
-                    xfill True
-                    transclude
+                viewport id "gm_vp":
+                    yinitial yinitial
+                    mousewheel True
+                    draggable True
+                    pagekeys True
+
+                    vbox:
+                        xfill True
+                        transclude
+
+                vbar:
+                    value YScrollValue("gm_vp")
+                    xsize 18
+                    base_bar Solid("#333333")
+                    thumb Solid("#D4A574")
+                    hover_thumb Solid("#E8C8A0")
+                    unscrollable "hide"
 
         elif scroll == "vpgrid":
-            vpgrid:
-                cols 1
-                yinitial yinitial
-                scrollbars "vertical"
-                mousewheel True
-                draggable True
-                pagekeys True
+            side "c r":
                 xfill True
                 yfill True
-                side_xfill True
-                side_yfill True
+                spacing 15
 
-                transclude
+                vpgrid id "gm_vpg":
+                    cols 1
+                    yinitial yinitial
+                    mousewheel True
+                    draggable True
+                    pagekeys True
+
+                    transclude
+
+                vbar:
+                    value YScrollValue("gm_vpg")
+                    xsize 18
+                    base_bar Solid("#333333")
+                    thumb Solid("#D4A574")
+                    hover_thumb Solid("#E8C8A0")
+                    unscrollable "hide"
 
         else:
             transclude
@@ -1552,7 +1568,7 @@ init python:
 
 screen journal_hint():
     if not main_menu:
-        textbutton "{size=18}{color=#AAAAAA88}[J] Journal{/color}{/size}":
+        textbutton "{size=18}{color=#AAAAAA88}[[J] Journal{/color}{/size}":
             xalign 0.98
             yalign 0.02
             action ShowMenu("journal")
