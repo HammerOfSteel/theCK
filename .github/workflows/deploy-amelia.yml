@@ -108,6 +108,26 @@ jobs:
           echo ""
           echo "game.zip size: $(du -h ${OUTPUT_DIR}/game.zip 2>/dev/null | cut -f1 || echo 'NOT FOUND')"
 
+      # ── Random presplash image ────────────────────────────────
+      - name: Randomise web presplash
+        run: |
+          PRESPLASH_DIR="${GITHUB_WORKSPACE}/Amelia_V2/game/images/web_presplash"
+          OUTPUT_DIR="${GITHUB_WORKSPACE}/web_build"
+
+          # Collect candidate images
+          IMAGES=( "${PRESPLASH_DIR}"/* )
+          COUNT=${#IMAGES[@]}
+          PICK=$(( RANDOM % COUNT ))
+          CHOSEN="${IMAGES[$PICK]}"
+
+          echo "Presplash candidates (${COUNT}):"
+          printf '  %s\n' "${IMAGES[@]}"
+          echo "Randomly chose: $(basename "${CHOSEN}")"
+
+          # Replace the default presplash in the web build output
+          cp "${CHOSEN}" "${OUTPUT_DIR}/web-presplash.jpg"
+          echo "web-presplash.jpg updated ($(du -h "${OUTPUT_DIR}/web-presplash.jpg" | cut -f1))"
+
       # ── Setup SSH ─────────────────────────────────────────────
       - name: Setup SSH connection
         run: |
