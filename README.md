@@ -2,6 +2,8 @@
 
 > A choice-driven visual novel about a young psychology student's transformative first year at the University of Plymouth — where Jungian shadows, Cornish folklore, and the quiet alchemy of growing up collide.
 
+**Play now:** [amelia.dancingsalamanders.com](https://amelia.dancingsalamanders.com)
+
 ## Synopsis
 
 Amelia James, 18, leaves suburban London for Plymouth to study psychology. What follows is one academic year (October to June) of friendship, heartbreak, intellectual awakening, and difficult choices — guided by the player. Beneath the coming-of-age surface runs a deeper current: the Hero's Journey mapped to the stages of the alchemical *Magnum Opus*, Cornish folklore threaded through the landscape, and a hidden path of genuine esoteric discovery for those who look for it.
@@ -12,16 +14,77 @@ The game tracks six dimensions of Amelia's growth — Academic Achievement, Soci
 
 | Component | Status |
 |---|---|
-| **V1 (Amelia/)** | Chapters 1–3 & 12 playable in Ren'Py. Chapters 4–11 story-only. |
-| **V2 (Amelia_V2/)** | **Phase 1: Foundation — complete.** Design docs for characters, world, mechanics, and full narrative structure. |
+| **V1 (Amelia/)** | Legacy prototype. Chapters 1–3 & 12 playable. |
+| **V2 (Amelia_V2/)** | **Active development.** Full scripts written, placeholder art in place, deployed to web. |
+| **CI/CD** | GitHub Actions → Oracle Cloud. Manual-trigger deploy via `workflow_dispatch`. |
 
-### V2 Design Documents
-- `Amelia_V2/overview.md` — Vision, themes, structural changes
-- `Amelia_V2/design/characters.md` — Full character bible (15+ characters with arcs & voice samples)
-- `Amelia_V2/design/world_and_locations.md` — London, Plymouth, Cornwall with sensory detail & folklore
-- `Amelia_V2/design/game_mechanics.md` — Hidden karma system, relationship tracking, karma dice, 7 endings
-- `Amelia_V2/design/narrative_structure.md` — 12 chapters scene-by-scene with every choice mapped
-- `Amelia_V2/todo.md` — Master task tracker across 4 development phases
+### What's Done
+
+| Phase | Description | Status |
+|---|---|---|
+| **1 — Foundation** | 15 design documents: characters, world, mechanics, narrative, choice map, alchemy, folklore, art direction, point balancing | ✅ Complete |
+| **2 — Writing** | 14 Ren'Py scripts (12 chapters + definitions + screens). ~10,600 lines. | ✅ Complete |
+| **2.5 — Songs** | 20 Dancing Salamanders / Geddon Bird songs placed as slideshow moments | ✅ Complete |
+| **3 — Image Prompts** | 17 prompt packs (9 character + 5 background + 3 CG/UI) for art generation | ✅ Complete |
+| **3.5 — Placeholders & Tech** | Placeholder art system, layered images, GUI, screens, journal, phone, save system, audio guide | ✅ Complete |
+| **3.5 — Audio** | Ambient tracks, SFX, song conversion | 🔧 In progress |
+| **3.5 — Writing polish** | Dialogue, pacing, voice audit, sensitivity review | 📝 Not started |
+| **3.9 — Art generation** | Character sprites, backgrounds, CGs, UI art | 📝 Not started |
+| **4 — Polish & release** | Playtesting, balance, proofreading, accessibility, builds | 📝 Not started |
+
+### Deployment
+
+The game is deployed as a Ren'Py web build at **[amelia.dancingsalamanders.com](https://amelia.dancingsalamanders.com)**.
+
+- **Hosting:** Oracle Cloud (Docker + FastAPI/uvicorn + nginx reverse proxy + Let's Encrypt SSL)
+- **CI/CD:** [`.github/workflows/deploy-amelia.yml`](.github/workflows/deploy-amelia.yml) — manual trigger only
+- **Build:** Downloads Ren'Py SDK + Web Extension, runs `web_build`, deploys via rsync
+- **Presplash:** Randomly picks from `Amelia_V2/game/images/web_presplash/` each deploy
+
+## Repository Layout
+
+```
+theCK/
+├── .github/workflows/       # CI/CD
+│   └── deploy-amelia.yml    #   Manual deploy workflow
+├── Amelia/                  # V1 (legacy prototype)
+│   ├── game/                #   Ren'Py scripts + assets
+│   └── story/               #   Markdown story drafts
+├── Amelia_V2/               # V2 (active development)
+│   ├── design/              #   15 design documents
+│   │   ├── characters.md
+│   │   ├── world_and_locations.md
+│   │   ├── game_mechanics.md
+│   │   ├── narrative_structure.md
+│   │   ├── choice_map.md
+│   │   ├── relationship_matrix.md
+│   │   ├── dialogue_style_guide.md
+│   │   ├── alchemical_thread_map.md
+│   │   ├── cornish_folklore_reference.md
+│   │   ├── sarahs_arc.md
+│   │   ├── art_direction.md
+│   │   ├── point_balance_spreadsheet.md
+│   │   └── songs.md
+│   ├── game/                #   Ren'Py project
+│   │   ├── chapter_1–12.rpy #   12 chapter scripts
+│   │   ├── definitions.rpy  #   Characters, variables, init
+│   │   ├── screens.rpy      #   Custom screens (journal, phone, etc.)
+│   │   ├── gui.rpy          #   GUI styling, alchemical phase colours
+│   │   ├── layered_images.rpy
+│   │   ├── slideshows.rpy   #   Song moment slideshows
+│   │   ├── audio/           #   songs/, ambient/, sfx/
+│   │   └── images/          #   Sprites, backgrounds, CGs
+│   ├── prompts/             #   Art generation prompt packs
+│   │   ├── characters/      #   9 character prompt files
+│   │   ├── backgrounds/     #   5 location prompt files
+│   │   ├── cg/              #   CG scene + slideshow prompts
+│   │   └── ui/              #   UI element prompts
+│   ├── overview.md
+│   ├── todo.md              #   Master task tracker
+│   └── audio_guide.md       #   51 ambient + 15 SFX specs
+├── normal_style_scripts/    # Alternate script format (reference)
+└── tools/                   # Utility scripts (voice gen, conversion, etc.)
+```
 
 ## Core Themes
 
@@ -36,17 +99,17 @@ The game tracks six dimensions of Amelia's growth — Academic Achievement, Soci
 ## Characters
 
 ### Main Cast
-| Character | Role | V2 Archetype |
+| Character | Role | Archetype |
 |---|---|---|
 | **Amelia James** | Protagonist, 18, psychology student | The Seeker — *prima materia* becoming gold |
 | **Ella Chen** | Childhood best friend (London) | The Golden Thread — connection to the ordinary world |
-| **Prof. Hawthorne** | Academic mentor (high AA+MC) | Salt — rigour, structure, the body of knowledge |
-| **Dr. Simmons** | Wellbeing mentor (high MH+SI) | Mercury — fluidity, connection, emotional intelligence |
-| **Maya Patel** | Spiritual friend/mentor (high SD+OK) | Sulphur — the volatile, the spiritual fire |
-| **Elena Trevorran** | Hidden mentor — Cornish *pellar* (very high OK) | The Soror Mystica — the secret guide |
-| **Lucas Adeyemi** | Intellectual companion, Jungian psychology | The Animus — the thinking-partner |
+| **Prof. Hawthorne** | Academic mentor | Salt — rigour, structure, the body of knowledge |
+| **Dr. Simmons** | Wellbeing mentor | Mercury — fluidity, connection, emotional intelligence |
+| **Maya Patel** | Spiritual friend/mentor | Sulphur — the volatile, the spiritual fire |
+| **Elena Trevorran** | Hidden mentor — Cornish *pellar* | The Soror Mystica — the secret guide |
+| **Lucas Adeyemi** | Intellectual companion | The Animus — the thinking-partner |
 | **Zara Okafor** | Fighter, faces racism head-on | The Red Lion — transformation through confrontation |
-| **Raj Sharma** | The heart of the group, family systems | The Self in community — warmth and belonging |
+| **Raj Sharma** | The heart of the group | The Self in community — warmth and belonging |
 | **Sarah Whitmore** | Quiet, depressed, at risk | The Mirror — *can you save someone who doesn't want to be saved?* |
 | **Tasha Reynolds** | Bully → potential redemption | The Shadow — what Amelia fears and represses |
 
@@ -72,7 +135,7 @@ Sophia Langford (academic rival), Michael Okonkwo (activist), Liz Torres (roomma
 | 11 | The Resurrection | May | Rubedo |
 | 12 | Return with the Elixir | June | Post-Rubedo |
 
-## Game Mechanics (V2)
+## Game Mechanics
 
 - **6 stats** tracked silently: AA, SI, MH, SD, MC, OK
 - **Hidden karma system** — the player sees consequences, not numbers
@@ -83,24 +146,13 @@ Sophia Langford (academic rival), Michael Okonkwo (activist), Liz Torres (roomma
 - **Karma Dice** (d20 + modifiers) at pivotal moments for genuine uncertainty
 - **7 endings:** The Scholar, The Companion, The Healer, The Alchemist, The Whole, The Grief, The Bittersweet
 
-## Locations
-
-**London** — Bromley home, Thames riverside, the bookshop (where the occult path begins)
-**Plymouth** — Campus, the Hoe, the Barbican, Royal William Yard, halls of residence
-**Cornwall** — St. Ives, Tintagel, Bodmin Moor, Mên-an-Tol, Madron Holy Well, St. Michael's Mount, Lost Gardens of Heligan, Eden Project, Polperro, Penzance, Carn Euny Fogou
-
 ## Tech
 
-- **Engine:** [Ren'Py](https://www.renpy.org/)
+- **Engine:** [Ren'Py](https://www.renpy.org/) 8.3.7
 - **Resolution:** 1920×1080
 - **Build name:** TheCK
-
-## Development Phases
-
-1. **Foundation** — Character bibles, world-building, game mechanics, narrative structure ✅
-2. **Writing** — Full prose for all 12 chapters, dialogue polish, choice architecture
-3. **Implementation** — Ren'Py scripting, art assets, music, UI
-4. **Polish** — Playtesting, balancing, proofreading, builds
+- **Web deploy:** Ren'Py WebAssembly build via GitHub Actions → Oracle Cloud
+- **Live at:** [amelia.dancingsalamanders.com](https://amelia.dancingsalamanders.com)
 
 ---
 
