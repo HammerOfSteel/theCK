@@ -28,7 +28,7 @@ init -1:
                 (1920, 1080),
                 (0, 0), Solid(color),
                 (0, 0), Text(
-                    "{size=40}{color=#FFFFFF88}[ PLACEHOLDER ]\n\n{size=60}{color=#FFFFFFCC}" + label,
+                    "{size=40}{color=#FFFFFF88}[[ PLACEHOLDER ]]\n\n{size=60}{color=#FFFFFFCC}" + label,
                     text_align=0.5,
                     xalign=0.5,
                     yalign=0.5,
