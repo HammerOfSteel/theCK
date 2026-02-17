@@ -220,6 +220,152 @@ init python:
 
 
 ################################################################################
+## Language restore — reset English data when switching back from translation
+################################################################################
+
+translate None python:
+
+    _characters = [
+        ("amelia", "Amelia James", "Protagonist",
+         "18, BSc Psychology at Plymouth. Curious, empathetic, conflict-avoidant. Her year maps to the alchemical Magnum Opus — from Nigredo's darkness through Albedo's reflection to Rubedo's wholeness.",
+         "images/characters/amelia/amelia_anchor_image.png"),
+        ("ella", "Ella Chen", "Childhood Best Friend",
+         "18, English Lit at Queen Mary London. The golden thread to the ordinary world. She and Amelia have been friends since Year 3. Their friendship will be tested by distance.",
+         None),
+        ("lucas", "Lucas Adeyemi", "The Quiet Thinker",
+         "19, Psychology. Reads Jung, quotes Fanon, listens more than he speaks. He sees things in Amelia that she hasn't noticed yet. Represents the Animus archetype.",
+         None),
+        ("zara", "Zara Okafor", "The Red Lion",
+         "20, Psychology with Criminology. Fierce, loyal, funny. Grew up in Tottenham, carries lived experience of racism with fury and grace. She fights — for herself, for others.",
+         None),
+        ("raj", "Raj Sharma", "The Heart",
+         "21, Psychology. Emotional centre of any group. When people are falling apart, Raj cooks. Biryani fixes everything — or at least makes it bearable.",
+         None),
+        ("sarah", "Sarah Whitmore", "The Mirror",
+         "18, Psychology, rural Devon. Quiet, gentle, struggling beneath the surface. Her story is the game's biggest branch point. Amelia will have to decide what she's willing to do.",
+         None),
+        ("liz", "Liz Torres", "The Roommate",
+         "18, Marine Biology, Cardiff. Cheerful, chaotic, perpetually late. Amelia's first friend at Plymouth and the one who drags her to the Student Union on the first night.",
+         None),
+        ("maya", "Maya Patel", "The Mystic",
+         "20, Philosophy with Psychology, Bristol. Crystals, tarot, meditation at dawn. She's either deeply wise or slightly unhinged — possibly both. Represents Sulphur.",
+         None),
+        ("tasha", "Tasha Reynolds", "The Shadow",
+         "20, Psychology, Surrey. Jungian Shadow incarnate. Insecure, sharp-tongued, miserable at home. She can change if Amelia chooses compassion over confrontation.",
+         None),
+        ("sophia", "Sophia Langford", "The White Queen",
+         "19, Psychology, Oxford family. Brilliant, precise, lonely beneath the polish. Academic rival who might become an unexpected ally.",
+         None),
+        ("hawthorne", "Prof. Arthur Hawthorne", "Mentor — Salt",
+         "58, Head of Psychology. Rational, precise, Earl Grey in a china cup. His office has floor-to-ceiling books and a Caravaggio print. Unlocked through academic excellence.",
+         None),
+        ("simmons", "Dr. Nadia Simmons", "Mentor — Mercury",
+         "38, Lecturer in Positive Psychology. Warm, nurturing, believes in the science of kindness. Her office has plants everywhere and a small fountain. Unlocked through compassion.",
+         None),
+        ("elena", "Elena Trevorran", "Mentor — The Soror Mystica",
+         "45, Cornish pellar. Keeper of old knowledge, guardian of the fogou. She appears when you're ready. Unlocked through the occult knowledge path.",
+         None),
+        ("david", "David James", "Amelia's Father",
+         "46, IT support, Jamaican heritage. Quiet, steady, fixes things with his hands. Love expressed through actions: packed lunches, lifts to the station, a hug at the door.",
+         None),
+        ("grace", "Grace James", "Amelia's Mother",
+         "44, Teaching assistant, Jamaican heritage. Warm, talkative, sends care packages. She's the one who asks 'Are you eating properly?' three times a week.",
+         None),
+        ("lily", "Lily James", "Amelia's Cousin",
+         "16, still at school. Looks up to Amelia. Questioning her sexuality and trying to figure out who she is. Amelia's letters to her are some of the most honest writing in the game.",
+         None),
+    ]
+
+    _chapters = [
+        (1,  "chapter_1",  "The Ordinary World",
+         "Final days before departure. London is golden, nostalgic — and about to be left behind.",
+         "Late September", "#D4A574"),
+        (2,  "chapter_2",  "The Call to Adventure",
+         "The journey to Plymouth. A train, a new city, and the anxious excitement of everything beginning.",
+         "Early October", "#D4A574"),
+        (3,  "chapter_3",  "Refusal of the Call",
+         "First semester struggles. The work is hard, the people are strange, and home feels very far away.",
+         "October–November", "#D4A574"),
+        (4,  "chapter_4",  "Meeting the Mentor",
+         "Mentor assignment and a first trip to Cornwall. Something old and strange is waking up.",
+         "November", "#A8C0D4"),
+        (5,  "chapter_5",  "Crossing the Threshold",
+         "Full immersion. Deepening connections, finding rhythm. Plymouth starts to feel like it could be home.",
+         "November–December", "#A8C0D4"),
+        (6,  "chapter_6",  "Tests, Allies & Enemies",
+         "Tension, conflict, bonding. Christmas break reveals how much has changed. The Shadow appears.",
+         "December–January", "#A8C0D4"),
+        (7,  "chapter_7",  "The Approach",
+         "Return after Christmas. Something is building. Cornwall calls again, deeper this time.",
+         "January–February", "#A8C0D4"),
+        (8,  "chapter_8",  "The Ordeal",
+         "The supreme test. Sarah's crisis. A phone call in the night that changes everything.",
+         "February", "#DAA520"),
+        (9,  "chapter_9",  "The Reward",
+         "Aftermath. The group regathers. Fragile hope. Something has been earned through pain.",
+         "March", "#DAA520"),
+        (10, "chapter_10", "The Road Back",
+         "Easter at home. London is the same; Amelia is not. Bittersweet clarity.",
+         "April", "#C04040"),
+        (11, "chapter_11", "The Resurrection",
+         "Final test. Synthesis. The fogou. Everything Amelia has learned is put to the ultimate test.",
+         "May", "#C04040"),
+        (12, "chapter_12", "Return with the Elixir",
+         "Seven possible endings. Summer term, final weeks. Who has Amelia become?",
+         "June", "#C04040"),
+    ]
+
+    _region_data = {
+        "london": {
+            "name": "London",
+            "summary": "South-east London. Bromley, Lewisham, the edges where the city thins into something quieter. This is where Amelia began — and where she'll return, changed.",
+            "locations": [
+                ("James Family Home",
+                 "A terraced house where Amelia grew up. The kitchen smells of ackee and saltfish. The walls hold sixteen years of photographs."),
+                ("Bromley Park",
+                 "The park bench where Amelia reads. It faces west, catches the evening light. This is where the story begins."),
+                ("Mr. Osei's Bookshop",
+                 "A cramped, overstuffed bookshop. Mr. Osei knows every book by touch. Here, Amelia finds the Paracelsus text that opens the occult knowledge path."),
+            ],
+        },
+        "plymouth": {
+            "name": "Plymouth",
+            "summary": "A port city where the moors meet the sea. Brutalist university buildings, the Hoe at sunset, the SU at 2am. This is where Amelia becomes herself.",
+            "locations": [
+                ("University of Plymouth",
+                 "The Psychology building, the five-floor library, the lecture theatres where everything changes. Concrete and green quads."),
+                ("Plymouth Hoe",
+                 "Smeaton's Tower, Drake's statue, the sea stretching to the horizon. Key emotional scenes happen here — at dawn, at dusk, in the rain."),
+                ("Student Union",
+                 "Karaoke nights, cheap pints, friendships forged at 2am. Where Amelia's social world expands — and where tensions boil over."),
+                ("Halls of Residence",
+                 "Amelia's room: a single bed, a desk, a window facing the city. The communal kitchen where Raj cooks and arguments happen."),
+            ],
+        },
+        "cornwall": {
+            "name": "Cornwall",
+            "summary": "The ancient peninsula. Stone circles, holy wells, the fogou. Where the veil between the rational and the numinous wears thin.",
+            "locations": [
+                ("Bodmin Moor",
+                 "Wild ponies, granite tors, overwhelming stars. The Nigredo landscape — raw, ancient, stripped bare. At night the darkness is absolute."),
+                ("Mên-an-Tol",
+                 "The holed stone. Three thousand years old. Elena calls it 'the athanor opening' — the entrance to the alchemical furnace."),
+                ("Merry Maidens",
+                 "A stone circle near Penzance. Nineteen stones in a perfect ring. The legend says they were girls turned to stone for dancing on the Sabbath."),
+                ("Madron Holy Well",
+                 "Hidden in woods above Penzance. Clootie rags hang from branches. The water is cold and clear. Elena calls it 'the albedo pool'."),
+                ("The Fogou",
+                 "An underground chamber. Iron Age, maybe older. Cool, dark, utterly silent. The final Elena path scene takes place here. The belly of the whale."),
+                ("Tintagel",
+                 "Arthurian ruins on the cliff edge. Wind, spray, legend layered on legend. Maya's path leads here. The bridge between worlds."),
+                ("Eden Project",
+                 "Biome domes in a reclaimed quarry. Dr. Simmons brings the group here. Growth from devastation — the whole place is a metaphor."),
+            ],
+        },
+    }
+
+
+################################################################################
 ## About Screen — Tabbed (Overview · Characters · World · Narrative)
 ################################################################################
 
@@ -240,7 +386,7 @@ screen about():
                 spacing 30
                 xalign 0.5
 
-                for _tab_id, _tab_label in [("overview", "Overview"), ("characters", "Characters"), ("world", "World"), ("narrative", "Narrative")]:
+                for _tab_id, _tab_label in [("overview", _("Overview")), ("characters", _("Characters")), ("world", _("World")), ("narrative", _("Narrative"))]:
                     textbutton _tab_label:
                         style "about_tab_btn"
                         action SetScreenVariable("about_tab", _tab_id)
@@ -328,7 +474,7 @@ screen about_characters():
             spacing 20
             xfill True
 
-            text "{b}Cast of Characters{/b}":
+            text _("{b}Cast of Characters{/b}"):
                 color "#D4A574"
                 size 30
                 xalign 0.5
@@ -461,16 +607,16 @@ screen character_detail(char_index=0):
                 spacing 30
 
                 if char_index > 0:
-                    textbutton "< Previous":
+                    textbutton _("< Previous"):
                         style "about_tab_btn"
                         action SetScreenVariable("char_index", char_index - 1)
 
-                textbutton "Close":
+                textbutton _("Close"):
                     style "gm_return_button"
                     action Hide("character_detail")
 
                 if char_index < len(_characters) - 1:
-                    textbutton "Next >":
+                    textbutton _("Next >"):
                         style "about_tab_btn"
                         action SetScreenVariable("char_index", char_index + 1)
 
@@ -520,13 +666,13 @@ screen about_world(selected_region, selected_loc_idx):
                     yalign 0.5
                     xfill True
 
-                    text "Amelia's World":
+                    text _("Amelia's World"):
                         size 26
                         color "#D4A574"
                         xalign 0.5
                         bold True
 
-                    text "Click a region to explore the places in the story.":
+                    text _("Click a region to explore the places in the story."):
                         size 15
                         color "#999999"
                         xalign 0.5
@@ -534,7 +680,7 @@ screen about_world(selected_region, selected_loc_idx):
 
                     null height 10
 
-                    for _rid, _rname in [("london", "London"), ("plymouth", "Plymouth"), ("cornwall", "Cornwall")]:
+                    for _rid, _rname in [("london", _("London")), ("plymouth", _("Plymouth")), ("cornwall", _("Cornwall"))]:
                         textbutton _rname:
                             style "about_tab_btn"
                             xalign 0.5
@@ -585,7 +731,7 @@ screen about_world(selected_region, selected_loc_idx):
                         xfill True
 
                         ## Back link
-                        textbutton "< Back to overview":
+                        textbutton _("< Back to overview"):
                             style "about_tab_btn"
                             text_size 14
                             action [SetScreenVariable("selected_region", None),
@@ -613,7 +759,7 @@ screen about_world(selected_region, selected_loc_idx):
                         null height 5
 
                         ## Location list
-                        text "Locations":
+                        text _("Locations"):
                             size 16
                             color "#999999"
                             bold True
@@ -650,12 +796,12 @@ screen about_narrative():
             spacing 20
             xfill True
 
-            text "{b}The Hero's Journey{/b}":
+            text _("{b}The Hero's Journey{/b}"):
                 size 30
                 color "#D4A574"
                 xalign 0.5
 
-            text "Amelia's story follows the twelve stages of Joseph Campbell's Monomyth — the universal pattern that underpins every transformative journey, from Odysseus to Luke Skywalker to a first-year psychology student from south-east London.":
+            text _("Amelia's story follows the twelve stages of Joseph Campbell's Monomyth — the universal pattern that underpins every transformative journey, from Odysseus to Luke Skywalker to a first-year psychology student from south-east London."):
                 size 18
                 color "#CCCCCC"
                 xalign 0.5
@@ -704,7 +850,7 @@ screen about_narrative():
 
             null height 15
 
-            text "Beneath the Hero's Journey lies a second structure: the four stages of alchemical transformation — {b}Nigredo{/b} (blackening), {b}Albedo{/b} (whitening), {b}Citrinitas{/b} (yellowing), and {b}Rubedo{/b} (reddening). The colours of the game shift with Amelia's inner work.":
+            text _("Beneath the Hero's Journey lies a second structure: the four stages of alchemical transformation — {b}Nigredo{/b} (blackening), {b}Albedo{/b} (whitening), {b}Citrinitas{/b} (yellowing), and {b}Rubedo{/b} (reddening). The colours of the game shift with Amelia's inner work."):
                 size 16
                 color "#999999"
                 xalign 0.5
@@ -732,7 +878,7 @@ screen chapter_select():
         xalign 0.5
         ypos 25
 
-        text "SELECT CHAPTER":
+        text _("SELECT CHAPTER"):
             xalign 0.5
             size 42
             color "#D4A574"

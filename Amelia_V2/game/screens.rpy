@@ -725,6 +725,14 @@ screen preferences():
                 box_wrap True
                 spacing 40
 
+                ## Language selector
+                vbox:
+                    style_prefix "radio"
+                    label _("Language")
+                    textbutton "English" action Language(None)
+                    textbutton "한국어" action Language("korean")
+                    textbutton "Svenska" action Language("swedish")
+
                 if renpy.variant("pc") or renpy.variant("web"):
                     vbox:
                         style_prefix "radio"
