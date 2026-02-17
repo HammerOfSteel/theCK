@@ -259,14 +259,12 @@ screen main_menu():
     ## Video background — random pick each time the menu is shown
     default mm_video = _pick_video(main_menu_videos)
     if mm_video:
-        add Movie(play=mm_video, loop=True):
-            xsize config.screen_width
-            ysize config.screen_height
+        add Movie(play=mm_video, loop=True)
 
-    ## Semi-transparent overlay for readability
-    add Solid("#00000066")
+    ## Slight dark overlay so text is always readable over video
+    add Solid("#00000044")
 
-    ## ── Centred UI ──────────────────────────────────────────────────────
+    ## Centered UI container
     frame:
         background None
         align (0.5, 0.5)
@@ -280,28 +278,28 @@ screen main_menu():
                 style "main_menu_title"
                 xalign 0.5
 
-            ## Alchemical divider
+            ## Alchemical divider line
             null height 5
             frame:
+                xalign 0.5
                 xsize 120
                 ysize 2
-                xalign 0.5
-                background Solid("#D4AF37")
+                background Solid("#D4A574")
             null height 15
 
-            ## Navigation — horizontal row
+            ## Navigation buttons — horizontal
             hbox:
                 spacing 40
                 xalign 0.5
                 textbutton _("Begin") action Start() text_style "mm_button_text"
                 textbutton _("Recall") action ShowMenu("load") text_style "mm_button_text"
                 textbutton _("Reflections") action ShowMenu("preferences") text_style "mm_button_text"
+                textbutton _("About") action ShowMenu("about") text_style "mm_button_text"
                 textbutton _("Departure") action Quit(confirm=not main_menu) text_style "mm_button_text"
 
-    ## Version number (bottom-right)
-    if gui.show_name:
-        text "[config.version]":
-            style "main_menu_version"
+    ## Version number — bottom right
+    text "v[config.version]":
+        style "main_menu_version"
 
 ## ── Main Menu Styles ────────────────────────────────────────────────────────
 
@@ -314,13 +312,14 @@ style main_menu_title:
 style mm_button_text:
     size 22
     color "#CCCCCC"
-    hover_color "#D4AF37"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
     kerning 5.0
     outlines [(1, "#00000088", 0, 0)]
 
-style main_menu_version is gui_text:
+style main_menu_version:
     color "#FFFFFF33"
-    size 20
+    size 18
     xalign 0.98
     yalign 0.98
 
