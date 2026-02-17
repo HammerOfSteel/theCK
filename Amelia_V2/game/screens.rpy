@@ -323,7 +323,6 @@ style main_menu_version:
     xalign 0.98
     yalign 0.98
 
-define gui.show_name = True
 
 ################################################################################
 ## Navigation — Compatibility stub (tabs embedded in game_menu)
@@ -502,14 +501,18 @@ style gm_content_frame is empty:
     padding (40, 25, 40, 25)
 
 style game_menu_frame is empty
-style game_menu_viewport is gui_viewport
-style game_menu_side is gui_side
-style game_menu_vscrollbar is gui_vscrollbar
 
-style game_menu_side:
+style game_menu_viewport is gui_viewport:
+    xfill True
+
+style game_menu_vbox:
+    xfill True
+
+style game_menu_side is gui_side:
     spacing 15
+    xfill True
 
-style game_menu_vscrollbar:
+style game_menu_vscrollbar is gui_vscrollbar:
     unscrollable gui.unscrollable
 
 ################################################################################
@@ -950,6 +953,58 @@ screen help():
 
         vbox:
             spacing 23
+
+            ## ── Support & Helplines ─────────────────────────────────────
+            vbox:
+                spacing 10
+
+                text _("{b}Support & Helplines{/b}"):
+                    color "#D4A574"
+                    size gui.label_text_size
+
+                text _("This game explores themes of mental health, depression, anxiety, and suicide. If you or someone you know is affected, please reach out to one of these services."):
+                    color "#CCCCCC"
+                    size 22
+
+                null height 5
+
+                hbox:
+                    spacing 10
+                    text "{b}Samaritans{/b}" color "#D4A574" size 24
+                    text "— 116 123  (UK, 24/7, free)" color "#CCCCCC" size 24
+
+                hbox:
+                    spacing 10
+                    text "{b}Mind{/b}" color "#D4A574" size 24
+                    text "— 0300 123 3393  (info line)" color "#CCCCCC" size 24
+
+                hbox:
+                    spacing 10
+                    text "{b}Crisis Text Line{/b}" color "#D4A574" size 24
+                    text "— Text SHOUT to 85258" color "#CCCCCC" size 24
+
+                hbox:
+                    spacing 10
+                    text "{b}Papyrus{/b}" color "#D4A574" size 24
+                    text "— 0800 068 4141  (under 35s)" color "#CCCCCC" size 24
+
+                text _("{a=https://www.iasp.info/resources/Crisis_Centres/}International Association for Suicide Prevention — Crisis Centres{/a}"):
+                    color "#A8C0D4"
+                    size 22
+
+            ## Gold divider
+            null height 5
+            frame:
+                xalign 0.5
+                xsize 800
+                ysize 1
+                background Solid("#D4A57444")
+            null height 5
+
+            ## ── Controls ────────────────────────────────────────────────
+            text _("{b}Controls{/b}"):
+                color "#D4A574"
+                size gui.label_text_size
 
             hbox:
                 spacing 20

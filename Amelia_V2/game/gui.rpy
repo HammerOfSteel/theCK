@@ -70,27 +70,7 @@ define gui.title_text_size = 64
 define gui.main_menu_background = "gui/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
-## About screen text
-define gui.about = _p("""
-{b}The CK: Amelia{/b}
-
-A visual novel about identity, friendship, and the alchemy of growing up.
-
-Written by Erik S.
-Music by Dancing Salamanders / Geddon Bird.
-
-Built with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].
-""")
-
-define build.name = "TheCK"
-define config.name = _("The CK: Amelia")
-define config.version = "0.1.0"
-
-define config.has_sound = True
-define config.has_music = True
-define config.has_voice = False
-
-define config.main_menu_music = "audio/songs/Amelia.wav"
+## Game identity, about text, audio config, and build config are in options.rpy
 
 ################################################################################
 ## Dialogue — Say Screen
@@ -265,36 +245,8 @@ define gui.nvl_thought_xalign = 0.0
 define gui.nvl_button_xpos = 675
 define gui.nvl_button_xalign = 0.0
 
-################################################################################
-## Transitions
-################################################################################
-
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
-define config.intra_transition = dissolve
-define config.after_load_transition = None
-define config.end_game_transition = None
-
-define config.enter_yesno_transition = dissolve
-define config.exit_yesno_transition = dissolve
-
-define config.enter_replay_transition = dissolve
-define config.exit_replay_transition = dissolve
-
-################################################################################
-## Window auto/show/hide
-################################################################################
-
-define config.window = "auto"
-define config.window_show_transition = Dissolve(.2)
-define config.window_hide_transition = Dissolve(.2)
-
-################################################################################
-## Preference defaults
-################################################################################
-
-default preferences.text_cps = 30
-default preferences.afm_time = 15
+## Transitions, window management, preferences, and sound config
+## are now in options.rpy
 
 ################################################################################
 ## Sound channel configuration
