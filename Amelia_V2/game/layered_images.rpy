@@ -23,9 +23,12 @@ init -1:
     python:
         def _sprite_placeholder(name, expression, color="#D4A574"):
             """Generates a placeholder sprite displayable for layered images."""
+            # Normalise colour to 6-digit hex, then append low-alpha suffix
+            c = renpy.color.Color(color)
+            base = "#{:02x}{:02x}{:02x}".format(c.r, c.g, c.b)
             return Composite(
                 (700, 1400),
-                (0, 0), Solid(color + "22"),
+                (0, 0), Solid(base + "22"),
                 (0, 0), Text(
                     "{size=24}{color=#FFFFFF66}[[ PLACEHOLDER ]]\n\n{size=32}{color=#FFFFFFAA}" + name + "\n{size=26}{color=#FFFFFF88}" + expression,
                     text_align=0.5,
