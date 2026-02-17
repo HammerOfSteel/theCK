@@ -251,13 +251,17 @@ style quick_button_text:
 ################################################################################
 
 ## Persistent main-menu video — picked once, reused across menu returns
-default _mm_video = None
+## We cache the Movie *object* so Ren'Py recognises it as the same displayable
+## and doesn't restart playback when the screen rebuilds after a sub-menu visit.
+default _mm_movie = None
 
 init python:
     def _ensure_mm_video():
-        """Pick a main-menu video once per session."""
-        if store._mm_video is None:
-            store._mm_video = _pick_video(main_menu_videos)
+        """Pick a main-menu video once per session and cache the Movie object."""
+        if store._mm_movie is None:
+            v = _pick_video(main_menu_videos)
+            if v:
+                store._mm_movie = Movie(play=v, loop=True)
 
 screen main_menu():
     tag menu
@@ -270,9 +274,9 @@ screen main_menu():
     ## Dark fallback behind video
     add Solid("#0A0A0A")
 
-    ## Video background — same video persists across menu returns
-    if _mm_video:
-        add Movie(play=_mm_video, loop=True)
+    ## Video background — same cached Movie object, no restart on re-render
+    if _mm_movie:
+        add _mm_movie
 
     ## Slight dark overlay so text is always readable over video
     add Solid("#00000044")
