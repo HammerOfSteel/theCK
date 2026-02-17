@@ -10,6 +10,42 @@
 
 init python:
 
+    ## ── Video Background Pools ──────────────────────────────────────────
+    ## Each menu picks a random video on show.  Add / remove paths as needed.
+
+    main_menu_videos = [
+        "videos/main_menu_0.mp4",
+        "videos/main_menu_1.mp4",
+        "videos/main_menu_2.mp4",
+        "videos/main_menu_3.mp4",
+    ]
+    save_load_videos = [
+        "videos/save_load_menu_1.mp4",
+        "videos/save_load_menu_2.mp4",
+        "videos/save_load_menu_3.mp4",
+    ]
+    history_videos = [
+        "videos/history_log_menu_1.mp4",
+        "videos/history_log_menu_2.mp4",
+    ]
+    preferences_videos = [
+        "videos/option_settings_menu_1.mp4",
+        "videos/option_settings_menu_2.mp4",
+    ]
+    about_videos = [
+        "videos/about_credits_menu_1.mp4",
+        "videos/about_credits_menu_2.mp4",
+    ]
+
+    def _pick_video(pool):
+        """Return a random loadable video from *pool*, or None."""
+        loadable = [v for v in pool if renpy.loadable(v)]
+        if loadable:
+            return renpy.random.choice(loadable)
+        return None
+
+    ## ── Alchemical Phase Helpers ─────────────────────────────────────────
+
     def get_phase_accent():
         """Return the accent colour for the current alchemical phase."""
         ch = getattr(store, "current_chapter", 1)
@@ -217,7 +253,13 @@ style quick_button_text:
 screen main_menu():
     tag menu
 
-    add gui.main_menu_background if renpy.loadable(gui.main_menu_background) else Solid("#1A1410")
+    ## Dark fallback behind video
+    add Solid("#1A1410")
+
+    ## Video background — random pick each time the menu is shown
+    default mm_video = _pick_video(main_menu_videos)
+    if mm_video:
+        add Movie(play=mm_video, loop=True, size=(config.screen_width, config.screen_height))
 
     frame:
         style "main_menu_frame"
@@ -310,13 +352,22 @@ style navigation_button_text:
 ## Game Menu — Base frame for save/load/preferences
 ################################################################################
 
-screen game_menu(title, scroll=None, yinitial=0.0):
+screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
     style_prefix "game_menu"
 
-    if main_menu:
-        add gui.main_menu_background if renpy.loadable(gui.main_menu_background) else Solid("#1A1410")
+    ## Dark fallback always present
+    add Solid("#1A1410")
+
+    ## Video background (passed from calling screen)
+    if video_bg:
+        add Movie(play=video_bg, loop=True, size=(config.screen_width, config.screen_height))
+    elif main_menu:
+        ## Fallback to main menu image if no video supplied
+        if renpy.loadable(gui.main_menu_background):
+            add gui.main_menu_background
     else:
-        add gui.game_menu_background if renpy.loadable(gui.game_menu_background) else Solid("#1A1410")
+        if renpy.loadable(gui.game_menu_background):
+            add gui.game_menu_background
 
     frame:
         style "game_menu_outer_frame"
@@ -404,16 +455,18 @@ style return_button:
 
 screen save():
     tag menu
-    use file_slots(_("Save"))
+    default save_video = _pick_video(save_load_videos)
+    use file_slots(_("Save"), save_video)
 
 screen load():
     tag menu
-    use file_slots(_("Load"))
+    default load_video = _pick_video(save_load_videos)
+    use file_slots(_("Load"), load_video)
 
-screen file_slots(title):
+screen file_slots(title, video_bg=None):
     default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
 
-    use game_menu(title):
+    use game_menu(title, video_bg=video_bg):
         fixed:
             order_reverse True
 
@@ -501,7 +554,8 @@ style slot_button_text:
 
 screen preferences():
     tag menu
-    use game_menu(_("Preferences"), scroll="viewport"):
+    default pref_video = _pick_video(preferences_videos)
+    use game_menu(_("Preferences"), scroll="viewport", video_bg=pref_video):
         vbox:
             hbox:
                 box_wrap True
@@ -627,7 +681,8 @@ style slider_vbox:
 
 screen history():
     tag menu
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
+    default hist_video = _pick_video(history_videos)
+    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, video_bg=hist_video):
         style_prefix "history"
 
         for h in _history_list:
@@ -686,7 +741,8 @@ style history_label_text is gui_label_text
 
 screen about():
     tag menu
-    use game_menu(_("About"), scroll="viewport"):
+    default about_video = _pick_video(about_videos)
+    use game_menu(_("About"), scroll="viewport", video_bg=about_video):
         style_prefix "about"
 
         vbox:
@@ -709,7 +765,8 @@ style about_label_text:
 screen help():
     tag menu
     default tab = "keyboard"
-    use game_menu(_("Help"), scroll="viewport"):
+    default help_video = _pick_video(about_videos)
+    use game_menu(_("Help"), scroll="viewport", video_bg=help_video):
         style_prefix "help"
 
         vbox:

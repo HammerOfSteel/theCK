@@ -90,7 +90,7 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
 
-define config.main_menu_music = None   # Set to a track later if desired
+define config.main_menu_music = "audio/songs/Amelia.wav"
 
 ################################################################################
 ## Dialogue — Say Screen
