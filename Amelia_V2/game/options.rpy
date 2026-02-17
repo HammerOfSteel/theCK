@@ -38,7 +38,10 @@ This game explores themes of mental health, depression, anxiety, and suicide. It
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = False
+define config.has_voice = True
+
+## Voice configuration
+define config.voice_filename_format = "{filename}"
 
 ## Main menu music — managed by music_player.rpy playlist
 # define config.main_menu_music = "audio/songs/Amelia.ogg"

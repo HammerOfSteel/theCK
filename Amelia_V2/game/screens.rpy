@@ -762,7 +762,7 @@ screen preferences():
                 vbox:
                     style_prefix "check"
                     label _("Audio")
-                    textbutton _("Voice Acting") action ToggleVariable("persistent.voice_enabled", True, False)
+                    textbutton _("Mute Voice Acting") action Preference("voice mute", "toggle")
 
             null height 10
 
@@ -813,7 +813,6 @@ screen preferences():
                             style "mute_all_button"
 
 default show_content_warnings = True
-default persistent.voice_enabled = True
 
 ## ── Preferences Styles ──────────────────────────────────────────────────────
 

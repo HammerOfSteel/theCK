@@ -51,27 +51,6 @@ define mr_osei = Character("Mr. Osei", color="#8B6914")
 define narrator = Character(None)
 
 ###############################################################################
-## VOICE CONTROL — Toggle voice acting on/off
-###############################################################################
-
-init -1 python:
-    # Enable voice system
-    config.has_voice = True
-    
-    # Store the original voice function
-    import renpy.exports as exports
-    _original_voice = exports.voice
-    
-    def conditional_voice(filename, **kwargs):
-        """Wrapper around voice that checks if voice is enabled."""
-        if getattr(persistent, 'voice_enabled', True):
-            _original_voice(filename, **kwargs)
-    
-    # Replace the voice function with our conditional version
-    exports.voice = conditional_voice
-    renpy.voice = conditional_voice
-
-###############################################################################
 ## CHAPTER TRACKING — Used by GUI for alchemical phase colouring
 ###############################################################################
 
