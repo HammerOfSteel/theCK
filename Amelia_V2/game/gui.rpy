@@ -132,6 +132,17 @@ define gui.button_text_hover_color = gui.hover_color
 define gui.button_text_selected_color = gui.selected_color
 define gui.button_text_insensitive_color = gui.insensitive_color
 
+## Type-specific button properties — used by gui.button_properties("type")
+define gui.radio_button_borders = Borders(27, 6, 6, 6)
+define gui.check_button_borders = Borders(27, 6, 6, 6)
+define gui.confirm_button_text_xalign = 0.5
+define gui.page_button_borders = Borders(15, 6, 15, 6)
+define gui.quick_button_borders = Borders(15, 6, 15, 0)
+define gui.quick_button_text_size = 21
+define gui.quick_button_text_idle_color = gui.idle_small_color
+define gui.quick_button_text_selected_color = gui.accent_color
+define gui.navigation_button_width = 290
+
 define gui.choice_button_width = 1185
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
@@ -161,6 +172,27 @@ define config.thumbnail_height = 216
 
 define gui.file_slot_cols = 3
 define gui.file_slot_rows = 2
+
+################################################################################
+## Spacing
+################################################################################
+
+define gui.navigation_spacing = 6
+define gui.pref_spacing = 15
+define gui.pref_button_spacing = 0
+define gui.page_spacing = 0
+define gui.slot_spacing = 15
+define gui.choice_spacing = 33
+
+################################################################################
+## Frames
+################################################################################
+
+define gui.frame_borders = Borders(6, 6, 6, 6)
+define gui.frame_tile = False
+define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
+define gui.skip_frame_borders = Borders(24, 8, 75, 8)
+define gui.notify_frame_borders = Borders(24, 8, 60, 8)
 
 ################################################################################
 ## Navigation / Quick Menu

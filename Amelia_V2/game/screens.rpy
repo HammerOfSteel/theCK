@@ -350,130 +350,114 @@ screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
     ## Dark overlay for readability over video
     add Solid("#00000088")
 
-    ## ── Full-screen centred layout ─────────────────────────────────────
+    ## ── Header: Title + gold divider ────────────────────────────────────
+    vbox:
+        xalign 0.5
+        ypos 30
+
+        text "[title!t]":
+            xalign 0.5
+            style "gm_title"
+
+        null height 6
+
+        frame:
+            xalign 0.5
+            xsize 100
+            ysize 2
+            background Solid("#D4A574")
+
+    ## ── Navigation Tabs ─────────────────────────────────────────────────
+    hbox:
+        xalign 0.5
+        ypos 100
+        spacing 35
+
+        if not main_menu:
+            textbutton _("Save"):
+                action ShowMenu("save")
+                style "gm_tab_button"
+            textbutton _("Load"):
+                action ShowMenu("load")
+                style "gm_tab_button"
+            textbutton _("History"):
+                action ShowMenu("history")
+                style "gm_tab_button"
+        else:
+            textbutton _("Load"):
+                action ShowMenu("load")
+                style "gm_tab_button"
+
+        textbutton _("Preferences"):
+            action ShowMenu("preferences")
+            style "gm_tab_button"
+        textbutton _("About"):
+            action ShowMenu("about")
+            style "gm_tab_button"
+
+        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            textbutton _("Help"):
+                action ShowMenu("help")
+                style "gm_tab_button"
+
+        if _in_replay:
+            textbutton _("End Replay"):
+                action EndReplay(confirm=True)
+                style "gm_tab_button"
+
+    ## ── Content Area ────────────────────────────────────────────────────
     frame:
-        background None
-        xfill True
-        yfill True
+        style "gm_content_frame"
 
-        vbox:
-            xfill True
-            yfill True
-
-            ## ── Header ──────────────────────────────────────────────────
-            null height 40
-
-            text "[title!t]":
-                xalign 0.5
-                style "gm_title"
-
-            null height 8
-
-            frame:
-                xalign 0.5
-                xsize 100
-                ysize 2
-                background Solid("#D4A574")
-
-            null height 12
-
-            ## ── Navigation Tabs ─────────────────────────────────────────
-            hbox:
-                xalign 0.5
-                spacing 35
-
-                if not main_menu:
-                    textbutton _("Save"):
-                        action ShowMenu("save")
-                        style "gm_tab_button"
-                    textbutton _("Load"):
-                        action ShowMenu("load")
-                        style "gm_tab_button"
-                    textbutton _("History"):
-                        action ShowMenu("history")
-                        style "gm_tab_button"
-                else:
-                    textbutton _("Load"):
-                        action ShowMenu("load")
-                        style "gm_tab_button"
-
-                textbutton _("Preferences"):
-                    action ShowMenu("preferences")
-                    style "gm_tab_button"
-                textbutton _("About"):
-                    action ShowMenu("about")
-                    style "gm_tab_button"
-
-                if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-                    textbutton _("Help"):
-                        action ShowMenu("help")
-                        style "gm_tab_button"
-
-                if _in_replay:
-                    textbutton _("End Replay"):
-                        action EndReplay(confirm=True)
-                        style "gm_tab_button"
-
-            null height 15
-
-            ## ── Content Area ────────────────────────────────────────────
-            frame:
+        if scroll == "viewport":
+            viewport:
                 style_prefix "game_menu"
-                xalign 0.5
-                xsize 1300
-                yfill True
-                background Solid("#0A0A0A55")
-                padding (40, 25, 40, 25)
+                yinitial yinitial
+                scrollbars "vertical"
+                mousewheel True
+                draggable True
+                pagekeys True
+                side_yfill True
 
-                if scroll == "viewport":
-                    viewport:
-                        yinitial yinitial
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
-                        side_yfill True
-
-                        vbox:
-                            transclude
-
-                elif scroll == "vpgrid":
-                    vpgrid:
-                        cols 1
-                        yinitial yinitial
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
-                        side_yfill True
-
-                        transclude
-
-                else:
+                vbox:
                     transclude
 
-            ## ── Footer ──────────────────────────────────────────────────
-            null height 12
+        elif scroll == "vpgrid":
+            vpgrid:
+                style_prefix "game_menu"
+                cols 1
+                yinitial yinitial
+                scrollbars "vertical"
+                mousewheel True
+                draggable True
+                pagekeys True
+                side_yfill True
 
-            hbox:
-                xalign 0.5
-                spacing 40
+                transclude
 
-                textbutton _("Return"):
-                    action Return()
-                    style "gm_return_button"
+        else:
+            transclude
 
-                if not main_menu and not _in_replay:
-                    textbutton _("Main Menu"):
-                        action MainMenu()
-                        style "gm_return_button"
+    ## ── Footer ──────────────────────────────────────────────────────────
+    hbox:
+        xalign 0.5
+        yalign 1.0
+        yoffset -25
+        spacing 40
 
-                if renpy.variant("pc") and not main_menu:
-                    textbutton _("Quit"):
-                        action Quit(confirm=True)
-                        style "gm_return_button"
+        textbutton _("Return"):
+            action Return()
+            style "gm_return_button"
 
-            null height 20
+        if not main_menu and not _in_replay:
+            textbutton _("Main Menu"):
+                action MainMenu()
+                style "gm_return_button"
+
+        if renpy.variant("pc") and not main_menu:
+            textbutton _("Quit"):
+                action Quit(confirm=True)
+                style "gm_return_button"
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -507,6 +491,15 @@ style gm_return_button_text is gui_button_text:
     hover_color "#D4A574"
     kerning 3.0
     outlines [(1, "#00000088", 0, 0)]
+
+## Content frame — absolute positioned below header/tabs, above footer
+style gm_content_frame is empty:
+    xalign 0.5
+    xsize 1300
+    ypos 140
+    ysize (config.screen_height - 140 - 65)
+    background Solid("#0A0A0A55")
+    padding (40, 25, 40, 25)
 
 style game_menu_frame is empty
 style game_menu_viewport is gui_viewport
@@ -611,9 +604,6 @@ screen file_slots(title, video_bg=None):
                             xalign 0.5
 
 ## ── Save / Load Styles ──────────────────────────────────────────────────────
-
-define gui.slot_spacing = 15
-define gui.page_spacing = 15
 
 style page_label is gui_label
 style page_label_text is gui_label_text
@@ -754,9 +744,6 @@ screen preferences():
 default show_content_warnings = True
 
 ## ── Preferences Styles ──────────────────────────────────────────────────────
-
-define gui.pref_spacing = 15
-define gui.pref_button_spacing = 3
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
