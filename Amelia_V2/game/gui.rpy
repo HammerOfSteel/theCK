@@ -119,6 +119,19 @@ define gui.dialogue_text_xalign = 0.0
 ## Choice Buttons
 ################################################################################
 
+## Base button properties (used by all button types via gui.button_properties)
+define gui.button_width = None
+define gui.button_height = None
+define gui.button_borders = Borders(6, 6, 6, 6)
+define gui.button_tile = False
+define gui.button_text_font = gui.interface_text_font
+define gui.button_text_size = gui.interface_text_size
+define gui.button_text_xalign = 0.0
+define gui.button_text_idle_color = gui.idle_color
+define gui.button_text_hover_color = gui.hover_color
+define gui.button_text_selected_color = gui.selected_color
+define gui.button_text_insensitive_color = gui.insensitive_color
+
 define gui.choice_button_width = 1185
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
