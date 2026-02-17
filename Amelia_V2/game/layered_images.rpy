@@ -25,7 +25,7 @@ init -1:
             """Generates a placeholder sprite displayable for layered images."""
             # Normalise colour to 6-digit hex, then append low-alpha suffix
             c = renpy.color.Color(color)
-            base = "#{:02x}{:02x}{:02x}".format(c.r, c.g, c.b)
+            base = "#{:02x}{:02x}{:02x}".format(c[0], c[1], c[2])
             return Composite(
                 (700, 1400),
                 (0, 0), Solid(base + "22"),
