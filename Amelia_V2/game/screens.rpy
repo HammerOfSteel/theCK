@@ -406,30 +406,40 @@ screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
 
     ## ── Content Area ────────────────────────────────────────────────────
     frame:
-        style "gm_content_frame"
+        xalign 0.5
+        xsize 1300
+        ypos 140
+        ysize (config.screen_height - 140 - 65)
+        background Solid("#0A0A0A55")
+        padding (40, 25, 40, 25)
 
         if scroll == "viewport":
             viewport:
-                style_prefix "game_menu"
                 yinitial yinitial
                 scrollbars "vertical"
                 mousewheel True
                 draggable True
                 pagekeys True
+                xfill True
+                yfill True
+                side_xfill True
                 side_yfill True
 
                 vbox:
+                    xfill True
                     transclude
 
         elif scroll == "vpgrid":
             vpgrid:
-                style_prefix "game_menu"
                 cols 1
                 yinitial yinitial
                 scrollbars "vertical"
                 mousewheel True
                 draggable True
                 pagekeys True
+                xfill True
+                yfill True
+                side_xfill True
                 side_yfill True
 
                 transclude
@@ -491,29 +501,7 @@ style gm_return_button_text is gui_button_text:
     kerning 3.0
     outlines [(1, "#00000088", 0, 0)]
 
-## Content frame — absolute positioned below header/tabs, above footer
-style gm_content_frame is empty:
-    xalign 0.5
-    xsize 1300
-    ypos 140
-    ysize (config.screen_height - 140 - 65)
-    background Solid("#0A0A0A55")
-    padding (40, 25, 40, 25)
-
-style game_menu_frame is empty
-
-style game_menu_viewport is gui_viewport:
-    xfill True
-
-style game_menu_vbox:
-    xfill True
-
-style game_menu_side is gui_side:
-    spacing 15
-    xfill True
-
-style game_menu_vscrollbar is gui_vscrollbar:
-    unscrollable gui.unscrollable
+## Content frame is now inline on the frame above (no named style needed)
 
 ################################################################################
 ## Save / Load Screens
