@@ -4,10 +4,11 @@
 # Manual-only workflow (workflow_dispatch) — only repo collaborators
 # with write access can trigger it.
 #
-# What it does:
-#   1. Downloads the Ren'Py SDK and web platform
-#   2. Compiles & packages the Amelia_V2 project for the web
-#   3. Deploys the web build to the Oracle Cloud host via SSH
+# Strategy:
+#   1. Downloads the Ren'Py SDK from GitHub releases
+#   2. Compiles .rpy → .rpyc and packages game.zip
+#   3. Deploys game.zip to the Oracle Cloud host via SSH
+#      (the web runtime — renpy.js/wasm/data/index.html — stays as-is)
 #
 # Required GitHub Secrets:
 #   ORACLE_SSH_KEY  — contents of the PEM private key
@@ -21,9 +22,14 @@ on:
   workflow_dispatch:
     inputs:
       renpy_version:
-        description: "Ren'Py SDK version (e.g. 8.3.2)"
+        description: "Ren'Py SDK version"
         required: false
-        default: "8.3.2"
+        default: "8.3.7"
+        type: string
+      renpy_tag:
+        description: "GitHub release tag (full tag, e.g. 8.3.7.25031702)"
+        required: false
+        default: "8.3.7.25031702"
         type: string
 
 permissions:
@@ -35,7 +41,8 @@ jobs:
     timeout-minutes: 30
 
     env:
-      RENPY_VERSION: ${{ inputs.renpy_version || '8.3.2' }}
+      RENPY_VERSION: ${{ inputs.renpy_version || '8.3.7' }}
+      RENPY_TAG: ${{ inputs.renpy_tag || '8.3.7.25031702' }}
       DEPLOY_DIR: /home/ubuntu/renpy/TheCK_Amelia
 
     steps:
@@ -49,77 +56,59 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq \
             xvfb libgl1 libglib2.0-0 libegl1 libxext6 libx11-6 \
-            rsync openssh-client
+            rsync openssh-client zip
 
-      # ── Ren'Py SDK ───────────────────────────────────────────
+      # ── Ren'Py SDK (from GitHub releases — fast & reliable) ──
       - name: Download Ren'Py SDK
         run: |
-          echo "⬇ Downloading Ren'Py SDK ${RENPY_VERSION}…"
-          wget -q "https://www.renpy.org/dl/${RENPY_VERSION}/renpy-${RENPY_VERSION}-sdk.tar.bz2"
-          tar xjf "renpy-${RENPY_VERSION}-sdk.tar.bz2"
-          mv "renpy-${RENPY_VERSION}-sdk" renpy-sdk
+          SDK_URL="https://github.com/renpy/renpy/releases/download/${RENPY_TAG}/renpy-${RENPY_VERSION}-sdk.tar.bz2"
+          echo "Downloading Ren'Py SDK ${RENPY_VERSION} from GitHub releases…"
+          echo "  URL: ${SDK_URL}"
+          wget -q --show-progress "${SDK_URL}" -O renpy-sdk.tar.bz2
+          echo "Extracting…"
+          tar xjf renpy-sdk.tar.bz2
+          mv renpy-*-sdk renpy-sdk
           echo "RENPY_SDK=${GITHUB_WORKSPACE}/renpy-sdk" >> "$GITHUB_ENV"
+          echo "SDK ready: $(ls renpy-sdk/renpy.sh)"
 
-      # ── Web platform (needed for web builds) ──────────────────
-      - name: Download Ren'Py web platform
-        run: |
-          # Try downloading the separate web platform ZIP.
-          # In some SDK versions it is already bundled.
-          if wget -q "https://www.renpy.org/dl/${RENPY_VERSION}/renpy-${RENPY_VERSION}-web.zip" 2>/dev/null; then
-            echo "⬇ Extracting web platform…"
-            unzip -qo "renpy-${RENPY_VERSION}-web.zip" -d renpy-sdk/
-          else
-            echo "ℹ  No separate web platform ZIP — assuming bundled in SDK."
-          fi
-          # Also try install_platform as a fallback
-          xvfb-run -a ./renpy-sdk/renpy.sh launcher install_platform web 2>/dev/null || true
-
-      # ── Build web distribution ────────────────────────────────
-      - name: Build web distribution
+      # ── Compile .rpy → .rpyc ─────────────────────────────────
+      - name: Compile Ren'Py scripts
         run: |
           PROJECT_DIR="${GITHUB_WORKSPACE}/Amelia_V2"
-          OUTPUT_DIR="${GITHUB_WORKSPACE}/web-output"
-          mkdir -p "$OUTPUT_DIR"
+          echo "Compiling .rpy files in ${PROJECT_DIR}…"
+          xvfb-run -a ./renpy-sdk/renpy.sh "${PROJECT_DIR}" compile 2>&1 || true
 
-          echo "🔨 Building web distribution for Amelia_V2…"
-
-          # Primary method: use launcher web_build
-          xvfb-run -a ./renpy-sdk/renpy.sh launcher web_build \
-            "$PROJECT_DIR" --destination "$OUTPUT_DIR" \
-            && BUILD_OK=true || BUILD_OK=false
-
-          if [ "$BUILD_OK" = true ] && [ -f "$OUTPUT_DIR/index.html" ]; then
-            echo "✅ Web build succeeded (launcher web_build)"
-          else
-            echo "⚠  launcher web_build didn't produce output, trying distribute…"
-
-            # Fallback: use distribute --package web
-            xvfb-run -a ./renpy-sdk/renpy.sh "$PROJECT_DIR" distribute \
-              --packages web --destination "$OUTPUT_DIR" \
-              && BUILD_OK=true || BUILD_OK=false
-
-            # The distribute command may produce a ZIP; extract it
-            if ls "$OUTPUT_DIR"/*.zip 1>/dev/null 2>&1; then
-              echo "📦 Extracting distribution ZIP…"
-              WEB_ZIP=$(ls "$OUTPUT_DIR"/*.zip | head -1)
-              EXTRACT_DIR="${GITHUB_WORKSPACE}/web-extracted"
-              mkdir -p "$EXTRACT_DIR"
-              unzip -qo "$WEB_ZIP" -d "$EXTRACT_DIR"
-              rm -rf "$OUTPUT_DIR"
-              mv "$EXTRACT_DIR" "$OUTPUT_DIR"
-            fi
+          # Verify .rpyc files were produced
+          RPYC_COUNT=$(find "${PROJECT_DIR}/game" -name '*.rpyc' | wc -l)
+          echo "Found ${RPYC_COUNT} .rpyc files"
+          if [ "$RPYC_COUNT" -eq 0 ]; then
+            echo "WARNING: No .rpyc files found. Ren'Py may have failed to compile."
+            echo "Attempting alternative compile method…"
+            xvfb-run -a ./renpy-sdk/renpy.sh "${PROJECT_DIR}" quit 2>&1 || true
+            RPYC_COUNT=$(find "${PROJECT_DIR}/game" -name '*.rpyc' | wc -l)
+            echo "After retry: ${RPYC_COUNT} .rpyc files"
           fi
 
-          # Verify output
-          if [ -f "$OUTPUT_DIR/index.html" ]; then
-            echo "✅ Web distribution ready:"
-            ls -lh "$OUTPUT_DIR/"
-          else
-            echo "❌ Web build failed — no index.html found!"
-            echo "Contents of output dir:"
-            ls -laR "$OUTPUT_DIR/" 2>/dev/null || echo "(empty)"
-            exit 1
-          fi
+      # ── Package game.zip ──────────────────────────────────────
+      - name: Package game.zip
+        run: |
+          PROJECT_DIR="${GITHUB_WORKSPACE}/Amelia_V2"
+          cd "${PROJECT_DIR}/game"
+
+          echo "Creating game.zip from game directory…"
+
+          # Include all game files — scripts (.rpyc), assets, audio, etc.
+          # Exclude source .rpy files to keep size down (rpyc is sufficient)
+          # Exclude dev files, caches, saves
+          zip -r "${GITHUB_WORKSPACE}/game.zip" . \
+            -x "*.rpy" \
+            -x "cache/*" \
+            -x "saves/*" \
+            -x "*.bak" \
+            -x "**/.gitkeep"
+
+          ls -lh "${GITHUB_WORKSPACE}/game.zip"
+          echo "game.zip ready ($(du -h ${GITHUB_WORKSPACE}/game.zip | cut -f1))"
 
       # ── Setup SSH ─────────────────────────────────────────────
       - name: Setup SSH connection
@@ -127,7 +116,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.ORACLE_SSH_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          cat >> ~/.ssh/config <<EOF
+
+          cat > ~/.ssh/config <<EOF
           Host oracle
             HostName ${{ secrets.ORACLE_HOST }}
             User ${{ secrets.ORACLE_USER }}
@@ -137,24 +127,33 @@ jobs:
           EOF
           chmod 600 ~/.ssh/config
 
+          # Test connection
+          ssh oracle "echo 'SSH connection OK'"
+
       # ── Deploy ────────────────────────────────────────────────
       - name: Deploy to Oracle Cloud
         run: |
-          echo "🚀 Deploying to ${{ secrets.ORACLE_HOST }}…"
+          echo "Deploying to Oracle Cloud…"
 
-          # Gracefully stop the renpy container (does NOT touch bifrost/fauke!)
-          ssh oracle "cd /home/ubuntu/renpy && sudo docker compose stop"
+          # Upload game.zip (this is the only file that changes per deploy)
+          echo "Uploading game.zip…"
+          scp "${GITHUB_WORKSPACE}/game.zip" oracle:${DEPLOY_DIR}/game.zip
 
-          # Sync the new web build, replacing old content
+          # Also sync the game/ directory for progressive download mode
+          echo "Syncing game assets…"
           rsync -az --delete \
-            --exclude='.git' \
-            ./web-output/ \
-            oracle:${DEPLOY_DIR}/
+            --exclude='*.rpy' \
+            --exclude='cache/' \
+            --exclude='saves/' \
+            --exclude='.gitkeep' \
+            "${GITHUB_WORKSPACE}/Amelia_V2/game/" \
+            oracle:${DEPLOY_DIR}/game/
 
-          # Start the container back up
-          ssh oracle "cd /home/ubuntu/renpy && sudo docker compose up -d"
+          # Restart only the renpy container (does NOT touch bifrost/fauke!)
+          echo "Restarting VN container…"
+          ssh oracle "cd /home/ubuntu/renpy && sudo docker compose restart"
 
-          echo "✅ Deployment complete — https://amelia.dancingsalamanders.com"
+          echo "Deployment complete — https://amelia.dancingsalamanders.com"
 
       # ── Cleanup ───────────────────────────────────────────────
       - name: Cleanup SSH key
