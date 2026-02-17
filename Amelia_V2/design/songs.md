@@ -17,7 +17,7 @@ Example: `audio/songs/paper_planes.ogg`
 
 ## Song Selection Summary
 
-### Primary Songs (17 placements across 12 chapters)
+### Primary Songs (20 placements across 12 chapters)
 
 | #  | Song                     | Album / Label     | Chapter | Moment                        |
 |----|--------------------------|-------------------|---------|-------------------------------|
@@ -29,15 +29,23 @@ Example: `audio/songs/paper_planes.ogg`
 | 6  | Kindeling Kin            | Geddon Bird       | 6       | Christmas at Home             |
 | 7  | The Mist-Laden Path      | Three Drops       | 6       | Midwinter Solstice (cond.)    |
 | 8  | Mirror of the Mind       | Geddon Bird       | 7       | The Gathering Storm           |
-| 9  | Bare With Me             | Geddon Bird       | 8       | In the Ashes (crisis)         |
-| 10 | Living on the Moon       | Geddon Bird       | 8       | The Bottom                    |
-| 11 | jolly-rum-ba-low!        | Geddon Bird       | 9       | Cornwall Healing Trip         |
-| 12 | The Long Way Home        | Geddon Bird       | 10      | Train Home for Easter         |
-| 13 | Here, Now, and Blues     | Geddon Bird       | 10      | Solo London Contemplation     |
-| 14 | Between the Veil         | Geddon Bird       | 11      | Fogou / Mystical Climax       |
-| 15 | The_Work                 | Geddon Bird       | 11      | Red Dawn (Rubedo)             |
-| 16 | The Quiet of Morning     | Geddon Bird       | 12      | Last Goodbye                  |
-| 17 | Daffodils in the Snow    | Tides in Memory's Arbor V2 | 12 | Before Ending Title Card |
+| 9  | Oh Sarah                 | Gills and Guts    | 8       | Before the Crisis (Porthcurno)|
+| 10 | Bare With Me             | Geddon Bird       | 8       | In the Ashes (all paths)      |
+| 11 | Forgetmeknot             | Dancing Salamanders | 8     | After tragic path (cond.)     |
+| 12 | Living on the Moon       | Geddon Bird       | 8       | The Bottom                    |
+| 13 | jolly-rum-ba-low!        | Geddon Bird       | 9       | Cornwall Healing Trip         |
+| 14 | The Long Way Home        | Geddon Bird       | 10      | Train Home for Easter         |
+| 15 | Here, Now, and Blues     | Geddon Bird       | 10      | Solo London Contemplation     |
+| 16 | Between the Veil         | Geddon Bird       | 11      | Fogou / Mystical Climax       |
+| 17 | The_Work                 | Geddon Bird       | 11      | Red Dawn (Rubedo)             |
+| 18 | The Quiet of Morning     | Geddon Bird       | 12      | Last Goodbye                  |
+| 19 | Daffodils in the Snow    | Tides in Memory's Arbor V2 | 12 | Before Ending Title Card |
+| 20 | Amelia                   | Dancing Salamanders | 12    | Credits Theme                 |
+
+> **Key additions from broader collection research:**
+> - **Oh Sarah** (Gills and Guts album, set at Porthcurno Beach) — literally about reaching out to a friend named Sarah in crisis. "Oh Sarah, when you feel alone / Know you've got a place, a heart, a home." Must-have for Ch8.
+> - **Forgetmeknot** (Dancing Salamanders) — explicitly about a friend dying during first year of university. "In the twilight of our first-year dreams / Desperation's whisper stole you away." Plays only on the tragic path (sarah_alive == False).
+> - **Amelia** (Dancing Salamanders) — the protagonist's theme song. Mentions the Plym, the moors, the Hero's Journey arc. "Amelia, oh Amelia / In the heart of the storm, you'll find your way." Perfect credits theme.
 
 ### Reserve Songs (optional character-specific placements)
 
@@ -47,6 +55,18 @@ Example: `audio/songs/paper_planes.ogg`
 | Familiar Strangers    | Geddon Bird | Tasha resolution scene (Ch11)              |
 | Mindful Meddling      | Geddon Bird | Academic rhythm montage (Ch5)              |
 | The Weight of Words   | Geddon Bird | Lucas vulnerability scene (Ch6 or Ch7)     |
+| Good Grief            | Dancing Salamanders | Processing grief (Ch9 alt)           |
+| Her Name Unspoken     | A Spiral Path | Silence around the dead (Ch9 alt)        |
+| The Train Back Home   | Gills and Guts | Train journey (Ch10 or Ch12 alt)        |
+| Am I Me               | Gills and Guts | Identity crisis at Golitha Falls (Ch5/6) |
+| See the Sea           | Gills and Guts | Mental health, Fistral Beach (Ch7 alt)   |
+| Dartmoor              | Gills and Guts | Bodmin Moor identity/freedom (Ch4/5)     |
+| The Bells of Lyonesse | Dancing Salamanders | Cornish folklore, Raj+Amelia (Ch4)   |
+| Underneath the Hollow Hill | Three Drops | Celtic Otherworld, Fogou (Ch11 alt)  |
+| Emergent              | Dancing Salamanders | Coming of age (Ch1 alt or credits)   |
+| Sophia                | Dancing Salamanders | Seeker of light (Ch4 mentor alt)     |
+| Butterfly Kisses on the Wind | Elara | Spirit of departed (Ch9 alt)           |
+| The Anchor of Memories | Risca      | Standing in dead person's room (Ch9 alt) |
 
 ---
 
@@ -124,14 +144,29 @@ Example: `audio/songs/paper_planes.ogg`
 
 ### Chapter 8 — The Ordeal
 
-**Song: "Bare With Me"** (primary — In the Ashes)
+**Song: "Oh Sarah"** (opening — before the crisis)
+- **Insertion point:** At the start of Scene 8.3 (The Sarah Score section), after Tasha's attack plays out but before the crisis moment
+- **Narrative context:** Set at Porthcurno Beach. A friend sitting beside someone in crisis, unable to fix anything but refusing to leave. "Oh Sarah, when you feel alone / Know you've got a place, a heart, a home." The most literal, character-named song in the entire collection. This is the emotional prelude to the crisis.
+- **Slideshow images:** Porthcurno Beach at dawn, two figures on the sand, waves crashing against cliffs, a hand reaching across a table, empty chair at a group table, night sky over the sea, morning light on breakwater, two cups of tea (one untouched)
+- **Mood:** Raw, loving, helpless, anchored
+- **Duration target:** ~3:30
+
+**Song: "Bare With Me"** (all paths — In the Ashes)
 - **Insertion point:** After Act 2 ends / the `scene black` transition, before the Aftermath scenes
 - **Narrative context:** The emotional centre of the entire game. Sarah's crisis has just occurred. Everything is raw. "Bare With Me" is about grief, isolation, friends trying to help while being pushed away. The direct emotional truth of this moment.
 - **Slideshow images:** Black, halls corridor, counsellor office, hospital corridor, Plymouth Hoe (dawn), black
 - **Mood:** Devastating, raw, grief
 - **Duration target:** ~3:30
 
-**Song: "Living on the Moon"** (secondary — The Bottom)
+**Song: "Forgetmeknot"** (conditional — tragic path only)
+- **Insertion point:** After the tragic path is confirmed (sarah_alive == False), during or after the grief scenes
+- **Narrative context:** "In the twilight of our first-year dreams / Two hearts entwined like whispered streams / Desperation's whisper stole you away." Explicitly about a friend dying during first year of university. The forget-me-not flower as promise. Plays ONLY if Sarah has died.
+- **Slideshow images:** Forget-me-not flowers, empty dorm room, notebook with pressed flowers, friends holding each other in the corridor, Plymouth Hoe at dusk, a candle in a window, starlit campus, a single flower on a windowsill
+- **Mood:** Devastating, memorial, promise to remember
+- **Duration target:** ~3:00
+- **Condition:** `sarah_alive == False`
+
+**Song: "Living on the Moon"** (all paths — The Bottom)
 - **Insertion point:** At Scene 8.7 (The Bottom), Amelia alone in her room
 - **Narrative context:** Night, rain, the fire has burned. Amelia in bed, the year at its darkest point. "Living on the Moon" is about isolation as escape, someone reaching out, healing not running — Zara's quiet offer of connection.
 - **Slideshow images:** Plymouth room (night), Plymouth Hoe (grey), library night, Plymouth room (night), halls corridor
@@ -195,6 +230,13 @@ Example: `audio/songs/paper_planes.ogg`
 - **Mood:** Hopeful, earned, universal
 - **Duration target:** ~3:30
 
+**Song: "Amelia"** (credits theme)
+- **Insertion point:** During the credits scroll after all endings
+- **Narrative context:** The protagonist's anthem. "Born by the sea, where ideas set free / Off the moor, into the Plym she sails." Traces the entire Hero's Journey in one song — childhood, the call, the storm, scars as testament, the emerald sun. The player has just finished the story; this song is the final emotional statement.
+- **Slideshow images:** Credit-roll images cycling through all 12 chapters — the park bench, the drive, campus, Cornwall, mentors, the ordeal, the Hoe at dawn, the train home
+- **Mood:** Triumphant, emotional, complete
+- **Duration target:** ~3:00
+
 ---
 
 ## Implementation Notes
@@ -240,7 +282,9 @@ circles_in_the_sand.ogg
 kindeling_kin.ogg
 the_mist_laden_path.ogg
 mirror_of_the_mind.ogg
+oh_sarah.ogg
 bare_with_me.ogg
+forgetmeknot.ogg
 living_on_the_moon.ogg
 jolly_rum_ba_low.ogg
 the_long_way_home.ogg
@@ -249,6 +293,7 @@ between_the_veil.ogg
 the_work.ogg
 the_quiet_of_morning.ogg
 daffodils_in_the_snow.ogg
+amelia.ogg
 ```
 
 ### Image Requirements
@@ -270,7 +315,9 @@ No new images are required — the slideshows cycle through backgrounds already 
 | Kindeling Kin | Grace | Family |
 | The Mist-Laden Path | Elena / Occult thread | Cornwall |
 | Mirror of the Mind | Maya | Amelia's shadow |
+| Oh Sarah | Amelia, Sarah | Friend group |
 | Bare With Me | Amelia | Ella, Lucas, Maya |
+| Forgetmeknot | Amelia, Sarah | — |
 | Living on the Moon | Zara, Sarah | Amelia |
 | jolly-rum-ba-low! | Cornwall (ensemble) | Spring itself |
 | The Long Way Home | David | Family, London |
@@ -279,6 +326,7 @@ No new images are required — the slideshows cycle through backgrounds already 
 | The_Work | Elena / Guide figure | Alchemy |
 | The Quiet of Morning | Ella | Friendship |
 | Daffodils in the Snow | Universal | Hope / All endings |
+| Amelia | Amelia (solo) | The full journey |
 
 ---
 
@@ -288,5 +336,5 @@ The 17 songs trace the alchemical journey:
 
 1. **Nigredo (Ch1-3):** Loss, departure, darkness — Paper Planes, Lighthouse in the Fog, Two Birds
 2. **Albedo (Ch4-6):** Discovery, reflection, mentorship — Hawthorne, Circles in the Sand, Kindeling Kin
-3. **Citrinitas (Ch7-9):** Shadow work, crisis, first light — Mirror of the Mind, Bare With Me, Living on the Moon, jolly-rum-ba-low!
-4. **Rubedo (Ch10-12):** Integration, transformation, gold — The Long Way Home, Here Now and Blues, Between the Veil, The_Work, The Quiet of Morning, Daffodils in the Snow
+3. **Citrinitas (Ch7-9):** Shadow work, crisis, first light — Mirror of the Mind, Oh Sarah, Bare With Me, Forgetmeknot, Living on the Moon, jolly-rum-ba-low!
+4. **Rubedo (Ch10-12):** Integration, transformation, gold — The Long Way Home, Here Now and Blues, Between the Veil, The_Work, The Quiet of Morning, Daffodils in the Snow, Amelia

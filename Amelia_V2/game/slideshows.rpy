@@ -366,6 +366,50 @@ label slideshow_ch7_mirror_of_the_mind:
 
 
 # =========================================================================
+# CHAPTER 8 — "Oh Sarah" (opening — before the crisis)
+# Context: Porthcurno Beach. Reaching out to someone in darkness.
+# The most literal, character-named song in the entire collection.
+# =========================================================================
+label slideshow_ch8_oh_sarah:
+    stop music fadeout 1.0
+    play music "audio/songs/oh_sarah.ogg" noloop
+
+    scene bg_cornwall_coast with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 12.0
+    scene bg_halls_corridor with dissolve
+    pause 12.0
+    scene bg_cornwall_coast with dissolve
+    pause 15.0
+    scene bg_amelia_room_plymouth_night with dissolve
+    pause 12.0
+
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 12.0
+    scene bg_cornwall_coast with dissolve
+    pause 12.0
+    scene bg_halls_corridor with dissolve
+    pause 15.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 12.0
+    scene bg_amelia_room_plymouth_night with dissolve
+    pause 12.0
+
+    scene bg_cornwall_coast with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 12.0
+    scene bg_halls_corridor with dissolve
+    pause 12.0
+    scene bg_cornwall_coast with dissolve
+    pause 15.0
+
+    stop music fadeout 2.0
+    return
+
+
+# =========================================================================
 # CHAPTER 8 — "Bare With Me" (primary)
 # Context: In the Ashes. After Sarah's crisis, before the aftermath.
 # The emotional centre of the entire game.
@@ -449,6 +493,51 @@ label slideshow_ch8_living_on_the_moon:
     pause 12.0
     scene bg_amelia_room_plymouth_night with dissolve
     pause 12.0
+
+    stop music fadeout 2.0
+    return
+
+
+# =========================================================================
+# CHAPTER 8 — "Forgetmeknot" (conditional — tragic path only)
+# Context: "In the twilight of our first-year dreams." Sarah has died.
+# A friend's death in first year. The forget-me-not as promise.
+# Condition: sarah_alive == False
+# =========================================================================
+label slideshow_ch8_forgetmeknot:
+    stop music fadeout 1.0
+    play music "audio/songs/forgetmeknot.ogg" noloop
+
+    scene bg_halls_corridor with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 15.0
+    scene bg_amelia_room_plymouth_night with dissolve
+    pause 12.0
+    scene bg_campus_quad with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 12.0
+
+    scene bg_halls_corridor with dissolve
+    pause 15.0
+    scene bg_amelia_room_plymouth_night with dissolve
+    pause 12.0
+    scene bg_campus_quad with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 15.0
+    scene bg_halls_corridor with dissolve
+    pause 12.0
+
+    scene bg_amelia_room_plymouth_night with dissolve
+    pause 12.0
+    scene bg_campus_quad with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_grey with dissolve
+    pause 12.0
+    scene bg_halls_corridor with dissolve
+    pause 15.0
 
     stop music fadeout 2.0
     return
@@ -550,6 +639,52 @@ label slideshow_ch10_the_long_way_home:
     return
 
 
+# =========================================================================
+# CHAPTER 12 — "Amelia" (credits theme)
+# Context: The protagonist's anthem. The full Hero's Journey in one song.
+# "Born by the sea, where ideas set free / Off the moor, into the Plym she sails."
+# Plays during the credits as a final emotional statement.
+# =========================================================================
+label slideshow_ch12_amelia_credits:
+    stop music fadeout 1.0
+    play music "audio/songs/amelia.ogg" noloop
+
+    scene bg_park_bench_sunset with dissolve
+    pause 12.0
+    scene bg_motorway_daytime with dissolve
+    pause 12.0
+    scene bg_campus_quad with dissolve
+    pause 12.0
+    scene bg_cornwall_coast with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_day with dissolve
+    pause 12.0
+
+    scene bg_amelia_room_plymouth_night with dissolve
+    pause 12.0
+    scene bg_halls_corridor with dissolve
+    pause 12.0
+    scene bg_flat_kitchen with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_dawn with dissolve
+    pause 12.0
+    scene bg_london_train with dissolve
+    pause 12.0
+
+    scene bg_park_bench_sunset with dissolve
+    pause 12.0
+    scene bg_cornwall_coast with dissolve
+    pause 12.0
+    scene bg_plymouth_hoe_day with dissolve
+    pause 12.0
+    scene bg_campus_quad with dissolve
+    pause 12.0
+
+    scene black with dissolve
+    pause 5.0
+
+    stop music fadeout 3.0
+    return
 # =========================================================================
 # CHAPTER 10 — "Here, Now, and Blues" (secondary)
 # Context: Solo London walk. Familiar streets, April light.

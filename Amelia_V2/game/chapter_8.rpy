@@ -316,6 +316,9 @@ label chapter_8:
     ## ACT 2: SARAH'S CRISIS — THE CENTRAL EVENT
     ## =====================================================================
 
+    # --- SONG SLIDESHOW: "Oh Sarah" — Reaching out to someone in darkness ---
+    call slideshow_ch8_oh_sarah
+
     scene black
     with dissolve
 
@@ -759,6 +762,9 @@ label chapter_8:
         "Amelia goes through the motions. She attends. She eats. She responds to emails. She performs the surface-level function of being alive."
 
         "Underneath: nothing. A numbness so complete it feels architectural. As though someone has removed a structural element from the building of her mind and the whole thing is standing by habit, not by engineering."
+
+        # --- SONG SLIDESHOW: "Forgetmeknot" — A friend lost in first year ---
+        call slideshow_ch8_forgetmeknot
 
         ## =====================================================================
         ## CHOICE 8.4 — AFTERMATH (Sarah dies)

@@ -716,6 +716,9 @@ label chapter_12:
     ## CREDITS
     ## =====================================================================
 
+    # --- SONG SLIDESHOW: "Amelia" — The protagonist's anthem / credits theme ---
+    call slideshow_ch12_amelia_credits
+
     scene black
     with dissolve
 
