@@ -606,7 +606,7 @@ screen preferences():
                     style_prefix "check"
                     label _("Skip")
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("skip", "after choices")
+                    textbutton _("After Choices") action Preference("after choices", "skip")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
                 ## Content warnings toggle

@@ -27,7 +27,7 @@ init -1:
                 (700, 1400),
                 (0, 0), Solid(color + "22"),
                 (0, 0), Text(
-                    "{size=24}{color=#FFFFFF66}[ PLACEHOLDER ]\n\n{size=32}{color=#FFFFFFAA}" + name + "\n{size=26}{color=#FFFFFF88}" + expression,
+                    "{size=24}{color=#FFFFFF66}[[ PLACEHOLDER ]]\n\n{size=32}{color=#FFFFFFAA}" + name + "\n{size=26}{color=#FFFFFF88}" + expression,
                     text_align=0.5,
                     xalign=0.5,
                     yalign=0.7,
