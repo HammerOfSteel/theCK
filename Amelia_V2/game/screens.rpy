@@ -253,6 +253,10 @@ style quick_button_text:
 screen main_menu():
     tag menu
 
+    ## Start the shuffled playlist each time we enter the main menu
+    on "show" action Function(menu_playlist.start)
+    on "replace" action Function(menu_playlist.start)
+
     ## Dark fallback behind video
     add Solid("#0A0A0A")
 
@@ -300,6 +304,9 @@ screen main_menu():
     ## Version number — bottom right
     text "v[config.version]":
         style "main_menu_version"
+
+    ## Mini music player
+    use music_player
 
 ## ── Main Menu Styles ────────────────────────────────────────────────────────
 
