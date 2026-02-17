@@ -102,17 +102,19 @@
 - [x] Project structure — Amelia_V2/game/ with definitions.rpy and 12 chapters
 - [x] Character definitions — 18 characters defined in definitions.rpy
 - [x] Variable architecture — 6-stat karma, relationship vars, flags, conditions
-- [ ] **Screen customisation** — Journal screen, custom choice screen, content warning screen, phone screen
-- [ ] **GUI styling** — Textbox, fonts, colours per alchemical phase
-- [ ] **Save system** — Proper save/load with stat tracking intact
-- [ ] **Layered image stubs** — `layeredimage` blocks that reference placeholder sprites, ready for real art swap
+- [x] **Screen customisation** — Journal screen, custom choice screen, content warning screen, phone screen, quick menu, save/load, preferences, history, help, about, confirm, main menu, navigation
+- [x] **GUI styling** — gui.rpy with textbox, fonts, alchemical phase colours (Nigredo/Albedo/Citrinitas/Rubedo), transitions, channel config
+- [x] **Save system** — Standard Ren'Py save/load with slot grid, auto/quick save, stat tracking intact via `default` vars
+- [x] **Layered image stubs** — layered_images.rpy with `layeredimage` blocks for all 18 characters, placeholder sprites, outfit/expression groups
+- [x] **Chapter tracking** — `current_chapter` var set at start of each chapter, drives GUI phase colours
 
 ### 3.5.3 Audio
 - [x] Song integration — 20 Dancing Salamanders songs placed as slideshow moments
 - [x] 9 song .wav files available (need .ogg conversion)
-- [ ] **Ambient music** — Per-chapter mood music for non-slideshow scenes
-- [ ] **Sound effects** — Rain, wind, seagulls, kitchen, phone, footsteps
-- [ ] **Ambient loops** — Library hum, café chatter, moor wind, ocean waves, fire crackle
+- [x] **audio_guide.md** — Complete audio requirements: 51 ambient tracks + 15 SFX with exact filenames, mood descriptions, generation tips per alchemical phase
+- [x] **Audio directory structure** — game/audio/songs/, ambient/, sfx/ created
+- [ ] **Generate ambient music** — 51 mood tracks (see audio_guide.md for exact filenames + descriptions)
+- [ ] **Sound effects** — 15 SFX files (see audio_guide.md)
 - [ ] **Song .ogg conversion** — Convert existing .wav files; source remaining 11 songs
 
 ### 3.5.4 Writing Passes
@@ -178,6 +180,8 @@
 | `ce173ef` | 2 | Writing — definitions.rpy + 12 chapter scripts (10,655 lines) |
 | `9a0a0d3` | 2.5 | Songs — 20 placements, updated songs.md + slideshows.rpy |
 | `c4758a3` | 3 | Image prompt packs (17 files, 2,208 lines) + updated todo.md |
+| `6898968` | 3.5 | Placeholder system + art sourcing guide + images directory |
+| `pending` | 3.5 | Engine work: screens.rpy, gui.rpy, layered_images.rpy, audio_guide |
 
 ### Asset Counts
 | Category | Count | Status |
@@ -187,7 +191,7 @@
 | Slideshow labels | 26 | ✅ Coded |
 | Image prompt files | 17 | ✅ Complete |
 | Background scenes needed | 58 | 🟡 Placeholders active |
-| Character sprite sets needed | ~16 | 🟡 Placeholders pending |
+| Character sprite sets needed | 18 | 🟡 Layered image stubs active |
 | CG event illustrations | 19+ | ⬜ Phase 3.9 |
 | Song audio files (.wav) | 9 of 20 | 🟡 Partial |
 
@@ -199,7 +203,10 @@ Amelia_V2/
 │   ├── definitions.rpy  # Characters, variables, functions
 │   ├── chapter_*.rpy    # 12 chapter scripts (Phase 2)
 │   ├── slideshows.rpy   # 26 song slideshow labels (Phase 2.5)
-│   ├── placeholders.rpy # Placeholder image declarations (Phase 3.5)
+│   ├── screens.rpy      # All screen definitions (standard + custom)
+│   ├── gui.rpy          # GUI configuration (colours, sizes, fonts)
+│   ├── placeholders.rpy # Placeholder bg declarations (Phase 3.5)
+│   ├── layered_images.rpy # Character layeredimage stubs
 │   └── images/          # Final art goes here (Phase 3.9)
 │       ├── bg/          # 58 backgrounds (1920×1080)
 │       ├── characters/  # Per-character sprite folders
@@ -211,7 +218,11 @@ Amelia_V2/
 │   ├── cg/              # 2 CG + slideshow files
 │   └── ui/              # 1 UI element file
 ├── audio/               # Song files (9 .wav available)
-├── placeholder_guide.md # Sourcing guide for placeholder/final art
+│   ├── songs/           # 20 song .ogg files
+│   ├── ambient/         # 51 mood music tracks
+│   └── sfx/             # 15 sound effects
+├── placeholder_guide.md # Art sourcing guide (exact filenames)
+├── audio_guide.md       # Audio requirements (exact filenames + moods)
 └── todo.md              # This file
 ```
 

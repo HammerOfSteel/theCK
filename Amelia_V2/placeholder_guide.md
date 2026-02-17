@@ -17,53 +17,309 @@ Ren'Py will automatically pick up images from `game/images/` by filename.
 
 ---
 
-## 2. Folder Structure
+## 2. Folder Structure — Complete File Listing
 
+> Every filename below is **exact**. Use `.png` or `.webp` — Ren'Py accepts either. All sizes are width × height.
+> The code in `layered_images.rpy` and `placeholders.rpy` references these paths directly.
+
+### 2.1 Backgrounds — `game/images/bg/` (58 files, each 1920×1080)
+
+All backgrounds go directly in the `bg/` folder. The filename **must** match the scene tag used in scripts.
+
+#### London (Nigredo — Ch1, Ch10, Ch12)
 ```
-game/images/
-├── bg/                     # 58 backgrounds (1920×1080 PNG or WEBP)
-│   ├── london/             # Optional grouping — see naming note below
-│   ├── plymouth/
-│   ├── cornwall/
-│   └── hoe/
-├── characters/             # Character sprites
-│   ├── amelia/             # e.g. amelia_neutral.png, amelia_happy.png
-│   ├── sarah/
-│   ├── ella/
-│   ├── lucas/
-│   ├── zara/
-│   ├── raj/
-│   ├── liz/
-│   ├── maya/
-│   ├── tasha/
-│   ├── sophia/
-│   ├── hawthorne/
-│   ├── simmons/
-│   ├── elena/
-│   ├── david/
-│   ├── grace/
-│   ├── lily/
-│   ├── michael/
-│   └── mr_osei/
-├── cg/                     # CG event illustrations (1920×1080)
-│   ├── cg_thames_night.png
-│   ├── cg_movein_kitchen.png
-│   ├── cg_the_bench.png
-│   └── ... (12 core + 7 endings)
-└── ui/                     # UI elements
-    ├── main_menu_bg.png
-    ├── textbox.png
-    ├── journal_bg.png
-    └── phone_frame.png
+bg_james_kitchen_evening.png      # James family kitchen, warm evening light
+bg_james_house_morning.png        # James house exterior, morning
+bg_amelia_bedroom_night.png       # Amelia's London bedroom, night
+bg_amelia_bedroom_dark.png        # Same bedroom, lights off / very dark
+bg_amelia_home.png                # Amelia's London home, general
+bg_family_home.png                # James family home, general
+bg_park_bench_sunset.png          # Local park bench, golden hour
+bg_bookshop.png                   # Independent bookshop exterior
+bg_bookshop_interior.png          # Bookshop interior, warm shelves
+bg_thames_night.png               # Thames embankment, night
+bg_thames.png                     # Thames embankment, daytime
+bg_london_cafe.png                # London café interior
+bg_london_park.png                # London park, daytime
+bg_london_train.png               # Train interior / platform
+bg_lily_room.png                  # Lily's bedroom
+bg_motorway_daytime.png           # Motorway driving view, daytime
 ```
 
-### Important: Naming Convention
+#### Plymouth Campus (Albedo — Ch2–9)
+```
+bg_plymouth_first_sight.png       # First view of Plymouth from road/bridge
+bg_campus_tour.png                # University campus during orientation tour
+bg_campus_daytime.png             # Campus grounds, general daytime
+bg_campus_quad.png                # Campus quadrangle / central green
+bg_lecture_theatre.png            # Large lecture theatre interior
+bg_psych_building.png             # Psychology building exterior
+bg_psych_building_corridor.png    # Psychology building corridor
+bg_psych_building_lecture.png     # Psychology lecture hall interior
+bg_seminar_room.png               # Small seminar/tutorial room
+bg_library.png                    # University library, daytime
+bg_library_night.png              # Library at night, desk lamps
+bg_library_study_area.png         # Library study area / reading nooks
+bg_su_night.png                   # Student Union at night, lively
+bg_barbican_bookshop.png          # Barbican Bookshop in Plymouth
+bg_hawthorne_office.png           # Prof. Hawthorne's office (books, tweed)
+bg_simmons_office.png             # Dr. Simmons's office (warm, plants)
+bg_counsellor_office.png          # University counsellor's office
+bg_hospital_corridor.png          # NHS hospital corridor
+```
 
-**Backgrounds** use flat names with underscores. Since our scripts say `scene bg_thames_night`, the file must be named `bg_thames_night.png` (or .webp/.jpg). You can put them in subdirectories but then you need explicit `image` declarations in a .rpy file mapping the path → tag name.
+#### Plymouth Living (Albedo — Ch2–9)
+```
+bg_halls_kitchen_evening.png      # Student halls shared kitchen, evening
+bg_halls_kitchen_night.png        # Same kitchen, late night
+bg_kitchen_halls.png              # Kitchen in halls, general (alt angle)
+bg_flat_kitchen.png               # Second-year flat kitchen
+bg_flat_party.png                 # Flat during a party
+bg_halls_corridor.png             # Halls of residence corridor
+bg_amelia_room_plymouth_night.png # Amelia's Plymouth room, night
+bg_amelia_room_plymouth_day.png   # Amelia's Plymouth room, daytime
+bg_amelia_room_plymouth_rain.png  # Amelia's Plymouth room, rain on window
+bg_lucas_room.png                 # Lucas's room
+bg_maya_room_candlelit.png        # Maya's room, candles lit
+bg_maya_room_ceremony.png         # Maya's room set up for ceremony
+```
 
-**Simplest approach:** Put all bg files directly in `game/images/bg/` with their full tag name.
+#### Plymouth Hoe
+```
+bg_plymouth_hoe_grey.png          # Plymouth Hoe, overcast grey sky
+bg_plymouth_hoe_dawn.png          # Plymouth Hoe at dawn, warm light
+bg_plymouth_hoe_day.png           # Plymouth Hoe, clear daytime
+```
 
-**Characters** will use `layeredimage` declarations (to be written in Phase 3.5.2), so they can live in any subfolder — the code will reference them by path.
+#### Cornwall (Earthy green)
+```
+bg_cornwall_coast.png             # Cornish coastline, dramatic
+bg_cornwall_night.png             # Cornwall landscape at night
+bg_bodmin_moor.png                # Bodmin Moor, misty
+bg_men_an_tol.png                 # Mên-an-Tol stone formation
+bg_merry_maidens.png              # Merry Maidens stone circle
+bg_madron_well.png                # Madron Holy Well
+bg_fogou_entrance.png             # Fogou entrance, dark stone
+bg_tintagel.png                   # Tintagel castle/coast
+bg_eden_project.png               # Eden Project biomes
+```
+
+---
+
+### 2.2 Character Sprites — `game/images/characters/` (120 files total)
+
+Each character has a subfolder. Files are full-body PNG sprites with **transparent background**, roughly **700×1400 px**. One file per expression. Characters with outfit variants get subfolders per outfit.
+
+#### `characters/amelia/` — 12 expressions × 6 outfits = up to 72 files
+Start with the `casual_autumn` set — it's the most used.
+```
+casual_autumn/
+    neutral.png
+    happy.png
+    sad.png
+    angry.png
+    surprised.png
+    thinking.png
+    worried.png
+    laughing.png
+    anxious.png
+    determined.png
+    tearful.png
+    peaceful.png
+going_out/
+    neutral.png   happy.png   sad.png   ... (same 12 expressions)
+home_tired/
+    neutral.png   happy.png   sad.png   ...
+academic/
+    neutral.png   happy.png   sad.png   ...
+crisis/
+    neutral.png   happy.png   sad.png   ...
+summer/
+    neutral.png   happy.png   sad.png   ...
+```
+
+#### `characters/sarah/` — 9 expressions × 4 outfits = up to 36 files
+```
+early_a/
+    neutral.png           # Cream jumper, Ch2–5
+    happy.png
+    sad.png
+    surprised.png
+    thinking.png
+    worried.png
+    withdrawn.png         # Key expression — distant, hollow
+    present.png           # Brief moments of connection
+    flat.png              # Emotionally blank
+early_b/
+    neutral.png   happy.png   ... (same 9)
+late_c/
+    neutral.png   happy.png   ... (same 9, visually deteriorated)
+recovery_d/
+    neutral.png   happy.png   ... (same 9, new colours, healthier)
+```
+
+#### `characters/ella/` — 8 expressions × 3 variants = up to 24 files
+```
+casual_london/
+    neutral.png
+    happy.png
+    sad.png
+    fierce.png
+    worried.png
+    laughing.png
+    exasperated.png
+    hurt.png
+going_out/
+    neutral.png   happy.png   ... (same 8)
+headwrap/
+    neutral.png   happy.png   ... (same 8, headwrap instead of afro out)
+```
+
+#### `characters/lucas/` — 8 expressions × 2 outfits = 16 files
+```
+casual/
+    neutral.png   happy.png   sad.png   worried.png
+    surprised.png   thinking.png   laughing.png   vulnerable.png
+academic/
+    neutral.png   happy.png   ... (same 8)
+```
+
+#### `characters/zara/` — 8 expressions (single outfit)
+```
+neutral.png   happy.png   annoyed.png   surprised.png
+thinking.png   determined.png   laughing.png   warm.png
+```
+
+#### `characters/raj/` — 8 expressions (single outfit)
+```
+neutral.png   happy.png   worried.png   laughing.png
+serious.png   cooking.png   gentle.png   upset.png
+```
+
+#### `characters/liz/` — 6 expressions (single outfit)
+```
+neutral.png   happy.png   worried.png
+surprised.png   laughing.png   concerned.png
+```
+
+#### `characters/hawthorne/` — 6 expressions (single outfit)
+```
+wry_amusement.png   sharp_focus.png   rare_warmth.png
+devastating_honesty.png   disappointed.png   teaching.png
+```
+
+#### `characters/simmons/` — 6 expressions (single outfit)
+```
+patient_listening.png   gentle_challenge.png   quiet_delight.png
+rare_tears.png   serious.png   encouraging.png
+```
+
+#### `characters/maya/` — 6 expressions (single outfit)
+```
+warm_welcome.png   intense_focus.png   mysterious.png
+grounded.png   teaching.png   concerned.png
+```
+
+#### `characters/elena/` — 6 expressions × 2 variants = 12 files
+```
+indoors/
+    appraising.png   amused.png   stern.png
+    vulnerable.png   teaching.png   gentle.png
+outdoors/
+    appraising.png   amused.png   stern.png
+    vulnerable.png   teaching.png   gentle.png
+```
+
+#### `characters/tasha/` — 4 expressions (single outfit)
+```
+pleasant.png   cruel.png   exposed.png   angry.png
+```
+
+#### `characters/sophia/` — 4 expressions (single outfit)
+```
+composed.png   calculating.png   genuine.png   conflicted.png
+```
+
+#### `characters/michael/` — 4 expressions (single outfit)
+```
+grinning.png   serious.png   confused.png   protective.png
+```
+
+#### `characters/david/` — 4 expressions (single outfit)
+```
+steady.png   proud.png   worried.png   laughing.png
+```
+
+#### `characters/grace/` — 4 expressions (single outfit)
+```
+warm.png   stern.png   tearful.png   proud.png
+```
+
+#### `characters/lily/` — 4 expressions (single outfit)
+```
+unimpressed.png   grinning.png   soft.png   laughing.png
+```
+
+#### `characters/mr_osei/` — 3 expressions (single outfit)
+```
+wise_warmth.png   thoughtful.png   gentle.png
+```
+
+---
+
+### 2.3 CG Event Art — `game/images/cg/` (19+ files, each 1920×1080)
+
+```
+cg_thames_night.png               # CG1  — Amelia alone at Thames embankment
+cg_movein_kitchen.png             # CG2  — First meeting in halls kitchen
+cg_the_bench.png                  # CG3  — Amelia & Sarah on Plymouth Hoe bench
+cg_mentor_hawthorne.png           # CG4A — First meeting with Hawthorne
+cg_mentor_simmons.png             # CG4B — First meeting with Simmons
+cg_mentor_maya.png                # CG4C — First meeting with Maya
+cg_mentor_elena.png               # CG4D — First meeting with Elena
+cg_merry_maidens.png              # CG5  — Group at Merry Maidens circle
+cg_sarahs_room.png                # CG6  — Amelia at Sarah's door
+cg_fogou_entrance.png             # CG7  — Standing at Fogou entrance
+cg_crisis_corridor.png            # CG8  — Hospital corridor moment
+cg_results.png                    # CG9  — Results day
+cg_london_return.png              # CG10 — Returning to London, changed
+cg_fogou_interior.png             # CG11 — Inside the Fogou (mystical)
+cg_ending_grief.png               # CG12A — Grief ending
+cg_ending_alchemist.png           # CG12B — Alchemist ending
+cg_ending_scholar.png             # CG12C — Scholar ending
+cg_ending_companion.png           # CG12D — Companion ending
+cg_ending_healer.png              # CG12E — Healer ending
+cg_ending_whole.png               # CG12F — Whole/integrated ending
+cg_ending_bittersweet.png         # CG12G — Bittersweet ending
+```
+
+---
+
+### 2.4 UI Elements — `game/images/ui/` (8+ files)
+
+```
+main_menu_bg.png                  # 1920×1080 — Main menu background
+textbox.png                       # 1920×250  — Dialogue textbox (with alpha)
+namebox.png                       # 300×60    — Character name box (with alpha)
+journal_bg.png                    # 800×600   — Journal screen background
+phone_frame.png                   # 400×700   — Phone overlay frame (with alpha)
+choice_nigredo.png                # 800×80    — Choice button, Nigredo palette
+choice_albedo.png                 # 800×80    — Choice button, Albedo palette
+choice_citrinitas.png             # 800×80    — Choice button, Citrinitas palette
+choice_rubedo.png                 # 800×80    — Choice button, Rubedo palette
+content_warning_bg.png            # 1920×1080 — Content warning screen bg (optional)
+```
+
+---
+
+### 2.5 Naming Rules
+
+- **Backgrounds**: Filename = scene tag exactly. `scene bg_thames_night` → `bg_thames_night.png`
+- **Characters**: Referenced by `layered_images.rpy` via path. Organised in subfolders by character and outfit.
+- **CGs**: Use `cg_` prefix. Referenced explicitly in scripts when added.
+- **UI**: Referenced by `gui.rpy` and `screens.rpy` via path.
+- **Format**: PNG preferred (lossless + alpha). WEBP also works. JPG for backgrounds only (no alpha).
+- **No spaces in filenames** — use underscores only.
 
 ---
 

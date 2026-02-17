@@ -51,6 +51,12 @@ define mr_osei = Character("Mr. Osei", color="#8B6914")
 define narrator = Character(None)
 
 ###############################################################################
+## CHAPTER TRACKING — Used by GUI for alchemical phase colouring
+###############################################################################
+
+default current_chapter = 1
+
+###############################################################################
 ## STATS — The Hidden Karma System (all stats invisible to the player)
 ###############################################################################
 

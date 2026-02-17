@@ -14,6 +14,7 @@
 
 label chapter_2:
 
+    $ current_chapter = 2
     stop music fadeout 1.0
     scene black
     with fade
