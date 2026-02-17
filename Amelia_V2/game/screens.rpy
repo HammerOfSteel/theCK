@@ -730,7 +730,7 @@ screen preferences():
                     style_prefix "radio"
                     label _("Language")
                     textbutton "English" action Language(None)
-                    textbutton "한국어" action Language("korean")
+                    textbutton "한국어" text_font "fonts/NotoSansCJKkr-Regular.otf" action Language("korean")
                     textbutton "Svenska" action Language("swedish")
 
                 if renpy.variant("pc") or renpy.variant("web"):
