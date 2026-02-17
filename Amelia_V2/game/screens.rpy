@@ -14,27 +14,27 @@ init python:
     ## Each menu picks a random video on show.  Add / remove paths as needed.
 
     main_menu_videos = [
-        "videos/main_menu_0.mp4",
-        "videos/main_menu_1.mp4",
-        "videos/main_menu_2.mp4",
-        "videos/main_menu_3.mp4",
+        "videos/main_menu_0.webm",
+        "videos/main_menu_1.webm",
+        "videos/main_menu_2.webm",
+        "videos/main_menu_3.webm",
     ]
     save_load_videos = [
-        "videos/save_load_menu_1.mp4",
-        "videos/save_load_menu_2.mp4",
-        "videos/save_load_menu_3.mp4",
+        "videos/save_load_menu_1.webm",
+        "videos/save_load_menu_2.webm",
+        "videos/save_load_menu_3.webm",
     ]
     history_videos = [
-        "videos/history_log_menu_1.mp4",
-        "videos/history_log_menu_2.mp4",
+        "videos/history_log_menu_1.webm",
+        "videos/history_log_menu_2.webm",
     ]
     preferences_videos = [
-        "videos/option_settings_menu_1.mp4",
-        "videos/option_settings_menu_2.mp4",
+        "videos/option_settings_menu_1.webm",
+        "videos/option_settings_menu_2.webm",
     ]
     about_videos = [
-        "videos/about_credits_menu_1.mp4",
-        "videos/about_credits_menu_2.mp4",
+        "videos/about_credits_menu_1.webm",
+        "videos/about_credits_menu_2.webm",
     ]
 
     def _pick_video(pool):
@@ -254,48 +254,71 @@ screen main_menu():
     tag menu
 
     ## Dark fallback behind video
-    add Solid("#1A1410")
+    add Solid("#0A0A0A")
 
     ## Video background — random pick each time the menu is shown
     default mm_video = _pick_video(main_menu_videos)
     if mm_video:
-        add Movie(play=mm_video, loop=True, size=(config.screen_width, config.screen_height))
+        add Movie(play=mm_video, loop=True):
+            xsize config.screen_width
+            ysize config.screen_height
 
+    ## Semi-transparent overlay for readability
+    add Solid("#00000066")
+
+    ## ── Centred UI ──────────────────────────────────────────────────────
     frame:
-        style "main_menu_frame"
+        background None
+        align (0.5, 0.5)
 
-    use navigation
+        vbox:
+            spacing 20
+            xalign 0.5
 
-    ## Game title
-    text "{size=72}{color=#D4A574}The CK: Amelia{/color}{/size}":
-        xalign 0.05
-        yalign 0.2
+            ## Title
+            text "AMELIA":
+                style "main_menu_title"
+                xalign 0.5
 
-    text "{size=28}{color=#E8DCC888}A visual novel about identity, friendship,\nand the alchemy of growing up.{/color}{/size}":
-        xalign 0.05
-        yalign 0.3
+            ## Alchemical divider
+            null height 5
+            frame:
+                xsize 120
+                ysize 2
+                xalign 0.5
+                background Solid("#D4AF37")
+            null height 15
 
-    ## Version number
+            ## Navigation — horizontal row
+            hbox:
+                spacing 40
+                xalign 0.5
+                textbutton _("Begin") action Start() text_style "mm_button_text"
+                textbutton _("Recall") action ShowMenu("load") text_style "mm_button_text"
+                textbutton _("Reflections") action ShowMenu("preferences") text_style "mm_button_text"
+                textbutton _("Departure") action Quit(confirm=not main_menu) text_style "mm_button_text"
+
+    ## Version number (bottom-right)
     if gui.show_name:
         text "[config.version]":
             style "main_menu_version"
 
-style main_menu_frame is empty
-style main_menu_frame:
-    xsize 420
-    yfill True
-    background Solid("#1A141099")
+## ── Main Menu Styles ────────────────────────────────────────────────────────
 
-style main_menu_vbox is vbox
-style main_menu_vbox:
-    xalign 0.05
-    xoffset 30
-    xmaximum 360
-    yalign 0.6
+style main_menu_title:
+    size 80
+    color "#FFFFFF"
+    kerning 15.0
+    text_align 0.5
 
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text:
+style mm_button_text:
+    size 22
+    color "#CCCCCC"
+    hover_color "#D4AF37"
+    kerning 5.0
+    outlines [(1, "#00000088", 0, 0)]
+
+style main_menu_version is gui_text:
     color "#FFFFFF33"
     size 20
     xalign 0.98
@@ -348,6 +371,10 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
+    color "#CCCCCC"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
+    outlines [( 1, "#00000088", 0, 0 )]
 
 ################################################################################
 ## Game Menu — Base frame for save/load/preferences
@@ -361,7 +388,9 @@ screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
 
     ## Video background (passed from calling screen)
     if video_bg:
-        add Movie(play=video_bg, loop=True, size=(config.screen_width, config.screen_height))
+        add Movie(play=video_bg, loop=True):
+            xsize config.screen_width
+            ysize config.screen_height
     elif main_menu:
         ## Fallback to main menu image if no video supplied
         if renpy.loadable(gui.main_menu_background):
