@@ -3,6 +3,34 @@
 ## All screen definitions: standard Ren'Py screens (say, choice, main_menu,
 ## save, load, preferences, etc.) plus custom screens (journal, phone,
 ## content_warning).
+##
+## NOTE: Style properties can't use inline if/else in Ren'Py screen lang.
+## Placeholder Solid() colours are used below; when real art assets are
+## dropped into the gui/ and images/ folders they will be picked up by
+## the init python auto-upgrade block that follows.
+
+################################################################################
+## Auto-Upgrade — swap in real GUI assets at init if they exist
+################################################################################
+
+init 10 python:
+    ## Textbox
+    if renpy.loadable("gui/textbox.png"):
+        style.window.background = Frame("gui/textbox.png", xalign=0.5, yalign=1.0)
+
+    ## Namebox
+    if renpy.loadable("gui/namebox.png"):
+        style.namebox.background = Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile)
+
+    ## Radio / Check foregrounds
+    if renpy.loadable("gui/button/radio_idle_foreground.png"):
+        style.radio_button.foreground = "gui/button/radio_[prefix_]foreground.png"
+    if renpy.loadable("gui/button/check_idle_foreground.png"):
+        style.check_button.foreground = "gui/button/check_[prefix_]foreground.png"
+
+    ## Confirm overlay
+    if renpy.loadable("gui/overlay/confirm.png"):
+        style.confirm_frame.background = Frame("gui/overlay/confirm.png", gui.confirm_frame_borders)
 
 ################################################################################
 ## Alchemical Phase — Dynamic Colour Helper
@@ -117,7 +145,7 @@ style window:
     xfill True
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-    background Frame("gui/textbox.png", xalign=0.5, yalign=1.0) if renpy.loadable("gui/textbox.png") else Frame(Solid("#00000099"), 0, 0, 0, 0)
+    background Frame(Solid("#00000099"), 0, 0, 0, 0)
 
 style namebox:
     xpos gui.name_xpos
@@ -125,7 +153,7 @@ style namebox:
     xsize gui.namebox_width
     ypos gui.name_ypos
     ysize gui.namebox_height
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile) if renpy.loadable("gui/namebox.png") else None
+    background None
     padding gui.namebox_borders.padding
 
 style say_label:
@@ -648,7 +676,6 @@ style pref_vbox:
 style radio_vbox is pref_vbox
 style radio_button:
     properties gui.button_properties("radio_button")
-    foreground "gui/button/radio_[prefix_]foreground.png" if renpy.loadable("gui/button/radio_idle_foreground.png") else None
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
@@ -656,7 +683,6 @@ style radio_button_text:
 style check_vbox is pref_vbox
 style check_button:
     properties gui.button_properties("check_button")
-    foreground "gui/button/check_[prefix_]foreground.png" if renpy.loadable("gui/button/check_idle_foreground.png") else None
 
 style check_button_text:
     properties gui.button_text_properties("check_button")
@@ -892,7 +918,7 @@ style confirm_button is gui_button
 style confirm_button_text is gui_button_text
 
 style confirm_frame:
-    background Frame(Solid("#1A1410EE"), gui.confirm_frame_borders) if True else Frame("gui/overlay/confirm.png", gui.confirm_frame_borders)
+    background Frame(Solid("#1A1410EE"), gui.confirm_frame_borders)
     padding gui.confirm_frame_borders.padding
     xalign .5
     yalign .5
@@ -1106,7 +1132,7 @@ screen journal():
         yalign 0.5
         xsize 1000
         ysize 700
-        background "images/ui/journal_bg.png" if renpy.loadable("images/ui/journal_bg.png") else Solid("#2A201A")
+        background Solid("#2A201A")
         padding (60, 40, 60, 40)
 
         vbox:
@@ -1242,7 +1268,7 @@ screen phone_overlay(messages=None):
         yalign 0.5
         xsize 420
         ysize 720
-        background "images/ui/phone_frame.png" if renpy.loadable("images/ui/phone_frame.png") else Solid("#111111")
+        background Solid("#111111")
         padding (30, 60, 30, 30)
 
         vbox:
