@@ -27,13 +27,10 @@ traceback.txt
 TheCK-*-dists/
 *-dists/
 
-# ----- Large media files (not in repo) -----
-*.mp3
-*.mp4
-*.webm
-*.ogg
+# ----- Large media files (originals / uncompressed) -----
 *.wav
 *.flac
+*.mp3
 
 # ----- OS junk -----
 Thumbs.db

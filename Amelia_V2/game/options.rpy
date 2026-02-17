@@ -41,7 +41,7 @@ define config.has_music = True
 define config.has_voice = False
 
 ## Main menu music — managed by music_player.rpy playlist
-# define config.main_menu_music = "audio/songs/Amelia.wav"
+# define config.main_menu_music = "audio/songs/Amelia.ogg"
 
 ## Uncomment when sample files exist:
 # define config.sample_sound = "audio/sfx/sample.ogg"

@@ -20,13 +20,13 @@ init python:
         ## Add / remove entries as songs arrive.  Order here doesn't matter —
         ## the list is shuffled on every fresh visit to the main menu.
         SONGS = [
-            ("audio/songs/Amelia.wav",               "Amelia"),
-            ("audio/songs/Familiar_Strangers.wav",   "Familiar Strangers"),
-            ("audio/songs/Hawthorne.wav",            "Hawthorne"),
-            ("audio/songs/Kindeling_kin.wav",        "Kindeling Kin"),
-            ("audio/songs/Living_on_the_Moon.wav",   "Living on the Moon"),
-            ("audio/songs/Mindful_Meddling.wav",     "Mindful Meddling"),
-            ("audio/songs/The_Quiet_of_Morning.wav", "The Quiet of Morning"),
+            ("audio/songs/Amelia.ogg",               "Amelia"),
+            ("audio/songs/Familiar_Strangers.ogg",   "Familiar Strangers"),
+            ("audio/songs/Hawthorne.ogg",            "Hawthorne"),
+            ("audio/songs/Kindeling_kin.ogg",        "Kindeling Kin"),
+            ("audio/songs/Living_on_the_Moon.ogg",   "Living on the Moon"),
+            ("audio/songs/Mindful_Meddling.ogg",     "Mindful Meddling"),
+            ("audio/songs/The_Quiet_of_Morning.ogg", "The Quiet of Morning"),
         ]
 
         ARTIST = "Dancing Salamanders"
