@@ -326,87 +326,104 @@ style main_menu_version:
 define gui.show_name = True
 
 ################################################################################
-## Navigation — Shared menu buttons
+## Navigation — Compatibility stub (tabs embedded in game_menu)
 ################################################################################
 
 screen navigation():
-    vbox:
-        style_prefix "navigation"
-
-        xpos gui.navigation_xpos
-        yalign 0.6
-
-        spacing 6
-
-        if main_menu:
-            textbutton _("Start") action Start()
-        else:
-            textbutton _("History") action ShowMenu("history")
-            textbutton _("Save") action ShowMenu("save")
-
-        textbutton _("Load") action ShowMenu("load")
-        textbutton _("Preferences") action ShowMenu("preferences")
-
-        if _in_replay:
-            textbutton _("End Replay") action EndReplay(confirm=True)
-        elif not main_menu:
-            textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-            textbutton _("Help") action ShowMenu("help")
-
-        if renpy.variant("pc"):
-            textbutton _("Quit") action Quit(confirm=not main_menu)
-
-style navigation_button is gui_button
-style navigation_button_text is gui_button_text
-
-style navigation_button:
-    size_group "navigation"
-    properties gui.button_properties("navigation_button")
-    background None
-
-style navigation_button_text:
-    properties gui.button_text_properties("navigation_button")
-    color "#CCCCCC"
-    hover_color "#D4A574"
-    selected_color "#D4A574"
-    outlines [( 1, "#00000088", 0, 0 )]
+    ## Navigation is now rendered inline as tabs within game_menu.
+    ## This screen is retained as a no-op for compatibility.
+    pass
 
 ################################################################################
-## Game Menu — Base frame for save/load/preferences
+## Game Menu — Centred base frame for all sub-menus
 ################################################################################
 
 screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
-    style_prefix "game_menu"
 
-    ## Dark fallback always present
-    add Solid("#1A1410")
+    ## Dark base
+    add Solid("#0A0A0A")
 
-    ## Video background (passed from calling screen)
+    ## Video background
     if video_bg:
-        add Movie(play=video_bg, loop=True):
-            xsize config.screen_width
-            ysize config.screen_height
-    elif main_menu:
-        ## Fallback to main menu image if no video supplied
-        if renpy.loadable(gui.main_menu_background):
-            add gui.main_menu_background
-    else:
-        if renpy.loadable(gui.game_menu_background):
-            add gui.game_menu_background
+        add Movie(play=video_bg, loop=True)
 
+    ## Dark overlay for readability over video
+    add Solid("#00000088")
+
+    ## ── Full-screen centred layout ─────────────────────────────────────
     frame:
-        style "game_menu_outer_frame"
+        background None
+        xfill True
+        yfill True
 
-        hbox:
-            frame:
-                style "game_menu_navigation_frame"
+        vbox:
+            xfill True
+            yfill True
+
+            ## ── Header ──────────────────────────────────────────────────
+            null height 40
+
+            text "[title!t]":
+                xalign 0.5
+                style "gm_title"
+
+            null height 8
 
             frame:
-                style "game_menu_content_frame"
+                xalign 0.5
+                xsize 100
+                ysize 2
+                background Solid("#D4A574")
+
+            null height 12
+
+            ## ── Navigation Tabs ─────────────────────────────────────────
+            hbox:
+                xalign 0.5
+                spacing 35
+
+                if not main_menu:
+                    textbutton _("Save"):
+                        action ShowMenu("save")
+                        style "gm_tab_button"
+                    textbutton _("Load"):
+                        action ShowMenu("load")
+                        style "gm_tab_button"
+                    textbutton _("History"):
+                        action ShowMenu("history")
+                        style "gm_tab_button"
+                else:
+                    textbutton _("Load"):
+                        action ShowMenu("load")
+                        style "gm_tab_button"
+
+                textbutton _("Preferences"):
+                    action ShowMenu("preferences")
+                    style "gm_tab_button"
+                textbutton _("About"):
+                    action ShowMenu("about")
+                    style "gm_tab_button"
+
+                if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                    textbutton _("Help"):
+                        action ShowMenu("help")
+                        style "gm_tab_button"
+
+                if _in_replay:
+                    textbutton _("End Replay"):
+                        action EndReplay(confirm=True)
+                        style "gm_tab_button"
+
+            null height 15
+
+            ## ── Content Area ────────────────────────────────────────────
+            frame:
+                style_prefix "game_menu"
+                xalign 0.5
+                xsize 1300
+                yfill True
+                background Solid("#0A0A0A55")
+                padding (40, 25, 40, 25)
 
                 if scroll == "viewport":
                     viewport:
@@ -415,10 +432,11 @@ screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
                         mousewheel True
                         draggable True
                         pagekeys True
-
                         side_yfill True
+
                         vbox:
                             transclude
+
                 elif scroll == "vpgrid":
                     vpgrid:
                         cols 1
@@ -427,56 +445,79 @@ screen game_menu(title, scroll=None, yinitial=0.0, video_bg=None):
                         mousewheel True
                         draggable True
                         pagekeys True
-
                         side_yfill True
+
                         transclude
+
                 else:
                     transclude
 
-    use navigation
+            ## ── Footer ──────────────────────────────────────────────────
+            null height 12
 
-    textbutton _("Return"):
-        style "return_button"
-        action Return()
+            hbox:
+                xalign 0.5
+                spacing 40
 
-    label title:
-        style "game_menu_label"
+                textbutton _("Return"):
+                    action Return()
+                    style "gm_return_button"
 
-style game_menu_outer_frame is empty
-style game_menu_navigation_frame is empty
-style game_menu_content_frame is empty
+                if not main_menu and not _in_replay:
+                    textbutton _("Main Menu"):
+                        action MainMenu()
+                        style "gm_return_button"
 
-style game_menu_outer_frame:
-    bottom_padding 45
-    top_padding 180
-    background Solid("#1A141099")
+                if renpy.variant("pc") and not main_menu:
+                    textbutton _("Quit"):
+                        action Quit(confirm=True)
+                        style "gm_return_button"
 
-style game_menu_navigation_frame:
-    xsize 420
-    yfill True
+            null height 20
 
-style game_menu_content_frame:
-    left_margin 60
-    right_margin 30
-    top_margin 15
+    if main_menu:
+        key "game_menu" action ShowMenu("main_menu")
 
-style game_menu_label is gui_label
-style game_menu_label:
-    xpos 75
-    ysize 180
+## ── Game Menu Styles ────────────────────────────────────────────────────────
 
-style game_menu_label_text is gui_label_text:
-    size gui.title_text_size
-    color gui.accent_color
-    yalign 0.5
+style gm_title:
+    size 48
+    color "#D4A574"
+    kerning 8.0
+    outlines [(1, "#00000088", 0, 0)]
+    text_align 0.5
 
-style return_button is navigation_button
-style return_button_text is navigation_button_text
+style gm_tab_button is gui_button:
+    background None
 
-style return_button:
-    xpos gui.navigation_xpos
-    yalign 1.0
-    yoffset -45
+style gm_tab_button_text is gui_button_text:
+    size 20
+    color "#999999"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
+    kerning 3.0
+    outlines [(1, "#00000088", 0, 0)]
+
+style gm_return_button is gui_button:
+    background None
+
+style gm_return_button_text is gui_button_text:
+    size 20
+    color "#888888"
+    hover_color "#D4A574"
+    kerning 3.0
+    outlines [(1, "#00000088", 0, 0)]
+
+style game_menu_frame is empty
+style game_menu_viewport is gui_viewport
+style game_menu_side is gui_side
+style game_menu_vscrollbar is gui_vscrollbar
+
+style game_menu_side:
+    spacing 15
+
+style game_menu_vscrollbar:
+    unscrollable gui.unscrollable
 
 ################################################################################
 ## Save / Load Screens
@@ -493,36 +534,32 @@ screen load():
     use file_slots(_("Load"), load_video)
 
 screen file_slots(title, video_bg=None):
+
     default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
 
     use game_menu(title, video_bg=video_bg):
+
         fixed:
+
             order_reverse True
 
-            ## Page selector
-            hbox:
-                style_prefix "page"
+            ## Page name (editable)
+            button:
+                style "page_label"
+                key_events True
                 xalign 0.5
-                yalign 1.0
-                spacing 25
+                action page_name_value.Toggle()
 
-                textbutton _("<") action FilePagePrevious()
-                if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
-                if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
+                input:
+                    style "page_label_text"
+                    value page_name_value
 
-                for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
-
-                textbutton _(">") action FilePageNext()
-
-            ## Save slots grid
+            ## Save-slot grid
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
                 xalign 0.5
                 yalign 0.5
-                spacing 15
+                spacing gui.slot_spacing
 
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
                     $ slot = i + 1
@@ -540,14 +577,50 @@ screen file_slots(title, video_bg=None):
 
                         key "save_delete" action FileDelete(slot)
 
+            ## Page navigation
+            vbox:
+                style_prefix "page"
+                xalign 0.5
+                yalign 1.0
+
+                hbox:
+                    xalign 0.5
+                    spacing gui.page_spacing
+
+                    textbutton _("<") action FilePagePrevious()
+
+                    if config.has_autosave:
+                        textbutton _("{#auto_page}A") action FilePage("auto")
+
+                    if config.has_quicksave:
+                        textbutton _("{#quick_page}Q") action FilePage("quick")
+
+                    for page in range(1, 10):
+                        textbutton "[page]" action FilePage(page)
+
+                    textbutton _(">") action FilePageNext()
+
+                if config.has_sync:
+                    if CurrentScreenName() == "save":
+                        textbutton _("Upload Sync"):
+                            action UploadSync()
+                            xalign 0.5
+                    else:
+                        textbutton _("Download Sync"):
+                            action DownloadSync()
+                            xalign 0.5
+
+## ── Save / Load Styles ──────────────────────────────────────────────────────
+
+define gui.slot_spacing = 15
+define gui.page_spacing = 15
+
 style page_label is gui_label
 style page_label_text is gui_label_text
 style page_button is gui_button
 style page_button_text is gui_button_text
-
 style slot_button is gui_button
 style slot_button_text is gui_button_text
-
 style slot_time_text is slot_button_text
 style slot_name_text is slot_button_text
 
@@ -558,24 +631,40 @@ style page_label:
 style page_label_text:
     textalign 0.5
     layout "subtitle"
-    hover_color gui.hover_color
+    color "#D4A574"
+    hover_color "#E8C8A0"
 
 style page_button:
     properties gui.button_properties("page_button")
 
 style page_button_text:
     properties gui.button_text_properties("page_button")
+    color "#999999"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
 
 style slot_button:
     properties gui.button_properties("slot_button")
     xsize gui.slot_button_width
     ysize gui.slot_button_height
+    background Solid("#1A141088")
+    hover_background Solid("#D4A57422")
 
 style slot_button_text:
     properties gui.button_text_properties("slot_button")
     size gui.slot_button_text_size
     xalign gui.slot_button_text_xalign
     text_align gui.slot_button_text_xalign
+    color "#AAAAAA"
+    hover_color "#D4A574"
+
+style slot_time_text:
+    size 16
+    color "#999999"
+
+style slot_name_text:
+    size 16
+    color "#CCCCCC"
 
 ################################################################################
 ## Preferences Screen
@@ -585,9 +674,13 @@ screen preferences():
     tag menu
     default pref_video = _pick_video(preferences_videos)
     use game_menu(_("Preferences"), scroll="viewport", video_bg=pref_video):
+
         vbox:
+            spacing 20
+
             hbox:
                 box_wrap True
+                spacing 40
 
                 if renpy.variant("pc") or renpy.variant("web"):
                     vbox:
@@ -610,71 +703,102 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "skip")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Content warnings toggle
                 vbox:
                     style_prefix "check"
                     label _("Content")
                     textbutton _("Show Warnings") action ToggleVariable("show_content_warnings", True, False)
 
-            null height 15
+            null height 10
+
+            ## Gold divider between option groups and sliders
+            frame:
+                xalign 0.5
+                xsize 800
+                ysize 1
+                background Solid("#D4A57444")
+
+            null height 10
 
             hbox:
                 style_prefix "slider"
                 box_wrap True
+                spacing 40
 
                 vbox:
                     label _("Text Speed")
                     bar value Preference("text speed")
 
-                vbox:
                     label _("Auto-Forward Time")
                     bar value Preference("auto-forward time")
 
-                if config.has_music:
-                    vbox:
+                vbox:
+                    if config.has_music:
                         label _("Music Volume")
                         hbox:
                             bar value Preference("music volume")
 
-                if config.has_sound:
-                    vbox:
+                    if config.has_sound:
                         label _("Sound Volume")
                         hbox:
                             bar value Preference("sound volume")
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
 
-## Content warnings preference variable
+                    if config.has_music or config.has_sound or config.has_voice:
+                        null height gui.pref_spacing
+
+                        textbutton _("Mute All"):
+                            action Preference("all mute", "toggle")
+                            style "mute_all_button"
+
 default show_content_warnings = True
+
+## ── Preferences Styles ──────────────────────────────────────────────────────
+
+define gui.pref_spacing = 15
+define gui.pref_button_spacing = 3
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
+style pref_vbox is vbox
+
 style radio_label is pref_label
 style radio_label_text is pref_label_text
-style check_label is pref_label
-style check_label_text is pref_label_text
-style slider_label is pref_label
-style slider_label_text is pref_label_text
 style radio_button is gui_button
 style radio_button_text is gui_button_text
+style radio_vbox is pref_vbox
+
+style check_label is pref_label
+style check_label_text is pref_label_text
 style check_button is gui_button
 style check_button_text is gui_button_text
+style check_vbox is pref_vbox
+
+style slider_label is pref_label
+style slider_label_text is pref_label_text
 style slider_slider is gui_slider
 style slider_button is gui_button
 style slider_button_text is gui_button_text
 style slider_pref_vbox is pref_vbox
 
+style mute_all_button is check_button
+style mute_all_button_text is check_button_text
+
 style pref_label:
-    top_margin 15
+    top_margin gui.pref_spacing
     bottom_margin 3
 
 style pref_label_text:
     yalign 1.0
+    color "#D4A574"
+    size gui.label_text_size
 
 style pref_vbox:
     xsize 338
 
-style radio_vbox is pref_vbox
+style radio_vbox:
+    spacing gui.pref_button_spacing
+
 style radio_button:
     properties gui.button_properties("radio_button")
     foreground "gui/button/radio_foreground.png"
@@ -682,8 +806,13 @@ style radio_button:
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
+    color "#CCCCCC"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
 
-style check_vbox is pref_vbox
+style check_vbox:
+    spacing gui.pref_button_spacing
+
 style check_button:
     properties gui.button_properties("check_button")
     foreground "gui/button/check_foreground.png"
@@ -691,6 +820,9 @@ style check_button:
 
 style check_button_text:
     properties gui.button_text_properties("check_button")
+    color "#CCCCCC"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
 
 style slider_slider:
     xsize 525
@@ -702,18 +834,22 @@ style slider_button:
 
 style slider_button_text:
     properties gui.button_text_properties("slider_button")
+    color "#CCCCCC"
+    hover_color "#D4A574"
 
 style slider_vbox:
     xsize 675
 
 ################################################################################
-## History Screen — Dialogue log
+## History Screen — Dialogue Log
 ################################################################################
 
 screen history():
     tag menu
+    predict False
     default hist_video = _pick_video(history_videos)
     use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, video_bg=hist_video):
+
         style_prefix "history"
 
         for h in _history_list:
@@ -735,25 +871,32 @@ screen history():
         if not _history_list:
             label _("The dialogue history is empty.")
 
-define gui.history_allow_tags = { "b", "i", "u", "s", "color", "size" }
+define gui.history_allow_tags = { "alt", "noalt", "rt", "rb", "art" }
+
+## ── History Styles ──────────────────────────────────────────────────────────
 
 style history_window is empty
+style history_name is gui_label
+style history_name_text is gui_label_text
+style history_text is gui_text
+style history_label is gui_label
+style history_label_text is gui_label_text
+
 style history_window:
     xfill True
     ysize gui.history_height
 
-style history_name is gui_label
 style history_name:
     xpos gui.history_name_xpos
     xanchor gui.history_name_xalign
     ypos gui.history_name_ypos
     xsize gui.history_name_width
 
-style history_name_text is gui_label_text:
+style history_name_text:
     min_width gui.history_name_width
     textalign gui.history_name_xalign
+    color "#D4A574"
 
-style history_text is gui_text
 style history_text:
     xpos gui.history_text_xpos
     ypos gui.history_text_ypos
@@ -762,9 +905,14 @@ style history_text:
     min_width gui.history_text_width
     textalign gui.history_text_xalign
     layout ("subtitle" if gui.history_text_xalign else "tex")
+    color "#CCCCCC"
 
-style history_label is gui_label
-style history_label_text is gui_label_text
+style history_label:
+    xfill True
+
+style history_label_text:
+    xalign 0.5
+    color "#888888"
 
 ################################################################################
 ## About Screen
@@ -774,13 +922,21 @@ screen about():
     tag menu
     default about_video = _pick_video(about_videos)
     use game_menu(_("About"), scroll="viewport", video_bg=about_video):
+
         style_prefix "about"
 
         vbox:
+            spacing 15
+
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
+
             if gui.about:
                 text "[gui.about!t]\n"
+
+            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+
+## ── About Styles ────────────────────────────────────────────────────────────
 
 style about_label is gui_label
 style about_label_text is gui_label_text
@@ -788,6 +944,10 @@ style about_text is gui_text
 
 style about_label_text:
     size gui.label_text_size
+    color "#D4A574"
+
+style about_text:
+    color "#CCCCCC"
 
 ################################################################################
 ## Help Screen
@@ -795,24 +955,32 @@ style about_label_text:
 
 screen help():
     tag menu
-    default tab = "keyboard"
+    default device = "keyboard"
     default help_video = _pick_video(about_videos)
     use game_menu(_("Help"), scroll="viewport", video_bg=help_video):
+
         style_prefix "help"
 
         vbox:
             spacing 23
 
             hbox:
-                textbutton _("Keyboard") action SetScreenVariable("tab", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("tab", "mouse")
+                spacing 20
+                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
+                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
-            if tab == "keyboard":
+                if GamepadExists():
+                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+
+            if device == "keyboard":
                 use keyboard_help
-            elif tab == "mouse":
+            elif device == "mouse":
                 use mouse_help
+            elif device == "gamepad":
+                use gamepad_help
 
 screen keyboard_help():
+
     hbox:
         label _("Enter")
         text _("Advances dialogue and activates the interface.")
@@ -846,8 +1014,12 @@ screen keyboard_help():
     hbox:
         label "V"
         text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
+    hbox:
+        label "Shift+A"
+        text _("Opens the accessibility menu.")
 
 screen mouse_help():
+
     hbox:
         label _("Left Click")
         text _("Advances dialogue and activates the interface.")
@@ -864,6 +1036,31 @@ screen mouse_help():
         label _("Mouse Wheel Down")
         text _("Rolls forward to later dialogue.")
 
+screen gamepad_help():
+
+    hbox:
+        label _("Right Trigger\nA/Bottom Button")
+        text _("Advances dialogue and activates the interface.")
+    hbox:
+        label _("Left Trigger\nLeft Shoulder")
+        text _("Rolls back to earlier dialogue.")
+    hbox:
+        label _("Right Shoulder")
+        text _("Rolls forward to later dialogue.")
+    hbox:
+        label _("D-Pad, Sticks")
+        text _("Navigate the interface.")
+    hbox:
+        label _("Start, Guide")
+        text _("Accesses the game menu.")
+    hbox:
+        label _("Y/Top Button")
+        text _("Hides the user interface.")
+
+    textbutton _("Calibrate") action GamepadCalibrate()
+
+## ── Help Styles ─────────────────────────────────────────────────────────────
+
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
@@ -873,9 +1070,13 @@ style help_text is gui_text
 style help_button:
     properties gui.button_properties("help_button")
     xmargin 12
+    background None
 
 style help_button_text:
     properties gui.button_text_properties("help_button")
+    color "#CCCCCC"
+    hover_color "#D4A574"
+    selected_color "#D4A574"
 
 style help_label:
     xsize 375
@@ -885,9 +1086,13 @@ style help_label_text:
     size gui.text_size
     xalign 1.0
     textalign 1.0
+    color "#D4A574"
+
+style help_text:
+    color "#CCCCCC"
 
 ################################################################################
-## Confirm Screen — Yes/No prompts
+## Confirm Screen — Yes/No Prompts
 ################################################################################
 
 screen confirm(message, yes_action, no_action):
@@ -895,9 +1100,10 @@ screen confirm(message, yes_action, no_action):
     zorder 200
     style_prefix "confirm"
 
-    add Solid("#00000088")
+    add Solid("#00000099")
 
     frame:
+
         vbox:
             xalign .5
             yalign .5
@@ -916,6 +1122,8 @@ screen confirm(message, yes_action, no_action):
 
     key "game_menu" action no_action
 
+## ── Confirm Styles ──────────────────────────────────────────────────────────
+
 style confirm_frame is gui_frame
 style confirm_prompt is gui_prompt
 style confirm_prompt_text is gui_prompt_text
@@ -923,22 +1131,27 @@ style confirm_button is gui_button
 style confirm_button_text is gui_button_text
 
 style confirm_frame:
-    background Frame("gui/overlay/confirm.png", gui.confirm_frame_borders)
-    padding gui.confirm_frame_borders.padding
+    background Solid("#1A1410EE")
+    padding (50, 50, 50, 50)
     xalign .5
     yalign .5
 
 style confirm_prompt_text:
     textalign 0.5
     layout "subtitle"
+    color "#E8DCC8"
+    size 28
+    outlines [(1, "#00000088", 0, 0)]
 
 style confirm_button:
-    properties gui.button_properties("confirm_button")
+    background None
 
 style confirm_button_text:
-    properties gui.button_text_properties("confirm_button")
-
-define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
+    size 24
+    color "#CCCCCC"
+    hover_color "#D4A574"
+    kerning 3.0
+    outlines [(1, "#00000088", 0, 0)]
 
 ################################################################################
 ## Skip Indicator
