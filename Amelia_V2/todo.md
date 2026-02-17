@@ -4,7 +4,9 @@
 
 ---
 
-## PHASE 1: FOUNDATION (Design & Planning) ✅ CURRENT PHASE
+## PHASE 1: FOUNDATION (Design & Planning) ✅ COMPLETE
+
+> *Committed as `9caac90`. All 14 design documents in `Amelia_V2/design/`.*
 
 ### 1.1 Core Documents
 - [x] **overview.md** — Vision, themes, structural changes, file layout
@@ -13,132 +15,158 @@
 - [x] **game_mechanics.md** — Karma/Fate system, stats, thresholds, endings, dice mechanics
 - [x] **narrative_structure.md** — Chapter-by-chapter breakdown with acts, scenes, choices
 
-### 1.2 Remaining Design Work
-- [x] **choice_map.md** — Full branching tree in diagram form (Mermaid or similar). Every choice, every point value, every conditional branch mapped visually.
-- [x] **relationship_matrix.md** — Detailed tracking of how every character pair's relationship changes per chapter.  
-- [x] **dialogue_style_guide.md** — Voice samples for every character in different emotional states (calm, angry, vulnerable, drunk, texting). Rules for British university dialogue (slang, register, texting conventions).
-- [x] **alchemical_thread_map.md** — The hidden layer fully charted: which scenes map to which alchemical stage, what symbolism is embedded where.
-- [x] **cornish_folklore_reference.md** — Research document with real Cornish legends, *pellar* traditions, Kernewek phrases, sites, and how they integrate into the narrative.
-- [x] **sarahs_arc.md** — The most sensitive thread needs its own dedicated document: scene-by-scene arc, the spectrum of outcomes, tone guidelines, content warning implementation.
-- [x] **art_direction.md** — Visual style guide for V2: character designs, colour palette, UI mood, scene composition rules. Unified art style specification for AI generation or commissioning.
-- [x] **point_balance_spreadsheet.md** — Every choice in every chapter with its point awards, totalled and balanced. Simulate 6 different playstyles to verify endings are reachable.
+### 1.2 Design Documents
+- [x] **choice_map.md** — Full branching tree with every choice, point value, conditional branch
+- [x] **relationship_matrix.md** — Per-chapter relationship tracking for every character pair
+- [x] **dialogue_style_guide.md** — Voice samples for every character in multiple emotional states
+- [x] **alchemical_thread_map.md** — Scene-to-alchemical-stage mapping, embedded symbolism
+- [x] **cornish_folklore_reference.md** — Cornish legends, pellar traditions, Kernewek, sites
+- [x] **sarahs_arc.md** — Scene-by-scene arc, outcome spectrum, tone guidelines, content warnings
+- [x] **art_direction.md** — Visual style guide, colour palettes, character designs, prompt discipline
+- [x] **point_balance_spreadsheet.md** — Full point simulation across 6 playstyles
 
 ---
 
-## PHASE 2: WRITING (Story & Dialogue)
+## PHASE 2: WRITING (Ren'Py Scripts) ✅ COMPLETE
 
-### 2.1 Chapter Prose (Full Rewrites)
-Write the complete narrative text for each chapter — all dialogue, narration, internal monologue, scene descriptions, and choice text.
+> *Committed as `ce173ef` (10,655 insertions). All 14 .rpy files in `Amelia_V2/game/`.*
 
-- [ ] **Chapter 1: The Ordinary World** — London farewell. Establish Amelia, Ella, family, the bookshop, the river.
-- [ ] **Chapter 2: The Call to Adventure** — Journey to Plymouth. Arrival, Liz, the kitchen introductions, Freshers', first lecture.
-- [ ] **Chapter 3: Refusal of the Call** — First semester struggles. Tasha, Zara confrontation, Jung group, Maya ceremony, panic attack, the bench with Sarah.
-- [ ] **Chapter 4: Meeting the Mentor** — Four variant paths written. Hawthorne, Simmons, Maya, Elena. Cornwall trips. Tests.
-- [ ] **Chapter 5: Crossing the Threshold** — Settling in. Michael, Sophia, Raj's family, group Cornwall trip, karma dice event.
-- [ ] **Chapter 6: Tests, Allies, Enemies** — Tasha escalation, Sarah withdrawal, Lucas vulnerability, Christmas exams, holiday break, midwinter occult.
-- [ ] **Chapter 7: The Approach** — Gathering storm. Mentor deepens, Sarah darkens, Amelia's shadow, Sophia pivot, research dilemma.
-- [ ] **Chapter 8: The Ordeal** — THE crisis chapter. Academic collapse, Sarah's fate, the aftermath. Four outcome variants.
-- [ ] **Chapter 9: The Reward** — Recovery. Academic rebound, friendship consolidation, Cornwall restoration, mentor acknowledgment.
-- [ ] **Chapter 10: The Road Back** — London return. Ella reunion, parents, Lily, solo contemplation, bookshop revisit.
-- [ ] **Chapter 11: The Resurrection** — Final term. Exams, Sophia alliance, Tasha resolution, celebration, Cornwall final trip, the Fogou.
-- [ ] **Chapter 12: Return with the Elixir** — Seven endings. Shared opening, unique conclusions.
+### 2.1 Script Files
+- [x] **definitions.rpy** — Characters, variables (6-stat karma, relationships, flags), init logic
+- [x] **Chapter 1** — London farewell. Amelia, Ella, family, bookshop, Thames
+- [x] **Chapter 2** — Journey to Plymouth. Arrival, Liz, kitchen introductions, Freshers'
+- [x] **Chapter 3** — First semester struggles. Tasha, Zara, Jung group, Maya, bench with Sarah
+- [x] **Chapter 4** — Four mentor paths (Hawthorne/Simmons/Maya/Elena). Cornwall trips
+- [x] **Chapter 5** — Settling in. Michael, Sophia, Raj, group Cornwall trip, karma dice
+- [x] **Chapter 6** — Tasha escalation, Sarah withdrawal, Christmas, midwinter occult
+- [x] **Chapter 7** — Gathering storm. Mentor deepens, Sarah darkens, research dilemma
+- [x] **Chapter 8** — THE crisis. Academic collapse, Sarah's fate, four outcome variants
+- [x] **Chapter 9** — Recovery. Academic rebound, friendship, Cornwall restoration
+- [x] **Chapter 10** — London return. Ella reunion, parents, bookshop revisit
+- [x] **Chapter 11** — Final term. Exams, Sophia, Tasha resolution, Cornwall, the Fogou
+- [x] **Chapter 12** — Seven endings. Shared opening, unique conclusions, credits
 
-### 2.2 Writing Passes
-- [ ] **Dialogue polish** — Read all dialogue aloud. Does it sound like real people? Cut anything that feels like a lecture.
+### 2.2 Writing Passes (Future)
+- [ ] **Dialogue polish** — Read all dialogue aloud. Cut anything that feels like a lecture.
 - [ ] **Thematic consistency** — Verify alchemical/Jungian threads are woven subtly, not stated.
-- [ ] **Pacing review** — Each chapter should have rising/falling tension. No two consecutive scenes at the same emotional pitch.
-- [ ] **Character voice audit** — Every character should be identifiable by dialogue alone (cover the name; can you tell who's speaking?).
-- [ ] **Content sensitivity review** — Sarah's arc, racism scenes, bullying scenes, depression depictions — reviewed for accuracy and care.
+- [ ] **Pacing review** — Each chapter: rising/falling tension, no two scenes at same pitch.
+- [ ] **Character voice audit** — Every character identifiable by dialogue alone.
+- [ ] **Content sensitivity review** — Sarah's arc, racism, bullying, depression — accurate and careful.
 
 ---
 
-## PHASE 3: IMPLEMENTATION (Ren'Py & Assets)
+## PHASE 2.5: SONG INTEGRATION ✅ COMPLETE
 
-### 3.1 Technical Setup
-- [ ] **Project structure** — New Ren'Py project in Amelia_V2/game/. Clean setup based on learnings from V1.
-- [ ] **Character definitions** — Proper Ren'Py character objects with layered images, not one-image-per-scene.
-- [ ] **Variable architecture** — All stats, relationships, flags, and conditions defined cleanly. The Fate Wheel engine.
-- [ ] **Screen customisation** — Journal screen (Amelia's diary as stat-display), custom choice screens, content warning screen.
-- [ ] **Save system** — Proper save/load with stat tracking intact.
+> *Committed as `9a0a0d3` (206 insertions). Dancing Salamanders / Geddon Bird songs placed as slideshow moments.*
 
-### 3.2 Script Implementation
-- [ ] Chapters 1–3 (before mentor fork)
-- [ ] Chapter 4 (four mentor variants)
-- [ ] Chapters 5–7 (with mentor colouring)
-- [ ] Chapter 8 (Sarah branching — most complex)
-- [ ] Chapters 9–11 (Sarah-alive and Sarah-dead variants)
-- [ ] Chapter 12 (seven endings)
-- [ ] **Karma Dice engine** — RNG system with stat modifiers, triggered at key moments
-- [ ] **Ending calculation** — The algorithm that determines which ending plays
+- [x] **songs.md** — Design document: 20 primary placements, 16 reserve songs, thematic arc
+- [x] **slideshows.rpy** — 26 slideshow labels (20 unique songs + 7 daffodils ending variants)
+- [x] **Chapter calls** — 26 `call slideshow_` statements placed across all 12 chapters
+- [x] **Verification** — All calls match labels, 0 compile errors
 
-### 3.3 Art Assets
-- [ ] **Character sprite sheets** — Consistent character art across all scenes. Expressions: neutral, happy, sad, angry, surprised, thoughtful.
-- [ ] **Background art** — All locations. Unified style. Day/night/weather variants for key locations.
-- [ ] **CG scenes** — Key dramatic moments rendered as full illustrations (Sarah's rescue, the Fogou, graduation, etc.)
-- [ ] **UI art** — Journal design, main menu, choice buttons, transition effects.
+---
 
-### 3.4 Audio  
-- [ ] **Music selection** — Per-chapter mood music. Licensed or original. Cornwall-evocative ambient for moor/coast scenes.
-- [ ] **Sound effects** — Rain, wind, seagulls, kitchen sounds, phone buzzes, footsteps on cobblestones.
-- [ ] **Ambient loops** — Location-specific: library hum, café chatter, moor wind, ocean waves.
+## PHASE 3: ART & ASSETS ← CURRENT PHASE
+
+### 3.1 Image Prompt Packs
+> *Strategy: Create detailed, consistent image generation prompts organised by category. Erik tests with various AI image generators. Focus on the visual novel art direction — quality and consistency over quantity.*
+
+**Prompt files in `Amelia_V2/prompts/`:**
+
+#### Characters (`prompts/characters/`)
+Each character gets a dedicated prompt file with a master reference prompt (the "character sheet") and per-expression variants. Consistent style prefix, pose, and lighting anchors ensure the same character looks like the same person across every generation.
+
+- [ ] **amelia.md** — 12 expressions × 3 outfit groups (casual/academic/special). Visual arc across chapters.
+- [ ] **ella.md** — 8 expressions × 2 outfits. Primarily phone screen + London chapters.
+- [ ] **sarah.md** — 8 expressions × 2 outfits. Visual deterioration arc. Wren tattoo consistency.
+- [ ] **lucas.md** — 8 expressions × 2 outfits.
+- [ ] **zara.md** — 8 expressions × 1 outfit.
+- [ ] **raj.md** — 8 expressions × 1 outfit (+ apron variant).
+- [ ] **liz.md** — 8 expressions × 1 outfit.
+- [ ] **mentors.md** — Hawthorne, Simmons, Maya, Elena. 6 expressions each.
+- [ ] **supporting.md** — Tasha, Sophia, Michael, David, Grace, Lily, Mr. Osei. 4 expressions each.
+
+#### Backgrounds (`prompts/backgrounds/`)
+63 unique scene tags across all chapters. Grouped by location cluster with time-of-day and weather variants.
+
+- [ ] **london.md** — 11 backgrounds (James house, bookshop, Thames, park, café, train, Lily's room)
+- [ ] **plymouth_campus.md** — 18 backgrounds (campus quad, lectures, library, psych building, Barbican)
+- [ ] **plymouth_living.md** — 14 backgrounds (halls, flat kitchen, corridors, individual rooms)
+- [ ] **plymouth_hoe.md** — 4 backgrounds (dawn, day, grey, the Bench). Weather and season variants.
+- [ ] **cornwall.md** — 9 backgrounds (Mên-an-Tol, Merry Maidens, Madron Well, Fogou, coast, moor, Tintagel, Eden)
+- [ ] **special_locations.md** — Elena's cottage (ext+int), mentor offices, Maya's ceremony room
+
+#### CG Event Art (`prompts/cg/`)
+- [ ] **cg_scenes.md** — 12 core CGs + 7 ending variants (Thames, move-in, the bench, mentor meet, Maidens, Sarah's room, Fogou entrance, crisis corridor, results, London return, Fogou interior, endings)
+- [ ] **slideshow_scenes.md** — Mood backgrounds for the 20 song slideshow moments
+
+#### UI (`prompts/ui/`)
+- [ ] **ui_elements.md** — Main menu background, textbox design, journal mockup, phone screen frame
+
+### 3.2 Technical Implementation
+> *Ren'Py engine work. Core structure exists; screens/GUI/layered images still needed.*
+
+- [x] **Project structure** — Amelia_V2/game/ with definitions.rpy and 12 chapters
+- [x] **Character definitions** — 18 characters defined in definitions.rpy
+- [x] **Variable architecture** — 6-stat karma, relationship vars, flags, conditions in definitions.rpy
+- [ ] **Layered image declarations** — Add `layeredimage` blocks once sprites are generated
+- [ ] **Screen customisation** — Journal screen, custom choice screen, content warning screen, phone screen
+- [ ] **GUI styling** — Textbox, fonts, colours per alchemical phase
+- [ ] **Save system** — Proper save/load with stat tracking intact
+
+### 3.3 Audio
+- [x] **Song integration** — 20 Dancing Salamanders songs placed as slideshow moments
+- [x] **9 song .wav files** available (need .ogg conversion)
+- [ ] **Ambient music** — Per-chapter mood music for non-slideshow scenes
+- [ ] **Sound effects** — Rain, wind, seagulls, kitchen, phone, footsteps
+- [ ] **Ambient loops** — Library hum, café chatter, moor wind, ocean waves, fire crackle
+- [ ] **Song .ogg conversion** — Convert existing .wav files; source remaining 11 songs
 
 ---
 
 ## PHASE 4: POLISH & RELEASE
 
-- [ ] **Playtesting** — At minimum 5 distinct playthroughs: Scholar path, Companion path, Healer path, Alchemist path, Tragic path. Verify all endings reachable. Check for dead branches.
-- [ ] **Point balance testing** — Run stat simulations. Can a player accidentally lock themselves out of all good endings? If so, add safety nets.
+- [ ] **Playtesting** — 5+ distinct playthroughs (Scholar, Companion, Healer, Alchemist, Tragic)
+- [ ] **Point balance testing** — Stat simulations, safety nets for edge cases.
 - [ ] **Proofreading** — Full text pass for spelling, grammar, consistency.
-- [ ] **Art consistency** — All character appearances match across scenes. Clothing appropriate to season/weather.
-- [ ] **Accessibility** — Text size options, dyslexia-friendly font option, content warnings toggle, self-voicing support.
-- [ ] **Build & package** — Windows, Mac, Linux builds. Test on all platforms.
+- [ ] **Art consistency** — Character appearances match across scenes. Season-appropriate clothing.
+- [ ] **Accessibility** — Text size, dyslexia font, content warnings toggle, self-voicing.
+- [ ] **Build & package** — Windows, Mac, Linux builds. Cross-platform testing.
 
 ---
 
-## WHAT WE KEEP FROM V1
+## QUICK REFERENCE
 
-These elements are carried forward and improved:
+### Git History
+| Commit | Phase | Description |
+|--------|-------|-------------|
+| `9caac90` | 1 | Foundation — 13 design documents |
+| `ce173ef` | 2 | Writing — definitions.rpy + 12 chapter scripts (10,655 lines) |
+| `9a0a0d3` | 2.5 | Songs — 3 new placements, updated songs.md + slideshows.rpy |
 
-| Element | V1 Status | V2 Plan |
-|---|---|---|
-| Hero's Journey 12-chapter structure | ✅ Strong foundation | Keep, deepen pacing within each chapter |
-| 6-stat point system (AA/SI/MH/SD/MC/OK) | ✅ Good categories | Keep categories, redesign presentation as karma |
-| Main character cast | ✅ Good archetypes | Keep and add depth, contradictions, personal arcs |
-| Cornwall & Plymouth settings | ✅ Excellent choice | Keep and massively expand with sensory detail |
-| Mentor system (4 paths) | ✅ Clever design | Keep, flesh out each path's unique content |
-| Sarah's fate as key branching point | ✅ Powerful concept | Keep, expand from binary to spectrum |
-| 6 endings | ✅ Good variety | Keep, add 7th (Bittersweet), deepen all |
-| Occult/alchemy hidden path | ✅ Unique and compelling | Keep, integrate more deeply into main narrative |
-| V1 images (chapters 1-3, 12) | Partial | Evaluate for reuse or reference; new art direction needed |
-| V1 dialogue (chapters 1-3, 12) | Written | Rewrite from scratch, but mine for good moments to keep |
+### Asset Counts
+| Category | Count | Status |
+|----------|-------|--------|
+| Design documents | 14 | ✅ Complete |
+| Ren'Py scripts | 14 | ✅ Complete |
+| Slideshow labels | 26 | ✅ Coded |
+| Background scenes needed | 63 | Prompts pending |
+| Character sprite sets needed | ~18 | Prompts pending |
+| CG event illustrations | 19+ | Prompts pending |
+| Song audio files (.wav) | 9 of 20 | Partial |
 
----
-
-## WHAT CHANGES FROM V1
-
-| Aspect | V1 | V2 |
-|---|---|---|
-| Timeline | 3 years vague | 1 year detailed (Oct–Jun) |
-| Points display | notify() popup | Hidden; expressed through Amelia's journal |
-| Image system | One full image per scene | Character sprites + backgrounds (layered) |
-| Transitions | show/hide/black cycle | Proper dissolves, fades, weather effects |
-| Sarah outcome | Binary (alive/dead) | 4-tier spectrum |
-| Negative points | Rare | Meaningful — avoidance and cowardice penalised |
-| Relationship tracking | Not tracked | Per-character relationship values |
-| Dice/randomness | None | Karma Dice at pivotal moments |
-| 7th ending | Didn't exist | The Bittersweet — for mixed-stat players |
-| Cornwall depth | List of places | Each site with folklore, sensory detail, symbolic meaning |
-| Character voices | Generic dialogue | Distinct, age-appropriate, British, identifiable |
-
----
-
-## NEXT STEPS (Immediate)
-
-The foundation documents are complete. The recommended next action is:
-
-1. **Choice Map** — Map every choice in every chapter with its exact point values and conditional branches. This is the game's "skeleton" and must be bulletproof before writing begins.
-2. **Sarah's Arc Document** — Because it's the most narratively complex and sensitive thread.
-3. **Begin Chapter 1 prose** — Start writing. The best way to test the design is to write against it and see what works.
+### File Structure
+```
+Amelia_V2/
+├── design/           # 14 design documents (Phase 1)
+├── game/             # 14 .rpy scripts (Phase 2 + 2.5)
+├── prompts/          # Image generation prompts (Phase 3) ← NEXT
+│   ├── characters/   # Per-character sprite prompts
+│   ├── backgrounds/  # Per-location background prompts
+│   ├── cg/           # CG event art + slideshow prompts
+│   └── ui/           # UI element prompts
+└── audio/            # Song files (9 .wav available)
+```
 
 ---
 
