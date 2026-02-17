@@ -5,10 +5,10 @@
 # with write access can trigger it.
 #
 # Strategy:
-#   1. Downloads the Ren'Py SDK from GitHub releases
-#   2. Compiles .rpy → .rpyc and packages game.zip
-#   3. Deploys game.zip to the Oracle Cloud host via SSH
-#      (the web runtime — renpy.js/wasm/data/index.html — stays as-is)
+#   1. Downloads the Ren'Py SDK + Web Extension from GitHub releases
+#   2. Runs `renpy.sh launcher web_build` to produce a complete web
+#      build (renpy.wasm, renpy.data, renpy.js, game.zip, index.html…)
+#   3. Deploys the entire web build to Oracle Cloud via SSH/rsync
 #
 # Required GitHub Secrets:
 #   ORACLE_SSH_KEY  — contents of the PEM private key
@@ -22,12 +22,12 @@ on:
   workflow_dispatch:
     inputs:
       renpy_version:
-        description: "Ren'Py SDK version"
+        description: "Ren'Py SDK version (e.g. 8.3.7)"
         required: false
         default: "8.3.7"
         type: string
       renpy_tag:
-        description: "GitHub release tag (full tag, e.g. 8.3.7.25031702)"
+        description: "GitHub release tag (e.g. 8.3.7.25031702)"
         required: false
         default: "8.3.7.25031702"
         type: string
@@ -56,59 +56,57 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq \
             xvfb libgl1 libglib2.0-0 libegl1 libxext6 libx11-6 \
-            rsync openssh-client zip
+            rsync openssh-client zip unzip
 
-      # ── Ren'Py SDK (from GitHub releases — fast & reliable) ──
+      # ── Ren'Py SDK (from GitHub releases) ─────────────────────
       - name: Download Ren'Py SDK
         run: |
           SDK_URL="https://github.com/renpy/renpy/releases/download/${RENPY_TAG}/renpy-${RENPY_VERSION}-sdk.tar.bz2"
-          echo "Downloading Ren'Py SDK ${RENPY_VERSION} from GitHub releases…"
+          echo "Downloading Ren'Py SDK ${RENPY_VERSION}…"
           echo "  URL: ${SDK_URL}"
           wget -q --show-progress "${SDK_URL}" -O renpy-sdk.tar.bz2
-          echo "Extracting…"
+          echo "Extracting SDK…"
           tar xjf renpy-sdk.tar.bz2
           mv renpy-*-sdk renpy-sdk
-          echo "RENPY_SDK=${GITHUB_WORKSPACE}/renpy-sdk" >> "$GITHUB_ENV"
+          rm renpy-sdk.tar.bz2
           echo "SDK ready: $(ls renpy-sdk/renpy.sh)"
 
-      # ── Compile .rpy → .rpyc ─────────────────────────────────
-      - name: Compile Ren'Py scripts
+      # ── Ren'Py Web Extension ──────────────────────────────────
+      - name: Download Ren'Py Web Extension
+        run: |
+          WEB_URL="https://github.com/renpy/renpy/releases/download/${RENPY_TAG}/renpy-${RENPY_VERSION}-web.zip"
+          echo "Downloading Ren'Py Web Extension…"
+          echo "  URL: ${WEB_URL}"
+          wget -q --show-progress "${WEB_URL}" -O renpy-web.zip
+          echo "Extracting web extension into SDK…"
+          unzip -q renpy-web.zip
+          # The zip extracts a 'web/' directory — move it into the SDK
+          mv web renpy-sdk/web
+          rm renpy-web.zip
+          echo "Web extension installed: $(ls renpy-sdk/web/)"
+
+      # ── Run Ren'Py Web Build ──────────────────────────────────
+      - name: Build web distribution
         run: |
           PROJECT_DIR="${GITHUB_WORKSPACE}/Amelia_V2"
-          echo "Compiling .rpy files in ${PROJECT_DIR}…"
-          xvfb-run -a ./renpy-sdk/renpy.sh "${PROJECT_DIR}" compile 2>&1 || true
+          OUTPUT_DIR="${GITHUB_WORKSPACE}/web_build"
 
-          # Verify .rpyc files were produced
-          RPYC_COUNT=$(find "${PROJECT_DIR}/game" -name '*.rpyc' | wc -l)
-          echo "Found ${RPYC_COUNT} .rpyc files"
-          if [ "$RPYC_COUNT" -eq 0 ]; then
-            echo "WARNING: No .rpyc files found. Ren'Py may have failed to compile."
-            echo "Attempting alternative compile method…"
-            xvfb-run -a ./renpy-sdk/renpy.sh "${PROJECT_DIR}" quit 2>&1 || true
-            RPYC_COUNT=$(find "${PROJECT_DIR}/game" -name '*.rpyc' | wc -l)
-            echo "After retry: ${RPYC_COUNT} .rpyc files"
-          fi
+          echo "Running Ren'Py web_build…"
+          echo "  Project: ${PROJECT_DIR}"
+          echo "  Output:  ${OUTPUT_DIR}"
 
-      # ── Package game.zip ──────────────────────────────────────
-      - name: Package game.zip
-        run: |
-          PROJECT_DIR="${GITHUB_WORKSPACE}/Amelia_V2"
-          cd "${PROJECT_DIR}/game"
+          xvfb-run -a ./renpy-sdk/renpy.sh \
+            ./renpy-sdk/launcher \
+            web_build \
+            "${PROJECT_DIR}" \
+            --destination "${OUTPUT_DIR}" \
+            2>&1
 
-          echo "Creating game.zip from game directory…"
-
-          # Include all game files — scripts (.rpyc), assets, audio, etc.
-          # Exclude source .rpy files to keep size down (rpyc is sufficient)
-          # Exclude dev files, caches, saves
-          zip -r "${GITHUB_WORKSPACE}/game.zip" . \
-            -x "*.rpy" \
-            -x "cache/*" \
-            -x "saves/*" \
-            -x "*.bak" \
-            -x "**/.gitkeep"
-
-          ls -lh "${GITHUB_WORKSPACE}/game.zip"
-          echo "game.zip ready ($(du -h ${GITHUB_WORKSPACE}/game.zip | cut -f1))"
+          echo ""
+          echo "=== Web build output ==="
+          ls -lh "${OUTPUT_DIR}/"
+          echo ""
+          echo "game.zip size: $(du -h ${OUTPUT_DIR}/game.zip 2>/dev/null | cut -f1 || echo 'NOT FOUND')"
 
       # ── Setup SSH ─────────────────────────────────────────────
       - name: Setup SSH connection
@@ -133,26 +131,21 @@ jobs:
       # ── Deploy ────────────────────────────────────────────────
       - name: Deploy to Oracle Cloud
         run: |
-          echo "Deploying to Oracle Cloud…"
+          echo "Deploying web build to Oracle Cloud…"
 
-          # Upload game.zip (this is the only file that changes per deploy)
-          echo "Uploading game.zip…"
-          scp "${GITHUB_WORKSPACE}/game.zip" oracle:${DEPLOY_DIR}/game.zip
-
-          # Also sync the game/ directory for progressive download mode
-          echo "Syncing game assets…"
+          # Sync the entire web build output to the server
+          # This replaces ALL web runtime files (renpy.wasm, .js, .data,
+          # game.zip, index.html, etc.) ensuring everything is consistent.
           rsync -az --delete \
-            --exclude='*.rpy' \
-            --exclude='cache/' \
             --exclude='saves/' \
-            --exclude='.gitkeep' \
-            "${GITHUB_WORKSPACE}/Amelia_V2/game/" \
-            oracle:${DEPLOY_DIR}/game/
+            "${GITHUB_WORKSPACE}/web_build/" \
+            oracle:${DEPLOY_DIR}/
 
           # Restart only the renpy container (does NOT touch bifrost/fauke!)
           echo "Restarting VN container…"
           ssh oracle "cd /home/ubuntu/renpy && sudo docker compose restart"
 
+          echo ""
           echo "Deployment complete — https://amelia.dancingsalamanders.com"
 
       # ── Cleanup ───────────────────────────────────────────────
