@@ -53,6 +53,13 @@ init python:
             self._active = True
             self._play_current()
 
+        def ensure_playing(self):
+            """Start only if not already active.  Safe to call on every
+            menu show/replace without restarting the current song."""
+            if self._active and renpy.music.get_playing(channel=self.CHANNEL):
+                return
+            self.start()
+
         def stop(self):
             """Stop playback entirely."""
             renpy.music.stop(channel=self.CHANNEL, fadeout=1.0)

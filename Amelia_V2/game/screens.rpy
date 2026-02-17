@@ -250,20 +250,29 @@ style quick_button_text:
 ## Main Menu
 ################################################################################
 
+## Persistent main-menu video — picked once, reused across menu returns
+default _mm_video = None
+
+init python:
+    def _ensure_mm_video():
+        """Pick a main-menu video once per session."""
+        if store._mm_video is None:
+            store._mm_video = _pick_video(main_menu_videos)
+
 screen main_menu():
     tag menu
 
-    ## Start the shuffled playlist each time we enter the main menu
-    on "show" action Function(menu_playlist.start)
-    on "replace" action Function(menu_playlist.start)
+    ## Ensure playlist is running (won't restart if already playing)
+    ## and pick the background video once per session
+    on "show" action [Function(_ensure_mm_video), Function(menu_playlist.ensure_playing)]
+    on "replace" action Function(menu_playlist.ensure_playing)
 
     ## Dark fallback behind video
     add Solid("#0A0A0A")
 
-    ## Video background — random pick each time the menu is shown
-    default mm_video = _pick_video(main_menu_videos)
-    if mm_video:
-        add Movie(play=mm_video, loop=True)
+    ## Video background — same video persists across menu returns
+    if _mm_video:
+        add Movie(play=_mm_video, loop=True)
 
     ## Slight dark overlay so text is always readable over video
     add Solid("#00000044")
