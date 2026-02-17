@@ -1,0 +1,162 @@
+# -----------------------------------------------------------------
+# Deploy "The CK: Amelia V2" web build to Oracle Cloud
+# -----------------------------------------------------------------
+# Manual-only workflow (workflow_dispatch) — only repo collaborators
+# with write access can trigger it.
+#
+# What it does:
+#   1. Downloads the Ren'Py SDK and web platform
+#   2. Compiles & packages the Amelia_V2 project for the web
+#   3. Deploys the web build to the Oracle Cloud host via SSH
+#
+# Required GitHub Secrets:
+#   ORACLE_SSH_KEY  — contents of the PEM private key
+#   ORACLE_HOST     — server IP (e.g. 129.151.193.219)
+#   ORACLE_USER     — SSH user (e.g. ubuntu)
+# -----------------------------------------------------------------
+
+name: Deploy Amelia VN
+
+on:
+  workflow_dispatch:
+    inputs:
+      renpy_version:
+        description: "Ren'Py SDK version (e.g. 8.3.2)"
+        required: false
+        default: "8.3.2"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      RENPY_VERSION: ${{ inputs.renpy_version || '8.3.2' }}
+      DEPLOY_DIR: /home/ubuntu/renpy/TheCK_Amelia
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── System deps for headless Ren'Py ───────────────────────
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq \
+            xvfb libgl1-mesa-glx libglib2.0-0 libegl1 \
+            rsync openssh-client
+
+      # ── Ren'Py SDK ───────────────────────────────────────────
+      - name: Download Ren'Py SDK
+        run: |
+          echo "⬇ Downloading Ren'Py SDK ${RENPY_VERSION}…"
+          wget -q "https://www.renpy.org/dl/${RENPY_VERSION}/renpy-${RENPY_VERSION}-sdk.tar.bz2"
+          tar xjf "renpy-${RENPY_VERSION}-sdk.tar.bz2"
+          mv "renpy-${RENPY_VERSION}-sdk" renpy-sdk
+          echo "RENPY_SDK=${GITHUB_WORKSPACE}/renpy-sdk" >> "$GITHUB_ENV"
+
+      # ── Web platform (needed for web builds) ──────────────────
+      - name: Download Ren'Py web platform
+        run: |
+          # Try downloading the separate web platform ZIP.
+          # In some SDK versions it is already bundled.
+          if wget -q "https://www.renpy.org/dl/${RENPY_VERSION}/renpy-${RENPY_VERSION}-web.zip" 2>/dev/null; then
+            echo "⬇ Extracting web platform…"
+            unzip -qo "renpy-${RENPY_VERSION}-web.zip" -d renpy-sdk/
+          else
+            echo "ℹ  No separate web platform ZIP — assuming bundled in SDK."
+          fi
+          # Also try install_platform as a fallback
+          xvfb-run -a ./renpy-sdk/renpy.sh launcher install_platform web 2>/dev/null || true
+
+      # ── Build web distribution ────────────────────────────────
+      - name: Build web distribution
+        run: |
+          PROJECT_DIR="${GITHUB_WORKSPACE}/Amelia_V2"
+          OUTPUT_DIR="${GITHUB_WORKSPACE}/web-output"
+          mkdir -p "$OUTPUT_DIR"
+
+          echo "🔨 Building web distribution for Amelia_V2…"
+
+          # Primary method: use launcher web_build
+          xvfb-run -a ./renpy-sdk/renpy.sh launcher web_build \
+            "$PROJECT_DIR" --destination "$OUTPUT_DIR" \
+            && BUILD_OK=true || BUILD_OK=false
+
+          if [ "$BUILD_OK" = true ] && [ -f "$OUTPUT_DIR/index.html" ]; then
+            echo "✅ Web build succeeded (launcher web_build)"
+          else
+            echo "⚠  launcher web_build didn't produce output, trying distribute…"
+
+            # Fallback: use distribute --package web
+            xvfb-run -a ./renpy-sdk/renpy.sh "$PROJECT_DIR" distribute \
+              --packages web --destination "$OUTPUT_DIR" \
+              && BUILD_OK=true || BUILD_OK=false
+
+            # The distribute command may produce a ZIP; extract it
+            if ls "$OUTPUT_DIR"/*.zip 1>/dev/null 2>&1; then
+              echo "📦 Extracting distribution ZIP…"
+              WEB_ZIP=$(ls "$OUTPUT_DIR"/*.zip | head -1)
+              EXTRACT_DIR="${GITHUB_WORKSPACE}/web-extracted"
+              mkdir -p "$EXTRACT_DIR"
+              unzip -qo "$WEB_ZIP" -d "$EXTRACT_DIR"
+              rm -rf "$OUTPUT_DIR"
+              mv "$EXTRACT_DIR" "$OUTPUT_DIR"
+            fi
+          fi
+
+          # Verify output
+          if [ -f "$OUTPUT_DIR/index.html" ]; then
+            echo "✅ Web distribution ready:"
+            ls -lh "$OUTPUT_DIR/"
+          else
+            echo "❌ Web build failed — no index.html found!"
+            echo "Contents of output dir:"
+            ls -laR "$OUTPUT_DIR/" 2>/dev/null || echo "(empty)"
+            exit 1
+          fi
+
+      # ── Setup SSH ─────────────────────────────────────────────
+      - name: Setup SSH connection
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.ORACLE_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          cat >> ~/.ssh/config <<EOF
+          Host oracle
+            HostName ${{ secrets.ORACLE_HOST }}
+            User ${{ secrets.ORACLE_USER }}
+            IdentityFile ~/.ssh/deploy_key
+            StrictHostKeyChecking no
+            UserKnownHostsFile /dev/null
+          EOF
+          chmod 600 ~/.ssh/config
+
+      # ── Deploy ────────────────────────────────────────────────
+      - name: Deploy to Oracle Cloud
+        run: |
+          echo "🚀 Deploying to ${{ secrets.ORACLE_HOST }}…"
+
+          # Gracefully stop the renpy container (does NOT touch bifrost/fauke!)
+          ssh oracle "cd /home/ubuntu/renpy && sudo docker compose stop"
+
+          # Sync the new web build, replacing old content
+          rsync -az --delete \
+            --exclude='.git' \
+            ./web-output/ \
+            oracle:${DEPLOY_DIR}/
+
+          # Start the container back up
+          ssh oracle "cd /home/ubuntu/renpy && sudo docker compose up -d"
+
+          echo "✅ Deployment complete — https://amelia.dancingsalamanders.com"
+
+      # ── Cleanup ───────────────────────────────────────────────
+      - name: Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
