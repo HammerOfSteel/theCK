@@ -1,0 +1,154 @@
+{
+  "created_at": "2026-02-18",
+  "qwen_api": "http://localhost:42003",
+  "create_prompt_endpoint": "http://localhost:42003/api/v1/base/create-prompt",
+  "generate_endpoint": "http://localhost:42003/api/v1/base/generate-with-prompt",
+  "prompt_mapping": {
+    "Amelia": "4505962b-48bd-45f0-9fd7-54c22c79d9e8",
+    "Ella": "128fe8d9-a9e5-4834-bef7-51e793b7cc49",
+    "Prof. Hawthorne": "0eb01c42-12b0-4057-87b7-b3b0d8d83dd9",
+    "Dr. Simmons": "771f92b0-9d83-461f-9974-1e5e10918dfc",
+    "Maya": "a336920c-ac23-4159-8027-8a7b2a7e70fd",
+    "Lucas": "44905545-e399-4f98-8f3a-f1cf5da8417d",
+    "Zara": "a596b877-608f-4ae3-94d0-697ab0bf61eb",
+    "Raj": "a2e6b550-d8b6-455f-a638-e01b3e16f9c9",
+    "Sarah": "c14f6722-1ac2-4f6a-bcc7-a6c52d6fecf6",
+    "Elena": "1a0cd465-23e5-4ab5-a0bc-ac7eb89a6f23",
+    "Tasha": "d645b1fe-6ed7-4404-b1e0-c307d3eb9652",
+    "Michael": "1416447f-5e83-413b-8005-54fb5cf7ae1d",
+    "Sophia": "b0b10dd0-7ef1-4979-91f3-c8c6abe2194b",
+    "Liz": "3fa6d670-1071-4bb6-87e9-e8e9592ffd8e",
+    "Mr. James": "dcae089a-f4da-433e-9ba1-d14810503929",
+    "Mrs. James": "f37c8d6d-40d6-4092-a6bc-41a96a5bef20",
+    "Lily": "a77bcb28-53a7-45f0-b431-53d666deeece",
+    "Narrator": "330bf70f-2387-4916-827b-11d693068f74"
+  },
+  "all_results": [
+    {
+      "character": "Amelia",
+      "prompt_id": "4505962b-48bd-45f0-9fd7-54c22c79d9e8",
+      "reference_file": "amelia_reference.wav",
+      "reference_text": "I keep reading about individuation but I can't even individuate myself from my mum's cooking. She sent me a Tupperware of jerk chicken through the post.",
+      "status": "success"
+    },
+    {
+      "character": "Ella",
+      "prompt_id": "128fe8d9-a9e5-4834-bef7-51e793b7cc49",
+      "reference_file": "ella_reference.wav",
+      "reference_text": "Okay, first of all, breathe. Second of all, I'm googling how to fight a bully through a laptop screen. Third of all, did you eat today?",
+      "status": "success"
+    },
+    {
+      "character": "Prof. Hawthorne",
+      "prompt_id": "0eb01c42-12b0-4057-87b7-b3b0d8d83dd9",
+      "reference_file": "prof._hawthorne_reference.wav",
+      "reference_text": "Miss James, I didn't ask what you feel about Milgram's experiment. I asked what it demonstrates. Your feelings are valid. They are also not the assignment.",
+      "status": "success"
+    },
+    {
+      "character": "Dr. Simmons",
+      "prompt_id": "771f92b0-9d83-461f-9974-1e5e10918dfc",
+      "reference_file": "dr._simmons_reference.wav",
+      "reference_text": "Look, I could cite you twelve studies on resilience and positive reframing. But right now? Right now I think you need a cup of tea and to cry for a bit.",
+      "status": "success"
+    },
+    {
+      "character": "Maya",
+      "prompt_id": "a336920c-ac23-4159-8027-8a7b2a7e70fd",
+      "reference_file": "maya_reference.wav",
+      "reference_text": "Okay, hear me out \u2014 what if Jung was essentially describing the same process the alchemists were, just without the mercury and the furnaces?",
+      "status": "success"
+    },
+    {
+      "character": "Lucas",
+      "prompt_id": "44905545-e399-4f98-8f3a-f1cf5da8417d",
+      "reference_file": "lucas_reference.wav",
+      "reference_text": "You know what I think about at 3am? Not the exam. The exam is just the exam. I think about whether my dad ever thought about me at 3am.",
+      "status": "success"
+    },
+    {
+      "character": "Zara",
+      "prompt_id": "a596b877-608f-4ae3-94d0-697ab0bf61eb",
+      "reference_file": "zara_reference.wav",
+      "reference_text": "You read about systemic racism in a textbook? That's cute. I'll tell you about systemic racism at 2am at a bus stop in Lewisham.",
+      "status": "success"
+    },
+    {
+      "character": "Raj",
+      "prompt_id": "a2e6b550-d8b6-455f-a638-e01b3e16f9c9",
+      "reference_file": "raj_reference.wav",
+      "reference_text": "Okay, listen, my nan makes the best dal in Manchester. In the north of England. I'm not saying my cooking is as good. I'm saying it's a loving tribute.",
+      "status": "success"
+    },
+    {
+      "character": "Sarah",
+      "prompt_id": "c14f6722-1ac2-4f6a-bcc7-a6c52d6fecf6",
+      "reference_file": "sarah_reference.wav",
+      "reference_text": "You know that thing where the sea looks really calm and you think, that doesn't look cold at all? And then you put your foot in and it's so cold it burns?",
+      "status": "success"
+    },
+    {
+      "character": "Elena",
+      "prompt_id": "1a0cd465-23e5-4ab5-a0bc-ac7eb89a6f23",
+      "reference_file": "elena_reference.wav",
+      "reference_text": "You want to understand the mind? Then stop reading about it in a library and come stand in the rain on a moor at midnight.",
+      "status": "success"
+    },
+    {
+      "character": "Tasha",
+      "prompt_id": "d645b1fe-6ed7-4404-b1e0-c307d3eb9652",
+      "reference_file": "tasha_reference.wav",
+      "reference_text": "Oh, love, is that a charity shop jacket? No, genuinely, I think that's sweet. Very sustainable.",
+      "status": "success"
+    },
+    {
+      "character": "Michael",
+      "prompt_id": "1416447f-5e83-413b-8005-54fb5cf7ae1d",
+      "reference_file": "michael_reference.wav",
+      "reference_text": "You're studying why people suffer. I'm asking who benefits from that suffering. Those are different questions, and only one of them changes anything.",
+      "status": "success"
+    },
+    {
+      "character": "Sophia",
+      "prompt_id": "b0b10dd0-7ef1-4979-91f3-c8c6abe2194b",
+      "reference_file": "sophia_reference.wav",
+      "reference_text": "I don't understand why you'd choose to go to a film when you could be reading the Kahneman. It's Kahneman. Films will always be there.",
+      "status": "success"
+    },
+    {
+      "character": "Liz",
+      "prompt_id": "3fa6d670-1071-4bb6-87e9-e8e9592ffd8e",
+      "reference_file": "liz_reference.wav",
+      "reference_text": "I was up till 3am watching this documentary about octopuses and they're just so clever and it made me cry a bit because they die after they have babies.",
+      "status": "success"
+    },
+    {
+      "character": "Mr. James",
+      "prompt_id": "dcae089a-f4da-433e-9ba1-d14810503929",
+      "reference_file": "mr._james_reference.wav",
+      "reference_text": "I checked your car's oil and tire pressure. The spare tire's a bit low so I topped it up. Drive safe.",
+      "status": "success"
+    },
+    {
+      "character": "Mrs. James",
+      "prompt_id": "f37c8d6d-40d6-4092-a6bc-41a96a5bef20",
+      "reference_file": "mrs._james_reference.wav",
+      "reference_text": "I sent you some jerk chicken through the post. Should arrive Tuesday. There's rice in there too.",
+      "status": "success"
+    },
+    {
+      "character": "Lily",
+      "prompt_id": "a77bcb28-53a7-45f0-b431-53d666deeece",
+      "reference_file": "lily_reference.wav",
+      "reference_text": "So like, hypothetically, if someone was questioning whether they might like girls as well as boys, how would you\u2014 never mind. Forget I said anything.",
+      "status": "success"
+    },
+    {
+      "character": "Narrator",
+      "prompt_id": "330bf70f-2387-4916-827b-11d693068f74",
+      "reference_file": "narrator_reference.wav",
+      "reference_text": "Late September. The kind of afternoon where the light turns everything to amber, and the sea looks like hammered silver, and you can almost convince yourself that leaving home was the right thing to do.",
+      "status": "success"
+    }
+  ]
+}

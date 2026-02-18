@@ -9,7 +9,7 @@ import os
 
 # Get the script's directory and construct absolute path
 SCRIPT_DIR = Path(__file__).parent
-AUDIO_DIR = SCRIPT_DIR.parent / "Amelia_V2" / "audio" / "narrator" / "chapter_1"
+AUDIO_DIR = SCRIPT_DIR.parent / "Amelia_V2" / "game" / "audio" / "narrator" / "chapter_1"
 
 def check_ffmpeg():
     """Check if ffmpeg is available."""

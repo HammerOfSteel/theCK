@@ -12,6 +12,11 @@ class Settings(BaseSettings):
     kokoro_host: str = "host.docker.internal"
     kokoro_port: int = 7860
 
+    # Qwen3-TTS (local via Docker host)
+    qwen_host: str = "host.docker.internal"
+    qwen_port: int = 42003
+    qwen_api_key: str = "your-api-key-1"
+
     # Data paths (mounted volumes)
     images_dir: Path = Path("/data/images")
     audio_dir: Path = Path("/data/audio")
@@ -22,6 +27,10 @@ class Settings(BaseSettings):
     @property
     def kokoro_url(self) -> str:
         return f"http://{self.kokoro_host}:{self.kokoro_port}/"
+
+    @property
+    def qwen_url(self) -> str:
+        return f"http://{self.qwen_host}:{self.qwen_port}"
 
     class Config:
         env_file = ".env"

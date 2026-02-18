@@ -1,0 +1,8 @@
+prompt,character,expression,outfit,strength,output_path
+"Painterly illustration, soft oil painting style. Young woman looking thoughtful in warm autumn light.",Amelia,thinking,casual_a,0.6,amelia_thinking_autumn.png
+"Painterly illustration, soft oil painting style. Young woman with genuine smile, caught off guard by something good.",Amelia,happy,casual_a,0.6,amelia_happy_moment.png
+"Painterly illustration, soft oil painting style. Young woman anxious, shoulders drawn in, trying to hold it together.",Amelia,anxious,casual_a,0.6,amelia_anxious_library.png
+"Painterly illustration. Quiet male with headphones, thoughtful expression, dark colors.",Lucas,normal,casual,0.5,lucas_neutral_study.png
+"Painterly illustration. Quiet male, rare moment of emotional vulnerability.",Lucas,vulnerable,casual,0.6,lucas_vulnerable_talk.png
+"Painterly illustration. Young woman, short blonde hair, gentle wonder while looking at nature.",Sarah,good_day,casual,0.6,sarah_good_day_wren.png
+"Painterly illustration. Young woman, short blonde hair, flat distant expression, depression.",Sarah,depressed,casual,0.7,sarah_depressed_alone.png

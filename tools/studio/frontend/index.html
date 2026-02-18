@@ -44,24 +44,50 @@
     <section class="tab-panel active" id="tab-voice">
       <header class="panel-header">
         <h2>Voice Studio</h2>
-        <p>Generate speech using Kokoro TTS &amp; convert audio formats</p>
+        <p>Generate speech using Kokoro TTS or Qwen3-TTS with character voices</p>
       </header>
 
       <div class="voice-layout">
         <div class="voice-input">
           <div class="form-group">
+            <label>Voice Provider</label>
+            <div class="provider-tabs">
+              <button class="provider-tab active" data-provider="qwen">Qwen3-TTS (Local Characters)</button>
+              <button class="provider-tab" data-provider="kokoro">Kokoro TTS</button>
+            </div>
+          </div>
+
+          <div class="form-group">
             <label for="voiceText">Text</label>
             <textarea id="voiceText" rows="4" placeholder="Enter the text to speak..."></textarea>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="voiceSelect">Voice</label>
-              <select id="voiceSelect"></select>
+
+          <!-- Qwen3-TTS options -->
+          <div id="qwenOptions">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qwenCharacter">Character</label>
+                <select id="qwenCharacter"></select>
+              </div>
+              <div class="form-group">
+                <label for="qwenMood">Mood</label>
+                <select id="qwenMood"></select>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="voiceSpeed">Speed</label>
-              <input type="range" id="voiceSpeed" min="0.5" max="2.0" step="0.1" value="1.0">
-              <span class="range-value" id="voiceSpeedValue">1.0</span>
+          </div>
+
+          <!-- Kokoro TTS options -->
+          <div id="kokoroOptions" style="display:none">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="voiceSelect">Voice</label>
+                <select id="voiceSelect"></select>
+              </div>
+              <div class="form-group">
+                <label for="voiceSpeed">Speed</label>
+                <input type="range" id="voiceSpeed" min="0.5" max="2.0" step="0.1" value="1.0">
+                <span class="range-value" id="voiceSpeedValue">1.0</span>
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -86,11 +112,44 @@
     <section class="tab-panel" id="tab-images">
       <header class="panel-header">
         <h2>Image Studio</h2>
-        <p>Generate &amp; edit images via fal.ai (Flux models)</p>
+        <p>Generate images with fal.ai (cloud) or local SDXL with character anchors</p>
       </header>
 
       <div class="images-layout">
         <div class="images-input">
+          <div class="form-group">
+            <label>Image Provider</label>
+            <div class="provider-tabs">
+              <button class="provider-tab active" data-provider="local">Local SDXL (Anchors)</button>
+              <button class="provider-tab" data-provider="fal">fal.ai (Cloud)</button>
+            </div>
+          </div>
+
+          <!-- Local SDXL options -->
+          <div id="localOptions">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="anchorCharacter">Character</label>
+                <select id="anchorCharacter"></select>
+              </div>
+              <div class="form-group">
+                <label for="anchorExpression">Expression</label>
+                <select id="anchorExpression"></select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="anchorOutfit">Outfit</label>
+                <select id="anchorOutfit"></select>
+              </div>
+              <div class="form-group">
+                <label for="localStrength">Transform Strength</label>
+                <input type="range" id="localStrength" min="0.3" max="0.9" step="0.05" value="0.7">
+                <span class="range-value" id="localStrengthValue">0.7</span>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label for="imgPrompt">Prompt</label>
             <textarea id="imgPrompt" rows="5" placeholder="Describe the image to generate..."></textarea>
@@ -205,8 +264,72 @@
     <section class="tab-panel" id="tab-batch">
       <header class="panel-header">
         <h2>Batch Processing</h2>
-        <p>Import a CSV to process multiple voice &amp; image jobs at once</p>
+        <p>Generate full chapters or import CSV for custom batch jobs</p>
       </header>
+
+      <!-- Chapter Generation Section -->
+      <div class="batch-section">
+        <h3>Chapter Voice Generation</h3>
+        <p class="hint">Generate all dialogue audio for a chapter using Qwen3-TTS character voices</p>
+        
+        <div class="form-row">
+          <div class="form-group" style="flex: 2">
+            <label for="chapterSelect">Chapter</label>
+            <select id="chapterSelect">
+              <option value="">Loading chapters...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="chapterProvider">Provider</label>
+            <select id="chapterProvider">
+              <option value="qwen">Qwen3-TTS (Character Voices)</option>
+              <option value="kokoro">Kokoro TTS</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="chapterBackup" checked>
+              Backup existing files
+            </label>
+          </div>
+        </div>
+
+        <div id="chapterInfo" class="chapter-info" hidden>
+          <div class="info-stat">
+            <span class="info-label">Lines:</span>
+            <span id="chapterLineCount">0</span>
+          </div>
+          <div class="info-stat">
+            <span class="info-label">File:</span>
+            <span id="chapterFileName">-</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <button class="btn btn-primary" id="btnGenerateChapter" disabled>
+            🎙️ Generate Chapter Audio
+          </button>
+          <button class="btn btn-secondary" id="btnRefreshChapters">
+            Refresh Chapters
+          </button>
+        </div>
+
+        <div class="batch-progress" id="chapterProgress" hidden>
+          <div class="progress-bar">
+            <div class="progress-fill" id="chapterProgressFill"></div>
+          </div>
+          <span class="progress-text" id="chapterProgressText">0 / 0</span>
+          <div class="progress-stats" id="chapterProgressStats"></div>
+        </div>
+      </div>
+
+      <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+
+      <!-- CSV Batch Section -->
+      <div class="batch-section">
+        <h3>CSV Batch Processing</h3>
+        <p class="hint">Import a CSV to process multiple voice & image jobs at once</p>
+      </div>
 
       <div class="batch-controls">
         <div class="form-row">

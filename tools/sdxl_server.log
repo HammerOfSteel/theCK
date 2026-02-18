@@ -1,0 +1,31 @@
+/Users/terrygoleman/Documents/dev/theCK/tools/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/terrygoleman/Documents/dev/theCK/tools/venv/lib/python3.9/site-packages/torch/amp/autocast_mode.py:266: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn(
+/Users/terrygoleman/Documents/dev/theCK/tools/sdxl_img2img_server.py:74: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+2026-02-18 21:58:11,296 INFO Starting SDXL Img2Img Server on http://127.0.0.1:7861
+2026-02-18 21:58:11,296 INFO This may take a few minutes to load the model...
+INFO:     Started server process [76793]
+INFO:     Waiting for application startup.
+2026-02-18 21:58:11,305 INFO Loading SDXL img2img pipeline...
+2026-02-18 21:58:11,305 INFO Using device: cpu
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00, 18.35it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 12.76it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 14.44it/s]
+2026-02-18 21:58:12,231 INFO Pipeline loaded successfully
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:7861 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50300 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50964 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55500 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [76793]
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

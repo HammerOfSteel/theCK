@@ -1,0 +1,133 @@
+{
+  "generated_at": "2026-02-18",
+  "qwen_api": "http://localhost:42003",
+  "voice_design_api": "http://localhost:42003/api/v1/voice-design/generate",
+  "references": [
+    {
+      "character": "Amelia",
+      "reference_file": "amelia_reference.wav",
+      "sample_text": "I keep reading about individuation but I can't even individuate myself from my mum's cooking. She sent me a Tupperware of jerk chicken through the post.",
+      "voice_description": "young British female voice aged 18 with middle register and suburban London accent, speaking at medium pace with dry self-deprecating humor, pausing thoughtfully between thoughts",
+      "file_size_kb": 498.78515625
+    },
+    {
+      "character": "Ella",
+      "reference_file": "ella_reference.wav",
+      "sample_text": "Okay, first of all, breathe. Second of all, I'm googling how to fight a bully through a laptop screen. Third of all, did you eat today?",
+      "voice_description": "young British female voice aged 18 with South London casual accent, loud and warm with rapid-fire delivery, barely pausing for breath, full of chaotic energy",
+      "file_size_kb": 378.78515625
+    },
+    {
+      "character": "Prof. Hawthorne",
+      "reference_file": "prof._hawthorne_reference.wav",
+      "sample_text": "Miss James, I didn't ask what you feel about Milgram's experiment. I asked what it demonstrates. Your feelings are valid. They are also not the assignment.",
+      "voice_description": "mature British male voice aged 58, educated and formal but not stiff, speaking deliberately and never rushing, with bone-dry humor, voice drops when moved emotionally",
+      "file_size_kb": 551.28515625
+    },
+    {
+      "character": "Dr. Simmons",
+      "reference_file": "dr._simmons_reference.wav",
+      "sample_text": "Look, I could cite you twelve studies on resilience and positive reframing. But right now? Right now I think you need a cup of tea and to cry for a bit.",
+      "voice_description": "warm professional British female voice aged 38 with Birmingham accent and Caribbean lilt, conversational and flowing naturally",
+      "file_size_kb": 517.53515625
+    },
+    {
+      "character": "Maya",
+      "reference_file": "maya_reference.wav",
+      "sample_text": "Okay, hear me out \u2014 what if Jung was essentially describing the same process the alchemists were, just without the mercury and the furnaces?",
+      "voice_description": "young British female voice aged 20 with Bristol accent, enthusiastic and expansive, speaking faster when excited, with warm slightly grandiose humor",
+      "file_size_kb": 397.53515625
+    },
+    {
+      "character": "Lucas",
+      "reference_file": "lucas_reference.wav",
+      "sample_text": "You know what I think about at 3am? Not the exam. The exam is just the exam. I think about whether my dad ever thought about me at 3am.",
+      "voice_description": "young British male voice aged 19 with quiet measured Leeds accent softened by education, with Nigerian English influences, slow and deliberate with long thoughtful pauses, deadpan humor",
+      "file_size_kb": 588.78515625
+    },
+    {
+      "character": "Zara",
+      "reference_file": "zara_reference.wav",
+      "sample_text": "You read about systemic racism in a textbook? That's cute. I'll tell you about systemic racism at 2am at a bus stop in Lewisham.",
+      "voice_description": "young Nigerian-British female voice aged 20 blending South London and Lagos accents, direct and punchy, building momentum when passionate, sharp humor, eloquent not loud when angry",
+      "file_size_kb": 401.28515625
+    },
+    {
+      "character": "Raj",
+      "reference_file": "raj_reference.wav",
+      "sample_text": "Okay, listen, my nan makes the best dal in Manchester. In the north of England. I'm not saying my cooking is as good. I'm saying it's a loving tribute.",
+      "voice_description": "young British male voice aged 21 with warm Manchester accent, easy flowing and conversational, affable and self-deprecating, making the room feel lighter",
+      "file_size_kb": 487.53515625
+    },
+    {
+      "character": "Sarah",
+      "reference_file": "sarah_reference.wav",
+      "sample_text": "You know that thing where the sea looks really calm and you think, that doesn't look cold at all? And then you put your foot in and it's so cold it burns?",
+      "voice_description": "young British female voice aged 18 with soft rural Devon accent, halting speech that starts and stops and tries again, with dark sudden humor, becoming monosyllabic when depressed",
+      "file_size_kb": 483.78515625
+    },
+    {
+      "character": "Elena",
+      "reference_file": "elena_reference.wav",
+      "sample_text": "You want to understand the mind? Then stop reading about it in a library and come stand in the rain on a moor at midnight.",
+      "voice_description": "mature British female voice aged 45 with proper Cornish accent softened, unhurried with weight behind every sentence, wry earthy humor, speaking through story not lecture, with occasional Cornish words",
+      "file_size_kb": 393.78515625
+    },
+    {
+      "character": "Tasha",
+      "reference_file": "tasha_reference.wav",
+      "sample_text": "Oh, love, is that a charity shop jacket? No, genuinely, I think that's sweet. Very sustainable.",
+      "voice_description": "young British female voice aged 20 with Surrey Home Counties accent, polished and precise, capable of sweetness that masks cruelty, defensive when vulnerable",
+      "file_size_kb": 386.28515625
+    },
+    {
+      "character": "Michael",
+      "reference_file": "michael_reference.wav",
+      "sample_text": "You're studying why people suffer. I'm asking who benefits from that suffering. Those are different questions, and only one of them changes anything.",
+      "voice_description": "young British male voice aged 22 with London Hackney accent, passionate and articulate, speaking with conviction and urgency, charismatic energy",
+      "file_size_kb": 420.03515625
+    },
+    {
+      "character": "Sophia",
+      "reference_file": "sophia_reference.wav",
+      "sample_text": "I don't understand why you'd choose to go to a film when you could be reading the Kahneman. It's Kahneman. Films will always be there.",
+      "voice_description": "young British female voice aged 19 with Oxford educated accent, precise and quick, competitive energy, softening when vulnerable",
+      "file_size_kb": 352.53515625
+    },
+    {
+      "character": "Liz",
+      "reference_file": "liz_reference.wav",
+      "sample_text": "I was up till 3am watching this documentary about octopuses and they're just so clever and it made me cry a bit because they die after they have babies.",
+      "voice_description": "young British female voice aged 18 with Welsh Cardiff accent, cheerful and bubbly, speaking with wonder about marine life, warm and genuine",
+      "file_size_kb": 423.78515625
+    },
+    {
+      "character": "Mr. James",
+      "reference_file": "mr._james_reference.wav",
+      "sample_text": "I checked your car's oil and tire pressure. The spare tire's a bit low so I topped it up. Drive safe.",
+      "voice_description": "mature British male voice aged 46 with Jamaican London accent, quiet and steady, practical and measured, warmth expressed through actions not words",
+      "file_size_kb": 348.78515625
+    },
+    {
+      "character": "Mrs. James",
+      "reference_file": "mrs._james_reference.wav",
+      "sample_text": "I sent you some jerk chicken through the post. Should arrive Tuesday. There's rice in there too.",
+      "voice_description": "mature British female voice aged 44 with Jamaican London accent, warm and talkative, openly emotional, speaking with love and concern",
+      "file_size_kb": 311.28515625
+    },
+    {
+      "character": "Lily",
+      "reference_file": "lily_reference.wav",
+      "sample_text": "So like, hypothetically, if someone was questioning whether they might like girls as well as boys, how would you\u2014 never mind. Forget I said anything.",
+      "voice_description": "teenage British female voice aged 16, questioning and uncertain, speaking with adolescent energy and insecurity, bright but nervous",
+      "file_size_kb": 502.53515625
+    },
+    {
+      "character": "Narrator",
+      "reference_file": "narrator_reference.wav",
+      "sample_text": "Late September. The kind of afternoon where the light turns everything to amber, and the sea looks like hammered silver, and you can almost convince yourself that leaving home was the right thing to do.",
+      "voice_description": "soft British Welsh female voice with gentle ASMR quality, calm and measured, not too fast, warm and soothing",
+      "file_size_kb": 577.53515625
+    }
+  ]
+}

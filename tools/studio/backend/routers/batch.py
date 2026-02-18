@@ -5,6 +5,9 @@ import io
 import asyncio
 import logging
 import uuid
+import json
+import shutil
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
@@ -14,6 +17,8 @@ from pydantic import BaseModel
 
 from backend.config import settings
 from backend.services import kokoro, fal_ai, audio
+from backend.services.qwen_tts import QwenTTSService
+from backend.utils.rpy_parser import clean_text_for_tts
 
 router = APIRouter(prefix="/api/batch", tags=["batch"])
 logger = logging.getLogger(__name__)
@@ -45,7 +50,9 @@ class BatchStatus(BaseModel):
     total: int
     completed: int
     failed: int
-    status: str  # running | completed | failed
+    skipped: int = 0
+    backed_up: int = 0
+    status: str  # running | completed | failed | completed_with_errors
     results: list[dict]
 
 
@@ -206,3 +213,194 @@ async def _process_batch(job_id: str, rows: list[BatchRow]):
         job["results"].append(result)
 
     job["status"] = "completed" if job["failed"] == 0 else "completed_with_errors"
+
+
+# ============================================================================
+# CHAPTER BATCH GENERATION
+# ============================================================================
+
+DIALOGUE_JSON_PATH = Path(__file__).parent.parent / "data" / "dialogue.json"
+
+
+class ChapterGenerateRequest(BaseModel):
+    chapter: str
+    provider: Literal["qwen", "kokoro"] = "qwen"
+    backup_existing: bool = True
+
+
+@router.get("/chapters")
+def list_chapters():
+    """List all available chapters from the pre-parsed dialogue.json."""
+    if not DIALOGUE_JSON_PATH.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="dialogue.json not found. Run scripts/parse_chapters.py first."
+        )
+    
+    with open(DIALOGUE_JSON_PATH, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    chapters = []
+    for chapter_name, chapter_data in data["chapters"].items():
+        chapters.append({
+            "name": chapter_name,
+            "display_name": chapter_name.replace("_", " ").title(),
+            "file": chapter_data["file"],
+            "line_count": chapter_data["line_count"],
+        })
+    
+    return {
+        "total_chapters": data["total_chapters"],
+        "total_lines": data["total_lines"],
+        "chapters": sorted(chapters, key=lambda x: x["name"])
+    }
+
+
+@router.post("/generate-chapter", response_model=BatchStatus)
+async def generate_chapter(req: ChapterGenerateRequest):
+    """
+    Generate all dialogue audio for a chapter using Qwen3-TTS.
+    
+    - Reads dialogue from pre-parsed dialogue.json
+    - Backs up existing audio files to dated bkp folder
+    - Generates OGG audio for each line
+    - Saves to correct paths based on character and chapter
+    """
+    if not DIALOGUE_JSON_PATH.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="dialogue.json not found. Run scripts/parse_chapters.py first."
+        )
+    
+    # Load dialogue data
+    with open(DIALOGUE_JSON_PATH, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    if req.chapter not in data["chapters"]:
+        raise HTTPException(
+            status_code=404,
+            detail=f"Chapter '{req.chapter}' not found"
+        )
+    
+    chapter_data = data["chapters"][req.chapter]
+    dialogue_lines = chapter_data["dialogue"]
+    
+    # Create job
+    job_id = uuid.uuid4().hex[:12]
+    _jobs[job_id] = {
+        "total": len(dialogue_lines),
+        "completed": 0,
+        "failed": 0,
+        "skipped": 0,
+        "backed_up": 0,
+        "status": "running",
+        "results": [],
+        "chapter": req.chapter
+    }
+    
+    # Process in background
+    asyncio.create_task(_process_chapter_batch(job_id, req, dialogue_lines))
+    
+    return BatchStatus(job_id=job_id, **{k: v for k, v in _jobs[job_id].items() if k != "chapter"})
+
+
+async def _process_chapter_batch(job_id: str, req: ChapterGenerateRequest, dialogue_lines: list[dict]):
+    """Process all dialogue lines for a chapter."""
+    job = _jobs[job_id]
+    
+    # Initialize Qwen TTS service
+    qwen_tts = QwenTTSService(
+        base_url=settings.qwen_url,
+        api_key=settings.qwen_api_key
+    )
+    
+    # Backup timestamp
+    backup_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    for i, line in enumerate(dialogue_lines):
+        result = {
+            "index": i,
+            "character": line["character"],
+            "text_preview": line["text_clean"][:50]
+        }
+        
+        try:
+            # Determine output path - generate one if not specified
+            if line.get("voice_file"):
+                voice_file_path = Path(line["voice_file"])
+            else:
+                # Generate filename for lines without voice directives
+                # Format: character_name/chapter_N/line_XXX.ogg
+                char_name = line["character"].lower().replace(" ", "_").replace(".", "")
+                line_num = str(i + 1).zfill(3)
+                voice_file_path = Path(f"{char_name}/{req.chapter}/line_{line_num}.ogg")
+            
+            # Strip leading "audio/" if present (since settings.audio_dir already points to audio/)
+            if voice_file_path.parts and voice_file_path.parts[0] == "audio":
+                voice_file_path = Path(*voice_file_path.parts[1:])
+            
+            output_path = settings.audio_dir / voice_file_path
+            
+            # Backup existing file if it exists
+            if output_path.exists() and req.backup_existing:
+                backup_dir = output_path.parent / "bkp" / backup_timestamp
+                backup_dir.mkdir(parents=True, exist_ok=True)
+                backup_path = backup_dir / output_path.name
+                shutil.copy2(output_path, backup_path)
+                result["backed_up"] = str(backup_path.relative_to(settings.audio_dir))
+                job["backed_up"] += 1
+            
+            # Generate audio with appropriate provider
+            if req.provider == "qwen":
+                # Use Qwen3-TTS with voice cloning for consistent character voices
+                service = QwenTTSService(
+                    base_url=settings.qwen_url,
+                    api_key=settings.qwen_api_key
+                )
+                audio_path = await service.generate_speech_clone_ogg(
+                    text=line["text_clean"],
+                    character=line["character"],
+                    speed=1.0,
+                    output_path=output_path
+                )
+            else:
+                # Use Kokoro (fallback)
+                temp_wav = kokoro.generate_speech(
+                    text=line["text_clean"],
+                    voice="🇺🇸 🚺 Nicole 🎧",
+                    speed=1.0
+                )
+                # Convert to OGG
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                audio.convert_audio(temp_wav, output_path, "ogg_vorbis")
+                audio_path = output_path
+            
+            result["status"] = "ok"
+            result["path"] = str(audio_path.relative_to(settings.audio_dir))
+            result["file_size"] = audio_path.stat().st_size
+            job["completed"] += 1
+            
+        except Exception as e:
+            logger.exception(f"Failed to generate line {i} for {line['character']}")
+            result["status"] = "error"
+            result["error"] = str(e)
+            job["failed"] += 1
+        
+        job["results"].append(result)
+        
+        # Small delay to avoid overwhelming the TTS service
+        await asyncio.sleep(0.1)
+    
+    # Update final status
+    if job["failed"] == 0:
+        job["status"] = "completed"
+    elif job["completed"] > 0:
+        job["status"] = "completed_with_errors"
+    else:
+        job["status"] = "failed"
+    
+    logger.info(
+        f"Chapter {req.chapter} generation complete: "
+        f"{job['completed']} ok, {job['failed']} failed, {job['skipped']} skipped, "
+        f"{job['backed_up']} backed up"
+    )

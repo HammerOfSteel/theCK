@@ -1,0 +1,184 @@
+{
+  "characters": {
+    "Amelia": {
+      "description": "Protagonist, 18, mixed Chinese-British heritage",
+      "anchor_image": "amelia_anchor.png",
+      "expressions": [
+        {"name": "neutral", "description": "Attentive, slightly reserved"},
+        {"name": "happy", "description": "Genuine but restrained smile"},
+        {"name": "sad", "description": "Weight in the eyes"},
+        {"name": "angry", "description": "Tight, controlled anger"},
+        {"name": "surprised", "description": "Eyes wide, caught off guard"},
+        {"name": "thinking", "description": "Working something out"},
+        {"name": "worried", "description": "Brow furrowed, something is wrong"},
+        {"name": "laughing", "description": "Rare and precious delight"},
+        {"name": "anxious", "description": "Trying to hold it together"},
+        {"name": "determined", "description": "Clear-eyed and committed"},
+        {"name": "tearful", "description": "Eyes bright with unshed tears"},
+        {"name": "peaceful", "description": "Completely relaxed, at ease"}
+      ],
+      "outfits": [
+        {"name": "casual_a", "description": "Denim jacket, warm jumper, dark jeans, ankle boots"},
+        {"name": "casual_b", "description": "Denim jacket with button-down blouse"},
+        {"name": "casual_c", "description": "Oversized hoodie, joggers, hair down"},
+        {"name": "academic", "description": "Jacket with scarf, notebook in hand"},
+        {"name": "crisis", "description": "Rumpled, untucked, messy hair"},
+        {"name": "summer", "description": "Lighter top, lighter jeans/skirt, no jacket"}
+      ]
+    },
+    "Ella": {
+      "description": "Best friend, 18, from London",
+      "anchor_image": "ella_anchor.png",
+      "expressions": [
+        {"name": "chatty", "description": "Warm, loud, energetic"},
+        {"name": "supportive", "description": "Reassuring and caring"},
+        {"name": "worried", "description": "Concerned but caring"},
+        {"name": "hurt", "description": "Quiet sadness"}
+      ],
+      "outfits": [
+        {"name": "casual", "description": "Oversized jumpers, silver rings"}
+      ]
+    },
+    "Lucas": {
+      "description": "Quiet thinker, 19, Nigerian-British",
+      "anchor_image": "lucas_anchor.png",
+      "expressions": [
+        {"name": "neutral", "description": "Thoughtful, measured"},
+        {"name": "deadpan", "description": "Dry humor"},
+        {"name": "vulnerable", "description": "Rare emotional openness"}
+      ],
+      "outfits": [
+        {"name": "casual", "description": "Dark colours, clean lines, headphones"}
+      ]
+    },
+    "Zara": {
+      "description": "The fighter, 20, Nigerian heritage",
+      "anchor_image": "zara_anchor.png",
+      "expressions": [
+        {"name": "normal", "description": "Direct, confident"},
+        {"name": "angry", "description": "Surgical precision"},
+        {"name": "vulnerable", "description": "Hidden pain"}
+      ],
+      "outfits": [
+        {"name": "casual", "description": "Protective styles, athletic wear"}
+      ]
+    },
+    "Raj": {
+      "description": "The heart, 21, Indian-British",
+      "anchor_image": "raj_anchor.png",
+      "expressions": [
+        {"name": "normal", "description": "Warm, affable"},
+        {"name": "serious", "description": "Rare gravity"}
+      ],
+      "outfits": [
+        {"name": "casual", "description": "Hoodies, jeans, trainers"}
+      ]
+    },
+    "Sarah": {
+      "description": "The mirror, 18, rural Devon",
+      "anchor_image": "sarah_anchor.png",
+      "expressions": [
+        {"name": "good_day", "description": "Gentle wonder"},
+        {"name": "dark_humor", "description": "Sudden dark wit"},
+        {"name": "opening_up", "description": "Halting honesty"},
+        {"name": "depressed", "description": "Flat, distant"}
+      ],
+      "outfits": [
+        {"name": "casual", "description": "Oversized clothes, blonde short hair"}
+      ]
+    },
+    "Maya": {
+      "description": "Mystic friend, 20, Indian-British",
+      "anchor_image": "maya_anchor.png",
+      "expressions": [
+        {"name": "enthusiastic", "description": "Rapid excitement"},
+        {"name": "spiritual", "description": "Still and precise"},
+        {"name": "vulnerable", "description": "Young uncertainty"}
+      ],
+      "outfits": [
+        {"name": "bohemian", "description": "Flowy skirts, embroidered jackets, silver moon necklace"}
+      ]
+    },
+    "Prof. Hawthorne": {
+      "description": "Rational mentor, 58",
+      "anchor_image": "hawthorne_anchor.png",
+      "expressions": [
+        {"name": "lecturing", "description": "Formal authority"},
+        {"name": "socratic", "description": "Dry humor"},
+        {"name": "vulnerable", "description": "Rare warmth"}
+      ],
+      "outfits": [
+        {"name": "academic", "description": "Tweed jacket, elbow patches, wire-rimmed glasses"}
+      ]
+    },
+    "Dr. Simmons": {
+      "description": "Compassionate mentor, 38",
+      "anchor_image": "simmons_anchor.png",
+      "expressions": [
+        {"name": "supportive", "description": "Warm compassion"},
+        {"name": "teaching", "description": "Conversational wisdom"},
+        {"name": "vulnerable", "description": "Gentle honesty"}
+      ],
+      "outfits": [
+        {"name": "casual_professional", "description": "Bright colours, natural hair in wrap/braids"}
+      ]
+    },
+    "Elena": {
+      "description": "Hidden guide, 45, Cornish pellar",
+      "anchor_image": "elena_anchor.png",
+      "expressions": [
+        {"name": "normal", "description": "Unhurried weight"},
+        {"name": "teaching", "description": "Storyteller mode"},
+        {"name": "wry", "description": "Earthy humor"}
+      ],
+      "outfits": [
+        {"name": "practical", "description": "Boots, waxed jacket, wool, silver chough ring"}
+      ]
+    },
+    "Tasha": {
+      "description": "The shadow, 20, Surrey",
+      "anchor_image": "tasha_anchor.png",
+      "expressions": [
+        {"name": "cruel", "description": "Smooth venom"},
+        {"name": "defensive", "description": "Controlled annoyance"},
+        {"name": "vulnerable", "description": "Broken composure"}
+      ],
+      "outfits": [
+        {"name": "polished", "description": "Well-dressed, expensive bag, perfect makeup"}
+      ]
+    },
+    "Sophia": {
+      "description": "The rival, 19, Oxford",
+      "anchor_image": "sophia_anchor.png",
+      "expressions": [
+        {"name": "academic", "description": "Rapid precision"},
+        {"name": "vulnerable", "description": "Uncertain fragility"}
+      ],
+      "outfits": [
+        {"name": "smart_casual", "description": "Student/young professional style"}
+      ]
+    },
+    "Liz": {
+      "description": "Roommate, 18, Cardiff",
+      "anchor_image": "liz_anchor.png",
+      "expressions": [
+        {"name": "cheerful", "description": "Bubbly, warm"},
+        {"name": "homesick", "description": "Small, quiet"}
+      ],
+      "outfits": [
+        {"name": "casual", "description": "Comfortable student wear"}
+      ]
+    },
+    "Michael": {
+      "description": "Activist, 22, third year",
+      "anchor_image": "michael_anchor.png",
+      "expressions": [
+        {"name": "activist", "description": "Oratorial passion"},
+        {"name": "casual", "description": "Conversational ease"}
+      ],
+      "outfits": [
+        {"name": "activist", "description": "Political t-shirts, natural afro"}
+      ]
+    }
+  }
+}

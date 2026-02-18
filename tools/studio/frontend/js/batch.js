@@ -4,6 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initBatch();
+  initChapterGeneration();
 });
 
 let batchRows = [];
@@ -191,4 +192,158 @@ function truncate(str, max) {
 function escapeAttr(str) {
   if (!str) return '';
   return str.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+
+// ============================================================================
+// CHAPTER GENERATION
+// ============================================================================
+
+let chapters = [];
+let currentChapterJobId = null;
+let chapterPollInterval = null;
+
+function initChapterGeneration() {
+  // Load chapters
+  loadChapters();
+
+  // Event listeners
+  document.getElementById('chapterSelect').addEventListener('change', onChapterSelect);
+  document.getElementById('btnGenerateChapter').addEventListener('click', generateChapter);
+  document.getElementById('btnRefreshChapters').addEventListener('click', loadChapters);
+}
+
+async function loadChapters() {
+  const select = document.getElementById('chapterSelect');
+  select.innerHTML = '<option value="">Loading chapters...</option>';
+  select.disabled = true;
+
+  try {
+    const data = await api('/api/batch/chapters');
+    chapters = data.chapters;
+
+    select.innerHTML = '<option value="">Select a chapter...</option>';
+    chapters.forEach(ch => {
+      const option = document.createElement('option');
+      option.value = ch.name;
+      option.textContent = `${ch.display_name} (${ch.line_count} lines)`;
+      option.dataset.lineCount = ch.line_count;
+      option.dataset.fileName = ch.file;
+      select.appendChild(option);
+    });
+
+    select.disabled = false;
+    toast(`Loaded ${chapters.length} chapters`, 'success');
+  } catch (e) {
+    select.innerHTML = '<option value="">Error loading chapters</option>';
+    toast(`Failed to load chapters: ${e.message}`, 'error');
+  }
+}
+
+function onChapterSelect() {
+  const select = document.getElementById('chapterSelect');
+  const selectedOption = select.options[select.selectedIndex];
+  const chapterInfo = document.getElementById('chapterInfo');
+  const btn = document.getElementById('btnGenerateChapter');
+
+  if (!select.value) {
+    chapterInfo.hidden = true;
+    btn.disabled = true;
+    return;
+  }
+
+  // Show chapter info
+  document.getElementById('chapterLineCount').textContent = selectedOption.dataset.lineCount;
+  document.getElementById('chapterFileName').textContent = selectedOption.dataset.fileName;
+  chapterInfo.hidden = false;
+  btn.disabled = false;
+}
+
+async function generateChapter() {
+  const chapterSelect = document.getElementById('chapterSelect');
+  const providerSelect = document.getElementById('chapterProvider');
+  const backupCheckbox = document.getElementById('chapterBackup');
+
+  const chapter = chapterSelect.value;
+  if (!chapter) {
+    toast('Please select a chapter', 'error');
+    return;
+  }
+
+  const provider = providerSelect.value;
+  const backup = backupCheckbox.checked;
+
+  // Show progress
+  const progressSection = document.getElementById('chapterProgress');
+  progressSection.hidden = false;
+  document.getElementById('chapterProgressFill').style.width = '0%';
+  document.getElementById('chapterProgressText').textContent = '0 / 0';
+  document.getElementById('chapterProgressStats').textContent = '';
+
+  // Disable button
+  document.getElementById('btnGenerateChapter').disabled = true;
+  toast(`Starting chapter generation: ${chapter}`, 'info');
+
+  try {
+    const data = await api('/api/batch/generate-chapter', {
+      method: 'POST',
+      body: JSON.stringify({ chapter, provider, backup_existing: backup }),
+    });
+
+    currentChapterJobId = data.job_id;
+    toast(`Chapter generation started: ${data.total} lines`, 'success');
+
+    // Start polling
+    if (chapterPollInterval) clearInterval(chapterPollInterval);
+    chapterPollInterval = setInterval(pollChapterStatus, 1000);
+  } catch (e) {
+    toast(`Failed to start generation: ${e.message}`, 'error');
+    document.getElementById('btnGenerateChapter').disabled = false;
+    progressSection.hidden = true;
+  }
+}
+
+async function pollChapterStatus() {
+  if (!currentChapterJobId) return;
+
+  try {
+    const data = await api(`/api/batch/status/${currentChapterJobId}`);
+
+    // Update progress bar
+    const pct = data.total > 0 ? (data.completed + data.failed + data.skipped) / data.total * 100 : 0;
+    document.getElementById('chapterProgressFill').style.width = `${pct}%`;
+
+    // Update progress text
+    const completed = data.completed + data.failed + data.skipped;
+    document.getElementById('chapterProgressText').textContent = `${completed} / ${data.total}`;
+
+    // Update stats
+    const stats = [];
+    if (data.completed > 0) stats.push(`✅ ${data.completed} generated`);
+    if (data.failed > 0) stats.push(`❌ ${data.failed} failed`);
+    if (data.skipped > 0) stats.push(`⏭️ ${data.skipped} skipped`);
+    if (data.backed_up > 0) stats.push(`💾 ${data.backed_up} backed up`);
+    document.getElementById('chapterProgressStats').textContent = stats.join(' • ');
+
+    // Done?
+    if (data.status !== 'running') {
+      clearInterval(chapterPollInterval);
+      chapterPollInterval = null;
+      currentChapterJobId = null;
+      document.getElementById('btnGenerateChapter').disabled = false;
+
+      const msg = data.failed > 0
+        ? `Chapter complete with ${data.failed} error(s)`
+        : `Chapter complete: ${data.completed} lines generated`;
+      toast(msg, data.failed > 0 ? 'warning' : 'success');
+
+      // Log errors if any
+      if (data.failed > 0) {
+        const errors = data.results.filter(r => r.status === 'error');
+        console.error('Chapter generation errors:', errors);
+      }
+    }
+  } catch (e) {
+    console.warn('Chapter poll failed:', e);
+  }
 }

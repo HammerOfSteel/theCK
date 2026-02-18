@@ -1,0 +1,9 @@
+text,character,mood,speed,output_path
+"I keep reading about individuation but I can't even individuate myself from my mum's cooking.",Amelia,anxious,1.0,amelia_anxious_1.wav
+"Ella help i just said something stupid in a seminar and now i want to live in the sea",Amelia,vulnerable,1.1,amelia_text_1.wav
+"You're not stupid. You're an eighteen-year-old who moved to a city where she doesn't know anyone and you're surviving.",Ella,supportive,1.0,ella_supportive_1.wav
+"I finished the Jung. All of it.",Lucas,normal,0.9,lucas_normal_1.wav
+"The most terrifying thing is to accept oneself completely.",Lucas,vulnerable,0.9,lucas_vulnerable_1.wav
+"You read about systemic racism in a textbook? That's cute.",Zara,normal,1.0,zara_normal_1.wav
+"I drew a wren today. It was sitting on the fence outside the library.",Sarah,good_day,1.0,sarah_good_day_1.wav
+"My therapist says I need to sit with the discomfort.",Sarah,dark_humor,1.0,sarah_dark_humor_1.wav
