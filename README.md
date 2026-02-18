@@ -30,6 +30,7 @@ The game tracks six dimensions of Amelia's growth — Academic Achievement, Soci
 | **3.5 — Audio** | Ambient tracks, SFX, song conversion | 🔧 In progress |
 | **3.5 — Writing polish** | Dialogue, pacing, voice audit, sensitivity review | 📝 Not started |
 | **3.9 — Art generation** | Character sprites, backgrounds, CGs, UI art | 📝 Not started |
+| **3.9 — Creative tooling** | Amelia Studio: Docker web app for voice gen (Kokoro TTS) + image gen (fal.ai Flux) + batch CSV processing | ✅ Complete |
 | **4 — Polish & release** | Playtesting, balance, proofreading, accessibility, builds | 📝 Not started |
 
 ### Deployment
@@ -83,7 +84,15 @@ theCK/
 │   ├── todo.md              #   Master task tracker
 │   └── audio_guide.md       #   51 ambient + 15 SFX specs
 ├── normal_style_scripts/    # Alternate script format (reference)
-└── tools/                   # Utility scripts (voice gen, conversion, etc.)
+└── tools/                   # Utility scripts
+    ├── studio/              #   Amelia Studio (Docker web app)
+    │   ├── docker-compose.yml
+    │   ├── Dockerfile
+    │   ├── backend/         #     FastAPI: voice, image, batch routers
+    │   └── frontend/        #     Dark-themed web UI (4 tabs)
+    ├── generate_narrator_voice_ch1.py
+    ├── integrate_voice_ch1.py
+    └── convert_to_*.py      #   Audio format converters
 ```
 
 ## Core Themes
@@ -153,6 +162,23 @@ Sophia Langford (academic rival), Michael Okonkwo (activist), Liz Torres (roomma
 - **Build name:** TheCK
 - **Web deploy:** Ren'Py WebAssembly build via GitHub Actions → Oracle Cloud
 - **Live at:** [amelia.dancingsalamanders.com](https://amelia.dancingsalamanders.com)
+
+### Amelia Studio (`tools/studio/`)
+
+Unified creative tool for asset generation — runs locally via Docker Compose at `localhost:8500`.
+
+| Tab | Feature | Backend |
+|---|---|---|
+| **Voice** | Text-to-speech generation + OGG Vorbis conversion | Kokoro TTS (local) + ffmpeg |
+| **Images** | Text-to-image, image-to-image editing, reference image upload | fal.ai (Flux Dev/Pro/Schnell) |
+| **Batch** | CSV import → preview table → bulk process with progress tracking | Voice + Image combined |
+| **Prompts** | Browse all 17 prompt packs with copy-to-clipboard | Local file reader |
+
+```bash
+cd tools/studio
+cp .env.example .env   # Add your FAL_KEY
+docker compose up -d   # → http://localhost:8500
+```
 
 ---
 
