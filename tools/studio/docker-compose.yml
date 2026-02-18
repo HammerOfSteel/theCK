@@ -1,0 +1,22 @@
+services:
+  studio:
+    build: .
+    container_name: amelia-studio
+    ports:
+      - "8500:8500"
+    volumes:
+      # Mount project directories for direct file I/O
+      - ../../Amelia_V2/game/images:/data/images
+      - ../../Amelia_V2/game/audio:/data/audio  
+      - ../../Amelia_V2/prompts:/data/prompts
+      - ../../Amelia_V2/game:/data/game
+      # Persist generated outputs
+      - ./output:/data/output
+    env_file:
+      - .env
+    environment:
+      - KOKORO_HOST=host.docker.internal
+      - KOKORO_PORT=7860
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

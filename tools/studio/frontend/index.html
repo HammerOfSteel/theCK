@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amelia Studio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Amelia<br><span>Studio</span></h1>
+    </div>
+    <ul class="sidebar-nav">
+      <li class="active" data-tab="voice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        Voice
+      </li>
+      <li data-tab="images">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Images
+      </li>
+      <li data-tab="batch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Batch
+      </li>
+      <li data-tab="prompts">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Prompts
+      </li>
+    </ul>
+    <div class="sidebar-status" id="serviceStatus">
+      <div class="status-dot" id="statusKokoro" title="Kokoro TTS"></div>
+      <div class="status-dot" id="statusFal" title="fal.ai"></div>
+      <div class="status-dot" id="statusFfmpeg" title="ffmpeg"></div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content">
+
+    <!-- ===== VOICE TAB ===== -->
+    <section class="tab-panel active" id="tab-voice">
+      <header class="panel-header">
+        <h2>Voice Studio</h2>
+        <p>Generate speech using Kokoro TTS &amp; convert audio formats</p>
+      </header>
+
+      <div class="voice-layout">
+        <div class="voice-input">
+          <div class="form-group">
+            <label for="voiceText">Text</label>
+            <textarea id="voiceText" rows="4" placeholder="Enter the text to speak..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="voiceSelect">Voice</label>
+              <select id="voiceSelect"></select>
+            </div>
+            <div class="form-group">
+              <label for="voiceSpeed">Speed</label>
+              <input type="range" id="voiceSpeed" min="0.5" max="2.0" step="0.1" value="1.0">
+              <span class="range-value" id="voiceSpeedValue">1.0</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="voiceOutput">Output path <span class="hint">(relative to audio/)</span></label>
+            <input type="text" id="voiceOutput" placeholder="narrator/chapter_1/line_001.wav">
+          </div>
+          <div class="form-row">
+            <button class="btn btn-primary" id="btnGenVoice">Generate Voice</button>
+            <button class="btn btn-secondary" id="btnConvert" disabled>Convert to OGG</button>
+          </div>
+        </div>
+
+        <div class="voice-preview">
+          <h3>Preview</h3>
+          <audio id="voicePlayer" controls></audio>
+          <div id="voiceResult" class="result-info"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMAGES TAB ===== -->
+    <section class="tab-panel" id="tab-images">
+      <header class="panel-header">
+        <h2>Image Studio</h2>
+        <p>Generate &amp; edit images via fal.ai (Flux models)</p>
+      </header>
+
+      <div class="images-layout">
+        <div class="images-input">
+          <div class="form-group">
+            <label for="imgPrompt">Prompt</label>
+            <textarea id="imgPrompt" rows="5" placeholder="Describe the image to generate..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="imgModel">Model</label>
+              <select id="imgModel"></select>
+            </div>
+            <div class="form-group">
+              <label for="imgPreset">Dimensions</label>
+              <select id="imgPreset">
+                <option value="sprite">Sprite (600×900)</option>
+                <option value="background">Background (1920×1080)</option>
+                <option value="cg">CG (1920×1080)</option>
+                <option value="square" selected>Square (1024×1024)</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row" id="customDims" style="display:none">
+            <div class="form-group">
+              <label for="imgWidth">Width</label>
+              <input type="number" id="imgWidth" value="1024" min="64" max="2048" step="8">
+            </div>
+            <div class="form-group">
+              <label for="imgHeight">Height</label>
+              <input type="number" id="imgHeight" value="1024" min="64" max="2048" step="8">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="imgGuidance">Guidance Scale</label>
+              <input type="range" id="imgGuidance" min="1" max="10" step="0.5" value="3.5">
+              <span class="range-value" id="imgGuidanceValue">3.5</span>
+            </div>
+            <div class="form-group">
+              <label for="imgSteps">Inference Steps</label>
+              <input type="range" id="imgSteps" min="4" max="50" step="1" value="28">
+              <span class="range-value" id="imgStepsValue">28</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Reference Image <span class="hint">(for character consistency)</span></label>
+            <div class="upload-area" id="refUploadArea">
+              <input type="file" id="refFileInput" accept="image/*" hidden>
+              <span id="refUploadLabel">Click or drag to upload reference image</span>
+              <img id="refPreview" class="ref-preview" hidden>
+              <button class="btn btn-small btn-danger" id="refClear" hidden>✕</button>
+            </div>
+            <input type="text" id="refImageUrl" placeholder="...or paste image URL" class="mt-small">
+          </div>
+
+          <div class="form-group">
+            <label for="imgOutput">Save to <span class="hint">(relative to images/)</span></label>
+            <input type="text" id="imgOutput" placeholder="characters/amelia/neutral.png">
+          </div>
+
+          <div class="form-row">
+            <button class="btn btn-primary" id="btnGenImage">Generate Image</button>
+            <div class="form-group inline">
+              <label for="imgCount">Count:</label>
+              <select id="imgCount">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="images-preview">
+          <h3>Preview</h3>
+          <div class="image-gallery" id="imageGallery">
+            <div class="gallery-placeholder">Generated images will appear here</div>
+          </div>
+          <div id="imageResult" class="result-info"></div>
+        </div>
+      </div>
+
+      <!-- Image Edit Section -->
+      <details class="edit-section">
+        <summary>Image-to-Image Editing</summary>
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="editPrompt">Edit Prompt</label>
+            <textarea id="editPrompt" rows="3" placeholder="Describe what to change..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="editStrength">Strength</label>
+            <input type="range" id="editStrength" min="0.1" max="1.0" step="0.05" value="0.75">
+            <span class="range-value" id="editStrengthValue">0.75</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editSource">Source Image URL</label>
+          <input type="text" id="editSource" placeholder="URL of image to edit (or use generated image above)">
+        </div>
+        <div class="form-group">
+          <label for="editOutput">Save to</label>
+          <input type="text" id="editOutput" placeholder="characters/amelia/neutral_v2.png">
+        </div>
+        <button class="btn btn-primary" id="btnEditImage">Edit Image</button>
+      </details>
+    </section>
+
+    <!-- ===== BATCH TAB ===== -->
+    <section class="tab-panel" id="tab-batch">
+      <header class="panel-header">
+        <h2>Batch Processing</h2>
+        <p>Import a CSV to process multiple voice &amp; image jobs at once</p>
+      </header>
+
+      <div class="batch-controls">
+        <div class="form-row">
+          <div class="upload-area batch-upload" id="csvUploadArea">
+            <input type="file" id="csvFileInput" accept=".csv" hidden>
+            <span id="csvUploadLabel">Click or drag CSV file here</span>
+          </div>
+          <button class="btn btn-secondary" id="btnDownloadTemplate">Download Template</button>
+        </div>
+      </div>
+
+      <div class="batch-preview" id="batchPreview" hidden>
+        <div class="batch-header">
+          <h3><span id="batchCount">0</span> rows loaded</h3>
+          <div class="form-row">
+            <button class="btn btn-primary" id="btnRunBatch">Run Batch</button>
+            <button class="btn btn-secondary" id="btnClearBatch">Clear</button>
+          </div>
+        </div>
+
+        <div class="batch-table-wrap">
+          <table class="batch-table" id="batchTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Prompt</th>
+                <th>Output</th>
+                <th>Model/Voice</th>
+                <th>Size</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="batchTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="batch-progress" id="batchProgress" hidden>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-text" id="progressText">0 / 0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROMPTS TAB ===== -->
+    <section class="tab-panel" id="tab-prompts">
+      <header class="panel-header">
+        <h2>Prompt Packs</h2>
+        <p>Browse and copy prompts from the project prompt library</p>
+      </header>
+
+      <div class="prompts-layout">
+        <div class="prompts-list" id="promptsList"></div>
+        <div class="prompts-content">
+          <div id="promptViewer" class="prompt-viewer">
+            <p class="placeholder-text">Select a prompt pack from the left</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loadingOverlay" hidden>
+    <div class="spinner"></div>
+    <p id="loadingText">Processing...</p>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/voice.js"></script>
+  <script src="js/images.js"></script>
+  <script src="js/batch.js"></script>
+</body>
+</html>
