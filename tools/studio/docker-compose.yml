@@ -11,7 +11,9 @@ services:
       - ../../Amelia_V2/prompts:/data/prompts
       - ../../Amelia_V2/game:/data/game
       # Persist generated outputs
-      - ./output:/data/output
+      - ./output:/app/output
+      # SDXL server log (from host) for status panel
+      - ../sdxl_server.log:/data/sdxl_server.log:ro
     env_file:
       - .env
     environment:

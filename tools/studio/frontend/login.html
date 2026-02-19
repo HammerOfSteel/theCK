@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amelia Studio — Login</title>
+  <style>
+    :root {
+      --bg-dark: #0d1117;
+      --bg-panel: #161b22;
+      --bg-input: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-dim: #8b949e;
+      --accent: #c9a84c;
+      --accent-hover: #d4b85c;
+      --accent-dim: rgba(201, 168, 76, 0.15);
+      --danger: #f85149;
+      --success: #3fb950;
+      --radius: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .login-container {
+      width: 380px;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo h1 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .login-logo h1 span {
+      color: var(--accent);
+    }
+
+    .login-logo p {
+      color: var(--text-dim);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .login-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .tab-row {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin: -28px -28px 24px -28px;
+      padding: 0;
+    }
+
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 14px;
+      padding: 14px 0;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+    }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text-dim);
+    }
+
+    .form-group input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--accent);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: var(--radius);
+      padding: 11px 0;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .msg {
+      margin-top: 12px;
+      font-size: 13px;
+      text-align: center;
+      min-height: 20px;
+    }
+
+    .msg.error { color: var(--danger); }
+    .msg.ok { color: var(--success); }
+
+    .form-panel { display: none; }
+    .form-panel.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-logo">
+      <h1>Amelia <span>Studio</span></h1>
+      <p>Creative tools for The CK</p>
+    </div>
+
+    <div class="login-card">
+      <div class="tab-row">
+        <button class="tab-btn active" data-panel="login">Sign In</button>
+        <button class="tab-btn" data-panel="register">Create Account</button>
+      </div>
+
+      <!-- Sign In -->
+      <div class="form-panel active" id="panel-login">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginUser">Username</label>
+            <input id="loginUser" type="text" autocomplete="username" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPass">Password</label>
+            <input id="loginPass" type="password" autocomplete="current-password" required>
+          </div>
+          <button class="submit-btn" type="submit">Sign In</button>
+        </form>
+        <div class="msg" id="loginMsg"></div>
+      </div>
+
+      <!-- Register -->
+      <div class="form-panel" id="panel-register">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="regUser">Username</label>
+            <input id="regUser" type="text" autocomplete="username" required minlength="2">
+          </div>
+          <div class="form-group">
+            <label for="regPass">Password</label>
+            <input id="regPass" type="password" autocomplete="new-password" required minlength="4">
+          </div>
+          <div class="form-group">
+            <label for="regPass2">Confirm Password</label>
+            <input id="regPass2" type="password" autocomplete="new-password" required minlength="4">
+          </div>
+          <button class="submit-btn" type="submit">Create Account</button>
+        </form>
+        <div class="msg" id="regMsg"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+      });
+    });
+
+    // Login
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('loginMsg');
+      const btn = e.target.querySelector('.submit-btn');
+      msg.textContent = '';
+      msg.className = 'msg';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('loginUser').value,
+            password: document.getElementById('loginPass').value,
+          }),
+        });
+        const data = await res.json();
+        if (data.ok) {
+          msg.textContent = 'Welcome, ' + data.user.username + '!';
+          msg.className = 'msg ok';
+          setTimeout(() => { window.location.href = '/'; }, 400);
+        } else {
+          msg.textContent = data.error || 'Login failed';
+          msg.className = 'msg error';
+        }
+      } catch (err) {
+        msg.textContent = 'Network error';
+        msg.className = 'msg error';
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // Register
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('regMsg');
+      const btn = e.target.querySelector('.submit-btn');
+      msg.textContent = '';
+      msg.className = 'msg';
+
+      const pass = document.getElementById('regPass').value;
+      const pass2 = document.getElementById('regPass2').value;
+      if (pass !== pass2) {
+        msg.textContent = 'Passwords do not match';
+        msg.className = 'msg error';
+        return;
+      }
+
+      btn.disabled = true;
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('regUser').value,
+            password: pass,
+          }),
+        });
+        const data = await res.json();
+        if (data.ok) {
+          msg.textContent = 'Account created! You can now sign in.';
+          msg.className = 'msg ok';
+          // Switch to login tab
+          setTimeout(() => {
+            document.querySelector('.tab-btn[data-panel="login"]').click();
+          }, 1200);
+        } else {
+          msg.textContent = data.error || 'Registration failed';
+          msg.className = 'msg error';
+        }
+      } catch (err) {
+        msg.textContent = 'Network error';
+        msg.className = 'msg error';
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    // If already logged in, redirect to main app
+    fetch('/api/auth/me').then(r => r.json()).then(data => {
+      if (data.authenticated) window.location.href = '/';
+    }).catch(() => {});
+  </script>
+</body>
+</html>

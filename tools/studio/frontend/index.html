@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="app-wrapper">
   <!-- Sidebar -->
   <nav class="sidebar">
     <div class="sidebar-logo">
@@ -28,6 +29,10 @@
       <li data-tab="prompts">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         Prompts
+      </li>
+      <li data-tab="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
       </li>
     </ul>
     <div class="sidebar-status" id="serviceStatus">
@@ -393,7 +398,134 @@
       </div>
     </section>
 
+    <!-- ===== SETTINGS TAB ===== -->
+    <section class="tab-panel" id="tab-settings">
+      <header class="panel-header">
+        <h2>Settings</h2>
+        <p>Configure integrations, API keys, and preferences</p>
+      </header>
+
+      <div class="settings-layout">
+        <!-- Hardware Info -->
+        <div class="settings-section">
+          <h3>Hardware</h3>
+          <div class="settings-card" id="hardwareCard">
+            <div class="hw-loading">Detecting hardware...</div>
+          </div>
+        </div>
+
+        <!-- Image Generation -->
+        <div class="settings-section">
+          <h3>Image Generation</h3>
+          <div class="settings-card">
+            <div class="form-group">
+              <label for="cfgImageProvider">Provider</label>
+              <select id="cfgImageProvider">
+                <option value="sdxl_local">SDXL Local (CPU/GPU)</option>
+                <option value="fal_ai">fal.ai (Cloud)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cfgFalKey">fal.ai API Key</label>
+              <input id="cfgFalKey" type="password" placeholder="Enter your fal.ai API key">
+              <small class="form-hint">Required for cloud image generation. Get one at <a href="https://fal.ai" target="_blank">fal.ai</a></small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice / Music -->
+        <div class="settings-section">
+          <h3>Voice &amp; Music</h3>
+          <div class="settings-card">
+            <div class="form-group">
+              <label for="cfgVoiceProvider">Primary TTS Provider</label>
+              <select id="cfgVoiceProvider">
+                <option value="qwen">Qwen3-TTS (Local)</option>
+                <option value="kokoro">Kokoro TTS (Local)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cfgMusicProvider">Music Generation</label>
+              <select id="cfgMusicProvider">
+                <option value="none">None</option>
+                <option value="local">Local</option>
+                <option value="remote">Remote API</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connection Endpoints -->
+        <div class="settings-section">
+          <h3>Service Endpoints</h3>
+          <div class="settings-card">
+            <div class="form-group">
+              <label for="cfgSdxlHost">SDXL Server</label>
+              <input id="cfgSdxlHost" type="text" placeholder="http://host.docker.internal:7861">
+            </div>
+            <div class="form-group">
+              <label for="cfgQwenHost">Qwen3-TTS</label>
+              <input id="cfgQwenHost" type="text" placeholder="http://host.docker.internal:42003">
+            </div>
+            <div class="form-group">
+              <label for="cfgKokoroHost">Kokoro TTS</label>
+              <input id="cfgKokoroHost" type="text" placeholder="http://host.docker.internal:7860">
+            </div>
+          </div>
+        </div>
+
+        <!-- Account -->
+        <div class="settings-section">
+          <h3>Account</h3>
+          <div class="settings-card">
+            <p class="settings-user" id="settingsUser">Signed in as <strong>—</strong></p>
+            <button class="btn btn-secondary" id="btnLogout">Sign Out</button>
+          </div>
+        </div>
+
+        <div class="settings-actions">
+          <button class="btn btn-primary" id="btnSaveSettings">Save Settings</button>
+          <span class="settings-save-msg" id="settingsSaveMsg"></span>
+        </div>
+      </div>
+    </section>
+
   </main>
+  </div><!-- /.app-wrapper -->
+
+  <!-- ===== STATUS BAR (bottom) ===== -->
+  <div class="status-bar" id="statusBar">
+    <div class="status-bar-header" id="statusBarToggle">
+      <div class="status-bar-left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+        <span class="status-bar-title">Services</span>
+        <div class="status-bar-dots" id="statusBarDots"></div>
+      </div>
+      <div class="status-bar-right">
+        <span class="status-bar-summary" id="statusBarSummary"></span>
+        <svg class="status-bar-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </div>
+    </div>
+    <div class="status-bar-body" id="statusBarBody">
+      <div class="status-cards" id="statusCards"></div>
+      <div class="status-logs">
+        <div class="status-logs-header">
+          <h4>SDXL Server Log</h4>
+          <div class="status-logs-controls">
+            <label class="auto-scroll-label">
+              <input type="checkbox" id="logAutoScroll" checked> Auto-scroll
+            </label>
+            <button class="btn btn-small btn-secondary" id="btnRefreshLogs">Refresh</button>
+          </div>
+        </div>
+        <pre class="status-log-output" id="logOutput">Loading logs...</pre>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast notifications -->
   <div class="toast-container" id="toastContainer"></div>
@@ -408,5 +540,7 @@
   <script src="js/voice.js"></script>
   <script src="js/images.js"></script>
   <script src="js/batch.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/status.js"></script>
 </body>
 </html>

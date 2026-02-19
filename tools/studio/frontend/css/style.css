@@ -30,6 +30,13 @@ body {
   display: flex;
   height: 100vh;
   overflow: hidden;
+  flex-direction: column;
+}
+
+.app-wrapper {
+  display: flex;
+  flex: 1;
+  min-height: 0;
 }
 
 /* ---------- Sidebar ---------- */
@@ -835,4 +842,362 @@ input[type="range"]::-webkit-slider-thumb {
 .provider-tab.active {
   background: var(--accent);
   color: var(--bg-dark);
+}
+
+/* ---------- Status Bar (bottom) ---------- */
+
+.status-bar {
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 36px;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.status-bar.open {
+  max-height: 420px;
+}
+
+.status-bar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 16px;
+  cursor: pointer;
+  user-select: none;
+  min-height: 36px;
+}
+
+.status-bar-header:hover {
+  background: var(--bg-hover);
+}
+
+.status-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-bar-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-bar-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.sbar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-hint);
+  transition: background 0.3s;
+}
+
+.sbar-dot.ok { background: var(--success); }
+.sbar-dot.warn { background: #d29922; }
+.sbar-dot.err { background: var(--danger); }
+
+.status-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-bar-summary {
+  font-size: 11px;
+  color: var(--text-hint);
+}
+
+.status-bar-chevron {
+  color: var(--text-dim);
+  transition: transform 0.3s;
+}
+
+.status-bar.open .status-bar-chevron {
+  transform: rotate(180deg);
+}
+
+.status-bar-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 16px 12px;
+  overflow: hidden;
+}
+
+/* Service cards row */
+
+.status-cards {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg-input);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  min-width: 150px;
+}
+
+.status-card-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-hint);
+  flex-shrink: 0;
+}
+
+.status-card.ok .status-card-indicator { background: var(--success); }
+.status-card.warn .status-card-indicator { background: #d29922; }
+.status-card.err .status-card-indicator { background: var(--danger); }
+
+.status-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.status-card-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.status-card-detail {
+  font-size: 10px;
+  color: var(--text-hint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-card-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+
+.status-card.ok .status-card-badge {
+  background: rgba(63, 185, 80, 0.15);
+  color: var(--success);
+}
+
+.status-card.warn .status-card-badge {
+  background: rgba(210, 153, 34, 0.15);
+  color: #d29922;
+}
+
+.status-card.err .status-card-badge {
+  background: rgba(248, 81, 73, 0.12);
+  color: var(--danger);
+}
+
+/* Log viewer */
+
+.status-logs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.status-logs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.status-logs-header h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-logs-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auto-scroll-label {
+  font-size: 11px;
+  color: var(--text-hint);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.auto-scroll-label input {
+  accent-color: var(--accent);
+}
+
+.status-log-output {
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-dim);
+  overflow-y: auto;
+  max-height: 220px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ---------- Settings Tab ---------- */
+
+.settings-layout {
+  max-width: 680px;
+  padding-bottom: 40px;
+}
+
+.settings-section {
+  margin-bottom: 28px;
+}
+
+.settings-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.settings-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.settings-card .form-group {
+  margin-bottom: 14px;
+}
+
+.settings-card .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-card select,
+.settings-card input[type="text"],
+.settings-card input[type="password"] {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.settings-card select:focus,
+.settings-card input:focus {
+  border-color: var(--accent);
+}
+
+.form-hint {
+  display: block;
+  font-size: 11px;
+  color: var(--text-hint);
+  margin-top: 4px;
+}
+
+.form-hint a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.form-hint a:hover {
+  text-decoration: underline;
+}
+
+/* Hardware rows */
+.hw-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.hw-row:last-of-type {
+  border-bottom: none;
+}
+
+.hw-label {
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.hw-value {
+  font-weight: 500;
+}
+
+.hw-recommendation {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 12px;
+  color: var(--accent);
+  line-height: 1.5;
+}
+
+.hw-loading {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+/* Account section */
+.settings-user {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.settings-user strong {
+  color: var(--text);
+}
+
+/* Save actions */
+.settings-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.settings-save-msg {
+  font-size: 13px;
 }

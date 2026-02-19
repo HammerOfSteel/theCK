@@ -1,5 +1,8 @@
 #!/bin/bash
 # Start Amelia Studio with all services (Studio UI + SDXL Server)
+# NOTE: For cross-platform support (Windows/Linux/macOS), prefer using:
+#   python start_studio.py
+# This bash script is kept for backwards compatibility on Linux/macOS.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SDXL_PID=""

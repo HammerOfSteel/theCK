@@ -1,0 +1,8 @@
+{
+  "platform": "Windows",
+  "cpu_count": 16,
+  "gpu_tier": "limited",
+  "cuda": false,
+  "mps": false,
+  "ram_total_gb": 15.6
+}

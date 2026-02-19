@@ -1,31 +1,24 @@
-/Users/terrygoleman/Documents/dev/theCK/tools/venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
-  warnings.warn(
-/Users/terrygoleman/Documents/dev/theCK/tools/venv/lib/python3.9/site-packages/torch/amp/autocast_mode.py:266: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
-  warnings.warn(
-/Users/terrygoleman/Documents/dev/theCK/tools/sdxl_img2img_server.py:74: DeprecationWarning: 
+C:\Users\eriks\Documents\dev\hammerofsteel\theCK\tools\venv\Lib\site-packages\diffusers\models\transformers\transformer_kandinsky.py:168: UserWarning: CUDA is not available or torch_xla is imported. Disabling autocast.
+  @torch.autocast(device_type="cuda", dtype=torch.float32)
+C:\Users\eriks\Documents\dev\hammerofsteel\theCK\tools\venv\Lib\site-packages\diffusers\models\transformers\transformer_kandinsky.py:272: UserWarning: CUDA is not available or torch_xla is imported. Disabling autocast.
+  @torch.autocast(device_type="cuda", dtype=torch.float32)
+C:\Users\eriks\Documents\dev\hammerofsteel\theCK\tools\sdxl_img2img_server.py:74: DeprecationWarning: 
         on_event is deprecated, use lifespan event handlers instead.
 
         Read more about it in the
         [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
         
   @app.on_event("startup")
-2026-02-18 21:58:11,296 INFO Starting SDXL Img2Img Server on http://127.0.0.1:7861
-2026-02-18 21:58:11,296 INFO This may take a few minutes to load the model...
-INFO:     Started server process [76793]
+2026-02-19 12:33:34,310 INFO Starting SDXL Img2Img Server on http://0.0.0.0:7861
+2026-02-19 12:33:34,310 INFO This may take a few minutes to load the model...
+INFO:     Started server process [24220]
 INFO:     Waiting for application startup.
-2026-02-18 21:58:11,305 INFO Loading SDXL img2img pipeline...
-2026-02-18 21:58:11,305 INFO Using device: cpu
-Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
-Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00, 18.35it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:00<00:00, 12.76it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:00<00:00, 14.44it/s]
-2026-02-18 21:58:12,231 INFO Pipeline loaded successfully
-INFO:     Application startup complete.
-INFO:     Uvicorn running on http://127.0.0.1:7861 (Press CTRL+C to quit)
-INFO:     127.0.0.1:50300 - "GET /health HTTP/1.1" 200 OK
-INFO:     127.0.0.1:50964 - "GET /health HTTP/1.1" 200 OK
-INFO:     127.0.0.1:55500 - "GET /health HTTP/1.1" 200 OK
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:     Application shutdown complete.
-INFO:     Finished server process [76793]
-/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
+2026-02-19 12:33:34,325 INFO Loading SDXL img2img pipeline...
+2026-02-19 12:33:34,325 INFO Using device: cpu
+2026-02-19 12:33:34,915 INFO HTTP Request: GET https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0 "HTTP/1.1 200 OK"
+2026-02-19 12:33:35,278 INFO HTTP Request: HEAD https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/model_index.json "HTTP/1.1 307 Temporary Redirect"
+2026-02-19 12:33:35,321 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/stabilityai/stable-diffusion-xl-base-1.0/462165984030d82259a11f4367a4eed129e94a7b/model_index.json "HTTP/1.1 200 OK"
+2026-02-19 12:33:35,497 INFO HTTP Request: GET https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0/revision/main "HTTP/1.1 200 OK"
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]2026-02-19 12:33:35,678 INFO HTTP Request: HEAD https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/text_encoder_2/model.safetensors "HTTP/1.1 302 Found"
+2026-02-19 12:33:35,775 INFO HTTP Request: HEAD https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/vae/diffusion_pytorch_model.safetensors "HTTP/1.1 302 Found"
+2026-02-19 12:33:35,778 INFO HTTP Request: HEAD https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/unet/diffusion_pytorch_model.safetensors "HTTP/1.1 302 Found"

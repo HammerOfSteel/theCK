@@ -83,8 +83,51 @@ async def startup():
 
 @app.get("/health")
 async def health_check():
-    """Health check endpoint."""
-    return {"status": "healthy", "model": "sdxl-img2img"}
+    """Health check endpoint with hardware info."""
+    import platform
+    import psutil
+
+    hw = {
+        "platform": platform.system(),
+        "machine": platform.machine(),
+        "processor": platform.processor() or "unknown",
+        "cpu_count": psutil.cpu_count(logical=True),
+        "ram_total_gb": round(psutil.virtual_memory().total / (1024**3), 1),
+        "ram_available_gb": round(psutil.virtual_memory().available / (1024**3), 1),
+    }
+
+    # CUDA / GPU detection
+    hw["cuda_available"] = torch.cuda.is_available()
+    if torch.cuda.is_available():
+        hw["gpu_name"] = torch.cuda.get_device_name(0)
+        hw["gpu_vram_gb"] = round(torch.cuda.get_device_properties(0).total_mem / (1024**3), 1)
+        hw["gpu_count"] = torch.cuda.device_count()
+    else:
+        hw["gpu_name"] = None
+        hw["gpu_vram_gb"] = 0
+        hw["gpu_count"] = 0
+
+    # Check for Apple MPS
+    hw["mps_available"] = hasattr(torch.backends, "mps") and torch.backends.mps.is_available()
+
+    # Current device used by the pipeline
+    hw["active_device"] = str(pipe.device) if pipe else "not loaded"
+
+    # GPU recommendation
+    if hw["cuda_available"]:
+        hw["gpu_tier"] = "good"
+        hw["recommendation"] = f"CUDA GPU detected ({hw['gpu_name']}). Local SDXL runs well."
+    elif hw["mps_available"]:
+        hw["gpu_tier"] = "fair"
+        hw["recommendation"] = "Apple MPS detected. Local SDXL works but may be slow."
+    elif hw["ram_total_gb"] >= 12:
+        hw["gpu_tier"] = "cpu_only"
+        hw["recommendation"] = "No GPU acceleration. SDXL runs on CPU (very slow). Consider fal.ai for images."
+    else:
+        hw["gpu_tier"] = "limited"
+        hw["recommendation"] = "No GPU and limited RAM. Use fal.ai (cloud) for image generation."
+
+    return {"status": "healthy", "model": "sdxl-img2img", "hardware": hw}
 
 
 @app.post("/img2img", response_model=Img2ImgResponse)
@@ -129,6 +172,6 @@ async def generate_img2img(req: Img2ImgRequest):
 
 
 if __name__ == "__main__":
-    logger.info("Starting SDXL Img2Img Server on http://127.0.0.1:7861")
+    logger.info("Starting SDXL Img2Img Server on http://0.0.0.0:7861")
     logger.info("This may take a few minutes to load the model...")
-    uvicorn.run(app, host="127.0.0.1", port=7861)
+    uvicorn.run(app, host="0.0.0.0", port=7861)
