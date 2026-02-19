@@ -55,6 +55,14 @@ Complete creative tools for generating voice and art assets for The CK visual no
 
 ---
 
+## Hardware Detection & Info Display
+
+- **Automatic Hardware Detection:** On every Studio launch, your system's hardware (CPU, RAM, GPU tier, CUDA/MPS support) is detected and written to `/output/hardware.json`.
+- **Always Available in UI:** The Studio UI reads hardware info directly from this file, so hardware details are always visible—even if the SDXL server or backend services are down.
+- **No Dependency on SDXL:** Hardware info is decoupled from SDXL/image generation. It is available as soon as the Studio starts.
+
+---
+
 ## Voice Generation Guide
 
 ### Using Qwen3-TTS with Character Voices

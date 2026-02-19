@@ -20,6 +20,7 @@ cd tools
 - ✅ **fal.ai Integration** — External API for additional models
 - ✅ **Batch CSV Processing** — Bulk voice & image generation
 - ✅ **Auto File Organization** — Saves to correct game directories
+- ✅ **Robust Hardware Info** — Hardware details (CPU, RAM, GPU, etc.) are always shown in the Studio UI, read directly from `/output/hardware.json` at startup—independent of SDXL or backend status.
 
 **Documentation:** [STUDIO_GUIDE.md](./STUDIO_GUIDE.md)  
 **Enhancement Summary:** [ENHANCEMENT_SUMMARY.md](./ENHANCEMENT_SUMMARY.md)

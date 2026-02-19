@@ -30,7 +30,7 @@ The game tracks six dimensions of Amelia's growth — Academic Achievement, Soci
 | **3.5 — Audio** | Ambient tracks, SFX, song conversion | 🔧 In progress |
 | **3.5 — Writing polish** | Dialogue, pacing, voice audit, sensitivity review | 📝 Not started |
 | **3.9 — Art generation** | Character sprites, backgrounds, CGs, UI art | 📝 Not started |
-| **3.9 — Creative tooling** | Amelia Studio: Docker web app for voice gen (Kokoro TTS) + image gen (fal.ai Flux) + batch CSV processing | ✅ Complete |
+| **3.9 — Creative tooling** | Amelia Studio: Docker web app for voice gen (Kokoro TTS) + image gen (fal.ai Flux) + batch CSV processing<br>**Now with robust hardware info:** Hardware details (CPU, RAM, GPU, etc.) are always shown in the Studio UI, read directly from `/output/hardware.json` at startup—independent of SDXL or backend status. | ✅ Complete |
 | **4 — Polish & release** | Playtesting, balance, proofreading, accessibility, builds | 📝 Not started |
 
 ### Deployment
