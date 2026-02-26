@@ -35,17 +35,75 @@ init -1:
                 )
             )
 
+        def smart_music(filepath, chapter=None):
+            """
+            Load music file if it exists, otherwise return None (silence).
+            Supports fallback loading from chapter defaults.
+            """
+            import os
+            
+            full_path = os.path.join(config.gamedir, filepath)
+            
+            # Try exact path first
+            if os.path.exists(full_path):
+                return filepath
+            
+            # Try chapter fallback (if chapter specified)
+            if chapter:
+                fallback_path = filepath.replace(f"ch{chapter}_", "chapter_fallback_")
+                fallback_full = os.path.join(config.gamedir, fallback_path)
+                if os.path.exists(fallback_full):
+                    return fallback_path
+            
+            # File not found - return None (silent)
+            renpy.notify("⚠ Audio missing: " + filepath)
+            return None
+
+        def smart_sound(filepath):
+            """
+            Load sound effect if it exists, otherwise return None (silence).
+            """
+            import os
+            
+            full_path = os.path.join(config.gamedir, filepath)
+            if os.path.exists(full_path):
+                return filepath
+            
+            return None
+
+        def asset_exists(asset_type, filename):
+            """
+            Check if an asset file exists in the expected location.
+            asset_type: 'bg', 'music', 'sound', 'voice', 'sprite', 'cg'
+            """
+            import os
+            
+            paths = {
+                'bg': "images/bg/",
+                'music': "audio/music/",
+                'sound': "audio/sfx/",
+                'voice': "audio/narrator/",
+                'sprite': "images/characters/",
+                'cg': "images/cg/",
+            }
+            
+            if asset_type not in paths:
+                return False
+            
+            full_path = os.path.join(config.gamedir, paths[asset_type], filename)
+            return os.path.exists(full_path)
+
     ###########################################################################
     ## LONDON BACKGROUNDS (Nigredo — #3D2B1F warm umber)
     ###########################################################################
 
-    image bg_james_kitchen_evening = placeholder_bg("James Kitchen — Evening", "#3D2B1F")
-    image bg_amelia_bedroom_night  = placeholder_bg("Amelia's Bedroom — Night", "#3D2B1F")
-    image bg_amelia_bedroom_dark   = placeholder_bg("Amelia's Bedroom — Dark", "#2A1D14")
-    image bg_park_bench_sunset     = placeholder_bg("Park Bench — Sunset", "#5C3A1E")
+    image bg_james_kitchen_evening = Transform("images/bg/bg_james_kitchen_evening.png", xysize=(1920, 1080))
+    image bg_amelia_bedroom_night  = Transform("images/bg/bg_amelia_bedroom_night.png", xysize=(1920, 1080))
+    image bg_amelia_bedroom_dark   = Transform("images/bg/bg_amelia_bedroom_dark.jpeg", xysize=(1920, 1080))
+    image bg_park_bench_sunset     = Transform("images/bg/bg_park_bench_sunset.png", xysize=(1920, 1080))
     image bg_bookshop              = placeholder_bg("Bookshop", "#3D2B1F")
-    image bg_bookshop_interior     = placeholder_bg("Bookshop Interior", "#3D2B1F")
-    image bg_thames_night          = placeholder_bg("Thames — Night", "#1A1A2E")
+    image bg_bookshop_interior     = Transform("images/bg/bg_bookshop_interior.png", xysize=(1920, 1080))
+    image bg_thames_night          = Transform("images/bg/bg_thames_night.jpg", xysize=(1920, 1080))
     image bg_thames                = placeholder_bg("Thames — Day", "#3D4F5F")
     image bg_james_house_morning   = placeholder_bg("James House — Morning", "#5C4A3A")
     image bg_london_cafe           = placeholder_bg("London Café", "#4A3A2A")

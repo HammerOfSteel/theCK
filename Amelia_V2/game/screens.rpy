@@ -91,7 +91,7 @@ screen say(who, what):
 
     window:
         id "window"
-
+        
         if who is not None:
             window:
                 id "namebox"
@@ -113,32 +113,40 @@ style namebox is default
 style namebox_label is say_label
 
 style window:
-    xalign 0.5
-    xfill True
+    xpos 20
+    xanchor 0.0
+    xsize 1080
     yalign gui.textbox_yalign
     ysize gui.textbox_height
-    background Frame("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Frame("gui/textbox.png", xalign=0.0, yalign=1.0)
+    padding (40, 30, 40, 30)
 
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile)
-    padding gui.namebox_borders.padding
+    xpos 0
+    xanchor 0.0
+    xsize 300
+    ypos -45
+    yanchor 1.0
+    ysize 35
+    background None
+    padding (0, 0, 0, 0)
+
+style namebox_label:
+    size 20
+    color "#ffffff"
+    font "gui/fonts/DejaVuSans-Bold.ttf"
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
+    xalign 0.0
     yalign 0.5
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
-    xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
-    ypos gui.dialogue_ypos
-    text_align gui.dialogue_text_xalign
+    xpos 0
+    xsize 1000
+    ypos 0
+    text_align 0.0
     layout ("subtitle" if gui.dialogue_text_xalign else "tex")
 
 ################################################################################

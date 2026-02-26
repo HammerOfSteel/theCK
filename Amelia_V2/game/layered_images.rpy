@@ -44,48 +44,43 @@ init -1:
     ## show amelia [expression] [outfit]
 
     layeredimage amelia:
-        always:
-            Solid("#D4A57411", xysize=(700, 1400))
+        xpos 1420
+        yalign 1.0
+        xysize (500, 688)
 
         group outfit:
             attribute casual_autumn default:
-                _sprite_placeholder("Amelia", "casual autumn", "#D4A574")
-            attribute going_out:
-                _sprite_placeholder("Amelia", "going out", "#D4A574")
+                Null()
             attribute home_tired:
-                _sprite_placeholder("Amelia", "home tired", "#D4A574")
-            attribute academic:
-                _sprite_placeholder("Amelia", "academic", "#D4A574")
-            attribute crisis:
-                _sprite_placeholder("Amelia", "crisis", "#D4A574")
-            attribute summer:
-                _sprite_placeholder("Amelia", "summer", "#D4A574")
+                Null()
+            attribute going_out:
+                Null()
 
         group expression:
             attribute neutral default:
-                _sprite_placeholder("", "neutral", "#00000000")
+                Image("images/characters/amelia/neutral.png", xysize=(500, 688))
             attribute happy:
-                _sprite_placeholder("", "happy", "#00000000")
+                Image("images/characters/amelia/happy.png", xysize=(500, 688))
             attribute sad:
-                _sprite_placeholder("", "sad", "#00000000")
+                Image("images/characters/amelia/sad.png", xysize=(500, 688))
             attribute angry:
-                _sprite_placeholder("", "angry", "#00000000")
+                Image("images/characters/amelia/angry.png", xysize=(500, 688))
             attribute surprised:
-                _sprite_placeholder("", "surprised", "#00000000")
+                Image("images/characters/amelia/surprised.png", xysize=(500, 688))
             attribute thinking:
-                _sprite_placeholder("", "thinking", "#00000000")
+                Image("images/characters/amelia/thinking.png", xysize=(500, 688))
             attribute worried:
-                _sprite_placeholder("", "worried", "#00000000")
+                Image("images/characters/amelia/worried.png", xysize=(500, 688))
             attribute laughing:
-                _sprite_placeholder("", "laughing", "#00000000")
+                Image("images/characters/amelia/laughing.png", xysize=(500, 688))
             attribute anxious:
-                _sprite_placeholder("", "anxious", "#00000000")
+                Image("images/characters/amelia/anxious.png", xysize=(500, 688))
             attribute determined:
-                _sprite_placeholder("", "determined", "#00000000")
+                Image("images/characters/amelia/determined.png", xysize=(500, 688))
             attribute tearful:
-                _sprite_placeholder("", "tearful", "#00000000")
+                Image("images/characters/amelia/tearful.png", xysize=(500, 688))
             attribute peaceful:
-                _sprite_placeholder("", "peaceful", "#00000000")
+                Image("images/characters/amelia/peaceful.png", xysize=(500, 688))
 
     ############################################################################
     ## SARAH WHITMORE

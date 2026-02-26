@@ -56,7 +56,7 @@ define gui.interface_text_font = "DejaVuSans.ttf"
 define config.screen_width = 1920
 define config.screen_height = 1080
 
-define gui.text_size = 28
+define gui.text_size = 24
 define gui.name_text_size = 32
 define gui.interface_text_size = 28
 define gui.label_text_size = 36

@@ -32,9 +32,11 @@ label chapter_1:
     ## Late September. A park in Bromley. The last gold of summer.
     ## -----------------------------------------------------------------------
 
-    # play music "audio/ch1_park.ogg" fadein 2.0 volume 0.6
+    play music smart_music("audio/ch1_park.ogg", chapter=1) fadein 2.0 volume 0.6
     scene bg_park_bench_sunset
     with dissolve
+    show amelia thinking casual_autumn
+    with fade
 
     voice "audio/narrator/chapter_1/line_001_L38.ogg"
     "Late September. The kind of afternoon where the light turns everything to amber and you know — without anyone saying it — that summer is ending."
@@ -56,6 +58,8 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_005_L50.ogg"
     "She turns a page. Reads the same paragraph for the third time. Absorbs nothing."
+    show amelia peaceful casual_autumn
+    with dissolve
 
     voice "audio/narrator/chapter_1/line_006_L52.ogg"
     "The trees in the park are just beginning to turn. Green-gold, like old coins."
@@ -266,7 +270,7 @@ label chapter_1:
     scene bg_james_kitchen_evening
     with dissolve
 
-    # play music "audio/ch1_home.ogg" fadein 2.0 volume 0.5
+    play music smart_music("audio/ch1_home.ogg", chapter=1) fadein 2.0 volume 0.5
 
     voice "audio/narrator/chapter_1/line_015_L208.ogg"
     "The kitchen smells of ackee and saltfish and garlic and the particular warmth of a house where someone has been cooking for hours with love and mild anxiety."
@@ -315,6 +319,8 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_022_L238.ogg"
     "Grace looks at Amelia. Lily looks at her phone under the table. David looks at his hands."
+    show amelia thinking home_tired
+    with dissolve
 
     ## CHOICE 1.3 — What Amelia expects from university
     menu:
@@ -434,6 +440,8 @@ label chapter_1:
 
     scene bg_amelia_bedroom_night
     with dissolve
+    show amelia anxious home_tired
+    with fade
 
     voice "audio/narrator/chapter_1/line_025_L329.ogg"
     "Her room is in that strange half-state between lived-in and left. Posters still on the walls — Florence and the Machine, a film print of {i}Spirited Away{/i}, a dog-eared map of London she's been annotating since Year 9. Her books are in boxes. The shelves look like missing teeth."
@@ -446,6 +454,8 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_027_L335.ogg"
     "She pauses. She's forgotten to pack the fairy lights. She unpins them from the wall and the room immediately looks less like hers."
+    show amelia determined home_tired
+    with dissolve
 
     voice "audio/narrator/chapter_1/line_114.ogg"
     thought "Right. One more thing. There's space for one more thing."
@@ -532,7 +542,7 @@ label chapter_1:
     scene bg_bookshop_interior
     with dissolve
 
-    # play music "audio/ch1_bookshop.ogg" fadein 2.0 volume 0.5
+    play music smart_music("audio/ch1_bookshop.ogg", chapter=1) fadein 2.0 volume 0.5
 
     voice "audio/narrator/chapter_1/line_032_L406.ogg"
     "The bell above the door makes a sound that hasn't changed in ten years. The carpet is worn thin in a path from the entrance to the till. The shelves lean slightly — not dangerously, just eccentrically, like the whole building is eavesdropping."
@@ -587,13 +597,16 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_037_L440.ogg"
     "She does. The shop smells of old paper and wood polish and the faint ghost of pipe tobacco that Mr. Osei swears he gave up years ago."
+    show amelia peaceful going_out
+    with dissolve
 
     voice "audio/narrator/chapter_1/line_038_L442.ogg"
     "She wanders between the shelves. Self-help (she avoids). Fiction (she considers). History. Science. Philosophy."
 
     voice "audio/narrator/chapter_1/line_039_L444.ogg"
     "And in the back — the shelf she's always been a little curious about. Hand-painted label: {b}ESOTERICA{/b}."
-
+    show amelia surprised going_out
+    with dissolve
     ## CHOICE 1.5 — Which book?
     menu:
         "She stops. Three books catch her eye."
@@ -722,7 +735,7 @@ label chapter_1:
     scene bg_thames_night
     with dissolve
 
-    # play music "audio/ch1_thames.ogg" fadein 3.0 volume 0.5
+    play music smart_music("audio/ch1_thames.ogg", chapter=1) fadein 3.0 volume 0.5
 
     voice "audio/narrator/chapter_1/line_042_L545.ogg"
     "She walks along the South Bank because she needs to walk and she needs to be near water and she doesn't know why."
@@ -741,6 +754,10 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_047_L555.ogg"
     "Below her, the river moves. It always moves. It doesn't care about her leaving."
+    show amelia anxious going_out
+    with dissolve
+    show amelia anxious going_out
+    with dissolve
 
     ## CHOICE 1.6 — What she thinks about
     menu:
@@ -777,7 +794,8 @@ label chapter_1:
 
             voice "audio/narrator/chapter_1/line_197.ogg"
             "Whether it's enough to keep warm through winter — she'll find out."
-
+            show amelia determined going_out
+            with dissolve
         "\"I'm terrified and I don't know if I can do this.\"":
             $ ch1_thames = "terrified"
             $ add_stat("stat_mh", 1)
@@ -845,6 +863,10 @@ label chapter_1:
 
             voice "audio/narrator/chapter_1/line_217.ogg"
             "She stands there until the cold gets too much. Then she walks home."
+            show amelia peaceful going_out
+            with dissolve
+            show amelia peaceful going_out
+            with dissolve
 
     # --- SONG SLIDESHOW: "Paper Planes" — Amelia's last London night ---
     call slideshow_ch1_paper_planes
@@ -856,6 +878,8 @@ label chapter_1:
 
     scene bg_amelia_bedroom_dark
     with dissolve
+    show amelia worried home_tired
+    with fade
 
     voice "audio/narrator/chapter_1/line_048_L643.ogg"
     "Midnight."
@@ -895,6 +919,10 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_057_L668.ogg"
     "She puts the phone down."
+    show amelia tearful home_tired
+    with dissolve
+    show amelia tearful home_tired
+    with dissolve
 
     voice "audio/narrator/chapter_1/line_230.ogg"
     thought "I won't forget you. How could I forget you? You're the realest thing I know."
@@ -904,6 +932,10 @@ label chapter_1:
 
     voice "audio/narrator/chapter_1/line_059_L674.ogg"
     "Sleep comes slowly, in pieces, like a tide coming in — retreating, returning, retreating again. She dozes and wakes and dozes. At some point, the house goes quiet."
+    show amelia peaceful home_tired
+    with dissolve
+    show amelia peaceful home_tired
+    with dissolve
 
     voice "audio/narrator/chapter_1/line_060_L676.ogg"
     "At some point, the night ends."
