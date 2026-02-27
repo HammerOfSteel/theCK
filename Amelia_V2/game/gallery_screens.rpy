@@ -46,7 +46,7 @@ init python:
 
         ("ella", "Ella Chen", "Childhood Best Friend",
          "18, English Lit at Queen Mary London. The golden thread to the ordinary world. She and Amelia have been friends since Year 3. Their friendship will be tested by distance.",
-         None),
+         "images/characters/ella/ella_anchor_image.png"),
 
         ("lucas", "Lucas Adeyemi", "The Quiet Thinker",
          "19, Psychology. Reads Jung, quotes Fanon, listens more than he speaks. He sees things in Amelia that she hasn't noticed yet. Represents the Animus archetype.",
@@ -252,7 +252,7 @@ translate None python:
          "images/characters/amelia/amelia_anchor_image.png"),
         ("ella", "Ella Chen", "Childhood Best Friend",
          "18, English Lit at Queen Mary London. The golden thread to the ordinary world. She and Amelia have been friends since Year 3. Their friendship will be tested by distance.",
-         None),
+         "images/characters/ella/ella_anchor_image.png"),
         ("lucas", "Lucas Adeyemi", "The Quiet Thinker",
          "19, Psychology. Reads Jung, quotes Fanon, listens more than he speaks. He sees things in Amelia that she hasn't noticed yet. Represents the Animus archetype.",
          None),
@@ -585,7 +585,7 @@ screen character_detail(char_index=0):
     $ _cd_tag, _cd_name, _cd_role, _cd_bio, _cd_portrait = _cd
     
     # Check if videos exist for this character
-    $ _has_videos = _cd_tag == "amelia"  # Only Amelia has videos for now
+    $ _has_videos = _cd_tag in ["amelia", "ella"]
 
     frame:
         xalign 0.5
@@ -757,91 +757,178 @@ screen character_detail(char_index=0):
 
                             null height 10
 
-                            # Video gallery grid - 3 columns
-                            grid 3 1:
-                                xalign 0.5
-                                spacing 30
-                                
-                                # Video 1
-                                frame:
-                                    xysize (350, 350)
-                                    background Frame(Solid("#0A0806"), 10, 10)
-                                    padding (10, 10, 10, 10)
+                            # Video gallery grid - 3 columns - dynamic based on character
+                            if _cd_tag == "amelia":
+                                grid 3 1:
+                                    xalign 0.5
+                                    spacing 30
                                     
-                                    button:
-                                        xysize (330, 330)
-                                        background None
-                                        action NullAction()
+                                    # Video 1
+                                    frame:
+                                        xysize (350, 350)
+                                        background Frame(Solid("#0A0806"), 10, 10)
+                                        padding (10, 10, 10, 10)
                                         
-                                        vbox:
-                                            spacing 10
-                                            xalign 0.5
-                                            yalign 0.5
-                                        
-                                            add Movie(play="images/characters/amelia/video/anchor_1.webm", 
-                                                     size=(330, 280), 
-                                                     loop=True):
+                                        button:
+                                            xysize (330, 330)
+                                            background None
+                                            action NullAction()
+                                            
+                                            vbox:
+                                                spacing 10
                                                 xalign 0.5
-                                                at video_hover_effect()
-                                        
-                                            text "Anchor 1":
-                                                size 18
-                                                color "#CCCCCC"
-                                                xalign 0.5
+                                                yalign 0.5
+                                            
+                                                add Movie(play="images/characters/amelia/video/anchor_1.webm", 
+                                                         size=(330, 280), 
+                                                         loop=True):
+                                                    xalign 0.5
+                                                    at video_hover_effect()
+                                            
+                                                text "Anchor 1":
+                                                    size 18
+                                                    color "#CCCCCC"
+                                                    xalign 0.5
 
-                                # Video 2
-                                frame:
-                                    xysize (350, 350)
-                                    background Frame(Solid("#0A0806"), 10, 10)
-                                    padding (10, 10, 10, 10)
-                                    
-                                    button:
-                                        xysize (330, 330)
-                                        background None
-                                        action NullAction()
+                                    # Video 2
+                                    frame:
+                                        xysize (350, 350)
+                                        background Frame(Solid("#0A0806"), 10, 10)
+                                        padding (10, 10, 10, 10)
                                         
-                                        vbox:
-                                            spacing 10
-                                            xalign 0.5
-                                            yalign 0.5
-                                        
-                                            add Movie(play="images/characters/amelia/video/anchor_2.webm", 
-                                                     size=(330, 280), 
-                                                     loop=True):
+                                        button:
+                                            xysize (330, 330)
+                                            background None
+                                            action NullAction()
+                                            
+                                            vbox:
+                                                spacing 10
                                                 xalign 0.5
-                                                at video_hover_effect()
-                                        
-                                            text "Anchor 2":
-                                                size 18
-                                                color "#CCCCCC"
-                                                xalign 0.5
+                                                yalign 0.5
+                                            
+                                                add Movie(play="images/characters/amelia/video/anchor_2.webm", 
+                                                         size=(330, 280), 
+                                                         loop=True):
+                                                    xalign 0.5
+                                                    at video_hover_effect()
+                                            
+                                                text "Anchor 2":
+                                                    size 18
+                                                    color "#CCCCCC"
+                                                    xalign 0.5
 
-                                # Video 3
-                                frame:
-                                    xysize (350, 350)
-                                    background Frame(Solid("#0A0806"), 10, 10)
-                                    padding (10, 10, 10, 10)
+                                    # Video 3
+                                    frame:
+                                        xysize (350, 350)
+                                        background Frame(Solid("#0A0806"), 10, 10)
+                                        padding (10, 10, 10, 10)
+                                        
+                                        button:
+                                            xysize (330, 330)
+                                            background None
+                                            action NullAction()
+                                            
+                                            vbox:
+                                                spacing 10
+                                                xalign 0.5
+                                                yalign 0.5
+                                            
+                                                add Movie(play="images/characters/amelia/video/anchor_3.webm", 
+                                                         size=(330, 280), 
+                                                         loop=True):
+                                                    xalign 0.5
+                                                    at video_hover_effect()
+                                            
+                                                text "Anchor 3":
+                                                    size 18
+                                                    color "#CCCCCC"
+                                                    xalign 0.5
+
+                            elif _cd_tag == "ella":
+                                grid 3 1:
+                                    xalign 0.5
+                                    spacing 30
                                     
-                                    button:
-                                        xysize (330, 330)
-                                        background None
-                                        action NullAction()
+                                    # Video 1
+                                    frame:
+                                        xysize (350, 350)
+                                        background Frame(Solid("#0A0806"), 10, 10)
+                                        padding (10, 10, 10, 10)
                                         
-                                        vbox:
-                                            spacing 10
-                                            xalign 0.5
-                                            yalign 0.5
-                                        
-                                            add Movie(play="images/characters/amelia/video/anchor_3.webm", 
-                                                     size=(330, 280), 
-                                                     loop=True):
+                                        button:
+                                            xysize (330, 330)
+                                            background None
+                                            action NullAction()
+                                            
+                                            vbox:
+                                                spacing 10
                                                 xalign 0.5
-                                                at video_hover_effect()
+                                                yalign 0.5
+                                            
+                                                add Movie(play="images/characters/ella/video/anchor_video_1.webm", 
+                                                         size=(330, 280), 
+                                                         loop=True):
+                                                    xalign 0.5
+                                                    at video_hover_effect()
+                                            
+                                                text "Anchor 1":
+                                                    size 18
+                                                    color "#CCCCCC"
+                                                    xalign 0.5
+
+                                    # Video 2
+                                    frame:
+                                        xysize (350, 350)
+                                        background Frame(Solid("#0A0806"), 10, 10)
+                                        padding (10, 10, 10, 10)
                                         
-                                            text "Anchor 3":
-                                                size 18
-                                                color "#CCCCCC"
+                                        button:
+                                            xysize (330, 330)
+                                            background None
+                                            action NullAction()
+                                            
+                                            vbox:
+                                                spacing 10
                                                 xalign 0.5
+                                                yalign 0.5
+                                            
+                                                add Movie(play="images/characters/ella/video/anchor_video_2.webm", 
+                                                         size=(330, 280), 
+                                                         loop=True):
+                                                    xalign 0.5
+                                                    at video_hover_effect()
+                                            
+                                                text "Anchor 2":
+                                                    size 18
+                                                    color "#CCCCCC"
+                                                    xalign 0.5
+
+                                    # Video 3
+                                    frame:
+                                        xysize (350, 350)
+                                        background Frame(Solid("#0A0806"), 10, 10)
+                                        padding (10, 10, 10, 10)
+                                        
+                                        button:
+                                            xysize (330, 330)
+                                            background None
+                                            action NullAction()
+                                            
+                                            vbox:
+                                                spacing 10
+                                                xalign 0.5
+                                                yalign 0.5
+                                            
+                                                add Movie(play="images/characters/ella/video/anchor_video_3.webm", 
+                                                         size=(330, 280), 
+                                                         loop=True):
+                                                    xalign 0.5
+                                                    at video_hover_effect()
+                                            
+                                                text "Anchor 3":
+                                                    size 18
+                                                    color "#CCCCCC"
+                                                    xalign 0.5
 
             ## Description section below portrait/videos
             frame:
