@@ -9,7 +9,13 @@
 ################################################################################
 
 init python:
-
+    
+    ## ── Platform detection for web optimization ───────────────────────
+    ## Reduce hover effects on web builds to improve performance
+    import sys
+    is_web = 'emscripten' in sys.platform.lower()
+    web_video_hover_zoom = 1.2 if is_web else 1.5  # Lighter zoom for web
+    
     ## ── Chapter completion tracking ─────────────────────────────────────
     ## A chapter is unlocked when the *previous* chapter has been completed.
     ## Chapter 1 is always unlocked.
@@ -379,6 +385,16 @@ translate None python:
         },
     }
 
+
+################################################################################
+## Transform Definitions — Video hover effects with web optimization
+################################################################################
+
+transform video_hover_effect():
+    on hover:
+        easein 0.2 zoom web_video_hover_zoom
+    on idle:
+        easein 0.2 zoom 1.0
 
 ################################################################################
 ## About Screen — Tabbed (Overview · Characters · World · Narrative)
@@ -766,11 +782,7 @@ screen character_detail(char_index=0):
                                                      size=(330, 280), 
                                                      loop=True):
                                                 xalign 0.5
-                                                at transform:
-                                                    on hover:
-                                                        easein 0.2 zoom 1.5
-                                                    on idle:
-                                                        easein 0.2 zoom 1.0
+                                                at video_hover_effect()
                                         
                                             text "Anchor 1":
                                                 size 18
@@ -797,11 +809,7 @@ screen character_detail(char_index=0):
                                                      size=(330, 280), 
                                                      loop=True):
                                                 xalign 0.5
-                                                at transform:
-                                                    on hover:
-                                                        easein 0.2 zoom 1.5
-                                                    on idle:
-                                                        easein 0.2 zoom 1.0
+                                                at video_hover_effect()
                                         
                                             text "Anchor 2":
                                                 size 18
@@ -828,11 +836,7 @@ screen character_detail(char_index=0):
                                                      size=(330, 280), 
                                                      loop=True):
                                                 xalign 0.5
-                                                at transform:
-                                                    on hover:
-                                                        easein 0.2 zoom 1.5
-                                                    on idle:
-                                                        easein 0.2 zoom 1.0
+                                                at video_hover_effect()
                                         
                                             text "Anchor 3":
                                                 size 18
