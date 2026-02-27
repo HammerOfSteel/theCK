@@ -13,6 +13,21 @@ init python:
     ## ── Chapter completion tracking ─────────────────────────────────────
     ## A chapter is unlocked when the *previous* chapter has been completed.
     ## Chapter 1 is always unlocked.
+    
+    ## ── Zoom/Pan helper functions ───────────────────────────────────────
+    def zoom_in_portrait(screen_name, current_zoom):
+        renpy.run(SetScreenVariable("zoom_level", min(3.0, current_zoom * 1.15), screen_name))
+    
+    def zoom_out_portrait(screen_name, current_zoom, current_pan_x, current_pan_y):
+        new_zoom = max(1.0, current_zoom / 1.15)
+        if new_zoom <= 1.0:
+            renpy.run([
+                SetScreenVariable("zoom_level", 1.0, screen_name),
+                SetScreenVariable("pan_x", 0, screen_name),
+                SetScreenVariable("pan_y", 0, screen_name)
+            ])
+        else:
+            renpy.run(SetScreenVariable("zoom_level", new_zoom, screen_name))
 
     ## ── Character Data ──────────────────────────────────────────────────
     ## (tag, display_name, role, short bio, portrait_image_or_None)
@@ -543,6 +558,10 @@ screen character_detail(char_index=0):
     modal True
     zorder 150
 
+    default zoom_level = 1.0
+    default pan_x = 0
+    default pan_y = 0
+
     add Solid("#00000099")
 
     $ _cd = _characters[char_index]
@@ -551,74 +570,157 @@ screen character_detail(char_index=0):
     frame:
         xalign 0.5
         yalign 0.5
-        xsize 800
-        ysize 500
-        background Solid("#1A1410EE")
-        padding (40, 30, 40, 30)
+        xsize 1300
+        ysize 1000
+        background Solid("#0A0806EE")
+        padding (0, 0, 0, 0)
 
         vbox:
-            spacing 15
+            spacing 0
 
-            hbox:
-                spacing 25
+            ## Name and role header section
+            frame:
+                xfill True
+                ysize 110
+                background Solid("#0A0806")
+                padding (50, 22, 50, 22)
 
-                ## Portrait
+                vbox:
+                    spacing 8
+                    xalign 0.5
+                    yalign 0.5
+
+                    text _cd_name:
+                        size 48
+                        color "#D4A574"
+                        bold True
+                        text_align 0.5
+                        xalign 0.5
+
+                    text _cd_role:
+                        size 24
+                        color "#E8C8A0"
+                        text_align 0.5
+                        xalign 0.5
+
+            ## Portrait section (zoomable and pannable)
+            frame:
+                xfill True
+                ysize 600
+                background Solid("#1A1410")
+                padding (350, 0, 0, 0)
+
+                ## Portrait with zoom/pan controls
                 if _cd_portrait and renpy.loadable(_cd_portrait):
-                    add _cd_portrait:
-                        size (180, 220)
-                        fit "cover"
-                        yalign 0.0
+                    viewport:
+                        id "portrait_vp"
+                        xysize (950, 600)
+                        xalign 0.5
+                        yalign 0.5
+                        draggable (zoom_level > 1.0)
+                        mousewheel "change"
+                        
+                        add _cd_portrait:
+                            fit "contain"
+                            xalign 0.5
+                            yalign 0.5
+                            zoom zoom_level
+                    
+                    # Zoom control buttons overlay
+                    hbox:
+                        xalign 0.97
+                        yalign 0.03
+                        spacing 10
+                        
+                        textbutton "+":
+                            text_size 28
+                            text_bold True
+                            xsize 50
+                            ysize 50
+                            action SetScreenVariable("zoom_level", min(3.0, zoom_level * 1.2))
+                            background Frame(Solid("#D4A574AA"), 5, 5)
+                            hover_background Frame(Solid("#D4A574"), 5, 5)
+                            text_color "#FFFFFF"
+                            text_hover_color "#000000"
+                            
+                        textbutton "−":
+                            text_size 32
+                            text_bold True
+                            xsize 50
+                            ysize 50
+                            action [
+                                If(zoom_level / 1.2 <= 1.0,
+                                    [SetScreenVariable("zoom_level", 1.0), SetScreenVariable("pan_x", 0), SetScreenVariable("pan_y", 0)],
+                                    SetScreenVariable("zoom_level", max(1.0, zoom_level / 1.2))
+                                )
+                            ]
+                            background Frame(Solid("#D4A574AA"), 5, 5)
+                            hover_background Frame(Solid("#D4A574"), 5, 5)
+                            text_color "#FFFFFF"
+                            text_hover_color "#000000"
+                    
+                    # Zoom info text overlay
+                    if zoom_level > 1.0:
+                        text "{size=16}{color=#FFFFFFCC}Drag to pan • [zoom_level:.1f]x{/color}{/size}":
+                            xalign 0.5
+                            ypos 8
+                            
                 else:
+                    ## Fallback placeholder
                     frame:
-                        xsize 180
-                        ysize 220
+                        xfill True
+                        yfill True
                         background Solid("#2A201A")
 
                         text _cd_tag[0].upper():
-                            size 72
+                            size 120
                             color "#D4A574"
                             xalign 0.5
                             yalign 0.5
 
-                ## Info
-                vbox:
-                    spacing 8
+            ## Description section below portrait
+            frame:
+                xfill True
+                ysize 210
+                background Solid("#1A1410")
+                padding (50, 25, 50, 25)
+
+                viewport:
+                    mousewheel True
+                    draggable True
                     xfill True
-
-                    text _cd_name:
-                        size 36
-                        color "#D4A574"
-                        bold True
-
-                    text _cd_role:
-                        size 20
-                        color "#E8C8A0"
-
-                    null height 5
+                    ysize 160
 
                     text _cd_bio:
-                        size 18
+                        size 21
                         color "#CCCCCC"
                         text_align 0.0
+                        xfill True
 
-            ## Navigation + close
-            hbox:
-                xalign 0.5
-                spacing 30
+            ## Navigation + close buttons at bottom
+            frame:
+                xfill True
+                ysize 80
+                background Solid("#0A0806")
+                padding (0, 20, 0, 20)
 
-                if char_index > 0:
-                    textbutton _("< Previous"):
-                        style "about_tab_btn"
-                        action SetScreenVariable("char_index", char_index - 1)
+                hbox:
+                    xalign 0.5
+                    spacing 30
 
-                textbutton _("Close"):
-                    style "gm_return_button"
-                    action Hide("character_detail")
+                    if char_index > 0:
+                        textbutton _("< Previous"):
+                            style "about_tab_btn"
+                            action SetScreenVariable("char_index", char_index - 1)
 
-                if char_index < len(_characters) - 1:
-                    textbutton _("Next >"):
-                        style "about_tab_btn"
-                        action SetScreenVariable("char_index", char_index + 1)
+                    textbutton _("Close"):
+                        style "gm_return_button"
+                        action Hide("character_detail")
+
+                    if char_index < len(_characters) - 1:
+                        textbutton _("Next >"):
+                            style "about_tab_btn"
+                            action SetScreenVariable("char_index", char_index + 1)
 
 
 ################################################################################
