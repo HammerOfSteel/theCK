@@ -561,11 +561,15 @@ screen character_detail(char_index=0):
     default zoom_level = 1.0
     default pan_x = 0
     default pan_y = 0
+    default active_tab = "portrait"
 
     add Solid("#00000099")
 
     $ _cd = _characters[char_index]
     $ _cd_tag, _cd_name, _cd_role, _cd_bio, _cd_portrait = _cd
+    
+    # Check if videos exist for this character
+    $ _has_videos = _cd_tag == "amelia"  # Only Amelia has videos for now
 
     frame:
         xalign 0.5
@@ -603,82 +607,245 @@ screen character_detail(char_index=0):
                         text_align 0.5
                         xalign 0.5
 
-            ## Portrait section (zoomable and pannable)
-            frame:
-                xfill True
-                ysize 600
-                background Solid("#1A1410")
-                padding (350, 0, 0, 0)
+            ## Tab buttons (only show if character has videos)
+            if _has_videos:
+                frame:
+                    xfill True
+                    ysize 60
+                    background Solid("#0A0806")
+                    padding (0, 10, 0, 10)
 
-                ## Portrait with zoom/pan controls
-                if _cd_portrait and renpy.loadable(_cd_portrait):
-                    viewport:
-                        id "portrait_vp"
-                        xysize (950, 600)
-                        xalign 0.5
-                        yalign 0.5
-                        draggable (zoom_level > 1.0)
-                        mousewheel "change"
-                        
-                        add _cd_portrait:
-                            fit "contain"
-                            xalign 0.5
-                            yalign 0.5
-                            zoom zoom_level
-                    
-                    # Zoom control buttons overlay
                     hbox:
-                        xalign 0.97
-                        yalign 0.03
-                        spacing 10
-                        
-                        textbutton "+":
-                            text_size 28
-                            text_bold True
-                            xsize 50
-                            ysize 50
-                            action SetScreenVariable("zoom_level", min(3.0, zoom_level * 1.2))
-                            background Frame(Solid("#D4A574AA"), 5, 5)
-                            hover_background Frame(Solid("#D4A574"), 5, 5)
-                            text_color "#FFFFFF"
-                            text_hover_color "#000000"
-                            
-                        textbutton "−":
-                            text_size 32
-                            text_bold True
-                            xsize 50
-                            ysize 50
-                            action [
-                                If(zoom_level / 1.2 <= 1.0,
-                                    [SetScreenVariable("zoom_level", 1.0), SetScreenVariable("pan_x", 0), SetScreenVariable("pan_y", 0)],
-                                    SetScreenVariable("zoom_level", max(1.0, zoom_level / 1.2))
-                                )
-                            ]
-                            background Frame(Solid("#D4A574AA"), 5, 5)
-                            hover_background Frame(Solid("#D4A574"), 5, 5)
-                            text_color "#FFFFFF"
-                            text_hover_color "#000000"
-                    
-                    # Zoom info text overlay
-                    if zoom_level > 1.0:
-                        text "{size=16}{color=#FFFFFFCC}Drag to pan • [zoom_level:.1f]x{/color}{/size}":
-                            xalign 0.5
-                            ypos 8
-                            
-                else:
-                    ## Fallback placeholder
-                    frame:
-                        xfill True
-                        yfill True
-                        background Solid("#2A201A")
+                        xalign 0.5
+                        spacing 15
 
-                        text _cd_tag[0].upper():
-                            size 120
-                            color "#D4A574"
+                        textbutton "Portrait":
+                            xsize 150
+                            ysize 40
+                            action SetScreenVariable("active_tab", "portrait")
+                            background Frame(Solid("#D4A574" if active_tab == "portrait" else "#1A1410"), 5, 5)
+                            hover_background Frame(Solid("#D4A574AA"), 5, 5)
+                            text_color "#FFFFFF"
+                            text_size 20
+                            text_xalign 0.5
+                            text_yalign 0.5
+
+                        textbutton "Videos":
+                            xsize 150
+                            ysize 40
+                            action SetScreenVariable("active_tab", "videos")
+                            background Frame(Solid("#D4A574" if active_tab == "videos" else "#1A1410"), 5, 5)
+                            hover_background Frame(Solid("#D4A574AA"), 5, 5)
+                            text_color "#FFFFFF"
+                            text_size 20
+                            text_xalign 0.5
+                            text_yalign 0.5
+
+            ## Content area (portrait or videos based on active tab)
+            if active_tab == "portrait":
+                ## Portrait section (zoomable and pannable)
+                frame:
+                    xfill True
+                    ysize (540 if _has_videos else 600)
+                    background Solid("#1A1410")
+                    padding (350, 0, 0, 0)
+
+                    ## Portrait with zoom/pan controls
+                    if _cd_portrait and renpy.loadable(_cd_portrait):
+                        viewport:
+                            id "portrait_vp"
+                            xysize (950, 540 if _has_videos else 600)
                             xalign 0.5
                             yalign 0.5
+                            draggable (zoom_level > 1.0)
+                            mousewheel "change"
+                            
+                            add _cd_portrait:
+                                fit "contain"
+                                xalign 0.5
+                                yalign 0.5
+                                zoom zoom_level
+                    
+                        # Zoom control buttons overlay
+                        hbox:
+                            xalign 0.97
+                            yalign 0.03
+                            spacing 10
+                            
+                            textbutton "+":
+                                text_size 28
+                                text_bold True
+                                xsize 50
+                                ysize 50
+                                action SetScreenVariable("zoom_level", min(3.0, zoom_level * 1.2))
+                                background Frame(Solid("#D4A574AA"), 5, 5)
+                                hover_background Frame(Solid("#D4A574"), 5, 5)
+                                text_color "#FFFFFF"
+                                text_hover_color "#000000"
+                                
+                            textbutton "−":
+                                text_size 32
+                                text_bold True
+                                xsize 50
+                                ysize 50
+                                action [
+                                    If(zoom_level / 1.2 <= 1.0,
+                                        [SetScreenVariable("zoom_level", 1.0), SetScreenVariable("pan_x", 0), SetScreenVariable("pan_y", 0)],
+                                        SetScreenVariable("zoom_level", max(1.0, zoom_level / 1.2))
+                                    )
+                                ]
+                                background Frame(Solid("#D4A574AA"), 5, 5)
+                                hover_background Frame(Solid("#D4A574"), 5, 5)
+                                text_color "#FFFFFF"
+                                text_hover_color "#000000"
+                        
+                        # Zoom info text overlay
+                        if zoom_level > 1.0:
+                            text "{size=16}{color=#FFFFFFCC}Drag to pan • [zoom_level:.1f]x{/color}{/size}":
+                                xalign 0.5
+                                ypos 8
+                            
+                    else:
+                        ## Fallback placeholder
+                        frame:
+                            xfill True
+                            yfill True
+                            background Solid("#2A201A")
 
-            ## Description section below portrait
+                            text _cd_tag[0].upper():
+                                size 120
+                                color "#D4A574"
+                                xalign 0.5
+                                yalign 0.5
+
+            else:
+                ## Videos gallery section
+                frame:
+                    xfill True
+                    ysize 540
+                    background Solid("#1A1410")
+                    padding (50, 50, 50, 50)
+
+                    viewport:
+                        mousewheel True
+                        draggable True
+                        xfill True
+                        ysize 440
+
+                        vbox:
+                            spacing 20
+                            xalign 0.5
+
+                            text "{size=24}{color=#D4A574}Character Videos{/color}{/size}":
+                                xalign 0.5
+
+                            null height 10
+
+                            # Video gallery grid - 3 columns
+                            grid 3 1:
+                                xalign 0.5
+                                spacing 30
+                                
+                                # Video 1
+                                frame:
+                                    xysize (350, 350)
+                                    background Frame(Solid("#0A0806"), 10, 10)
+                                    padding (10, 10, 10, 10)
+                                    
+                                    button:
+                                        xysize (330, 330)
+                                        background None
+                                        action NullAction()
+                                        
+                                        vbox:
+                                            spacing 10
+                                            xalign 0.5
+                                            yalign 0.5
+                                        
+                                            add Movie(play="images/characters/amelia/video/anchor_1.webm", 
+                                                     size=(330, 280), 
+                                                     loop=True,
+                                                     mask=None,
+                                                     start_image="images/characters/amelia/video/anchor_1.webm"):
+                                                xalign 0.5
+                                                at transform:
+                                                    on hover:
+                                                        easein 0.2 zoom 1.5
+                                                    on idle:
+                                                        easein 0.2 zoom 1.0
+                                        
+                                            text "Anchor 1":
+                                                size 18
+                                                color "#CCCCCC"
+                                                xalign 0.5
+
+                                # Video 2
+                                frame:
+                                    xysize (350, 350)
+                                    background Frame(Solid("#0A0806"), 10, 10)
+                                    padding (10, 10, 10, 10)
+                                    
+                                    button:
+                                        xysize (330, 330)
+                                        background None
+                                        action NullAction()
+                                        
+                                        vbox:
+                                            spacing 10
+                                            xalign 0.5
+                                            yalign 0.5
+                                        
+                                            add Movie(play="images/characters/amelia/video/anchor_2.webm", 
+                                                     size=(330, 280), 
+                                                     loop=True,
+                                                     mask=None,
+                                                     start_image="images/characters/amelia/video/anchor_2.webm"):
+                                                xalign 0.5
+                                                at transform:
+                                                    on hover:
+                                                        easein 0.2 zoom 1.5
+                                                    on idle:
+                                                        easein 0.2 zoom 1.0
+                                        
+                                            text "Anchor 2":
+                                                size 18
+                                                color "#CCCCCC"
+                                                xalign 0.5
+
+                                # Video 3
+                                frame:
+                                    xysize (350, 350)
+                                    background Frame(Solid("#0A0806"), 10, 10)
+                                    padding (10, 10, 10, 10)
+                                    
+                                    button:
+                                        xysize (330, 330)
+                                        background None
+                                        action NullAction()
+                                        
+                                        vbox:
+                                            spacing 10
+                                            xalign 0.5
+                                            yalign 0.5
+                                        
+                                            add Movie(play="images/characters/amelia/video/anchor_3.webm", 
+                                                     size=(330, 280), 
+                                                     loop=True,
+                                                     mask=None,
+                                                     start_image="images/characters/amelia/video/anchor_3.webm"):
+                                                xalign 0.5
+                                                at transform:
+                                                    on hover:
+                                                        easein 0.2 zoom 1.5
+                                                    on idle:
+                                                        easein 0.2 zoom 1.0
+                                        
+                                            text "Anchor 3":
+                                                size 18
+                                                color "#CCCCCC"
+                                                xalign 0.5
+
+            ## Description section below portrait/videos
             frame:
                 xfill True
                 ysize 210
