@@ -764,9 +764,7 @@ screen character_detail(char_index=0):
                                         
                                             add Movie(play="images/characters/amelia/video/anchor_1.webm", 
                                                      size=(330, 280), 
-                                                     loop=True,
-                                                     mask=None,
-                                                     start_image="images/characters/amelia/video/anchor_1.webm"):
+                                                     loop=True):
                                                 xalign 0.5
                                                 at transform:
                                                     on hover:
@@ -797,9 +795,7 @@ screen character_detail(char_index=0):
                                         
                                             add Movie(play="images/characters/amelia/video/anchor_2.webm", 
                                                      size=(330, 280), 
-                                                     loop=True,
-                                                     mask=None,
-                                                     start_image="images/characters/amelia/video/anchor_2.webm"):
+                                                     loop=True):
                                                 xalign 0.5
                                                 at transform:
                                                     on hover:
@@ -830,9 +826,7 @@ screen character_detail(char_index=0):
                                         
                                             add Movie(play="images/characters/amelia/video/anchor_3.webm", 
                                                      size=(330, 280), 
-                                                     loop=True,
-                                                     mask=None,
-                                                     start_image="images/characters/amelia/video/anchor_3.webm"):
+                                                     loop=True):
                                                 xalign 0.5
                                                 at transform:
                                                     on hover:
