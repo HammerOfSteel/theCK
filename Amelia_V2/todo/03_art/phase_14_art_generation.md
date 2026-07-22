@@ -1,9 +1,9 @@
 # Phase 14 — Art Generation (Sprites, Backgrounds, CG, UI)
 
 > **Deliberately one of the last stages before release.** Everything else must work on placeholders first.
-> Text should be locked (Phase 08) so art matches final scenes, and the procgen track (`02_procedural_generation/`)
-> should have had its chance to produce categories it can. This phase produces or finalises everything the
-> procgen engine did **not** deliver, plus final human QA on everything visual.
+> Text should be locked (Phase 08) so art matches final scenes, and the Amelia Studio track (`02_amelia_studio/`)
+> should have had its chance to generate the categories it can. This phase produces or finalises everything the
+> Studio did **not** deliver, plus final human QA on everything visual.
 >
 > Use the prompt packs in `prompts/`, the discipline in `design/art_direction.md`, and the sourcing guide in
 > `placeholder_guide.md`. Replace placeholder images one category at a time.
@@ -11,7 +11,7 @@
 ---
 
 ## 14.1 Source routing (decide per category)
-- [ ] **Procgen vs manual split** — For each category, mark whether it's supplied by the procgen engine
+- [ ] **Studio vs manual split** — For each category, mark whether it's supplied by Amelia Studio
       (Phase 13) or produced here manually / via AI prompting. Avoid double-work.
 
 ## 14.2 Character Sprites

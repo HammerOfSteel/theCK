@@ -23,7 +23,7 @@
 - [ ] **Store page copy** — Description, tags, content warnings, screenshots, trailer
 - [ ] **Capsule/marketing art** — Key art, thumbnails (can reuse Phase 14 CGs)
 - [ ] **Credits screen final** — Writing, art, music/songs, voices, tools, third-party licences
-- [ ] **Legal** — All asset licences/attributions cleared (art, audio, fonts, TTS voices, procgen outputs)
+- [ ] **Legal** — All asset licences/attributions cleared (art, audio, fonts, TTS voices, Studio-generated outputs)
 - [ ] **Privacy/EULA** — If any, included and linked
 
 ## 16.4 Release

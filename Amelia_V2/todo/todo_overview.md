@@ -6,8 +6,9 @@
 > **Two guiding principles:**
 > 1. **All art is deliberately late** — the game must be fully runnable on placeholders first; sprites,
 >    backgrounds, CG, and UI art are among the last things produced before release (Phase 14).
-> 2. **Procedural generation is a modular R&D track** — built with a strict engine/content split so the
->    core could one day power a different game / a standalone engine (see `02_procedural_generation/`).
+> 2. **Amelia Studio is a modular build track** — a local, automated VN asset studio (ComfyUI + VNCCS +
+>    Kokoro) behind our own UI, built with a strict Studio/content split so the tool could power a
+>    different visual novel one day (see `02_amelia_studio/`).
 
 ---
 
@@ -24,12 +25,11 @@ graph TD
         P7[07 Voice & Narration]
         P8[08 Writing Passes]
     end
-    subgraph "Procgen R&D (parallel)"
-        P9[09 Research]-->P10[10 Engine Core]
-        P10-->P11[11 Character Module]
-        P10-->P12[12 Environment Module]
-        P11-->P13[13 Ren'Py Integration]
-        P12-->P13
+    subgraph "Amelia Studio (parallel)"
+        P9[09 Research & Design]-->P10[10 Backend: ComfyUI+VNCCS+Kokoro]
+        P10-->P11[11 Studio UI & Framework]
+        P11-->P12[12 Automated Workflows]
+        P12-->P13[13 Ren'Py Integration]
     end
     P14[14 Art Generation]
     subgraph Release
@@ -46,7 +46,7 @@ graph TD
 ```
 
 **Ordering logic:** finish engine/audio/voice/writing (05–08) so text is locked and the game runs on
-placeholders → let the procgen track (09–13) run in parallel and feed whatever it can into art →
+placeholders → let the Amelia Studio track (09–13) run in parallel and feed generated assets into art →
 produce/finalise all remaining art late (14) → QA, build, ship (15–17).
 
 ---
@@ -69,15 +69,15 @@ produce/finalise all remaining art late (14) → QA, build, ship (15–17).
 | 07 | [phase_07_voice_narration.md](01_production/phase_07_voice_narration.md) | TTS narration (Ch1 done) + voice scope |
 | 08 | [phase_08_writing_passes.md](01_production/phase_08_writing_passes.md) | Dialogue polish, balance, sensitivity |
 
-### `02_procedural_generation/` — Modular engine R&D (parallel)
+### `02_amelia_studio/` — AI asset pipeline & studio UI (parallel)
 | # | File | Summary |
 |---|------|---------|
-| — | [README.md](02_procedural_generation/README.md) | **Read first** — engine/content split philosophy |
-| 09 | [phase_09_research.md](02_procedural_generation/phase_09_research.md) | Survey techniques/repos/libs; pick approach |
-| 10 | [phase_10_engine_core.md](02_procedural_generation/phase_10_engine_core.md) | Game-agnostic core (RNG, params, compositor) |
-| 11 | [phase_11_character_module.md](02_procedural_generation/phase_11_character_module.md) | Character module + Amelia content pack |
-| 12 | [phase_12_environment_module.md](02_procedural_generation/phase_12_environment_module.md) | Environment module + Amelia content pack |
-| 13 | [phase_13_renpy_integration.md](02_procedural_generation/phase_13_renpy_integration.md) | Thin adapter into Ren'Py; feeds art |
+| — | [README.md](02_amelia_studio/README.md) | **Read first** — VNCCS/ComfyUI/Kokoro + Studio/content split |
+| 09 | [phase_09_research.md](02_amelia_studio/phase_09_research.md) | VNCCS/API/style-match research; pipeline design |
+| 10 | [phase_10_backend_setup.md](02_amelia_studio/phase_10_backend_setup.md) | Local ComfyUI+VNCCS+Kokoro; headless API |
+| 11 | [phase_11_studio_ui.md](02_amelia_studio/phase_11_studio_ui.md) | Amelia Studio UI + automation framework |
+| 12 | [phase_12_automated_workflows.md](02_amelia_studio/phase_12_automated_workflows.md) | Automated char (pose×emotion×outfit) + bg gen |
+| 13 | [phase_13_renpy_integration.md](02_amelia_studio/phase_13_renpy_integration.md) | Deliver Studio assets into Ren'Py |
 
 ### `03_art/` — Deliberately late
 | # | File | Summary |
@@ -89,7 +89,7 @@ produce/finalise all remaining art late (14) → QA, build, ship (15–17).
 |---|------|---------|
 | 15 | [phase_15_qa_polish.md](04_release/phase_15_qa_polish.md) | Playtest, balance, accessibility, localisation |
 | 16 | [phase_16_build_release.md](04_release/phase_16_build_release.md) | Builds, packaging, store, ship |
-| 17 | [phase_17_post_release.md](04_release/phase_17_post_release.md) | Support + procgen engine graduation |
+| 17 | [phase_17_post_release.md](04_release/phase_17_post_release.md) | Support + Amelia Studio continuation |
 
 ---
 
@@ -110,13 +110,13 @@ produce/finalise all remaining art late (14) → QA, build, ship (15–17).
 | Backgrounds | 0 / 58 final | 🟡 Placeholders active (Phase 14) |
 | Character sprite sets | 0 / 18 final | 🟡 Layered stubs active (Phase 14) |
 | CG illustrations | 0 / 19+ | ⬜ Phase 14 |
-| Procgen engine | — | ⬜ R&D not started (Phase 09) |
+| Amelia Studio (AI pipeline) | — | ⬜ Not started (Phase 09) |
 
 ---
 
 ## How to use this tracker
-- **Work the lowest-numbered unfinished production phase first** (05 → 06 → 07 → 08), while the procgen
-  track (09+) can proceed independently whenever there's appetite for it.
+- **Work the lowest-numbered unfinished production phase first** (05 → 06 → 07 → 08), while the Amelia
+  Studio track (09+) can proceed independently whenever there's appetite for it.
 - **Keep art (14) last.** If a placeholder is blocking, fix the placeholder — don't start final art early.
 - **Lock text before voicing/art** for a chapter to avoid re-recording and re-drawing.
 - When a phase completes, mark its checkboxes and update the **Status dashboard** above.
@@ -134,7 +134,8 @@ produce/finalise all remaining art late (14) → QA, build, ship (15–17).
 | `c4758a3` | 04 | Image prompt packs (17 files) |
 | `6898968` | 05 | Placeholder system + sourcing guide + images directory |
 | `pending` | 05 | Engine work: screens.rpy, gui.rpy, layered_images.rpy, audio_guide |
-| `pending` | — | Restructure: `todo.md` → `todo/` folder tree (this change) |
+| `pending` | — | Restructure: `todo.md` → `todo/` folder tree |
+| `pending` | 09–13 | Pivot: procedural-gen track → Amelia Studio (ComfyUI/VNCCS/Kokoro) |
 
 ---
 

@@ -2,7 +2,7 @@
 
 > *Committed as `c4758a3` (2,208 insertions). 17 prompt files in `Amelia_V2/prompts/`.*
 > Status: **Complete.** These packs feed both the manual art phase (`03_art/`) and the
-> procedural-generation track (`02_procedural_generation/`) as ground-truth references.
+> Amelia Studio track (`02_amelia_studio/`) as ground-truth references.
 
 ---
 
