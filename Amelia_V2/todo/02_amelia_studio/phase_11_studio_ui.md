@@ -6,6 +6,10 @@
 
 ---
 
+> **Build on the existing base** at `tools/studio/` (FastAPI backend + web frontend + Kokoro/Qwen/fal/
+> SDXL services + batch + rpy_parser). Extend and refactor it toward the `studio/` structure below — do
+> not rebuild from scratch.
+
 ## 11.1 Framework core (`studio/`)
 - [ ] Formalise `studio/api/` — ComfyUI queue-API client + VNCCS workflow drivers + Kokoro driver (from Phase 10)
 - [ ] `studio/workflows/` — parameterised workflow templates (character, pose, clothes, emotion, background,

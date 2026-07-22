@@ -33,6 +33,31 @@
 - Output lands in `ComfyUI/output/VNCCS/Characters/`. MIT-licensed. Roadmap: animations, 3D environments,
   CG, voice, music.
 
+---
+
+## ✅ Existing base (already in the repo): `tools/studio/`
+
+We already built an early **"Amelia Studio"** in a prior session — it's committed under
+[`tools/`](../../../tools/) (repo root), not lost. **Do not start from scratch — extend this.**
+
+What it already has:
+- **FastAPI backend** (`tools/studio/backend/`) with routers for `voice`, `images`, `batch`, `auth`
+  and services for **Kokoro TTS**, **Qwen3-TTS** (+ voice cloning), **fal.ai**, **local SDXL**, audio.
+- **Web frontend** (`tools/studio/frontend/`) — voice/images/batch/settings/status tabs, login.
+- **Batch CSV** processing, **character anchors** (`backend/data/character_anchors.json`), a Ren'Py
+  parser (`backend/utils/rpy_parser.py`), auto-save into the game's audio dirs, Docker/compose.
+- Launchers `tools/start_studio.sh` / `start_studio.py`; standalone `sdxl_img2img_server.py`; plus the
+  voice/sprite/bg-removal scripts at `tools/*.py` / `tools/*.sh`.
+- Docs: `tools/README.md`, `tools/STUDIO_GUIDE.md`, `tools/VOICE_CLONING_*.md`, `ENHANCEMENT_SUMMARY.md`.
+
+**Gap vs this track:** the base generates images via **fal.ai / local SDXL**, *not* VNCCS, and has no
+consistent-character pipeline. The new work is: swap/augment image gen to **ComfyUI + VNCCS**, add the
+pose×emotion×outfit automation, and formalise the Studio/content split. Phase 10 should **inventory and
+run** this base first; Phases 11–12 **extend** it rather than rebuild.
+
+> Note: `tools/studio/.env` (real API keys), `output/` (runtime DB/uploads/voice), caches and logs are
+> gitignored — keep secrets only in your local `.env` (copy from `.env.example`).
+
 ## ⚠️ Key constraint: style match
 VNCCS ships **anime** base models (Illustrious / Anima). Amelia's art direction is **painterly /
 semi-realistic — explicitly NOT anime** (`design/art_direction.md §1`). Matching our style with a

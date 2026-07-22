@@ -6,6 +6,11 @@
 
 ---
 
+## 10.0 Inventory & run the existing base first
+- [ ] Read `tools/README.md` + `tools/STUDIO_GUIDE.md`; run `tools/start_studio.sh` and try it
+- [ ] Confirm the existing Kokoro/Qwen voice + fal.ai/local-SDXL image paths still work
+- [ ] Note what to reuse (backend/services, rpy_parser, character_anchors, batch) vs replace (add VNCCS)
+
 ## 10.1 Install & pin
 - [ ] Install ComfyUI (prefer the VNCCS Easy-Install path or a clean manual install)
 - [ ] Install **VNCCS** custom nodes + **VNCCS-Utils** (Pose Studio lives there) via Comfy Manager
