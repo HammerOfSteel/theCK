@@ -51,3 +51,16 @@ Desktop.ini
 tools/venv/
 tools/sdxl_venv/
 .venv/
+
+# ----- Python caches -----
+**/__pycache__/
+*.pyc
+
+# ----- Amelia Studio (tools/studio) runtime & secrets -----
+tools/studio/output/          # runtime DB, uploads, generated voice/images
+tools/studio/.env             # contains FAL_KEY and other secrets
+tools/.studio_pids.json       # running-process PIDs
+tools/sdxl_server.log         # local SDXL server log
+# keep env templates in the repo
+!**/.env.example
+
